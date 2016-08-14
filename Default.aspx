@@ -8,6 +8,6 @@
 </head>
 <body>
     <p>testing2</p>
-    <p>testing3</p>
+    <p>testing3, fyi this is not linked to the MasterPage, must be deleted and re-added with master.</p>
 </body>
 </html>
