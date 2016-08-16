@@ -2,13 +2,63 @@
 
 }
 
+
+#main{
+    font-family:"Calibri","sans-serif";
+    padding: 10px;
+    font-size:11.0pt;
+    background-color:greenyellow;
+    min-height: 300px;
+}
+
+header{
+    border: thin solid #36258f;
+    font-size: x-large;
+    text-align: center;
+    background-color:#36258f;
+    color: #FFFFFF;
+    font-weight: bold;
+    min-height: 100px;
+}
+
+nav{
+    margin: 0 auto;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
 }
 
-container {
+.container {
     margin-right: auto;
     margin-left: auto;
+}
+
+
+.menuButtons{
+    margin: 15px;
+    vertical-align:central;
+}
+
+#mainMenu{
+    background-color:deeppink;
+    margin: 0 auto;
+}
+#wrapper {
+        max-width: 800px;
+    margin: 0 auto;
+    background-color: lightseagreen;
+
+}
+
+footer{
+    background-color:#36258f;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+        color: #FFFFFF;
+        text-align: center;
+        font-size:small;
 }

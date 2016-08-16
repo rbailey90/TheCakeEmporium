@@ -9,31 +9,30 @@
     <title></title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .auto-style1 {
-            width: 800px;
-            height: 300px;
-        }
-    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
         <div id="wrapper">
             <header>
-                <img alt="Cakes" class="auto-style1" longdesc="Welcome to our site all about cakes" src="Images/HeaderImage.jpg" /></header>
+                <h1>Header</h1>
+            </header>
             <nav>
-                <asp:Menu ID="mainMenu" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal"></asp:Menu>
-                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
+                <asp:Menu ID="mainMenu" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal">
+                    <StaticMenuItemStyle ItemSpacing="10px" BorderColor="#999999" BorderStyle="Solid" Height="100px" HorizontalPadding="15px" VerticalPadding="15px" Width="128px" BackColor="#CCCCCC" BorderWidth="2px" CssClass="menuButtons"/>
+                </asp:Menu>
+                
             </nav>
-            <div>
+            <div id="main">
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-                    master page
+                    <p>This comes from the masterpage</p>
                 </asp:ContentPlaceHolder>
             </div>
             <footer>
-                footer
+                <p>footer</p>
             </footer>
         </div>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
     </form>
 </body>
 </html>
