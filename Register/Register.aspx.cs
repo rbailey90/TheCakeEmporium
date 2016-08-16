@@ -11,4 +11,17 @@ public partial class Register_Register : System.Web.UI.Page
     {
 
     }
+
+    protected void btnRegister_Click(object sender, EventArgs e)
+    {
+        string fName;
+        string lName;
+        string phoneNum;
+        string email;
+
+        fName = txtFirstName.Text;
+        lName = txtLastName.Text;
+        phoneNum = txtPhone.Text;
+        email = txtEmail.Text;
+    }
 }
