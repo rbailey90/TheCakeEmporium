@@ -9,15 +9,21 @@
     <title></title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 800px;
+            height: 300px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div id="wrapper">
             <header>
-                header
-            </header>
+                <img alt="Cakes" class="auto-style1" longdesc="Welcome to our site all about cakes" src="Images/HeaderImage.jpg" /></header>
             <nav>
-                nav
+                <asp:Menu ID="mainMenu" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal"></asp:Menu>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
             </nav>
             <div>
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
