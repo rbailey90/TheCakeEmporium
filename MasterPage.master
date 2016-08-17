@@ -32,14 +32,16 @@
     <div class="container-fluid">
         <div class="row pageHeader"><!---this is for the header image --> 
             <div class="pageHeader">
-                 <img src="Images/header_lrg.png" alt="cake Emporium Header" id="image_large"/>
-                 <img src="Images/header_med.png" alt="cake emporium header" id="image_med" />
-                 <img src="Images/header_sm.png" alt="cake emporium header" id="image_sm" />
+                 <img src="../Images/header_lrg.png" alt="cake Emporium Header" id="image_large"/>
+                 <img src="../Images/header_med.png" alt="cake emporium header" id="image_med" />
+                 <img src="../Images/header_sm.png" alt="cake emporium header" id="image_sm" />
             </div>
-&nbsp;  <div class="row"> 
-                   <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
-                       <!--this is where the navigation will go - needs to stay centered at the top -->
-                       <asp:Menu ID="Menu1" CssClass="navbar" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" StaticSubMenuIndent="10px">
+         <div class="row"> 
+                        <div class="col-md-4">
+                            
+                        </div>
+                        <nav class="col-md-4">
+                            <asp:Menu ID="Menu1" CssClass="navbar" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" StaticSubMenuIndent="10px">
                             <DynamicHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                             <DynamicMenuStyle BackColor="#E3EAEB" />
@@ -48,8 +50,14 @@
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Size="Medium" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />
                        </asp:Menu>
-                        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
-                  </div>
+                       </nav>
+                       <div class="col-md-4">
+                                                <!--<div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                       this is where the navigation will go - needs to stay centered at the top
+
+                        
+                  </div> -->
+                       </div>
         </div>
         <div class="row"> <!-- put the content place holder in a row already to make formatting easier down the road -->
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
@@ -66,9 +74,12 @@
         </div> <!-- end of footer navigation area -->
     </div>
     </div>
-       </form>
     
 
+
+    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
+       </form>
+    
 
 
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

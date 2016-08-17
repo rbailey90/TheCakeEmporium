@@ -46,6 +46,8 @@ body {
     margin: 0 5px;
     background-color: #D16956;
     color: #F2F2F2;
+    width: 125px;
+    text-align:center;
 }
 
 @media only screen and (max-width : 920px){
@@ -58,3 +60,11 @@ body {
     #image_med { display: none;}
 }
 
+.form-signin{
+    padding: 5px;
+}
+
+nav{
+    margin: 0 auto;
+    text-align:center;
+}
