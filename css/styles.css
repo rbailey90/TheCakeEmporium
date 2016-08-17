@@ -20,6 +20,8 @@ body {
     margin: 0 auto; */
 }
 
+
+/* header */
 .pageHeader {
     /*height: 178px; /*size of header img, do not change*/
 }
@@ -47,6 +49,8 @@ body {
     background-color: #D16956;
     color: #F2F2F2;
     padding: 2px;
+    width: 128px;
+    text-align:center;
  }
 
 .footer {
