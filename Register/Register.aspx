@@ -64,6 +64,34 @@
             </td>
         </tr>
         <tr>
+            <td class="auto-style4">Username</td>
+            <td class="auto-style1">
+                <asp:TextBox ID="txtUsername" runat="server" ValidationGroup="RegisterGroup"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtUsername" Display="Dynamic" ErrorMessage="Please choose a username" Font-Italic="True" ForeColor="Red" ValidationGroup="RegisterGroup"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Password</td>
+            <td class="auto-style1">
+                <asp:TextBox ID="txtPassword1" runat="server" TextMode="Password" ValidationGroup="RegisterGroup"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtPassword1" Display="Dynamic" ErrorMessage="Must enter a password" Font-Italic="True" ForeColor="Red" ValidationGroup="RegisterGroup"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Password</td>
+            <td class="auto-style1">
+                <asp:TextBox ID="txtPassword2" runat="server" TextMode="Password" ValidationGroup="RegisterGroup"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtPassword2" Display="Dynamic" ErrorMessage="Must reenter a password" Font-Italic="True" ForeColor="Red" ValidationGroup="RegisterGroup"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPassword1" ControlToValidate="txtPassword2" ErrorMessage="Passwords must match" Font-Italic="True" ForeColor="Red" ValidationGroup="RegisterGroup"></asp:CompareValidator>
+            </td>
+        </tr>
+        <tr>
             <td class="auto-style4">&nbsp;</td>
             <td class="auto-style1">
                 <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" ValidationGroup="RegisterGroup" />
