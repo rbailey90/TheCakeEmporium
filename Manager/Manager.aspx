@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="OrderId" DataSourceID="SqlDataSource1">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="OrderId" DataSourceID="SqlDataSource1" AllowPaging="True">
         <Columns>
             <asp:BoundField DataField="OrderId" HeaderText="OrderId" InsertVisible="False" ReadOnly="True" SortExpression="OrderId" />
             <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
@@ -14,7 +14,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:groupCakeConnectionString %>" SelectCommand="SELECT [OrderId], [Username], [ProductId] FROM [Orders]"></asp:SqlDataSource>
     
     <br />
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="SqlDataSource2">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="SqlDataSource2" AllowPaging="True" Width="561px">
         <Columns>
             <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" />
             <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
@@ -28,6 +28,7 @@
     <br />
     <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="SqlDataSource3">
         <Columns>
+            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" />
             <asp:BoundField DataField="Comment" HeaderText="Comment" SortExpression="Comment" />
         </Columns>
