@@ -7,11 +7,12 @@
     #F2F2F2 - off-white
     #F26E61 - medium red
 */
+
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
 
-/* Styles on the MasterPage_sitewide.master Page*/
+/* Styles on the MasterPage.master Page*/
 body {
     color: #59524B;
     background-image: url('../Images/background.png');
@@ -38,17 +39,22 @@ body {
 }
 
 .navbar{
-   /* background-color: aqua; */
-    margin: 0 30px;
+   /*background-color: aqua;*/
+    /*margin: 0 30px; */ 
+   margin-left: auto;
+   margin-right: auto;
+
 }
 
-.menuButtons { /* this is for the individual buttons*/
+.menuButtons { /* this is for the individual navigation buttons*/
     margin: 0 5px;
     background-color: #D16956;
     color: #F2F2F2;
-    width: 125px;
-    text-align:center;
-}
+    padding: 2px;
+ }
+
+
+/*************** start of media queries go here ***************/
 
 @media only screen and (max-width : 920px){
     #image_large{ display: none; }
@@ -60,11 +66,3 @@ body {
     #image_med { display: none;}
 }
 
-.form-signin{
-    padding: 5px;
-}
-
-nav{
-    margin: 0 auto;
-    text-align:center;
-}
