@@ -40,9 +40,9 @@
     <div class="container-fluid">
         <div class="row pageHeader"><!---this is for the header images --> 
             <div class="pageHeader">
-                 <img src="Images/header_lrg.png" alt="cake Emporium Header" id="image_large"/>
-                 <img src="Images/header_med.png" alt="cake emporium header" id="image_med" />
-                 <img src="Images/header_sm.png" alt="cake emporium header" id="image_sm" />
+                 <img src="../Images/header_lrg.png" alt="cake Emporium Header" id="image_large"/>
+                 <img src="../Images/header_med.png" alt="cake emporium header" id="image_med" />
+                 <img src="../Images/header_sm.png" alt="cake emporium header" id="image_sm" />
             </div>
 &nbsp;     <!--this is where the navigation will go - needs to stay centered at the top -->
                    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-2">
