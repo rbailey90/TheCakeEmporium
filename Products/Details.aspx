@@ -8,8 +8,85 @@
     <p>
         This page will show a breakdown of the cake details along with a larger picture for the cutomer to see.</p>
     <p>
-        <asp:FormView ID="FormView1" runat="server">
+        <asp:Label ID="lblCakeID" runat="server"></asp:Label>
+    </p>
+    <p>
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2">
+            <EditItemTemplate>
+                ProductId:
+                <asp:Label ID="ProductIdLabel1" runat="server" Text='<%# Eval("ProductId") %>' />
+                <br />
+                Name:
+                <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
+                <br />
+                Description:
+                <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
+                <br />
+                Image:
+                <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
+                <br />
+                UnitPrice:
+                <asp:TextBox ID="UnitPriceTextBox" runat="server" Text='<%# Bind("UnitPrice") %>' />
+                <br />
+                OnHand:
+                <asp:TextBox ID="OnHandTextBox" runat="server" Text='<%# Bind("OnHand") %>' />
+                <br />
+                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </EditItemTemplate>
+            <HeaderTemplate>
+                Cake Detail
+            </HeaderTemplate>
+            <InsertItemTemplate>
+                ProductId:
+                <asp:TextBox ID="ProductIdTextBox" runat="server" Text='<%# Bind("ProductId") %>' />
+                <br />
+                Name:
+                <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
+                <br />
+                Description:
+                <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
+                <br />
+                Image:
+                <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
+                <br />
+                UnitPrice:
+                <asp:TextBox ID="UnitPriceTextBox" runat="server" Text='<%# Bind("UnitPrice") %>' />
+                <br />
+                OnHand:
+                <asp:TextBox ID="OnHandTextBox" runat="server" Text='<%# Bind("OnHand") %>' />
+                <br />
+                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </InsertItemTemplate>
+            <ItemTemplate>
+                ProductId:
+                <asp:Label ID="ProductIdLabel" runat="server" Text='<%# Eval("ProductId") %>' />
+                <br />
+                Name:
+                <asp:Label ID="NameLabel" runat="server" Text='<%# Bind("Name") %>' />
+                <br />
+                Description:
+                <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Bind("Description") %>' />
+                <br />
+                Image:
+                <asp:Label ID="ImageLabel" runat="server" Text='<%# Bind("Image") %>' />
+                <br />
+                UnitPrice:
+                <asp:Label ID="UnitPriceLabel" runat="server" Text='<%# Bind("UnitPrice") %>' />
+                <br />
+                OnHand:
+                <asp:Label ID="OnHandLabel" runat="server" Text='<%# Bind("OnHand") %>' />
+                <br />
+
+            </ItemTemplate>
         </asp:FormView>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:groupCakeConnectionString %>" SelectCommand="SELECT [ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand] FROM [Products] WHERE ([ProductId] = @ProductId)">
+            <SelectParameters>
+                <asp:SessionParameter Name="ProductId" SessionField="CakeChoice" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:groupCakeConnectionString %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice], [OnHand], [ProductId] FROM [Products]"></asp:SqlDataSource>
     </p>
     <p>
         &nbsp;</p>
