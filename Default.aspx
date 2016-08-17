@@ -3,10 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="container-fluid">
-        <div class="col-lg-11 col-md-11 col-sm-10">
-            <p>Welcome To the Cake Emporium, Where you can find all kinds of cakes to purchase</p>
+     <div class="container-fluid">    
+    <div class="col-lg-6 col-md-6 col-sm-6">
+            <p>
+             child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page.
+             child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page.
+             child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page.
+             </p>
         </div>
-    </div>
+
+        <div class="col-lg-6 col-med-6 col-sm-6">
+             <p>
+             child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page.
+             child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page.
+             child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page. child page.
+             </p>
+        </div>
+        </div>
 </asp:Content>
 

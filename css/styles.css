@@ -15,7 +15,8 @@ article, aside, figure, figcaption, footer, header, nav, section {
 body {
     color: #59524B;
     background-image: url('../Images/background.png');
- 
+   /* max-width: 920px;
+    margin: 0 auto; */
 }
 /* header */
 .pageHeader {

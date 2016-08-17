@@ -40,11 +40,11 @@
                    <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
                        <!--this is where the navigation will go - needs to stay centered at the top -->
                        <asp:Menu ID="Menu1" CssClass="navbar" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" StaticSubMenuIndent="10px">
-                            <DynamicHoverStyle BackColor="#339966" ForeColor="White" />
+                            <DynamicHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                             <DynamicMenuStyle BackColor="#E3EAEB" />
                             <DynamicSelectedStyle BackColor="#1C5E55" />
-                            <StaticHoverStyle BackColor="#339966" ForeColor="White" />
+                            <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Size="Medium" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />
                        </asp:Menu>
