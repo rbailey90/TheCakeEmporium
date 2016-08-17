@@ -3,9 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <body>
-        
-        <section>
+
+            <div class="container-fluid">
+        <div class="col-lg-11 col-md-11 col-sm-10">
+
+
             <p>Shopping Cart</p>
                 <asp:ListBox ID="lstCart" runat="server" Height="118px" Width="373px"></asp:ListBox>
             <div id="cartbuttons">
@@ -21,9 +23,13 @@
                 <asp:Label ID="lblMessage" runat="server" Text="Label" EnableViewState="False"></asp:Label>
 
             </p>
-        </section>
 
 
-    </body>
+        </div>
+    </div>
+
+
+
+
 </asp:Content>
 

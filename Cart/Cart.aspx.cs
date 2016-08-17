@@ -7,9 +7,14 @@ using System.Web.UI.WebControls;
 
 public partial class Cart_Cart : System.Web.UI.Page
 {
+    private CartItemList cart;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //retrieve cart object from session state on every post back
+        cart = CartItemList.GetCart();
+        //on initial page load, add cart items to list control
+        if (!IsPostBack)
+            this.DisplayCart();
     }
 
     protected void btnRemoveCartItem_Click(object sender, EventArgs e)
@@ -19,16 +24,32 @@ public partial class Cart_Cart : System.Web.UI.Page
 
     protected void btnEmptyCart_Click(object sender, EventArgs e)
     {
-
+        //clear cart and list
+        if (cart.Count > 0)
+        {
+            cart.Clear();
+            lstCart.Items.Clear();
+        }
     }
 
     protected void btnContinueShopping_Click(object sender, EventArgs e)
     {
-
+        lblMessage.Text = "Sorry, that function isn't working yet.";
     }
 
     protected void btnCheckOut_Click(object sender, EventArgs e)
     {
+        lblMessage.Text = "Sorry, that function isn't working yet.";
+    }
 
+    private void DisplayCart()
+    {
+        //remove items from listbox
+        lstCart.Items.Clear();
+        //add each item's display value to the list
+        for (int i=0; i<cart.Count; i++)
+        {
+            lstCart.Items.Add(this.cart[i].Display());
+        }
     }
 }
