@@ -1,0 +1,59 @@
+﻿/*Group1 - The Cake Emporium - Connor, Staci, Lisa, Joe, Bethany */
+/* COLOR SCHEME
+    #6FA398 - blue
+    #F1BC75 - yellow/gold
+    #59524B - black/copy color
+    #D16956 - dark red
+    #F2F2F2 - off-white
+    #F26E61 - medium red
+*/
+article, aside, figure, figcaption, footer, header, nav, section {
+    display: block;
+}
+
+/* Styles on the MasterPage_sitewide.master Page*/
+body {
+    color: #59524B;
+    background-image: url('../Images/background.png');
+ 
+}
+/* header */
+.pageHeader {
+    /*height: 178px; /*size of header img, do not change*/
+}
+
+.pageHeader img {
+     width: 100%;
+     height: auto; 
+}
+
+#image_large{ }
+#image_med { display: none; }
+#image_sm { display: none; }
+/* end header css*/
+
+.footer {
+    background-color: #6FA398;
+}
+
+.navbar{
+    margin: 0px 10px;
+    padding-left: 50px;
+    background-color: aqua;
+}
+
+.menuButton {
+    margin: 15px;
+    background-color: aqua;
+}
+
+@media only screen and (max-width : 920px){
+    #image_large{ display: none; }
+    #image_med { display: inline; }
+}
+
+@media only screen and (max-width : 500px) {
+    #image_sm { display: inline; }
+    #image_med { display: none;}
+}
+
