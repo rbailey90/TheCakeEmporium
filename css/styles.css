@@ -37,14 +37,14 @@ body {
 }
 
 .navbar{
-    margin: 0px 10px;
-    padding-left: 50px;
-    background-color: aqua;
+   /* background-color: aqua; */
+    margin: 0 30px;
 }
 
-.menuButtons {
-    margin: 15px;
-    background-color: aqua;
+.menuButtons { /* this is for the individual buttons*/
+    margin: 0 5px;
+    background-color: #D16956;
+    color: #F2F2F2;
 }
 
 @media only screen and (max-width : 920px){
