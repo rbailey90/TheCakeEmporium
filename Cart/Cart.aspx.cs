@@ -11,4 +11,24 @@ public partial class Cart_Cart : System.Web.UI.Page
     {
 
     }
+
+    protected void btnRemoveCartItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnEmptyCart_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnContinueShopping_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnCheckOut_Click(object sender, EventArgs e)
+    {
+
+    }
 }
