@@ -11,7 +11,27 @@
                      <img src="Images/lemoncake.jpg"  data-fit="cover"/>
 	            </div><!-- data height might be messing up the media query height - can fix later if this is a problem-->
             </div>
-        </div> <!--end of fotorama row data --> 
+        </div> <!--end of fotorama row data -->
+        <div class="row" id="featured"><!-- start of next section on the homepage -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <section class="col-lg-3 col-md-3 col-sm-3">
+                    <img src="Images/german-choc.jpg" class="img-thumbnail"/>
+                    <aside> This is a caption that will be a label with info from the database.</aside>
+                </section>
+                <section class="col-lg-3 col-md-3 col-sm-3 ">
+                    <img src="Images/german-choc.jpg"  class="img-thumbnail"/>
+                    <aside> This is a caption that will be a label with info from the database.</aside>
+                </section>
+                <section class="col-lg-3 col-md-3 col-sm-3 ">
+                    <img src="Images/german-choc.jpg"  class="img-thumbnail"/>
+                    <aside> This is a caption that will be a label with info from the database.</aside>
+                </section>
+                <section class="col-lg-3 col-md-3  col-sm-3 ">
+                    <img src="Images/german-choc.jpg"  class="img-thumbnail"/>
+                    <aside> This is a caption that will be a label with info from the database.</aside>
+                </section>
+             </div>
+        </div> 
     </div>
 </asp:Content>
 
