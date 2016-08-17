@@ -5,5 +5,6 @@
         <siteMapNode url="~/Products/Products.aspx" title="Product Listing"  description="View all the wonder cakes we have." />
         <siteMapNode url="~/ContactUs/ContactUs.aspx" title="Contact Us"  description="Have a question? send us a message." />
         <siteMapNode url="~/Cart/Cart.aspx" title="Cart" description="Your shopping Cart"/>
+        <!--<siteMapNode url="~/User/Login.aspx" title="Login" description="Login to your Account"/>-->
     </siteMapNode>
 </siteMap>
