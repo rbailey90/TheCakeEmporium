@@ -49,8 +49,8 @@ body {
     background-color: #D16956;
     color: #F2F2F2;
     padding: 2px;
-    width: 128px;
-    text-align:center;
+    /*width: 128px;
+    text-align:center;*/
  }
 
 .footer {
@@ -59,7 +59,8 @@ body {
 
 #featured {
     background-color:  #F1BC75;
-   /*margin: 0 10px;*/
+    /*margin: 0 10px;*/
+    margin-bottom: 10px;
     padding: 20px;
 }
 /*************** start of media queries go here ***************/
