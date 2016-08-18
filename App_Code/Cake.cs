@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 public class Cake
 {
-    string productId;
+    int productId;
     string name;
     string description;
     decimal unitPrice;
@@ -16,7 +16,7 @@ public class Cake
 
     public Cake() { }
 
-    public Cake(string theProductId, string theName, string theDescription, decimal theUnitPrice) //, string theImageFile)
+    public Cake(int theProductId, string theName, string theDescription, decimal theUnitPrice) //, string theImageFile)
     {
         this.ProductId = theProductId;
         this.Name = theName;
@@ -25,7 +25,7 @@ public class Cake
        // this.ImageFile = theImageFile;
     }
 
-    public string ProductId 
+    public int ProductId 
     { 
         get { return productId; }
         set { productId = value; }
