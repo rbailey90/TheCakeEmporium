@@ -32,6 +32,6 @@ public class User
         this.Email = email;
         this.Phone = phone;
         
-
+        // assign them a role?
     }
 }

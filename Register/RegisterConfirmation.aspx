@@ -4,5 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:Label ID="lblConfirmation" runat="server"></asp:Label>
+&nbsp;
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Cart/Cart.aspx">Back to Cart</asp:HyperLink>
+    <br />
 </asp:Content>
 

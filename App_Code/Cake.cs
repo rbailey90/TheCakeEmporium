@@ -8,14 +8,46 @@ using System.Web;
 /// </summary>
 public class Cake
 {
-
+    string productId;
+    string name;
+    string description;
+    decimal unitPrice;
+    string imageFile;
 
     public Cake() { }
 
-    public int ProductId { get; set; }
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public decimal UnitPrice { get; set; }
-    public string ImageFile { get; set; }
-    public int OnHand { get; set; }
+    public Cake(string theProductId, string theName, string theDescription, decimal theUnitPrice) //, string theImageFile)
+    {
+        this.ProductId = theProductId;
+        this.Name = theName;
+        this.Description = theDescription;
+        this.UnitPrice = theUnitPrice;
+       // this.ImageFile = theImageFile;
+    }
+
+    public string ProductId 
+    { 
+        get { return productId; }
+        set { productId = value; }
+    }
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+    public string Description
+    {
+        get { return description; }
+        set { description = value; }
+    }
+    public decimal UnitPrice
+    {
+        get { return unitPrice; }
+        set { unitPrice = value; }
+    }
+    public string ImageFile
+    {
+        get { return imageFile; }
+        set { imageFile = value; }
+    }
 }

@@ -7,16 +7,23 @@
     #F2F2F2 - off-white
     #F26E61 - medium red
 */
+
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
 
-/* Styles on the MasterPage_sitewide.master Page*/
+/* Styles on the MasterPage.master Page*/
 body {
     color: #59524B;
     background-image: url('../Images/background.png');
- 
+   /* max-width: 920px;
+    margin: 0 auto; */
 }
+
+nav {
+    margin: 0 auto;
+}
+
 /* header */
 .pageHeader {
     /*height: 178px; /*size of header img, do not change*/
@@ -32,20 +39,36 @@ body {
 #image_sm { display: none; }
 /* end header css*/
 
-.footer {
-    background-color: #6FA398;
-}
-
 .navbar{
-   /* background-color: aqua; */
-    margin: 0 30px;
+   /*background-color: aqua;*/
+    /*margin: 0 30px; */ 
+   margin-left: auto;
+   margin-right: auto;
+
 }
 
-.menuButtons { /* this is for the individual buttons*/
+.menuButtons { /* this is for the individual navigation buttons*/
     margin: 0 5px;
     background-color: #D16956;
     color: #F2F2F2;
+    padding: 2px;
+    width: 128px;
+    text-align:center;
+ }
+
+.footer {
+    background-color: #6FA398;
+    margin-top: 10px;
+    padding: 5px 0px;
 }
+
+#featured {
+    background-color:  #F1BC75;
+    /*margin: 0 10px;*/
+    margin-bottom: 10px;
+    padding: 20px;
+}
+/*************** start of media queries go here ***************/
 
 @media only screen and (max-width : 920px){
     #image_large{ display: none; }
