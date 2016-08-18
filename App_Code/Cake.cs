@@ -16,13 +16,13 @@ public class Cake
 
     public Cake() { }
 
-    public Cake(string theProductId, string theName, string theDescription, decimal theUnitPrice, string theImageFile)
+    public Cake(string theProductId, string theName, string theDescription, decimal theUnitPrice) //, string theImageFile)
     {
         this.ProductId = theProductId;
         this.Name = theName;
         this.Description = theDescription;
         this.UnitPrice = theUnitPrice;
-        this.ImageFile = theImageFile;
+       // this.ImageFile = theImageFile;
     }
 
     public string ProductId 

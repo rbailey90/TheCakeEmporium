@@ -35,7 +35,7 @@ public partial class Products_Details : System.Web.UI.Page
             {
                 cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
             }
-            Response.Redirect("Cart.aspx");
+            Response.Redirect("~/Cart/Cart.aspx");
         }
     }
     private Cake GetSelectedProduct()
@@ -48,7 +48,7 @@ public partial class Products_Details : System.Web.UI.Page
         p.Name = row["Name"].ToString();
         p.Description = row["Description"].ToString();
         p.UnitPrice = (decimal)row["UnitPrice"];
-        p.ImageFile = row["ImageFile"].ToString();
+        //p.ImageFile = row["ImageFile"].ToString();
         return p;
     }
 
