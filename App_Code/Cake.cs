@@ -12,9 +12,10 @@ public class Cake
 
     public Cake() { }
 
-    public string ProductId { get; set; }
+    public int ProductId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal UnitPrice { get; set; }
     public string ImageFile { get; set; }
+    public int OnHand { get; set; }
 }
