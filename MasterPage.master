@@ -7,11 +7,14 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>  </title> <!--page titles will go here -->
-    <asp:ContentPlaceHolder id="head" runat="server"> </asp:ContentPlaceHolder>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href=" http://rayscomputer.com/web1/packages/bootstrap.3.3.7/content/Content/bootstrap.min.css" rel="stylesheet" />
 
+    <!--Fotorama image carousel scripts--> 
+    <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" />
+    
+
+   
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,35 +25,35 @@
     <!--bootstrap framework link for anyone who doesn't install bootstrap into their project -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-     
-    <link href="css/styles.css" rel="stylesheet" />
+    
     <!-- local css style sheet after everything else so we can override default styles-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <title>  The Cake Emporium </title> <!--page titles will go here -->
+    <asp:ContentPlaceHolder id="head" runat="server"> </asp:ContentPlaceHolder>
    
 </head>
 <body>
     <form id="form1" runat="server">
     <div class="container-fluid">
-        <div class="row pageHeader"><!---this is for the header image --> 
+        <div class="row pageHeader"><!---this is for the header images --> 
             <div class="pageHeader">
-                 <img src="Images/header_lrg.png" alt="cake Emporium Header" id="image_large"/>
-                 <img src="Images/header_med.png" alt="cake emporium header" id="image_med" />
-                 <img src="Images/header_sm.png" alt="cake emporium header" id="image_sm" />
+                 <img src="http://rayscomputer.com/web1/Images/header_lrg.png" alt="cake Emporium Header" id="image_large"/>
+                 <img src="http://rayscomputer.com/web1/Images/header_med.png" alt="cake emporium header" id="image_med" />
+                 <img src="http://rayscomputer.com/web1/Images/header_sm.png" alt="cake emporium header" id="image_sm" />
             </div>
-&nbsp;  <div class="row"> 
-                   <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
-                       <!--this is where the navigation will go - needs to stay centered at the top -->
-                       <asp:Menu ID="Menu1" CssClass="navbar" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" StaticSubMenuIndent="10px">
-                            <DynamicHoverStyle BackColor="#339966" ForeColor="White" />
+&nbsp;     <!--this is where the navigation will go - needs to stay centered at the top -->
+                   <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-2">
+                        <asp:Menu ID="Menu1" CssClass="navbar" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" StaticSubMenuIndent="10px">
+                            <DynamicHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                             <DynamicMenuStyle BackColor="#E3EAEB" />
                             <DynamicSelectedStyle BackColor="#1C5E55" />
-                            <StaticHoverStyle BackColor="#339966" ForeColor="White" />
+                            <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Size="Medium" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />
-                       </asp:Menu>
+                        </asp:Menu>
                         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
-                  </div>
-        </div>
+                   </div>
         <div class="row"> <!-- put the content place holder in a row already to make formatting easier down the road -->
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 <!-- individual page content will go here --> 
@@ -66,14 +69,13 @@
         </div> <!-- end of footer navigation area -->
     </div>
     </div>
-       </form>
-    
+    </form>
 
-
-
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+     <!--link to jQuery for Fotorama image carousel --> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+ <script src="Scripts/bootstrap.min.js"></script>   
 </body>
 </html>

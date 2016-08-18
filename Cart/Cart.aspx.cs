@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 public partial class Cart_Cart : System.Web.UI.Page
 {
     private CartItemList cart;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //retrieve cart object from session state on every post back
@@ -19,7 +20,18 @@ public partial class Cart_Cart : System.Web.UI.Page
 
     protected void btnRemoveCartItem_Click(object sender, EventArgs e)
     {
-
+        if (cart.Count > 0)
+        {
+            if(lstCart.SelectedIndex>-1)
+            {
+                cart.RemoveAt(lstCart.SelectedIndex);
+                this.DisplayCart();
+            }
+        }
+        else
+        {
+            lblMessage.Text = "Please select an item to remove.";
+        }
     }
 
     protected void btnEmptyCart_Click(object sender, EventArgs e)
@@ -34,7 +46,8 @@ public partial class Cart_Cart : System.Web.UI.Page
 
     protected void btnContinueShopping_Click(object sender, EventArgs e)
     {
-        lblMessage.Text = "Sorry, that function isn't working yet.";
+        Response.Redirect("~/Products/Products.aspx");
+        //lblMessage.Text = "Sorry, that function isn't working yet.";
     }
 
     protected void btnCheckOut_Click(object sender, EventArgs e)
