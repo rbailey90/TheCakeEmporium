@@ -55,6 +55,8 @@ body {
 
 .footer {
     background-color: #6FA398;
+    margin-top: 10px;
+    padding: 5px 0px;
 }
 
 #featured {
