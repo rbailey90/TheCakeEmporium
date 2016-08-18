@@ -8,24 +8,26 @@ using System.Web;
 /// </summary>
 public class Cake
 {
-    string productId;
+    int productId;
     string name;
     string description;
     decimal unitPrice;
     string imageFile;
+    int onHand;
 
     public Cake() { }
 
-    public Cake(string theProductId, string theName, string theDescription, decimal theUnitPrice) //, string theImageFile)
+    public Cake(int theProductId, string theName, string theDescription, decimal theUnitPrice, int theOnHand) //, string theImageFile)
     {
         this.ProductId = theProductId;
         this.Name = theName;
         this.Description = theDescription;
         this.UnitPrice = theUnitPrice;
+        this.onHand = theOnHand;
        // this.ImageFile = theImageFile;
     }
 
-    public string ProductId 
+    public int ProductId 
     { 
         get { return productId; }
         set { productId = value; }
@@ -49,5 +51,10 @@ public class Cake
     {
         get { return imageFile; }
         set { imageFile = value; }
+    }
+    public int OnHand
+    {
+        get { return onHand; }
+        set { onHand = value; }
     }
 }

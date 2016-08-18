@@ -11,7 +11,7 @@
         <asp:Label ID="lblCakeID" runat="server"></asp:Label>
     </p>
     <p>
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2">
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" CellPadding="4" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" GridLines="Horizontal">
             <EditItemTemplate>
                 ProductId:
                 <asp:Label ID="ProductIdLabel1" runat="server" Text='<%# Eval("ProductId") %>' />
@@ -34,6 +34,9 @@
                 <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
                 &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
             </EditItemTemplate>
+            <EditRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+            <FooterStyle BackColor="White" ForeColor="#333333" />
+            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
             <HeaderTemplate>
                 Cake Detail
             </HeaderTemplate>
@@ -63,23 +66,22 @@
                 ProductId:
                 <asp:Label ID="ProductIdLabel" runat="server" Text='<%# Eval("ProductId") %>' />
                 <br />
-                Name:
                 <asp:Label ID="NameLabel" runat="server" Text='<%# Bind("Name") %>' />
                 <br />
-                Description:
                 <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Bind("Description") %>' />
                 <br />
-                Image:
-                <asp:Label ID="ImageLabel" runat="server" Text='<%# Bind("Image") %>' />
+                &nbsp;<asp:Label ID="ImageLabel" runat="server" Text='<%# Bind("Image") %>' />
                 <br />
-                UnitPrice:
-                <asp:Label ID="UnitPriceLabel" runat="server" Text='<%# Bind("UnitPrice") %>' />
+                Price:
+                <asp:Label ID="UnitPriceLabel" runat="server" Text='<%# Bind("UnitPrice", "{0:C}") %>' />
                 <br />
-                OnHand:
+                Currently on Hand:
                 <asp:Label ID="OnHandLabel" runat="server" Text='<%# Bind("OnHand") %>' />
                 <br />
 
             </ItemTemplate>
+            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="White" ForeColor="#333333" />
         </asp:FormView>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:groupCakeConnectionString %>" SelectCommand="SELECT [ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand] FROM [Products] WHERE ([ProductId] = @ProductId)">
             <SelectParameters>
@@ -94,7 +96,7 @@
             <asp:Label ID="lblQuantity" runat="server" Text="Quantity: "></asp:Label>
             <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter how many you'd like to order."></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter a number between 1 and 9." ValidationExpression="\d{1}"></asp:RegularExpressionValidator>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter a number between 1 and 9." MaximumValue="9" MinimumValue="1" Type="Integer"></asp:RangeValidator>
         </p>
             <asp:Button ID="btnAddtoCart" runat="server" Text="Add to Cart" OnClick="btnAddtoCart_Click" />
     </div>
