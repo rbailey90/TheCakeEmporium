@@ -44,7 +44,8 @@ public partial class Products_Details : System.Web.UI.Page
             SqlDataSource2.Select(DataSourceSelectArguments.Empty);
         DataRowView row = (DataRowView)productsTable[0];
         Cake p = new Cake();
-        p.ProductId = row["ProductID"].ToString();
+        p.ProductId = Convert.ToInt32(row["ProductID"]);
+        //p.ProductId = row["ProductID"].ToString();
         p.Name = row["Name"].ToString();
         p.Description = row["Description"].ToString();
         p.UnitPrice = (decimal)row["UnitPrice"];
