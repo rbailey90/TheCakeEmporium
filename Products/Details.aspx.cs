@@ -28,7 +28,7 @@ public partial class Products_Details : System.Web.UI.Page
             CartItemList cart = CartItemList.GetCart();
             CartItem cartItem = cart[selectedProduct.ProductId];
             if(cartItem==null)
-            {
+            {    
                 cart.AddItem(selectedProduct, Convert.ToInt32(txtQuantity.Text));
             }
             else
