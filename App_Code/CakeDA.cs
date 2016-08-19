@@ -37,7 +37,8 @@ public class CakeDA
             {
                 Cake aCake = new Cake();
 
-                aCake.ProductId = Convert.ToInt16(reader["ProductId"]); // Takes the info from the ProductID column in the database and puts it into the localized Cake object aCake
+                aCake.ProductId = reader["ProductId"].ToString();
+                //aCake.ProductId = Convert.ToInt16(reader["ProductId"]); // Takes the info from the ProductID column in the database and puts it into the localized Cake object aCake
                 aCake.Name = reader["Name"].ToString();
                 aCake.Description = reader["Description"].ToString();
                 aCake.ImageFile = reader["Image"].ToString();

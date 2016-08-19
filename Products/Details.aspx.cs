@@ -28,7 +28,7 @@ public partial class Products_Details : System.Web.UI.Page
             CartItemList cart = CartItemList.GetCart();
             CartItem cartItem = cart[selectedProduct.ProductId];
             if(cartItem==null)
-            {
+            {    
                 cart.AddItem(selectedProduct, Convert.ToInt32(txtQuantity.Text));
             }
             else
@@ -44,7 +44,8 @@ public partial class Products_Details : System.Web.UI.Page
             SqlDataSource2.Select(DataSourceSelectArguments.Empty);
         DataRowView row = (DataRowView)productsTable[0];
         Cake p = new Cake();
-        p.ProductId = Convert.ToInt16(row["ProductID"]);
+        //p.ProductId = Convert.ToInt32(row["ProductID"]);
+        p.ProductId = row["ProductID"].ToString();
         p.Name = row["Name"].ToString();
         p.Description = row["Description"].ToString();
         p.UnitPrice = (decimal)row["UnitPrice"];
