@@ -17,23 +17,23 @@ public class Cake
 
     public Cake() { }
 
-    public Cake(int theProductId, string theName, string theDescription, decimal theUnitPrice, int theOnHand) //, string theImageFile)
+    public Cake(int theProductId, string theName, string theDescription, decimal theUnitPrice, int theOnHand, string theImageFile)
     {
         this.ProductId = theProductId;
         this.Name = theName;
         this.Description = theDescription;
         this.UnitPrice = theUnitPrice;
         this.onHand = theOnHand;
-       // this.ImageFile = theImageFile;
+        this.ImageFile = theImageFile;
     }
-    public Cake(string theName, string theDescription, decimal theUnitPrice, int theOnHand) //, string theImageFile)
+    public Cake(string theName, string theDescription, decimal theUnitPrice, int theOnHand, string theImageFile)
     {
       
         this.Name = theName;
         this.Description = theDescription;
         this.UnitPrice = theUnitPrice;
         this.onHand = theOnHand;
-        // this.ImageFile = theImageFile;
+         this.ImageFile = theImageFile;
     }
 
     public int ProductId 
