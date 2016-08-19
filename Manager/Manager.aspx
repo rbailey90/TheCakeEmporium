@@ -8,10 +8,10 @@
         <Columns>
             <asp:BoundField DataField="OrderId" HeaderText="OrderId" InsertVisible="False" ReadOnly="True" SortExpression="OrderId" />
             <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
-            <asp:BoundField DataField="ProductId" HeaderText="ProductId" SortExpression="ProductId" />
+            <asp:BoundField DataField="total" HeaderText="total" SortExpression="total" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:groupCakeConnectionString %>" SelectCommand="SELECT [OrderId], [Username], [ProductId] FROM [Orders]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:groupCakeConnectionString %>" SelectCommand="SELECT [OrderId], [Username], [total] FROM [Orders]"></asp:SqlDataSource>
     
     <br />
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Username" DataSourceID="SqlDataSource2" AllowPaging="True" Width="561px">
