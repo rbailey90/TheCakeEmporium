@@ -26,6 +26,15 @@ public class Cake
         this.onHand = theOnHand;
        // this.ImageFile = theImageFile;
     }
+    public Cake(string theName, string theDescription, decimal theUnitPrice, int theOnHand) //, string theImageFile)
+    {
+      
+        this.Name = theName;
+        this.Description = theDescription;
+        this.UnitPrice = theUnitPrice;
+        this.onHand = theOnHand;
+        // this.ImageFile = theImageFile;
+    }
 
     public int ProductId 
     { 
