@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 /// </summary>
 public class CakeDA
 {
-    public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=***********";
+    public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=oNe1@cAke";
     public static SqlConnection conn = new SqlConnection(connectionString);
 
     public CakeDA()
