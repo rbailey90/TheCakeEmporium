@@ -27,7 +27,7 @@ public class CartItemList
 
     public CartItem this[string id]
     {
-        get { return cartItems.FirstOrDefault(c => c.Cake.ProductId == id); }
+        get { return cartItems.FirstOrDefault(c => c.Cake.ProductId == Convert.ToInt32(id)); }
     }
 
     public static CartItemList GetCart()
