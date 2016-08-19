@@ -11,4 +11,14 @@ public partial class Cart_CheckOut : System.Web.UI.Page
     {
 
     }
+
+    protected void btnContinue_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Products/Products.aspx");
+    }
+
+    protected void btnPlaceOrder_Click(object sender, EventArgs e)
+    {
+        //Place order 
+    }
 }

@@ -65,6 +65,14 @@ body {
     margin-bottom: 10px;
     padding: 20px;
 }
+
+#shopButtons{
+
+}
+#cartButtons{
+
+}
+
 /*************** start of media queries go here ***************/
 
 @media only screen and (max-width : 920px){

@@ -53,6 +53,7 @@ public partial class Cart_Cart : System.Web.UI.Page
     protected void btnCheckOut_Click(object sender, EventArgs e)
     {
         lblMessage.Text = "Sorry, that function isn't working yet.";
+        //Response.Redirect("~/Cart/CheckOut.aspx");
     }
 
     private void DisplayCart()
