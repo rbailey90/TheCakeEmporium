@@ -20,9 +20,6 @@ body {
     margin: 0 auto; */
 }
 
-nav {
-    margin: 0 auto;
-}
 
 /* header */
 .pageHeader {
@@ -52,14 +49,14 @@ nav {
     background-color: #D16956;
     color: #F2F2F2;
     padding: 2px;
-    width: 128px;
-    text-align:center;
+    /*width: 128px;
+    text-align:center;*/
  }
 
 .footer {
     background-color: #6FA398;
     margin-top: 10px;
-    padding: 5px 0px;
+    padding: 10px 0px;
 }
 
 #featured {
