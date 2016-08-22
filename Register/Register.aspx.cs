@@ -21,16 +21,17 @@ public partial class Register_Register : System.Web.UI.Page
         string email;
         string usrNme;
         string pssWrd;
-
+        string role;
         fName = txtFirstName.Text;
         lName = txtLastName.Text;
         phoneNum = txtPhone.Text;
         email = txtEmail.Text;
         usrNme = txtUsername.Text;
         pssWrd = txtPassword2.Text;
+        role = "User";
 
         // create a new User
-        User newUser = new User(usrNme, pssWrd, fName, lName, email, phoneNum);
+        User newUser = new User(usrNme, pssWrd, fName, lName, role, email, phoneNum);
 
         // new session
         Session["User"] = newUser;

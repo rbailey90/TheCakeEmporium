@@ -9,12 +9,13 @@ using System.Web;
 public class User
 {
     public string Username { get; set; }
-    public string Password { get; set; }
+    //public string Password { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public string Email { get; set; }
-    public string Phone { get; set; }
     public string Role { get; set; }
+    public string Address { get; set; }
+    public string State { get; set; }
+    public string Zip { get; set; }
 
     public User()
     {
@@ -23,15 +24,19 @@ public class User
         //
     }
 
-    public User(string userName, string passWord, string fName, string lName, string email, string phone)
+    public User(string userName, string fName, string lName, string role, string address, string state, string zip)
     {
         this.Username = userName;
-        this.Password = passWord;
+        //this.Password = passWord;
         this.FirstName = fName;
         this.LastName = lName;
-        this.Email = email;
-        this.Phone = phone;
+        this.Address = address;
+        this.State = state;
+        this.Zip = zip;
+
+        this.Role = role;
+    
         
-        // assign them a role?
+        // assign them a role? Yes
     }
 }
