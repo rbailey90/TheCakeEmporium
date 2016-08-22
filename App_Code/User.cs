@@ -16,6 +16,7 @@ public class User
     public string Address { get; set; }
     public string State { get; set; }
     public string Zip { get; set; }
+    public static object Identity { get; set; }
 
     public User()
     {
