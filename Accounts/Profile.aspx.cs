@@ -26,8 +26,11 @@ public partial class User_Profile : System.Web.UI.Page
             //Response.Redirect("~/Default.aspx");
     }
 
-
-    protected void EditButton_Click(object sender, EventArgs e)
+    protected void UpdateButton_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Default.aspx");
+    }
+    protected void CancelButton_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/Default.aspx");
     }

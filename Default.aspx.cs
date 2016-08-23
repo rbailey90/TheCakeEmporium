@@ -15,10 +15,9 @@ public partial class _Default : System.Web.UI.Page
         //  List<Cake> getCake = CakeDA.GetAllCake();
     }
 
-    public void getNewProduct()
+    public void getNewProduct() //Gets random products to display on default page.
     {
         Random rnd = new Random();
-
 
         List<string> images = new List<string>();
         images.Add("~/Images/ombrecake.jpg");
@@ -37,22 +36,22 @@ public partial class _Default : System.Web.UI.Page
         descriptions.Add("this is a rainbow cake, it has many colors in it.");
         descriptions.Add("This is a purple cake, Its Purple!!!!!!!");
 
+        //gets four random indexes within the size of the Image List
+        //then adds those four indexes to the adSpace list
         List<int> adSpace = new List<int>();
 
-        //tries to make sure dups don't appear but fails sometimes, need to redo.
-        for (int i = 0; i < 4; i++)
+        while (adSpace.Count < 4)
         {
-            int r = rnd.Next(images.Count);
-            foreach (int ran in adSpace)
+            int r = rnd.Next(0, images.Count);
+            do
             {
-                if (ran == r)
-                {
-                    r = rnd.Next(images.Count);
-                }
-            }
+                r = rnd.Next(0, images.Count);
+            }while (adSpace.Contains(r));
+            
             adSpace.Add(r);
         }
 
+        //takes the four indexes and adds them to each add section for both the description and image
         Image1.ImageUrl = images[adSpace[0]]; // "~/Images/ombrecake.jpg";
         Image2.ImageUrl = images[adSpace[1]];
         Image3.ImageUrl = images[adSpace[2]];
