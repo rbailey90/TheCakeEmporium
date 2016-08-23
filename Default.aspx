@@ -102,7 +102,6 @@
             </section>
             <section class="col-lg-5 col-md-5 col-sm-5">
                 anywhere the wind bloooows id doesn't really mmaaaaaaatttteerrrr toooo meeeeee
-
             </section>
         </div>
    </div> <!-- end of fluid container --> 
