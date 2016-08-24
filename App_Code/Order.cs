@@ -20,6 +20,7 @@ public class Order
     decimal tax;
     decimal orderTotal;
     string userName;
+    //list cartList;
     
 
     public Order() 
@@ -27,12 +28,21 @@ public class Order
 		//
 		// TODO: Add constructor logic here
 		//
-	}
+	}/*
+    public Order(CartItemList theCart)
+    {
+        this.CartList = (theCart);
+    }*/
 
     /* List<InvoiceItem> ItemList
     {
         get { return itemList; }
         set { itemList = value; }
+    }
+    public CartItemList CartList
+    {
+        get { return cartList; }
+        set { cartList = value; }
     }*/
 
     public decimal OrderTotal
@@ -77,15 +87,15 @@ public class Order
    public void DeleteItem(InvoiceItem item)
    {
        itemList.Remove(item);
-   }
-   
+   }*/
+   /*
    public decimal CalculateTax()
    {
        Tax=0;
        Subtotal=0;
-       foreach(InvoiceItem i in ItemList)
+       foreach(CartItem i in cartList)
        {
-           Subtotal+=i.Item.Price;
+           Subtotal+=i.Cake.UnitPrice;
        }
        Tax = Math.Round((Subtotal * taxrate), 2);
        return Tax;
