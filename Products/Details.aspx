@@ -3,15 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="container-fluid">
     <p>
-        Product Details</p>
+        <h1>Product Details</h1>
     <p>
-        This page will show a breakdown of the cake details along with a larger picture for the cutomer to see.</p>
-    <p>
-        <asp:Label ID="lblCakeID" runat="server"></asp:Label>
-    </p>
-    <p>
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" CellPadding="4" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" GridLines="Horizontal">
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333">
             <EditItemTemplate>
                 ProductId:
                 <asp:Label ID="ProductIdLabel1" runat="server" Text='<%# Eval("ProductId") %>' />
@@ -34,9 +30,9 @@
                 <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
                 &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
             </EditItemTemplate>
-            <EditRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-            <FooterStyle BackColor="White" ForeColor="#333333" />
-            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+            <EditRowStyle BackColor="#7C6F57" />
+            <FooterStyle BackColor="#1C5E55" ForeColor="White" Font-Bold="True" />
+            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
             <HeaderTemplate>
                 Cake Detail
             </HeaderTemplate>
@@ -80,8 +76,8 @@
                 <br />
 
             </ItemTemplate>
-            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="White" ForeColor="#333333" />
+            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#E3EAEB" />
         </asp:FormView>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand] FROM [Products] WHERE ([ProductId] = @ProductId)">
             <SelectParameters>
@@ -99,6 +95,7 @@
             <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter a number between 1 and 9." MaximumValue="9" MinimumValue="1" Type="Integer"></asp:RangeValidator>
         </p>
             <asp:Button ID="btnAddtoCart" runat="server" Text="Add to Cart" OnClick="btnAddtoCart_Click" />
+    </div>
     </div>
 </asp:Content>
 
