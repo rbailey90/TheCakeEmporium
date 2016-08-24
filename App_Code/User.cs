@@ -19,11 +19,7 @@ public class User
     public static object Identity { get; set; }
 
     public User()
-    {
-        //
-        // TODO: Add constructor logic here
-        //
-    }
+    { }
 
     public User(string userName, string fName, string lName, string role, string address, string state, string zip)
     {
