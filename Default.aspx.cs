@@ -47,7 +47,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 r = rnd.Next(0, images.Count);
             }while (adSpace.Contains(r));
-            
+           
             adSpace.Add(r);
         }
 
