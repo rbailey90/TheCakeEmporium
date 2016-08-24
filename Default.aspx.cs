@@ -30,11 +30,11 @@ public partial class _Default : System.Web.UI.Page
 
         List<string> descriptions = new List<string>();
         descriptions.Add("This is an Ombrecake");
-        descriptions.Add("this is a smChococake... your guess is as good as ours on what that even is.");
-        descriptions.Add("this is a rum cake, It will get you drunk");
-        descriptions.Add("this is a red velvet cake, made from 100% velvet");
-        descriptions.Add("this is a rainbow cake, it has many colors in it.");
-        descriptions.Add("This is a purple cake, Its Purple!!!!!!!");
+        descriptions.Add("This is a smChococake... your guess is as good as ours on what that even is.");
+        descriptions.Add("This is a rum cake, It will get you drunk");
+        descriptions.Add("This is a red velvet cake, made from 100% velvet");
+        descriptions.Add("This is a rainbow cake, it has many colors in it.");
+        descriptions.Add("This is a purple cake, it's Purple!!!!!!!");
 
         //gets four random indexes within the size of the Image List
         //then adds those four indexes to the adSpace list

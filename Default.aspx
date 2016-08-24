@@ -59,7 +59,7 @@
         <div class="row">
             <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
                 
-
+                <!-- changes here  beth -->
                 <table class="nav-justified">
                     <tr> <!--need to still display the table inline in the local style css stuff -beth -->
                         <td></td>
