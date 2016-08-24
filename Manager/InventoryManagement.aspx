@@ -18,13 +18,15 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="ProductId" HeaderText="ProductId" ReadOnly="True" SortExpression="ProductId" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
             <asp:BoundField DataField="UnitPrice" HeaderText="UnitPrice" SortExpression="UnitPrice" />
             <asp:BoundField DataField="OnHand" HeaderText="OnHand" SortExpression="OnHand" />
-            <asp:CommandField ShowEditButton="True" ButtonType="Button" />
-            <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
+            <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -91,7 +93,7 @@
         </table>
     <br />
     <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:groupCakeConnectionString %>" DeleteCommand="DELETE FROM [Products] WHERE [ProductId] = @ProductId" InsertCommand="INSERT INTO [Products] ([ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand]) VALUES (@ProductId, @Name, @Description, @Image, @UnitPrice, @OnHand)" SelectCommand="SELECT [ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand] FROM [Products]" UpdateCommand="UPDATE [Products] SET [Name] = @Name, [Description] = @Description, [Image] = @Image, [UnitPrice] = @UnitPrice, [OnHand] = @OnHand WHERE [ProductId] = @ProductId">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Products] WHERE [ProductId] = @ProductId" InsertCommand="INSERT INTO [Products] ([ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand]) VALUES (@ProductId, @Name, @Description, @Image, @UnitPrice, @OnHand)" SelectCommand="SELECT [ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand] FROM [Products]" UpdateCommand="UPDATE [Products] SET [Name] = @Name, [Description] = @Description, [Image] = @Image, [UnitPrice] = @UnitPrice, [OnHand] = @OnHand WHERE [ProductId] = @ProductId">
         <DeleteParameters>
             <asp:Parameter Name="ProductId" Type="Int32" />
         </DeleteParameters>
