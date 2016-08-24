@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 
 /// <summary>
 /// Summary description for Order
@@ -10,12 +13,14 @@ public class Order
 {
     const decimal taxrate = 0.07m;
     int orderID;
-    DateTime orderDate = DateTime.Today;
+    //DateTime orderDate = DateTime.Today;
     //List<InvoiceItem> itemList = new List<InvoiceItem>(); 
     
     decimal subtotal;
     decimal tax;
     decimal orderTotal;
+    string userName;
+    
 
     public Order() 
 	{
@@ -36,11 +41,11 @@ public class Order
         set { orderTotal = value; }
     }
 
-    public DateTime OrderDate
+    /*public DateTime OrderDate
     {
         get { return orderDate; }
         set { orderDate = value; }
-    }
+    }*/
     public int OrderID
     {
         get { return orderID; }
@@ -55,6 +60,14 @@ public class Order
     {
         get{return tax;}
         set{tax=value;}
+    }
+    public string UserName
+    {
+        get { return userName; }
+        set {
+            string signedInUser = HttpContext.Current.User.Identity.GetUserId();
+            UserName = signedInUser;
+        }
     }
     /*
    public void AddItem(InvoiceItem item)
