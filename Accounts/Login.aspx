@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class="profileContainer">
+<div class="loginContainer">
    <asp:Label ID="lblHeader" runat="server" Text="Login" CssClass="profileHeader"></asp:Label>
-    <div class="loginContainer">
+    <div class="loginInnerContainer">
        <asp:PlaceHolder runat="server" ID="LoginFormHolder" Visible="false">
            <div style="margin-bottom: 10px">
               <asp:Label runat="server" ID="LblUserName">User Name:</asp:Label>

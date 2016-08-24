@@ -4,14 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration; //added to get connection string from web.config
 
 /// <summary>
 /// Summary description for CakeDA
 /// </summary>
 public class CakeDA
 {
-    public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=oNe1@cAke";
-    public static SqlConnection conn = new SqlConnection(connectionString);
+    //gets DefaultConnection String from web.config
+    public static string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+    //public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=oNe1@cAke";
+    public static SqlConnection conn = new SqlConnection(connStr);
 
     public CakeDA()
     {

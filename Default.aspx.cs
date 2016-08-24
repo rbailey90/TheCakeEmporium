@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -17,8 +17,6 @@ public partial class _Default : System.Web.UI.Page
 
     public void getNewProduct() //Gets random products to display on default page.
     {
-        Random rnd = new Random();
-
         List<string> images = new List<string>();
         images.Add("~/Images/ombrecake.jpg");
         images.Add("~/Images/smchococake.jpg");
@@ -36,6 +34,8 @@ public partial class _Default : System.Web.UI.Page
         descriptions.Add("This is a rainbow cake, it has many colors in it.");
         descriptions.Add("This is a purple cake, it's Purple!!!!!!!");
 
+
+        Random rnd = new Random(); //creates new random
         //gets four random indexes within the size of the Image List
         //then adds those four indexes to the adSpace list
         List<int> adSpace = new List<int>();

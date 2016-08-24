@@ -41,7 +41,7 @@ body {
     /*margin: 0 30px; */ 
    margin-left: auto;
    margin-right: auto;
-
+   
 }
 
 .menuButtons { /* this is for the individual navigation buttons*/
@@ -49,8 +49,10 @@ body {
     background-color: #D16956;
     color: #F2F2F2;
     padding: 2px;
-    /*width: 128px;
-    text-align:center;*/
+    width: 148px;
+    text-align:center;
+    font-size:large;
+    font-weight:bold;
  }
 
 .footer {
@@ -91,8 +93,8 @@ body {
 }
 /**************< Start of Profile Page >**************/
 .profileContainer{
-    display:block;
-    max-width:800px;
+    display:table;
+    width: 400px;
     margin: 15px auto;
   font-size: 14px;
   line-height: 1.42857143;
@@ -116,10 +118,21 @@ body {
       margin-bottom: 15px;
 }
 /**************^ Profile Page END ^**************/
+/************** START OF LOGIN **************/
 .loginContainer{
-    max-width: 350px;
-    max-height: 225px;
-    padding: 25px;
-    margin: 0 auto;
-
+    display:block;
+    width: 400px;
+    margin: 15px auto;
+    font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-weight:bold;
 }
+
+.loginInnerContainer{
+    padding: 20px;
+}
+/***************^END LOGIN^************************/

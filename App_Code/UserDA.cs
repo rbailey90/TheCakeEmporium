@@ -4,14 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 /// <summary>
 /// Summary description for UserDA
 /// </summary>
 public class UserDA
 {
-    public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=oNe1@cAke";
-    public static SqlConnection conn = new SqlConnection(connectionString);
+    public static string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+    //public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=oNe1@cAke";
+    //public static string connectionString = "Data Source=198.71.225.113;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=oNe1@cAke";
+    public static SqlConnection conn = new SqlConnection(connStr);
 
     public UserDA()
     {

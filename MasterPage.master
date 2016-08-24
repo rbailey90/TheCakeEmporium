@@ -53,7 +53,7 @@
                             <DynamicMenuStyle BackColor="#E3EAEB" />
                             <DynamicSelectedStyle BackColor="#1C5E55" />
                             <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
-                            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Size="Medium" Font-Underline="False" />
+                            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />
                         </asp:Menu>
                         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
