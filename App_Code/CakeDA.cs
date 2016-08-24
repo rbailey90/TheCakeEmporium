@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 /// </summary>
 public class CakeDA
 {
-    public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=***********";
+    public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=oNe1@cAke";
     public static SqlConnection conn = new SqlConnection(connectionString);
 
     public CakeDA()
@@ -37,7 +37,8 @@ public class CakeDA
             {
                 Cake aCake = new Cake();
 
-                aCake.ProductId = Convert.ToInt16(reader["ProductId"]); // Takes the info from the ProductID column in the database and puts it into the localized Cake object aCake
+                aCake.ProductId = reader["ProductId"].ToString();
+                //aCake.ProductId = Convert.ToInt16(reader["ProductId"]); // Takes the info from the ProductID column in the database and puts it into the localized Cake object aCake
                 aCake.Name = reader["Name"].ToString();
                 aCake.Description = reader["Description"].ToString();
                 aCake.ImageFile = reader["Image"].ToString();

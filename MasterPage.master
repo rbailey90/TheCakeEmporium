@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
 
      <!--link to jQuery for Fotorama image carousel --> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
@@ -28,7 +28,7 @@
     <!--bootstrap framework link for anyone who doesn't install bootstrap into their project -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../packages/bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
     <!-- local css style sheet after everything else so we can override default styles-->
     <link href="css/styles.css" rel="stylesheet" />
     <title>  The Cake Emporium </title> <!--page titles will go here -->
@@ -46,6 +46,7 @@
             </div>
 &nbsp;     <!--this is where the navigation will go - needs to stay centered at the top -->
                    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1">
+                        <asp:Literal ID="ltlcurrentUser" runat="server"></asp:Literal>
                         <asp:Menu ID="Menu1" CssClass="navbar" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" StaticSubMenuIndent="10px">
                             <DynamicHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />

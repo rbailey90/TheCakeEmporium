@@ -36,22 +36,23 @@
             </div>
         </div> <!--end of fotorama row data -->
         <div class="row" id="featured"><!-- start of next section on the homepage -->
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice] FROM [Products]"></asp:SqlDataSource>
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <img src="Images/german-choc.jpg" class="img-thumbnail"/>
-                    <aside> This is a caption that will be a label with info from the database.</aside>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail"/>
+                    <aside><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></aside>
                 </section>
                 <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <img src="Images/german-choc.jpg"  class="img-thumbnail"/>
-                    <aside> This is a caption that will be a label with info from the database.</aside>
+                    <asp:Image ID="Image2" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail"/>
+                    <aside><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></aside>
                 </section>
                 <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <img src="Images/german-choc.jpg"  class="img-thumbnail"/>
-                    <aside> This is a caption that will be a label with info from the database.</aside>
+                    <asp:Image ID="Image3" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail"/>
+                    <aside><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></aside>
                 </section>
                 <section class="col-lg-3 col-md-3  col-sm-3 ">
-                    <img src="Images/german-choc.jpg"  class="img-thumbnail"/>
-                    <aside> This is a caption that will be a label with info from the database.</aside>
+                    <asp:Image ID="Image4" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail"/>
+                    <aside><asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></aside>
                 </section>
              </div>
         </div> <!-- end of thumbnail image section on the homepage -->
@@ -92,20 +93,15 @@
                     <tr>
                         <td></td>
                         <td class="auto-style2">
-
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="btnSubmitFAQ" runat="server" Text="Submit" Width="70px" />
-
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="btnSubmitFAQ" runat="server" Text="Submit" Width="70px" OnClick="btnSubmitFAQ_Click" />
                         </td>
                     </tr>
                 </table>
                 <br />
-                
-
             </section>
             <section class="col-lg-5 col-md-5 col-sm-5">
                 anywhere the wind bloooows id doesn't really mmaaaaaaatttteerrrr toooo meeeeee
-
             </section>
         </div>
    </div> <!-- end of fluid container --> 
