@@ -14,7 +14,7 @@ public partial class Products_Details : System.Web.UI.Page
         {
             int cakeID = (int)Session["CakeChoice"];
 
-            lblCakeID.Text = cakeID.ToString();
+            //lblCakeID.Text = cakeID.ToString();
         }
     }
 
