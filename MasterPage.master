@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html>
 
@@ -9,13 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- Bootstrap -->
     <link href="Content/bootstrap.min.css" rel="stylesheet"/>
-
-     <!--link to jQuery for Fotorama image carousel --> 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
-
     <!--Fotorama image carousel scripts --> 
     <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" /> <!-- 3 KB -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
 
    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -28,24 +24,31 @@
     <!--bootstrap framework link for anyone who doesn't install bootstrap into their project -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <script src="../packages/bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
+
     <!-- local css style sheet after everything else so we can override default styles-->
     <link href="css/styles.css" rel="stylesheet" />
-    <title>  The Cake Emporium </title> <!--page titles will go here -->
+    <title>The Cake Emporium</title> <!--page titles will go here -->
     <asp:ContentPlaceHolder id="head" runat="server"> </asp:ContentPlaceHolder>
    
 </head>
 <body>
     <form id="form1" runat="server">
-         <nav class="navbar navbar-inverse">
+        <!---START OF TOP MENU --> 
+         <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container-fluid">
-            <%--<ul class="nav navbar-nav navbar-right">--%>
+          <div class="navbar-header">
+                 <a class="navbar-brand" ><asp:Literal ID="ltlcurrentUser" runat="server"></asp:Literal></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+              <li><asp:LinkButton ID="btn_Profile" runat="server" OnClick="btn_Profile_Click"><span class="glyphicon glyphicon-log-in"></span> Profile </asp:LinkButton></li>
               <li><asp:LinkButton ID="btn_SignUp" runat="server" OnClick="btn_SignUp_Click"><span class="glyphicon glyphicon-user"></span> Sign Up </asp:LinkButton></li>
               <li><asp:LinkButton ID="btn_LogIn" runat="server" OnClick="btn_LogIn_Click"><span class="glyphicon glyphicon-log-in"></span> Log In </asp:LinkButton></li>
               <li><a></a></li>
             </ul>
           </div>
         </nav>
+        <!---END TOP MENU -->
+         
         <div class="container-fluid">
         <div class="row pageHeader"><!---this is for the header images --> 
             <div class="pageHeader">
@@ -53,21 +56,22 @@
                  <img src="<%= Page.ResolveUrl("~")%>Images/header_med.png" alt="cake emporium header" id="image_med" />
                  <img src="<%= Page.ResolveUrl("~")%>Images/header_sm.png" alt="cake emporium header" id="image_sm" />
             </div>
-&nbsp;     <!--this is where the navigation will go - needs to stay centered at the top -->
-                   <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1">
-                        <asp:Literal ID="ltlcurrentUser" runat="server"></asp:Literal>
-                        <asp:Menu ID="Menu1" CssClass="navbar" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" StaticSubMenuIndent="10px">
-                            <DynamicHoverStyle BackColor="#F1BC75" ForeColor="White" />
-                            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                            <DynamicMenuStyle BackColor="#E3EAEB" />
-                            <DynamicSelectedStyle BackColor="#1C5E55" />
+        </div>
+
+        <!--NAV MENU START -->
+        <div class="row">
+            <div class="navbar2">               
+                 <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" >
                             <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />
                         </asp:Menu>
-                        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
-                   </div>
-        
+                        
+            </div>
+        </div>
+        <!--NAV MENU END -->
+
+
         <div class="row"> <!-- put the content place holder in a row already to make formatting easier down the road -->
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 <!-- individual page content will go here --> 
@@ -75,20 +79,22 @@
 
 
                 </asp:ContentPlaceHolder>
-        </div> <!-- end of main content area -->
-        <div class="container-fluid">
-            <div class="col=lg-10 col-lg-offset-2">
-                 <nav>
-                      <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticSubMenuIndent="16px">
-                      </asp:Menu>
-                </nav>
-            </div>
-        </div> <!-- end of footer navigation area -->
-    </div>
-    </div>
-    </form>
+        </div> 
+        <!-- end of main content area -->
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    
+        <div class="row footer">
+            <nav>
+                <p class="text-center"> here is where the footer navigation will go</p>
+            </nav>
+        </div>
+        <!-- end of footer navigation area -->
+</div>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
+         <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <!--link to jQuery for Fotorama image carousel --> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+    <script src="<%= Page.ResolveUrl("~")%> packages/bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
+</form>
 </body>
 </html>

@@ -19,10 +19,10 @@ public partial class User_Profile : System.Web.UI.Page
         //SqlDataSource1.SelectCommand = sql;
 
     }
-    
+
     protected void FormView1_ItemUpdated(object sender, System.Web.UI.WebControls.FormViewUpdatedEventArgs e)
     {
-            //Response.Redirect("~/Default.aspx");
+        //Response.Redirect("~/Default.aspx");
     }
 
     protected void UpdateButton_Click(object sender, EventArgs e)
