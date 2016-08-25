@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-            <div class="container-fluid">
-        <div class="col-lg-11 col-md-11 col-sm-10">
+        <div class="container-fluid">
+            <div class="center-block">
 
 
             <p>Shopping Cart</p>

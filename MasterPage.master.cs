@@ -16,7 +16,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
         var signedInUser = HttpContext.Current.User.Identity.GetUserName();
         if (signedInUser != null)
         {
-            ltlcurrentUser.Text = string.Format("Hello {0}!!", signedInUser);
+            ltlcurrentUser.Text = string.Format("Welcome back {0}", signedInUser);
+            btn_Profile.Visible = true;
+            btn_SignUp.Visible = false;
+            btn_LogIn.Visible = false;
+        }
+        else
+        {
+            btn_LogIn.Visible = true;
+            btn_Profile.Visible = false;
+            btn_SignUp.Visible = true;
         }
     }
 
@@ -28,5 +37,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void btn_LogIn_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/Accounts/Login.aspx");
+    }
+
+    protected void btn_Profile_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Accounts/Profile.aspx");
     }
 }
