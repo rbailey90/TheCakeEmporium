@@ -56,12 +56,11 @@
                 </section>
              </div>
         </div> <!-- end of thumbnail image section on the homepage -->
-        <div class="row">
-            <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
+        <div class="row"> <!--start of third section on the page here -->
+           <!-- <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
                 
                 <table class="nav-justified">
-                    <tr> <!--need to still display the table inline in the local style css stuff -beth -->
-                        <td></td>
+                    <tr> <!--need to still display the table inline in the local style css stuff -beth                         <td></td>
                         <td>
                             <p>Hey! Hey, you! Have any questions for us? 
                               Leave 'em in the box below!</p> 
@@ -100,9 +99,9 @@
                 <br />
             </section>
             <section class="col-lg-5 col-md-5 col-sm-5">
-                anywhere the wind bloooows id doesn't really mmaaaaaaatttteerrrr toooo meeeeee
+                <p>something else cake related can go here. maybe.</p>
             </section>
-        </div>
+        </div> -->
    </div> <!-- end of fluid container --> 
 </asp:Content>
 
