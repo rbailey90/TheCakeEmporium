@@ -27,7 +27,7 @@
             <p>
             Check Out
                 </p><p>
-                Put the list here 
+                &nbsp;<asp:ListBox ID="lstCart" runat="server" Height="118px" Width="373px"></asp:ListBox>
                 </p><p>
                 Gather Customer Info
                 <table class="nav-justified">
@@ -74,10 +74,9 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style1">Country:</td>
+                        <td class="auto-style1">&nbsp;</td>
                         <td class="auto-style2">
-                            <asp:TextBox ID="txtShipCountry" runat="server" Width="333px"></asp:TextBox>
-                        </td>
+                            &nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
@@ -121,10 +120,9 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style1">Country:</td>
+                        <td class="auto-style1">&nbsp;</td>
                         <td class="auto-style2">
-                            <asp:TextBox ID="txtBillCountry" runat="server" Width="333px"></asp:TextBox>
-                        </td>
+                            &nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>

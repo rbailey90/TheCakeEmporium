@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Collections;
 
 /// <summary>
 /// Summary description for CartItemList
 /// </summary>
-public class CartItemList
+public class CartItemList 
 {
     private List<CartItem> cartItems;
 
@@ -51,5 +52,15 @@ public class CartItemList
     public void Clear()
     {
         cartItems.Clear();
+    }
+    public decimal GetSubtotal()
+    {
+        decimal subtotal = 0;
+
+        foreach (CartItem i in cartItems)
+        {
+            subtotal += i.ExtendedPrice;
+        }
+        return subtotal;
     }
 }

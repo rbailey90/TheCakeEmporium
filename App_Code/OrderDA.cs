@@ -16,6 +16,7 @@ public class OrderDA
 
     public static int AddNewOrder(Order theOrder)
     {
+        DateTime orderDate = DateTime.Today;
         int numRows = 0;
         string insertStatement = "INSERT INTO ORDERS (Username, subtotal, tax, OrderTotal,OrderDate) values (@userName, @subtotal,@tax, @total,@orderDate)";
         SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
@@ -42,7 +43,7 @@ public class OrderDA
         insertCommand.Parameters.AddWithValue("@priceeach", theOrder.OrderTotal);
         insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderTotal);
         */
-        DateTime orderDate = DateTime.Today;
+
 
         try
         {
