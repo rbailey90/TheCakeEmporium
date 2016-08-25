@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 /// </summary>
 public class Order
 {
+    DateTime orderDate = DateTime.Today;
     const decimal taxrate = 0.07m;
     int orderID;
     //DateTime orderDate = DateTime.Today;
@@ -80,11 +81,11 @@ public class Order
         set { orderTotal = value; }
     }
 
-    /*public DateTime OrderDate
+    public DateTime OrderDate
     {
         get { return orderDate; }
         set { orderDate = value; }
-    }*/
+    }
     public int OrderID
     {
         get { return orderID; }
