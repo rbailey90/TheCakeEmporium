@@ -34,7 +34,7 @@
 <body>
     <form id="form1" runat="server">
         <!---START OF TOP MENU --> 
-         <nav class="navbar navbar-inverse">
+         <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container-fluid">
           <div class="navbar-header">
                  <a class="navbar-brand" ><asp:Literal ID="ltlcurrentUser" runat="server"></asp:Literal></a>
