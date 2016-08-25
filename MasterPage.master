@@ -37,16 +37,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <%--<ul class="nav navbar-nav navbar-right">--%>
+         <div class="container-fluid"> 
+             
+          <nav class="navbar navbar-inverse">
+            <ul class="nav navbar-nav navbar-right">
               <li><asp:LinkButton ID="btn_SignUp" runat="server" OnClick="btn_SignUp_Click"><span class="glyphicon glyphicon-user"></span> Sign Up </asp:LinkButton></li>
               <li><asp:LinkButton ID="btn_LogIn" runat="server" OnClick="btn_LogIn_Click"><span class="glyphicon glyphicon-log-in"></span> Log In </asp:LinkButton></li>
               <li><a></a></li>
             </ul>
-          </div>
         </nav>
-        <div class="container-fluid">
+       
         <div class="row pageHeader"><!---this is for the header images --> 
             <div class="pageHeader">
                  <img src="<%= Page.ResolveUrl("~")%>Images/header_lrg.png" alt="cake Emporium Header" id="image_large"/>
