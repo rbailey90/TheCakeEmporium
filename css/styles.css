@@ -136,9 +136,13 @@ body {
     padding: 20px;
 }
 /***************^END LOGIN^************************/
-
+.mybutton{
+    background-color:#222222;
+    border: none;
+    font-size: medium;
+    color:#858585; 
+}
 .mybutton:hover {
-    background-color: pink;
     color:white;
-    font-weight:bold;
+
 }

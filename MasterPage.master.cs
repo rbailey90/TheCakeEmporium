@@ -19,4 +19,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
             ltlcurrentUser.Text = string.Format("Hello {0}!!", signedInUser);
         }
     }
+
+    protected void btn_SignUp_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Accounts/Registration.aspx");
+    }
+
+    protected void btn_LogIn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Accounts/Login.aspx");
+    }
 }
