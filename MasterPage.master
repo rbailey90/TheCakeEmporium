@@ -37,7 +37,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="container-fluid">
+         <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span><asp:Button ID="Button1" CssClass="mybutton" runat="server" Text="Sign Up" BackColor="#222222" BorderStyle="None" Font-Size="Medium" ForeColor="#858585" /></a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="container-fluid">
         <div class="row pageHeader"><!---this is for the header images --> 
             <div class="pageHeader">
                  <img src="<%= Page.ResolveUrl("~")%>Images/header_lrg.png" alt="cake Emporium Header" id="image_large"/>

@@ -6,7 +6,7 @@
     <div class="profileContainer">
 
     <asp:Label ID="lblHeader" runat="server" Text="Profile Information" CssClass="profileHeader"></asp:Label>
-    <asp:FormView ID="FormView1" cssclass="auto-style2" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" DefaultMode="Edit" BackColor="White" BorderWidth="1px" CellPadding="25" Height="300px" HorizontalAlign="Center" Width="300px" ForeColor="White">
+    <asp:FormView ID="FormView1" cssclass="auto-style2" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" DefaultMode="Edit" BackColor="White" BorderWidth="0px" CellPadding="25" Height="300px" HorizontalAlign="Center" Width="300px" ForeColor="White">
         <EditItemTemplate>
             Username:
             <asp:Label ID="UsernameLabel1" CssClass="form-control" runat="server" Text='<%# Eval("Username") %>' />
@@ -56,8 +56,7 @@
         </InsertItemTemplate>
         <InsertRowStyle Wrap="True" />
         <ItemTemplate>
-            Username:
-            <asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' />
+            &nbsp;<asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' Visible="False" />
             <br />
             Firstname:
             <asp:Label ID="FirstnameLabel" runat="server" Text='<%# Bind("Firstname") %>' />
