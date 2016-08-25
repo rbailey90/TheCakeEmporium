@@ -3,8 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="container-fluid">
+       <div class="center-block">
     Here will be a listing of all of our cakes that we offer.<br />
-   <div class="container-fluid">
+
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -25,6 +27,7 @@
     <br />
     <br />
     <br />
+        </div>
    </div>
 </asp:Content>
 

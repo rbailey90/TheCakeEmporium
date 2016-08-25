@@ -4,9 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container-fluid">
-    <p>
+        <div class="center-block">
         <h1>Product Details</h1>
-    <p>
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333">
             <EditItemTemplate>
                 ProductId:
@@ -85,7 +84,6 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice], [OnHand], [ProductId] FROM [Products]"></asp:SqlDataSource>
-    </p>
     <div id="order">
         <p id="quantity">
             
@@ -96,6 +94,7 @@
         </p>
             <asp:Button ID="btnAddtoCart" runat="server" Text="Add to Cart" OnClick="btnAddtoCart_Click" />
     </div>
+        </div>
     </div>
 </asp:Content>
 

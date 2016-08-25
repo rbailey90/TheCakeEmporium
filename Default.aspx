@@ -27,40 +27,47 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!-- individual page content goes here --> 
     <div class="container-fluid"> 
-        <div class="row"><!--start of fotorama image carousel here --> 
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-                <div class="fotorama"  data-width="100%" data-ratio="800/350" data-fit="cover" data-autoplay="true" data-stopautoplayontouch="true">
-                     <img src="Images/german-choc.jpg" data-fit="cover"/>
-                     <img src="Images/lemoncake.jpg"  data-fit="cover"/>
-	            </div><!-- data height might be messing up the media query height - can fix later if this is a problem-->
-            </div>
-        </div> <!--end of fotorama row data -->
+        <div class="wrapper">
+        
+        <!--start of fotorama image carousel here --> 
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8"><div class="fotorama"  data-width="100%" data-ratio="800/350" data-fit="cover" data-autoplay="true" data-stopautoplayontouch="true">
+                         <img src="Images/german-choc.jpg" data-fit="cover"/>
+                         <img src="Images/lemoncake.jpg"  data-fit="cover"/>
+	                </div><!-- data height might be messing up the media query height - can fix later if this is a problem-->
+                </div>
+            <div class="col-md-2"></div>
+        </div> 
+        <!--end of fotorama row data -->
+
         <div class="row" id="featured"><!-- start of next section on the homepage -->
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice] FROM [Products]"></asp:SqlDataSource>
             <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
                 <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail"/>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail" Height="200px" Width="400px"/>
                     <aside><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></aside>
                 </section>
                 <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <asp:Image ID="Image2" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail"/>
+                    <asp:Image ID="Image2" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail" Height="200px" Width="400px"/>
                     <aside><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></aside>
                 </section>
                 <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <asp:Image ID="Image3" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail"/>
+                    <asp:Image ID="Image3" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail" Height="200px" Width="400px"/>
                     <aside><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></aside>
                 </section>
                 <section class="col-lg-3 col-md-3  col-sm-3 ">
-                    <asp:Image ID="Image4" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail"/>
+                    <asp:Image ID="Image4" runat="server" ImageUrl="Images/german-choc.jpg" Cssclass="img-thumbnail" Height="200px" Width="400px" />
                     <aside><asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></aside>
                 </section>
              </div>
         </div> <!-- end of thumbnail image section on the homepage -->
-        <div class="row"> <!--start of third section on the page here -->
-           <!-- <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
+        <div class="row">
+            <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
                 
                 <table class="nav-justified">
-                    <tr> <!--need to still display the table inline in the local style css stuff -beth                         <td></td>
+                    <tr> <!--need to still display the table inline in the local style css stuff -beth -->
+                        <td></td>
                         <td>
                             <p>Hey! Hey, you! Have any questions for us? 
                               Leave 'em in the box below!</p> 
@@ -99,9 +106,10 @@
                 <br />
             </section>
             <section class="col-lg-5 col-md-5 col-sm-5">
-                <p>something else cake related can go here. maybe.</p>
+                anywhere the wind bloooows id doesn't really mmaaaaaaatttteerrrr toooo meeeeee
             </section>
-        </div> -->
+        </div>
+         </div>
    </div> <!-- end of fluid container --> 
 </asp:Content>
 
