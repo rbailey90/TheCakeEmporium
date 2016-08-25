@@ -76,10 +76,13 @@
 
                 </asp:ContentPlaceHolder>
         </div> <!-- end of main content area -->
-        <div class="row footer">
-            <nav>
-                <p class="text-center"> here is where the footer navigation will go</p>
-            </nav>
+        <div class="container-fluid">
+            <div class="col=lg-10 col-lg-offset-2">
+                 <nav>
+                      <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticSubMenuIndent="16px">
+                      </asp:Menu>
+                </nav>
+            </div>
         </div> <!-- end of footer navigation area -->
     </div>
     </div>
