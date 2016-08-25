@@ -61,11 +61,7 @@
         <!--NAV MENU START -->
         <div class="row">
             <div class="navbar2">               
-                 <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" StaticSubMenuIndent="10px">
-                            <DynamicHoverStyle BackColor="#F1BC75" ForeColor="White" />
-                            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                            <DynamicMenuStyle BackColor="#E3EAEB" />
-                            <DynamicSelectedStyle BackColor="#1C5E55" />
+                 <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" >
                             <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />
@@ -98,6 +94,6 @@
       <!--link to jQuery for Fotorama image carousel --> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
-    <script src="<%= Page.ResolveUrl("~")%>packages/bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>   
+    <script src="<%= Page.ResolveUrl("~")%> packages/bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
