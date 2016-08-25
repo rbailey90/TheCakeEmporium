@@ -8,9 +8,6 @@
     <asp:Label ID="lblHeader" runat="server" Text="Profile Information" CssClass="profileHeader"></asp:Label>
     <asp:FormView ID="FormView1" cssclass="auto-style2" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" DefaultMode="Edit" BackColor="White" BorderWidth="0px" CellPadding="25" Height="300px" HorizontalAlign="Center" Width="300px" ForeColor="White">
         <EditItemTemplate>
-            Username:
-            <asp:Label ID="UsernameLabel1" CssClass="form-control" runat="server" Text='<%# Eval("Username") %>' />
-            <br />
             Firstname:
             <asp:TextBox ID="FirstnameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Firstname") %>' />
             <br />
@@ -56,8 +53,6 @@
         </InsertItemTemplate>
         <InsertRowStyle Wrap="True" />
         <ItemTemplate>
-            &nbsp;<asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' Visible="False" />
-            <br />
             Firstname:
             <asp:Label ID="FirstnameLabel" runat="server" Text='<%# Bind("Firstname") %>' />
             <br />
@@ -83,6 +78,9 @@
         <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" CssClass="profileEditRow" />
     </asp:FormView>
     <br />
+
+
+
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Username], [Firstname], [Lastname], [Address], [State], [ZipCode] FROM [Accounts] WHERE ([Username] = @Username)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Accounts] WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [State] = @original_State AND [ZipCode] = @original_ZipCode" InsertCommand="INSERT INTO [Accounts] ([Username], [Firstname], [Lastname], [Address], [State], [ZipCode]) VALUES (@Username, @Firstname, @Lastname, @Address, @State, @ZipCode)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Accounts] SET [Firstname] = @Firstname, [Lastname] = @Lastname, [Address] = @Address, [State] = @State, [ZipCode] = @ZipCode WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [State] = @original_State AND [ZipCode] = @original_ZipCode">
         <DeleteParameters>

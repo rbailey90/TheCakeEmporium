@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class="container-fluid">
+    <div class="container-fluid">
        <div class="center-block">
     Here will be a listing of all of our cakes that we offer.<br />
 
