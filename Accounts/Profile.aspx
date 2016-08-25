@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="profileContainer">
+<div class="row">
+<div class="col-md-6">
+    <div class="profileContainer pull-right">
 
     <asp:Label ID="lblHeader" runat="server" Text="Profile Information" CssClass="profileHeader"></asp:Label>
     <asp:FormView ID="FormView1" cssclass="auto-style2" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" DefaultMode="Edit" BackColor="White" BorderWidth="0px" CellPadding="25" Height="300px" HorizontalAlign="Center" Width="300px" ForeColor="White">
@@ -78,9 +80,94 @@
         <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" CssClass="profileEditRow" />
     </asp:FormView>
     <br />
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="profileContainer pull-left">
+    <asp:Label ID="Label1" runat="server" Text="Secure Information" CssClass="profileHeader"></asp:Label>
+        <asp:FormView ID="FormView2" runat="server" DataKeyNames="Id" HorizontalAlign="Center" Width="300px" DataSourceID="SqlDataSourceAspUserDB" DefaultMode="Edit">
+            <EditItemTemplate>
+                UserName:
+                <asp:TextBox ID="UserNameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("UserName") %>' />
+                <br />
+                Email:
+                <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Email") %>' />
+                <br />
+                PhoneNumber:
+                <asp:TextBox ID="PhoneNumberTextBox" CssClass="form-control" runat="server" Text='<%# Bind("PhoneNumber") %>' />
+                <br />
+                <asp:LinkButton ID="UpdateButton" CssClass="btn btn-primary btn-lg btn-block" runat="server" CausesValidation="True" CommandName="Update" Text="Update"  OnClick="EditButton_Click" />
+              
+            </EditItemTemplate>
+            <InsertItemTemplate>
+                UserName:
+                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
+                <br />
+                Email:
+                <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                <br />
+                EmailConfirmed:
+                <asp:CheckBox ID="EmailConfirmedCheckBox" runat="server" Checked='<%# Bind("EmailConfirmed") %>' />
+                <br />
+                PhoneNumber:
+                <asp:TextBox ID="PhoneNumberTextBox" runat="server" Text='<%# Bind("PhoneNumber") %>' />
+                <br />
+                Id:
+                <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
+                <br />
+                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            </InsertItemTemplate>
+            <ItemTemplate>
+                UserName:
+                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Bind("UserName") %>' />
+                <br />
+                Email:
+                <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' />
+                <br />
+                PhoneNumber:
+                <asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Bind("PhoneNumber") %>' />
+                <br />
+                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+            </ItemTemplate>
+        </asp:FormView>
+        <br />
+     </div>
+</div>
+</div>
 
-
-
+        <asp:SqlDataSource ID="SqlDataSourceAspUserDB" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [UserName], [Email], [EmailConfirmed], [PhoneNumber], [Id] FROM [AspNetUsers] WHERE ([Id] = @Id)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [AspNetUsers] WHERE [Id] = @original_Id AND [UserName] = @original_UserName AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL)) AND [EmailConfirmed] = @original_EmailConfirmed AND (([PhoneNumber] = @original_PhoneNumber) OR ([PhoneNumber] IS NULL AND @original_PhoneNumber IS NULL))" InsertCommand="INSERT INTO [AspNetUsers] ([UserName], [Email], [EmailConfirmed], [PhoneNumber], [Id]) VALUES (@UserName, @Email, @EmailConfirmed, @PhoneNumber, @Id)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [AspNetUsers] SET [UserName] = @UserName, [Email] = @Email, [EmailConfirmed] = @EmailConfirmed, [PhoneNumber] = @PhoneNumber WHERE [Id] = @original_Id AND [UserName] = @original_UserName AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL)) AND [EmailConfirmed] = @original_EmailConfirmed AND (([PhoneNumber] = @original_PhoneNumber) OR ([PhoneNumber] IS NULL AND @original_PhoneNumber IS NULL))">
+            <DeleteParameters>
+                <asp:Parameter Name="original_Id" Type="String" />
+                <asp:Parameter Name="original_UserName" Type="String" />
+                <asp:Parameter Name="original_Email" Type="String" />
+                <asp:Parameter Name="original_EmailConfirmed" Type="Boolean" />
+                <asp:Parameter Name="original_PhoneNumber" Type="String" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="UserName" Type="String" />
+                <asp:Parameter Name="Email" Type="String" />
+                <asp:Parameter Name="EmailConfirmed" Type="Boolean" />
+                <asp:Parameter Name="PhoneNumber" Type="String" />
+                <asp:Parameter Name="Id" Type="String" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:SessionParameter Name="Id" SessionField="signedInUser" Type="String" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="UserName" Type="String" />
+                <asp:Parameter Name="Email" Type="String" />
+                <asp:Parameter Name="EmailConfirmed" Type="Boolean" />
+                <asp:Parameter Name="PhoneNumber" Type="String" />
+                <asp:Parameter Name="original_Id" Type="String" />
+                <asp:Parameter Name="original_UserName" Type="String" />
+                <asp:Parameter Name="original_Email" Type="String" />
+                <asp:Parameter Name="original_EmailConfirmed" Type="Boolean" />
+                <asp:Parameter Name="original_PhoneNumber" Type="String" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Username], [Firstname], [Lastname], [Address], [State], [ZipCode] FROM [Accounts] WHERE ([Username] = @Username)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Accounts] WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [State] = @original_State AND [ZipCode] = @original_ZipCode" InsertCommand="INSERT INTO [Accounts] ([Username], [Firstname], [Lastname], [Address], [State], [ZipCode]) VALUES (@Username, @Firstname, @Lastname, @Address, @State, @ZipCode)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Accounts] SET [Firstname] = @Firstname, [Lastname] = @Lastname, [Address] = @Address, [State] = @State, [ZipCode] = @ZipCode WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [State] = @original_State AND [ZipCode] = @original_ZipCode">
         <DeleteParameters>
@@ -117,5 +204,4 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     <br />
-</div>
 </asp:Content>
