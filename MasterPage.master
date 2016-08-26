@@ -1,4 +1,4 @@
-﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html>
 
@@ -33,19 +33,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <!---START OF TOP MENU --> 
-         <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container-fluid">
-          <div class="navbar-header">
-                 <a class="navbar-brand" ><asp:Literal ID="ltlcurrentUser" runat="server"></asp:Literal></a>
+        <!---START OF TOP MENU -->   
+          <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-header nav-background">
+                     <a class="navbar-brand" ><asp:Literal ID="ltlcurrentUser" runat="server"></asp:Literal></a>
             </div>
-            <ul class="nav navbar-nav navbar-right">
+        <div class="container-fluid">  
+            <ul class="nav navbar-nav navbar-right nav-background">
               <li><asp:LinkButton ID="btn_Profile" runat="server" OnClick="btn_Profile_Click"><span class="glyphicon glyphicon-log-in"></span> Profile </asp:LinkButton></li>
               <li><asp:LinkButton ID="btn_SignUp" runat="server" OnClick="btn_SignUp_Click"><span class="glyphicon glyphicon-user"></span> Sign Up </asp:LinkButton></li>
               <li><asp:LinkButton ID="btn_LogIn" runat="server" OnClick="btn_LogIn_Click"><span class="glyphicon glyphicon-log-in"></span> Log In </asp:LinkButton></li>
               <li><a></a></li>
             </ul>
-          </div>
+        
+         </div>
         </nav>
         <!---END TOP MENU -->
          
@@ -65,7 +66,7 @@
                             <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />
-                        </asp:Menu>
+                 </asp:Menu>
                         
             </div>
         </div>
@@ -76,17 +77,16 @@
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 <!-- individual page content will go here --> 
 
-
-
                 </asp:ContentPlaceHolder>
         </div> 
         <!-- end of main content area -->
-
-        <div class="row footer">
-            <nav>
-                <p class="text-center"> here is where the footer navigation will go</p>
-            </nav>
-        </div>
+      
+         <div class="row footernav">   
+             <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" CssClass="">
+                   <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="footerButtons" Font-Names="Cambria" Font-Underline="False" />
+             </asp:Menu>
+         </div>
+       
         <!-- end of footer navigation area -->
 </div>
         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
