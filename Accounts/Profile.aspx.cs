@@ -20,14 +20,9 @@ public partial class User_Profile : System.Web.UI.Page
 
     }
 
-    protected void FormView1_ItemUpdated(object sender, System.Web.UI.WebControls.FormViewUpdatedEventArgs e)
-    {
-        //Response.Redirect("~/Default.aspx");
-    }
-
     protected void UpdateButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Default.aspx");
+        Response.Redirect("~/Accounts/UpdateComplete.aspx");
     }
     protected void CancelButton_Click(object sender, EventArgs e)
     {
@@ -35,8 +30,26 @@ public partial class User_Profile : System.Web.UI.Page
     }
 
     protected void EditButton_Click(object sender, EventArgs e)
-    {
-        //add code to update user info(use identity commands)
-        Response.Redirect("~/Default.aspx");
+    {       
+        UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+        var newpass = (FormView2.FindControl("NewPasswordBox") as TextBox).Text;
+        var newEmail = (FormView2.FindControl("EmailTextBox") as TextBox).Text;
+        var newPhone = (FormView2.FindControl("PhoneNumberTextBox") as TextBox).Text;
+
+        if (newpass != "")
+        {
+            //updates user password
+            userManager.RemovePassword(User.Identity.GetUserId());
+            userManager.AddPassword(User.Identity.GetUserId(), newpass);
+            Response.Redirect("~/Accounts/UpdateComplete.aspx");
+        }
+        if(newEmail != "" && newPhone != "")
+        {        
+            //updates e-mail address
+            userManager.SetEmail(User.Identity.GetUserId(), newEmail);
+            //updates phone number
+            userManager.SetPhoneNumber(User.Identity.GetUserId(), newPhone);
+            Response.Redirect("~/Accounts/UpdateComplete.aspx");
+        }
     }
 }
