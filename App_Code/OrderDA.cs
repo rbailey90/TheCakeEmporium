@@ -26,7 +26,7 @@ public class OrderDA
         insertCommand.Parameters.AddWithValue("@tax", theOrder.Tax);
         insertCommand.Parameters.AddWithValue("@total", theOrder.OrderTotal);
         insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderDate);
-        
+        /*
         string insertStatement2 = "INSERT INTO ORDERPAYMENT (order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order, @cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
         SqlCommand insertCommand2 = new SqlCommand(insertStatement, conn);
         //need to supply this one with the order number and use it
@@ -60,17 +60,19 @@ public class OrderDA
         insertCommand.Parameters.AddWithValue("@quantity", theOrder.Tax);
         insertCommand.Parameters.AddWithValue("@priceeach", theOrder.OrderTotal);
         insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderTotal);
-
+        */
 
         try
         {
             conn.Open();
             //the action that puts it in the DB and returns the value back
             numRows = insertCommand.ExecuteNonQuery();
+            
             //get order number
 
             //save payment
             //save details
+            //save shipping details
         }
         finally
         {
