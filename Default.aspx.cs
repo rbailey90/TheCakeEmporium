@@ -19,25 +19,22 @@ public partial class _Default : System.Web.UI.Page
     {
         List<string> images = new List<string>();
         images.Add("~/Images/carrotcake.png");
-        images.Add("~/Images/chocolatecake.png");
+        images.Add("~/Images/matchacake.png");
         images.Add("~/Images/confetticake.png");
         images.Add("~/Images/chocolatehalloweencake.png");
         images.Add("~/Images/chocolateraspberrycake.png");
         images.Add("~/Images/christmasicecreampudding.png");
-        images.Add("~/Images/germanchocolatecake.png");
-        images.Add("~/Images/hummingbird.png");
-        images.Add("~/Images/icecreamconfetticake.png");
         images.Add("~/Images/lemoncake.png");
-        images.Add("~/Images/matchacake.png");
-
+       
 
         List<string> descriptions = new List<string>();
         descriptions.Add("Carrot Cake");
-        descriptions.Add("Chocolate Cake");
+        descriptions.Add("Matcha Cake");
         descriptions.Add("Confetti Cake");
         descriptions.Add("Chocolate Halloween Cake");
         descriptions.Add("Chocolate Raspberry Cake");
-        descriptions.Add("Christmas Icecream Pudding Cake");
+        descriptions.Add("Ice Cream Cake");
+        descriptions.Add("Lemon Cake");
 
 
         Random rnd = new Random(); //creates new random

@@ -32,6 +32,6 @@ public partial class Manager_InventoryManagement : System.Web.UI.Page
 
     protected void btnAddCake_Click(object sender, EventArgs e)
     {
-
+        // Manager can add cake to DB, I'll come back to this
     }
 }

@@ -6,77 +6,22 @@
     <div class="container-fluid">
         <div class="center-block">
         <h1>Product Details</h1>
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333">
-            <EditItemTemplate>
-                ProductId:
-                <asp:Label ID="ProductIdLabel1" runat="server" Text='<%# Eval("ProductId") %>' />
-                <br />
-                Name:
-                <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
-                <br />
-                Description:
-                <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
-                <br />
-                Image:
-                <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
-                <br />
-                UnitPrice:
-                <asp:TextBox ID="UnitPriceTextBox" runat="server" Text='<%# Bind("UnitPrice") %>' />
-                <br />
-                OnHand:
-                <asp:TextBox ID="OnHandTextBox" runat="server" Text='<%# Bind("OnHand") %>' />
-                <br />
-                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-            </EditItemTemplate>
-            <EditRowStyle BackColor="#7C6F57" />
-            <FooterStyle BackColor="#1C5E55" ForeColor="White" Font-Bold="True" />
-            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-            <HeaderTemplate>
-                Cake Detail
-            </HeaderTemplate>
-            <InsertItemTemplate>
-                ProductId:
-                <asp:TextBox ID="ProductIdTextBox" runat="server" Text='<%# Bind("ProductId") %>' />
-                <br />
-                Name:
-                <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
-                <br />
-                Description:
-                <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
-                <br />
-                Image:
-                <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
-                <br />
-                UnitPrice:
-                <asp:TextBox ID="UnitPriceTextBox" runat="server" Text='<%# Bind("UnitPrice") %>' />
-                <br />
-                OnHand:
-                <asp:TextBox ID="OnHandTextBox" runat="server" Text='<%# Bind("OnHand") %>' />
-                <br />
-                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-            </InsertItemTemplate>
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" Height="350px" Width="572px">            
             <ItemTemplate>
-                ProductId:
-                <asp:Label ID="ProductIdLabel" runat="server" Text='<%# Eval("ProductId") %>' />
+                <!----><asp:Image ID="imgProduct" runat="server" Width="250px" Height="250px" ImageUrl='<%# Bind("Image", "~/Images/Products/{0}") %>' />
                 <br />
                 <asp:Label ID="NameLabel" runat="server" Text='<%# Bind("Name") %>' />
                 <br />
                 <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Bind("Description") %>' />
                 <br />
-                &nbsp;<asp:Label ID="ImageLabel" runat="server" Text='<%# Bind("Image") %>' />
-                <br />
                 Price:
                 <asp:Label ID="UnitPriceLabel" runat="server" Text='<%# Bind("UnitPrice", "{0:C}") %>' />
                 <br />
-                Currently on Hand:
+                We currently have&nbsp;
                 <asp:Label ID="OnHandLabel" runat="server" Text='<%# Bind("OnHand") %>' />
-                <br />
+                &nbsp;on hand.<br />
 
             </ItemTemplate>
-            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#E3EAEB" />
         </asp:FormView>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand] FROM [Products] WHERE ([ProductId] = @ProductId)">
             <SelectParameters>
