@@ -31,8 +31,8 @@
         
         <!--start of fotorama image carousel here --> 
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8"><div class="fotorama"  data-width="100%" data-ratio="800/350" data-fit="cover" data-autoplay="true" data-stopautoplayontouch="true">
+            <div class="col-md-2"></div> <!--please leave the fotorama settings alone, I cropped the images to fit these settings so please no touchy -->
+                    <div class="col-md-8"><div class="fotorama"  data-width="100%" data-ratio="900/400" data-fit="cover" data-autoplay="true" data-stopautoplayontouch="true">
                          <img src="Images/chocolatehalloweencake.png" data-fit="cover"/>
                          <img src="Images/christmasicecreampudding.png"  data-fit="cover"/>
                          <img src="Images/hummingbird.png" data-fit="cover"/>
@@ -42,32 +42,31 @@
             <div class="col-md-2"></div>
         </div> 
         <!--end of fotorama row data -->
-
-        <div class="row" id="featured"><!-- start of next section on the homepage -->
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice] FROM [Products]"></asp:SqlDataSource>
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-                <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="Images/confetticake.png" Cssclass="img-thumbnail" Height="200px" Width="400px"/>
-                    <aside><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></aside>
-                </section>
-                <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <asp:Image ID="Image2" runat="server" ImageUrl="Images/hummingbird.png" Cssclass="img-thumbnail" Height="200px" Width="400px"/>
-                    <aside><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></aside>
-                </section>
-                <section class="col-lg-3 col-md-3 col-sm-3 ">
-                    <asp:Image ID="Image3" runat="server" ImageUrl="Images/lemoncake.png" Cssclass="img-thumbnail" Height="200px" Width="400px"/>
-                    <aside><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></aside>
-                </section>
-                <section class="col-lg-3 col-md-3  col-sm-3 ">
-                    <asp:Image ID="Image4" runat="server" ImageUrl="Images/matchacake.png" Cssclass="img-thumbnail" Height="200px" Width="400px" />
-                    <aside><asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></aside>
-                </section>
+            <div class="row" id="featured"><!-- start of next section on the homepage -->
+             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice] FROM [Products]"></asp:SqlDataSource>
+              <div class="">
+                   <section class="col-lg-3 col-md-3 col-sm-3 ">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="Images/confetticake.png" Cssclass="img-thumbnail"/>
+                      <aside><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></aside>
+                  </section>
+                  <section class="col-lg-3 col-md-3 col-sm-3 ">
+                       <asp:Image ID="Image2" runat="server" ImageUrl="Images/hummingbird.png" Cssclass="img-thumbnail"/>
+                       <aside><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></aside>
+                    </section>
+                   <section class="col-lg-3 col-md-3 col-sm-3 ">
+                       <asp:Image ID="Image3" runat="server" ImageUrl="Images/lemoncake.png" Cssclass="img-thumbnail"/>
+                       <aside><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></aside>
+                   </section>
+                   <section class="col-lg-3 col-md-3  col-sm-3 ">
+                       <asp:Image ID="Image4" runat="server" ImageUrl="Images/matchacake.png" Cssclass="img-thumbnail" />
+                       <aside><asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></aside>
+                   </section>
              </div>
         </div> <!-- end of thumbnail image section on the homepage -->
-     <%--   <div class="row">
+          <div class="row">
             <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
-                --%>
-               <%-- <table class="nav-justified">
+                -
+             <table class="nav-justified">
                     <tr> <!--need to still display the table inline in the local style css stuff -beth -->
                         <td></td>
                         <td>
@@ -108,10 +107,10 @@
                 <br />
             </section>
             <section class="col-lg-5 col-md-5 col-sm-5">
-                anywhere the wind bloooows id doesn't really mmaaaaaaatttteerrrr toooo meeeeee
+               <p> other stuff can go here maybe</p>
             </section>
-        </div>--%>
-         <%--</div>--%>
+        </div>
+         </div>
    </div> <!-- end of fluid container --> 
 </asp:Content>
 

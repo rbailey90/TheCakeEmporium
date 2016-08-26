@@ -38,12 +38,9 @@ public partial class Cart_CheckOut : System.Web.UI.Page
     {
         string signedInUser = HttpContext.Current.User.Identity.GetUserId();
         //if user is not null, do this
-        if (signedInUser != null)
+        //if (signedInUser != null)
         {
-
-
-
-            //add textbox details
+            //get textbox details
             string shipTo = txtShipTo.Text;
             string shiptoadd1 = txtShipAddr1.Text;
             string shiptoadd2 = txtShipAddr2.Text;
@@ -62,7 +59,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             string pymtName = txtPymtName.Text;
             //Save to Order object
             Order curOrder = new Order(cart, shipTo, shiptoadd1, shiptoadd2, shipCity, shipSt, shipZip, billAddr1, billAddr2, billcity,
-                billstate, billzip, card, exp, cvv, pymtName);
+                billstate, billzip, card, exp, cvv, pymtName,signedInUser);
             //calc rest of order details      
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();
@@ -89,7 +86,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 MessageBox.Show(ex.Message);
             }*/
         }
-        else
+        //else
         {
             //Please sign in first.
         }
