@@ -14,7 +14,7 @@ public class OrderDA
     //public static string connectionString = "Data Source=groupCake.db.2823567.hostedresource.com;Initial Catalog=groupCake;Persist Security Info=True;User ID=groupCake;Password=oNe1@cAke";
     public static SqlConnection conn = new SqlConnection(connStr);
 
-    public static int AddNewOrder(Order theOrder)
+    public static void AddNewOrder(Order theOrder)
     {
         
         int numRows = 0;
@@ -26,7 +26,7 @@ public class OrderDA
         insertCommand.Parameters.AddWithValue("@tax", theOrder.Tax);
         insertCommand.Parameters.AddWithValue("@total", theOrder.OrderTotal);
         insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderDate);
-        /*
+        
         string insertStatement2 = "INSERT INTO ORDERPAYMENT (order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order, @cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
         SqlCommand insertCommand2 = new SqlCommand(insertStatement, conn);
         //need to supply this one with the order number and use it
@@ -53,31 +53,38 @@ public class OrderDA
 
         //need to adapt this idea to looping through each CartItem
         //need to supply next one with order number 
-        string insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId,Quantity, PriceEach,OrderDate) values (@orderid, @productid,@quantity, @priceeach,@orderDate)";
-        SqlCommand insertCommand3 = new SqlCommand(insertStatement, conn);
-        //insertCommand.Parameters.AddWithValue("@orderid", theOrder.UserName);
-        insertCommand.Parameters.AddWithValue("@productid", theOrder.Subtotal);
-        insertCommand.Parameters.AddWithValue("@quantity", theOrder.Tax);
-        insertCommand.Parameters.AddWithValue("@priceeach", theOrder.OrderTotal);
-        insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderTotal);
-        */
+   
+        
 
         try
         {
             conn.Open();
             //the action that puts it in the DB and returns the value back
-            numRows = insertCommand.ExecuteNonQuery();
-            
+            insertCommand.ExecuteNonQuery();
             //get order number
-
+            string selectStatement = "Select IDENT_CURRENT('OrderId') FROM Orders";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            int orderID = Convert.ToInt32(selectCommand.ExecuteScalar());
+            
             //save payment
+            string insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId,Quantity, PriceEach,OrderDate) values (@orderid, @productid,@quantity, @priceeach,@orderDate)";
+            SqlCommand insertCommand3 = new SqlCommand(insertStatement, conn);
+            //insertCommand.Parameters.AddWithValue("@orderid", theOrder.UserName);
+            insertCommand.Parameters.AddWithValue("@productid", theOrder.Subtotal);
+            insertCommand.Parameters.AddWithValue("@quantity", theOrder.Tax);
+            insertCommand.Parameters.AddWithValue("@priceeach", theOrder.OrderTotal);
+            insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderTotal);
+
+            insertCommand.ExecuteNonQuery();
+
             //save details
+
             //save shipping details
         }
         finally
         {
             conn.Close();
         }
-        return numRows;
+        
     }
 }
