@@ -49,7 +49,7 @@ public class Order
 
     public Order(CartItemList theCart,string theShipTo,string theShiptoadd1,string theShiptoadd2,string theShipCity,string theShipSt,
         string theShipZip, string theBillAddr1, string theBillAddr2, string theBillcity, string theBillstate,
-        string theBillzip, string theCard, string theExp,string theCvv, string thePymtName)
+        string theBillzip, string theCard, string theExp,string theCvv, string thePymtName, string theUserName)
     {
         this.CartList = (theCart);
         this.ShipTo=theShipTo;
@@ -67,6 +67,7 @@ public class Order
         this.Exp=theExp;
         this.Cvv=theCvv;
         this.PymtName=thePymtName;
+        this.UserName = theUserName;
     }
 
     public CartItemList CartList
@@ -105,8 +106,9 @@ public class Order
     {
         get { return userName; }
         set {
-            string signedInUser = HttpContext.Current.User.Identity.GetUserId();
-            UserName = signedInUser;
+            //string signedInUser = HttpContext.Current.User.Identity.GetUserId();
+            //UserName = signedInUser;
+            userName = value;
         }
     }
     public string ShipTo 
@@ -200,7 +202,7 @@ public class Order
         return orderTotal;
     }
 
-    
+
 //save order method
 
 
