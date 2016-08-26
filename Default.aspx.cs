@@ -18,21 +18,26 @@ public partial class _Default : System.Web.UI.Page
     public void getNewProduct() //Gets random products to display on default page.
     {
         List<string> images = new List<string>();
-        images.Add("~/Images/ombrecake.jpg");
-        images.Add("~/Images/smchococake.jpg");
-        images.Add("~/Images/rumcake.jpg");
-        images.Add("~/Images/redvelvet.jpg");
-        images.Add("~/Images/rainbowcake.jpg");
-        images.Add("~/Images/purplecake.jpg");
+        images.Add("~/Images/carrotcake.png");
+        images.Add("~/Images/chocolatecake.png");
+        images.Add("~/Images/confetticake.png");
+        images.Add("~/Images/chocolatehalloweencake.png");
+        images.Add("~/Images/chocolateraspberrycake.png");
+        images.Add("~/Images/christmasicecreampudding.png");
+        images.Add("~/Images/germanchocolatecake.png");
+        images.Add("~/Images/hummingbird.png");
+        images.Add("~/Images/icecreamconfetticake.png");
+        images.Add("~/Images/lemoncake.png");
+        images.Add("~/Images/matchacake.png");
 
 
         List<string> descriptions = new List<string>();
-        descriptions.Add("This is an Ombrecake");
-        descriptions.Add("This is a smChococake... your guess is as good as ours on what that even is.");
-        descriptions.Add("This is a rum cake, It will get you drunk");
-        descriptions.Add("This is a red velvet cake, made from 100% velvet");
-        descriptions.Add("This is a rainbow cake, it has many colors in it.");
-        descriptions.Add("This is a purple cake, it's Purple!!!!!!!");
+        descriptions.Add("Carrot Cake");
+        descriptions.Add("Chocolate Cake");
+        descriptions.Add("Confetti Cake");
+        descriptions.Add("Chocolate Halloween Cake");
+        descriptions.Add("Chocolate Raspberry Cake");
+        descriptions.Add("Christmas Icecream Pudding Cake");
 
 
         Random rnd = new Random(); //creates new random
