@@ -8,6 +8,17 @@
         .auto-style2 {
             width: 225px;
         }
+        .auto-style3 {
+            width: 89px;
+            height: 20px;
+        }
+        .auto-style4 {
+            width: 225px;
+            height: 20px;
+        }
+        .auto-style5 {
+            height: 20px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -15,8 +26,7 @@
     <h1>Inventory Management</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Label ID="lblError" runat="server"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="427px">
-        <AlternatingRowStyle BackColor="White" />
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" Width="973px">
         <Columns>
             <asp:BoundField DataField="ProductId" HeaderText="ID" ReadOnly="True" SortExpression="ProductId" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -27,16 +37,6 @@
             <asp:CommandField ButtonType="Button" ShowEditButton="True" />
             <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
         </Columns>
-        <EditRowStyle BackColor="#7C6F57" />
-        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F8FAFA" />
-        <SortedAscendingHeaderStyle BackColor="#246B61" />
-        <SortedDescendingCellStyle BackColor="#D4DFE1" />
-        <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <br />
     To add a cake to the inventory, enter the information and click Add Cake<br />
@@ -67,6 +67,13 @@
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDescript" Display="Dynamic" ErrorMessage="Description is Required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
                 </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">Image File:</td>
+                <td class="auto-style4">
+                    <asp:TextBox ID="txtImageFile" runat="server" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
+                </td>
+                <td class="auto-style5"></td>
             </tr>
             <tr>
                 <td class="auto-style1">Unit Price:</td>
