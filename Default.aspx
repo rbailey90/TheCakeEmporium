@@ -45,27 +45,27 @@
             <div class="row" id="featured"><!-- start of next section on the homepage -->
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice] FROM [Products]"></asp:SqlDataSource>
               <div class="">
-                   <section class="col-lg-3 col-md-3 col-sm-3 ">
+                   <section class="col-lg-3 col-md-3 col-sm-6 ">
                         <asp:Image ID="Image1" runat="server" ImageUrl="Images/confetticake.png" Cssclass="img-thumbnail"/>
                       <aside><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></aside>
                   </section>
-                  <section class="col-lg-3 col-md-3 col-sm-3 ">
+                  <section class="col-lg-3 col-md-3 col-sm-6 ">
                        <asp:Image ID="Image2" runat="server" ImageUrl="Images/hummingbird.png" Cssclass="img-thumbnail"/>
                        <aside><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></aside>
                     </section>
-                   <section class="col-lg-3 col-md-3 col-sm-3 ">
+                   <section class="col-lg-3 col-md-3 col-sm-6 ">
                        <asp:Image ID="Image3" runat="server" ImageUrl="Images/lemoncake.png" Cssclass="img-thumbnail"/>
                        <aside><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></aside>
                    </section>
-                   <section class="col-lg-3 col-md-3  col-sm-3 ">
+                   <section class="col-lg-3 col-md-3  col-sm-6 ">
                        <asp:Image ID="Image4" runat="server" ImageUrl="Images/matchacake.png" Cssclass="img-thumbnail" />
                        <aside><asp:Label ID="Label4" runat="server" Text="Label"></asp:Label></aside>
                    </section>
              </div>
         </div> <!-- end of thumbnail image section on the homepage -->
-          <div class="row">
+          <%--<div class="row">
             <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
-                -
+               
              <table class="nav-justified">
                     <tr> <!--need to still display the table inline in the local style css stuff -beth -->
                         <td></td>
@@ -109,7 +109,7 @@
             <section class="col-lg-5 col-md-5 col-sm-5">
                <p> other stuff can go here maybe</p>
             </section>
-        </div>
+        </div>--%>
          </div>
    </div> <!-- end of fluid container --> 
 </asp:Content>

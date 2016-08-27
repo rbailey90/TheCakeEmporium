@@ -63,9 +63,4 @@ public partial class _Default : System.Web.UI.Page
         Label3.Text = descriptions[adSpace[2]];
         Label4.Text = descriptions[adSpace[3]];
     }
-
-    protected void btnSubmitFAQ_Click(object sender, EventArgs e)
-    {
-       
-    }
 }

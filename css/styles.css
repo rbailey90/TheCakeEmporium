@@ -41,13 +41,6 @@ body {
 #image_sm { display: none; }
 /* end header css*/
 
-.navbar{
-   /*background-color: aqua;*/
-    /*margin: 0 30px; */ 
-   margin-left: auto;
-   margin-right: auto;
-   
-}
 .navbar2{
     clear: both;
     text-align: center;
@@ -66,30 +59,16 @@ body {
     font-weight:bold;
  }
 
-.footerButtons /* individual navigation links */
-{
-    background-color: #6FA398;
-    color: #F2F2F2;
-    padding: 2px;
-    width: 148px;
-    text-align: center; 
-    font-size: medium;
-    font-weight: bold;
-}
-
 .navbar {
-    background-color: #D16956;
+   /* background-color: #D16956; */
     color: #F2F2F2;
     border-style: none;
 }
-.footernav {
-    background-color: #6FA398;
-}
+
 
 #featured {
     background-color:  #F1BC75;
     /*margin: 0 10px;*/
-    
     padding:20px;
 }
 
@@ -105,17 +84,32 @@ body {
     padding: 25px;
     background-color: deeppink;
 }
-/*************** start of media queries go here ***************/
+/*************** FOOTER *******************/
 
-@media only screen and (max-width : 920px){
-    #image_large{ display: none; }
-    #image_med { display: inline; }
+.footerButtons {
+    margin: 0;
+    background-color: #6FA398;
+    color: #F2F2F2;
+    padding: 2px;
+    width: 148px;
+    text-align:center;
+    font-size:large;
+    font-weight:bold;
 }
 
-@media only screen and (max-width : 500px) {
-    #image_sm { display: inline; }
-    #image_med { display: none;}
+.footerNav {
+    clear: both;
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+    
 }
+.footer {
+    background-color: #6FA398;
+    padding: 5px;
+    margin-top: 10px;
+}
+
 /**************< Start of Profile Page >**************/
 .profileContainer{
     display:table;
@@ -168,3 +162,34 @@ body {
     display: table;
     margin: 0 auto;
 }  
+
+/****************CONTACT PAGE **********************/
+.contact-header {
+    opacity: .5;
+    filter: aplpha(opacity = 50);
+    text-align:center;
+}
+.contact_header h2{
+    text-align:center;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+/*************** start of media queries go here ***************/
+
+@media only screen and (max-width : 920px){
+    #image_large{ display: none; }
+    #image_med { display: inline; }
+    .menuButtons {display: block; width: 120px; text-size-adjust: 80%; font-weight:normal; margin-left: 2px; margin: 0 auto;}
+    .footerButtons {display: block; width: 120px; text-size-adjust: 80%; font-weight:normal; margin-left: 2px; margin: 0 auto; }
+    /*.footerButtons { display: block; width: 100px; text-size-adjust: 80%; font-weight: normal;padding: 0px; margin: 0px;}
+    .footernav { display: block; padding: 5px; margin: 5px auto;}*/
+}
+
+@media only screen and (max-width : 500px) {
+    #image_sm { display: inline; }
+    #image_med { display: none;}
+    .menuButtons { display: block; width: inherit; min-width: 235px; margin: 0px auto 5px auto; }
+    .footerButtons { display: block; width: 100%; min-width: 235px; margin: 0px auto 5px auto; }
+    /*.footerButtons { display: block; width: 125px; margin-left: 35px; padding: 5px; text-align: center; }
+    .footernav { margin: 0px auto; text-align: center; }*/
+}

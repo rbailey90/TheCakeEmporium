@@ -66,8 +66,7 @@
                             <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />
-                 </asp:Menu>
-                        
+                 </asp:Menu>                
             </div>
         </div>
         <!--NAV MENU END -->
@@ -80,12 +79,26 @@
                 </asp:ContentPlaceHolder>
         </div> 
         <!-- end of main content area -->
-      
-         <div class="row footernav">   
-             <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" CssClass="">
-                   <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="footerButtons" Font-Names="Cambria" Font-Underline="False" />
-             </asp:Menu>
-         </div>
+         <!--footer experiment -->
+         <div class="row footer">
+            <div class="footerNav">               
+                 <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" >
+                            <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
+                            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="footerButtons" Font-Names="Cambria" Font-Underline="False" />
+                            <StaticSelectedStyle BackColor="#F26E61" />
+                 </asp:Menu>                
+            </div>
+        </div>
+        
+
+
+       <%-- <div class="row footer">
+            <div class="col-lg-7 col-lg-offset-3 col-md-11 col-md-offset-1 col-sm-10 col-sm-offset-2 col-xs-12 col-xs-offset-0"> 
+                <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" CssClass="footernav">
+                     <StaticMenuItemStyle  CssClass="footerButtons" Font-Names="Cambria" Font-Underline="False" />
+                </asp:Menu>
+            </div>
+        </div>--%>
        
         <!-- end of footer navigation area -->
 </div>
