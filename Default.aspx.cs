@@ -8,6 +8,10 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -18,13 +22,13 @@ public partial class _Default : System.Web.UI.Page
     public void getNewProduct() //Gets random products to display on default page.
     {
         List<string> images = new List<string>();
-        images.Add("~/Images/carrotcake.png");
-        images.Add("~/Images/matchacake.png");
-        images.Add("~/Images/confetticake.png");
-        images.Add("~/Images/chocolatehalloweencake.png");
-        images.Add("~/Images/chocolateraspberrycake.png");
-        images.Add("~/Images/christmasicecreampudding.png");
-        images.Add("~/Images/lemoncake.png");
+        images.Add("~/Images/Products/carrotcake.png");
+        images.Add("~/Images/Products/matchacake.png");
+        images.Add("~/Images/Products/confetticake.png");
+        images.Add("~/Images/Products/chocolatehalloweencake.png");
+        images.Add("~/Images/Products/chocolateraspberrycake.png");
+        images.Add("~/Images/Products/christmasicecreampudding.png");
+        images.Add("~/Images/Products/lemoncake.png");
        
 
         List<string> descriptions = new List<string>();

@@ -1,0 +1,28 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+Halloween colors 
+#7e401b - brown
+#962903 - dark red
+#fc962e - medium orange
+#e86807 - darker orange
+#ffbd83 - offwhite/light orange
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+ <asp:Menu SkinID="menuSkin" runat="server" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#fc962e" >
+                            <StaticHoverStyle BackColor="#962903" ForeColor="#ffbd83" />
+                            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Underline="False" />
+                            <StaticSelectedStyle BackColor="#e86807" ForeColor="#ffbd83"/>
+ </asp:Menu>                

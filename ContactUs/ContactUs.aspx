@@ -49,6 +49,11 @@
             </section>
             <section class="col-lg-5 col-md-5 col-sm-5">
                <p> other stuff can go here maybe</p>
+                <p> 
+                    <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+               
+                </p>
+                <p> &nbsp;</p>
             </section>
         </div>
     </div>

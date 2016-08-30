@@ -1,13 +1,10 @@
-﻿/*Group1 - The Cake Emporium - Connor, Staci, Lisa, Joe, Bethany */
-/* COLOR SCHEME
-    #6FA398 - blue
-    #F1BC75 - yellow/gold
-    #59524B - black/copy color
-    #D16956 - dark red
-    #F2F2F2 - off-white
-    #F26E61 - medium red
+﻿/* Halloween colors 
+#7e401b - brown
+#962903 - dark red
+#fc962e - medium orange
+#e86807 - darker orange
+#ffbd83 - offwhite/light orange
 */
-
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
@@ -16,7 +13,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 /****************** Styles on the MasterPage.master Page ***************/
 body {
     color: #59524B;
-    background-image: url('../Images/background.png');
+    background-image: url('halloween_background.png');
    /* max-width: 920px;
     margin: 0 auto; */
 }
@@ -38,13 +35,17 @@ body {
 
 .pageHeader img {display: none;}
 
-#image_large{ display: inline; }
+#image_large{ display: none; }
 #image_med { display: none; }
 #image_sm { display: none; }
 
-.birthdayheader_lrg { display: none  }
-.birthdayheader_med { display: none  }
-.birthdayheader_sm  { display: none  }
+.birthdayheader_lrg { display: none;  }
+.birthdayheader_med { display: none; }
+.birthdayheader_sm  { display: none; }
+
+.halloweenheader_lrg { display: inline !important; }
+.halloweenheader_med { }
+.halloweenheader_sm  { }
 /* end header css*/
 
 .navbar2{
@@ -127,26 +128,26 @@ body {
     display:table;
     width: 500px;
     margin: 15px auto;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-weight:bold;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight:bold;
 }
 
 .profileHeader{
-      display:inline-block;
-      border-radius: 4px 4px 0 0;
-      background-color:#428bca;
-      width: 100%;
-      margin: 0 auto;
-      font-size: 20px;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      margin-bottom: 15px;
+    display:inline-block;
+    border-radius: 4px 4px 0 0;
+    background-color:#428bca;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 /**************^ Profile Page END ^**************/
 /************** START OF LOGIN **************/
@@ -155,12 +156,12 @@ body {
     width: 400px;
     margin: 15px auto;
     font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-weight:bold;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight:bold;
 }
 
 .loginInnerContainer{
@@ -168,7 +169,7 @@ body {
 }
 /***************^END LOGIN^************************/
 .center-block {  
-  display: block;  
+    display: block;  
     clear: both;
 
     display: table;
@@ -189,8 +190,9 @@ body {
 /*************** start of media queries go here ***************/
 
 @media only screen and (max-width : 920px){
-    #image_large{ display: none; }
-    #image_med { display: inline; }
+    .halloweenheader_lrg { display: none !important; }
+    .halloweenheader_med { display: inline !important;}
+
     .menuButtons {display: block; width: 120px; text-size-adjust: 80%; font-weight:normal; margin-left: 2px; margin: 0 auto;}
     .footerButtons {display: block; width: 120px; text-size-adjust: 80%; font-weight:normal; margin-left: 2px; margin: 0 auto; }
     /*.footerButtons { display: block; width: 100px; text-size-adjust: 80%; font-weight: normal;padding: 0px; margin: 0px;}
@@ -198,8 +200,9 @@ body {
 }
 
 @media only screen and (max-width : 500px) {
-    #image_sm { display: inline; }
-    #image_med { display: none;}
+    .halloweenheader_med { display: none !important;}
+    .halloweenheader_sm  { display: inline !important;}
+
     .menuButtons { display: block; width: inherit; min-width: 235px; margin: 0px auto 5px auto; }
     .footerButtons { display: block; width: 100%; min-width: 235px; margin: 0px auto 5px auto; }
     /*.footerButtons { display: block; width: 125px; margin-left: 35px; padding: 5px; text-align: center; }
