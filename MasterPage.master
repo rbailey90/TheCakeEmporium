@@ -36,7 +36,7 @@
 <body>
     <form id="form1" runat="server">
         <!---START OF TOP MENU -->   
-          <nav class="navbar navbar-inverse navbar-static-top">
+          <nav class="navbar navbar navbar-static-top">
             <div class="navbar-header nav-background">
                      <a class="navbar-brand" ><asp:Literal ID="ltlcurrentUser" runat="server"></asp:Literal></a>
             </div>
@@ -45,7 +45,7 @@
               <li><asp:LinkButton ID="btn_Profile" runat="server" OnClick="btn_Profile_Click"><span class="glyphicon glyphicon-log-in"></span> Profile </asp:LinkButton></li>
               <li><asp:LinkButton ID="btn_SignUp" runat="server" OnClick="btn_SignUp_Click"><span class="glyphicon glyphicon-user"></span> Sign Up </asp:LinkButton></li>
               <li><asp:LinkButton ID="btn_LogIn" runat="server" OnClick="btn_LogIn_Click"><span class="glyphicon glyphicon-log-in"></span> Log In </asp:LinkButton></li>
-              <li><a></a></li>
+              <li><asp:LinkButton ID="btn_LogOut" runat="server" OnClick="btn_LogOut_Click"><span class="glyphicon glyphicon-log-in"></span> Log Out </asp:LinkButton></li>
             </ul>
         
          </div>

@@ -51,4 +51,13 @@ public class UserDA
 
         return numRows;
     }
+
+
+    public static int UpdateUser(string UserId)
+    {
+        int numRows = 0;
+        //updates user information
+
+        return numRows;
+    }
 }

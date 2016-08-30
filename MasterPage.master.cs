@@ -13,11 +13,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
+
+
         var signedInUser = HttpContext.Current.User.Identity.GetUserName();
         if (signedInUser != null)
         {
             ltlcurrentUser.Text = string.Format("Welcome back {0}", signedInUser);
             btn_Profile.Visible = true;
+            btn_LogOut.Visible = true;
             btn_SignUp.Visible = false;
             btn_LogIn.Visible = false;
         }
@@ -25,7 +30,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             btn_LogIn.Visible = true;
             btn_Profile.Visible = false;
+            btn_LogOut.Visible = false;
             btn_SignUp.Visible = true;
+
+
+            //Menu1.Items.Add(new MenuItem
+            //{
+            //    Text = "Login",
+            //    NavigateUrl = "~/Accounts/Login.aspx"
+            //});
         }
     }
 
@@ -42,5 +55,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void btn_Profile_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/Accounts/Profile.aspx");
+    }
+
+    protected void btn_LogOut_Click(object sender, EventArgs e)
+    {
+        var Auth_Manager = HttpContext.Current.GetOwinContext().Authentication;
+        Auth_Manager.SignOut();
+        Response.Redirect("~/Default.aspx");
     }
 }
