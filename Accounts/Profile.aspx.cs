@@ -61,7 +61,8 @@ public partial class User_Profile : System.Web.UI.Page
 
     protected void btnUpdateInfo_Click(object sender, EventArgs e)
     {
-        UserDA.UpdateUser(User.Identity.GetUserId());
+        //User currentUser = 
+        //UserDA.UpdateUser(User.Identity.GetUserId());
     }
 
     protected void btnChangePass_Click(object sender, EventArgs e)
