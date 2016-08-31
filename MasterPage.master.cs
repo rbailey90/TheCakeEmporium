@@ -32,13 +32,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
             btn_Profile.Visible = false;
             btn_LogOut.Visible = false;
             btn_SignUp.Visible = true;
-
-
-            //Menu1.Items.Add(new MenuItem
-            //{
-            //    Text = "Login",
-            //    NavigateUrl = "~/Accounts/Login.aspx"
-            //});
         }
     }
 
