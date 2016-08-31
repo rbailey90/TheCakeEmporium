@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 public partial class User_Profile : System.Web.UI.Page
 {
+    UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
     protected void Page_Load(object sender, EventArgs e)
     {
         var signedInUserId = User.Identity.GetUserId();
@@ -31,7 +32,6 @@ public partial class User_Profile : System.Web.UI.Page
 
     protected void EditButton_Click(object sender, EventArgs e)
     {       
-        UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
         var newpass = (FormView2.FindControl("NewPasswordBox") as TextBox).Text;
         var newEmail = (FormView2.FindControl("EmailTextBox") as TextBox).Text;
         var newPhone = (FormView2.FindControl("PhoneNumberTextBox") as TextBox).Text;
@@ -51,5 +51,21 @@ public partial class User_Profile : System.Web.UI.Page
             userManager.SetPhoneNumber(User.Identity.GetUserId(), newPhone);
             Response.Redirect("~/Accounts/UpdateComplete.aspx");
         }
+    }
+
+    protected void btnUnregister_Click(object sender, EventArgs e)
+    {
+        userManager.SetLockoutEnabled(User.Identity.GetUserId(), false);
+        Response.Redirect("~/Accounts/AccountDeactived.aspx");
+    }
+
+    protected void btnUpdateInfo_Click(object sender, EventArgs e)
+    {
+        UserDA.UpdateUser(User.Identity.GetUserId());
+    }
+
+    protected void btnChangePass_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Accounts/ResetPassword.aspx");
     }
 }

@@ -33,12 +33,24 @@ public partial class User_Registration : System.Web.UI.Page
             var Auth_Manager = HttpContext.Current.GetOwinContext().Authentication;
             var User_Identity = User_Manager.CreateIdentity(New_User, DefaultAuthenticationTypes.ApplicationCookie);
             User_Manager.SetEmail(New_User.Id, TxtUserEmail.Text);
-            
+
+            string myRole = "User";
+            //Creates Role if does not exists
+
+            //var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            //if (!RoleManager.RoleExists(myRole))
+            //{
+            //    var roleResult = RoleManager.Create(new IdentityRole(myRole));
+            //}
+
+
+            User_Manager.AddToRole(New_User.Id, myRole);
             Auth_Manager.SignIn(new AuthenticationProperties() { }, User_Identity);
             //var userid = User.Identity.GetUserId(); //gets the new user id once logged in
+
             //inserts profile informtion into User table
             var role = "User";
-            var new_UserProfile = new User(User_Identity.GetUserId(), txtFirstName.Text, txtLastName.Text, role, txtAddress.Text, txtState.Text, TxtZip.Text);
+            var new_UserProfile = new User(User_Identity.GetUserId(), txtFirstName.Text, txtLastName.Text, role, txtAddress.Text, txtState.Text, TxtZip.Text, Convert.ToDateTime(txtDob.Text));
             UserDA.AddUser(new_UserProfile);
             Response.Redirect("~/Accounts/Login.aspx");
         }

@@ -11,8 +11,9 @@ public class CartItem
     Cake cake;
     int quantity;
     decimal extPrc;
-    
-	public CartItem()    {}
+
+
+    public CartItem()    {}
 
     public CartItem(Cake theCake, int theQuantity)
     {
@@ -37,7 +38,12 @@ public class CartItem
         get{return extPrc;}
         set { extPrc = value; }
     }
-    
+    //public string Id
+    //{
+    //    get { return id; }
+    //    set { id = value; }
+    //}
+
     public void AddQuantity(int quantity)
     {
         this.Quantity += quantity;

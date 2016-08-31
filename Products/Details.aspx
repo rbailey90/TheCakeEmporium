@@ -35,7 +35,7 @@
             <asp:Label ID="lblQuantity" runat="server" Text="Quantity: "></asp:Label>
             <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter how many you'd like to order."></asp:RequiredFieldValidator>
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter a number between 1 and 9." MaximumValue="9" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+            <asp:Label ID="lblQuan" runat="server"></asp:Label>
         </p>
             <asp:Button ID="btnAddtoCart" runat="server" Text="Add to Cart" OnClick="btnAddtoCart_Click" />
     </div>

@@ -13,6 +13,15 @@ public partial class Manager_InventoryManagement : System.Web.UI.Page
     }
 
     // raising an event when one of the rows is being updated
+    protected void GridView1_RowUpdating(object send, GridViewUpdatedEventArgs e)
+    {
+        if(GridView1 == null) // save spot here!
+        {
+            lblError.Text = "Error has occurred.";
+            e.KeepInEditMode = true;
+        }
+    }
+ 
     protected void GridView1_RowUpdated(object sender, GridViewUpdatedEventArgs e)
     {
         // if attempting to store a null value where the database does not allow
