@@ -71,14 +71,20 @@ body {
     border-style: none;
 }
 
-
 #featured {
     background-color:  #F1BC75;
     /*margin: 0 10px;*/
     padding:20px;
 }
 
+.calendarSize {
+  /*min-height: 400px;*/
+}
 
+.txtboxWidth {
+    width: 300px;
+    min-width: 100px;
+}
 #centertext {
     margin: 0 auto;
     text-align: center;
@@ -127,13 +133,13 @@ body {
     display:table;
     max-width: 475px;
     margin: 15px auto;
-  font-size: 14px;
+    font-size: 14px;
 
-  color: #555;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-weight: bold;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
 
 }
 
@@ -156,12 +162,12 @@ body {
     width: 400px;
     margin: 15px auto;
     font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-weight:bold;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight:bold;
 }
 
 .loginInnerContainer{
@@ -169,7 +175,7 @@ body {
 }
 /***************^END LOGIN^************************/
 .center-block {  
-  display: block;  
+    display: block;  
     clear: both;
 
     /*display: table;*/
@@ -196,6 +202,7 @@ body {
     .footerButtons {display: block; width: 120px; text-size-adjust: 80%; font-weight:normal; margin-left: 2px; margin: 0 auto; }
     /*.footerButtons { display: block; width: 100px; text-size-adjust: 80%; font-weight: normal;padding: 0px; margin: 0px;}
     .footernav { display: block; padding: 5px; margin: 5px auto;}*/
+    .txtboxWidth { width: 250px;  }
 }
 
 @media only screen and (max-width : 500px) {
@@ -205,4 +212,4 @@ body {
     .footerButtons { display: block; width: 100%; min-width: 235px; margin: 0px auto 5px auto; }
     /*.footerButtons { display: block; width: 125px; margin-left: 35px; padding: 5px; text-align: center; }
     .footernav { margin: 0px auto; text-align: center; }*/
-}
+    .txtboxWidth { width: 150px; }
