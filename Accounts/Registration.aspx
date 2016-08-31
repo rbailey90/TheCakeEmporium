@@ -136,6 +136,21 @@
            </div>
 
            <div class="form-group">
+               <div class="col-md-5 col-sm-5 text-right" style="float: left; overflow: hidden;">
+                    <asp:Label ID="lblDob" runat="server" Text="Date of Birth:"></asp:Label>
+               </div>
+               <div class="col-md-7 col-sm-7">
+                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control"></asp:TextBox>
+               </div>
+               <div class="row">
+                   <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" CssClass="pull-right" ControlToValidate="txtDob" ErrorMessage="*Birthday Required"></asp:RequiredFieldValidator>
+                   </div>
+               </div>
+           </div>
+
+
+           <div class="form-group">
                <div class="col-md-5 col-sm-5" style="float: left; overflow: hidden;">
                     
                </div>

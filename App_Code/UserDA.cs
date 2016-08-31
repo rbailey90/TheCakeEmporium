@@ -27,7 +27,7 @@ public class UserDA
     {
         int numRows = 0;
 
-        string insertString = "insert into Accounts (Username, Firstname, Lastname, Role, Address, State, ZipCode) values (@username, @firstname, @lastname, @role, @address, @state, @zip)"; // the parameter values will be made later
+        string insertString = "insert into Accounts (Username, Firstname, Lastname, Role, Address, State, ZipCode, Birthday) values (@username, @firstname, @lastname, @role, @address, @state, @zip, @birthday)"; // the parameter values will be made later
 
         SqlCommand insertCommand = new SqlCommand(insertString, conn); 
 
@@ -38,6 +38,7 @@ public class UserDA
         insertCommand.Parameters.AddWithValue("@address", newUser.Address);
         insertCommand.Parameters.AddWithValue("@state", newUser.State);
         insertCommand.Parameters.AddWithValue("@zip", newUser.Zip);
+        insertCommand.Parameters.AddWithValue("@birthday", newUser.Birthday);
 
         try
         {

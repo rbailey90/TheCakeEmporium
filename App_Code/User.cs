@@ -17,11 +17,12 @@ public class User
     public string State { get; set; }
     public string Zip { get; set; }
     public static object Identity { get; set; }
+    public DateTime Birthday { get; set; }
 
     public User()
     { }
 
-    public User(string userName, string fName, string lName, string role, string address, string state, string zip)
+    public User(string userName, string fName, string lName, string role, string address, string state, string zip, DateTime birthday)
     {
         this.Username = userName;
         //this.Password = passWord;
@@ -30,7 +31,7 @@ public class User
         this.Address = address;
         this.State = state;
         this.Zip = zip;
-
+        this.Birthday = birthday;
         this.Role = role;
     
         
