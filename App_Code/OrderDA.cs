@@ -16,8 +16,6 @@ public class OrderDA
 
     public static void AddNewOrder(Order theOrder)
     {
-        
-        int numRows = 0;
         string insertStatement = "INSERT INTO ORDERS (Username, subtotal, tax, OrderTotal,OrderDate) values (@userName, @subtotal,@tax, @total,@orderDate)";
         SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
 
@@ -25,66 +23,84 @@ public class OrderDA
         insertCommand.Parameters.AddWithValue("@subtotal", theOrder.Subtotal);
         insertCommand.Parameters.AddWithValue("@tax", theOrder.Tax);
         insertCommand.Parameters.AddWithValue("@total", theOrder.OrderTotal);
-        insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderDate);
-        
-        string insertStatement2 = "INSERT INTO ORDERPAYMENT (order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order, @cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
-        SqlCommand insertCommand2 = new SqlCommand(insertStatement, conn);
-        //need to supply this one with the order number and use it
-        insertCommand.Parameters.AddWithValue("@order", theOrder.UserName);
-        insertCommand.Parameters.AddWithValue("@cardNumber", theOrder.Subtotal);
-        insertCommand.Parameters.AddWithValue("@expDate", theOrder.Tax);
-        insertCommand.Parameters.AddWithValue("@CVV", theOrder.OrderTotal);
-        insertCommand.Parameters.AddWithValue("@billingStreet1",theOrder.BillAddr1);
-        insertCommand.Parameters.AddWithValue("@billingStreet2",theOrder.BillAddr2);
-        insertCommand.Parameters.AddWithValue("@billingCity",theOrder.Billcity);
-        insertCommand.Parameters.AddWithValue("@billingState",theOrder.Billstate);
-        insertCommand.Parameters.AddWithValue("@billingZip",theOrder.Billzip);
-
-        //need to supply next one with order number
-        string insertStatement4 = "INSERT INTO ORDERSHIPPINGDETAILS (shipTo, Street1,Street2,City,State,Zip) values (@shipTo, @Street1,@Street2,@City,@State,@Zip)";
-        SqlCommand insertCommand4 = new SqlCommand(insertStatement, conn);
-        //insertCommand.Parameters.AddWithValue("@order", theOrder.UserName);
-        insertCommand.Parameters.AddWithValue("@shipTo", theOrder.ShipTo);
-        insertCommand.Parameters.AddWithValue("@Street1", theOrder.ShipToAdd1);
-        insertCommand.Parameters.AddWithValue("@Street2", theOrder.ShiptoAdd2);
-        insertCommand.Parameters.AddWithValue("@City", theOrder.ShipCity);
-        insertCommand.Parameters.AddWithValue("@State", theOrder.ShipSt);
-        insertCommand.Parameters.AddWithValue("@Zip", theOrder.ShipZip);
-
-        //need to adapt this idea to looping through each CartItem
-        //need to supply next one with order number 
-   
-        
+        insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderDate);       
 
         try
         {
             conn.Open();
-            //the action that puts it in the DB and returns the value back
+            //the action that writes to Order table
             insertCommand.ExecuteNonQuery();
             //get order number
             string selectStatement = "Select IDENT_CURRENT('OrderId') FROM Orders";
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
             int orderID = Convert.ToInt32(selectCommand.ExecuteScalar());
-            
-            //save payment
-            string insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId,Quantity, PriceEach,OrderDate) values (@orderid, @productid,@quantity, @priceeach,@orderDate)";
-            SqlCommand insertCommand3 = new SqlCommand(insertStatement, conn);
-            //insertCommand.Parameters.AddWithValue("@orderid", theOrder.UserName);
-            insertCommand.Parameters.AddWithValue("@productid", theOrder.Subtotal);
-            insertCommand.Parameters.AddWithValue("@quantity", theOrder.Tax);
-            insertCommand.Parameters.AddWithValue("@priceeach", theOrder.OrderTotal);
-            insertCommand.Parameters.AddWithValue("@orderDate", theOrder.OrderTotal);
 
-            insertCommand.ExecuteNonQuery();
 
-            //save details
 
-            //save shipping details
+            /*save payment*/
+            //first set it up          
+            string insertStatement2 = "INSERT INTO ORDERPAYMENT (order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order, @cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
+            SqlCommand insertCommand2 = new SqlCommand(insertStatement2, conn);
+            //need to supply this one with the order number and use it
+            insertCommand2.Parameters.AddWithValue("@order", orderID);
+            insertCommand2.Parameters.AddWithValue("@cardNumber", theOrder.Subtotal);
+            insertCommand2.Parameters.AddWithValue("@expDate", theOrder.Tax);
+            insertCommand2.Parameters.AddWithValue("@CVV", theOrder.OrderTotal);
+            insertCommand2.Parameters.AddWithValue("@billingStreet1", theOrder.BillAddr1);
+            insertCommand2.Parameters.AddWithValue("@billingStreet2", theOrder.BillAddr2);
+            insertCommand2.Parameters.AddWithValue("@billingCity", theOrder.Billcity);
+            insertCommand2.Parameters.AddWithValue("@billingState", theOrder.Billstate);
+            insertCommand2.Parameters.AddWithValue("@billingZip", theOrder.Billzip);
+            //then write
+            insertCommand2.ExecuteNonQuery();
+
+            /*save shipping details*/
+            //first set it up
+            string insertStatement4 = "INSERT INTO ORDERSHIPPINGDETAILS (order, shipTo, Street1,Street2,City,State,Zip) values (@order, @shipTo, @Street1,@Street2,@City,@State,@Zip)";
+            SqlCommand insertCommand4 = new SqlCommand(insertStatement4, conn);
+            insertCommand4.Parameters.AddWithValue("@order", orderID);
+            insertCommand4.Parameters.AddWithValue("@shipTo", theOrder.ShipTo);
+            insertCommand4.Parameters.AddWithValue("@Street1", theOrder.ShipToAdd1);
+            insertCommand4.Parameters.AddWithValue("@Street2", theOrder.ShiptoAdd2);
+            insertCommand4.Parameters.AddWithValue("@City", theOrder.ShipCity);
+            insertCommand4.Parameters.AddWithValue("@State", theOrder.ShipSt);
+            insertCommand4.Parameters.AddWithValue("@Zip", theOrder.ShipZip);
+            //then write
+
+            insertCommand4.ExecuteNonQuery();
+            /* Save Order Details */
+            WriteDetails(theOrder, orderID);
         }
         finally
         {
             conn.Close();
         }
         
+    }
+
+    public static void WriteDetails(Order theOrder, int orderID)
+    {            /*save order details*/
+                 //first set it up
+                 //need to adapt this idea to looping through each CartItem
+        string insertStatement3;
+        
+
+        //then write
+       // foreach (CartItem i in )
+        {
+            insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId,Quantity, PriceEach,OrderDate) values (@orderid, @productid,@quantity, @priceeach,@orderDate)";
+            SqlCommand insertCommand3 = new SqlCommand(insertStatement3, conn);
+            insertCommand3.Parameters.AddWithValue("@orderid", orderID);
+            insertCommand3.Parameters.AddWithValue("@productid", theOrder.Subtotal);
+            insertCommand3.Parameters.AddWithValue("@quantity", theOrder.Tax);
+            insertCommand3.Parameters.AddWithValue("@priceeach", theOrder.OrderTotal);
+            insertCommand3.Parameters.AddWithValue("@orderDate", theOrder.OrderTotal);
+
+            insertCommand3.ExecuteNonQuery();
+            //i++;
+
+        }
+
+
     }
 }

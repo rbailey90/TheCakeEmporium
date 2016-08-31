@@ -204,7 +204,19 @@ public class Order
 
 
 //save order method
+public void SaveOrder(Order theOrder)
+    {
+        int id = 0;
+        try
+        {
+                //save to DB
+                OrderDA.AddNewOrder(theOrder);
+            }
+
+        finally { }
+    }
+
+    }
 
 
 
-}

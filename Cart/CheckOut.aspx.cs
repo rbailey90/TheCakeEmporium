@@ -64,12 +64,12 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();
             //Place order 
-            /*try
+            try
             {
                 //save order to DB
                 curOrder.SaveOrder(curOrder);
                 //reset curOrder & clear listbox
-                curOrder = nextOrder;
+                //curOrder = nextOrder;
                 lstCart.Items.Clear();
                 lstCart.Items.Add("Order complete. Please enter next order");
             }/*
@@ -80,11 +80,11 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             catch (SqlException ex)
             {
                 MessageBox.Show("There is a problem connecting or saving to the database. Unable to finish order.");
-            }
+            }*/
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }*/
+                //MessageBox.Show(ex.Message);
+            }
         }
         //else
         {
