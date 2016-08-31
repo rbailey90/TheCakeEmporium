@@ -20,7 +20,7 @@
             </div>
             <p id="message">
 
-                <asp:Label ID="lblMessage" runat="server" Text="Label" EnableViewState="False"></asp:Label>
+                <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label>
 
             </p>
 

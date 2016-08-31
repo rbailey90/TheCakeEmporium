@@ -22,20 +22,34 @@ public partial class Products_Details : System.Web.UI.Page
 
     protected void btnAddtoCart_Click(object sender, EventArgs e)
     {
+        int quantitySelected;
+        quantitySelected = Convert.ToInt16(txtQuantity.Text);
+
         if(Page.IsValid)
         {
             Cake selectedProduct = this.GetSelectedProduct();
             CartItemList cart = CartItemList.GetCart();
             CartItem cartItem = cart[selectedProduct.ProductId];
-            if(cartItem==null)
-            {    
-                cart.AddItem(selectedProduct, Convert.ToInt32(txtQuantity.Text));
+
+            // checking first to see if we have the amount selected currently on hand
+            if (quantitySelected > selectedProduct.OnHand)
+            {
+                lblQuan.Text = "Sorry, we do not have that many on hand.";
             }
             else
             {
-                cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
+                // if we do, then we can add to cart and redirect to cart
+                if (cartItem == null)
+                {
+                    cart.AddItem(selectedProduct, Convert.ToInt32(txtQuantity.Text));
+                }
+                else
+                {
+                    cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
+                }
+                Response.Redirect("~/Cart/Cart.aspx");
             }
-            Response.Redirect("~/Cart/Cart.aspx");
+
         }
     }
     private Cake GetSelectedProduct()
@@ -49,8 +63,14 @@ public partial class Products_Details : System.Web.UI.Page
         p.Name = row["Name"].ToString();
         p.Description = row["Description"].ToString();
         p.UnitPrice = (decimal)row["UnitPrice"];
+        p.OnHand = (int)row["OnHand"]; // 
         //p.ImageFile = row["ImageFile"].ToString();
         return p;
     }
 
+
+    protected void btnContinue_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Products/Products.aspx");
+    }
 }
