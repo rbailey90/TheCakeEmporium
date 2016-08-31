@@ -18,7 +18,7 @@
     <br />
     <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT OrderDetails.[OrderId] as 'Order ID', Orders.[Username] as 'Username', OrderDetails.[ProductID] as 'Product ID', OrderDetails.[Quantity] as 'Quantity', OrderDetails.[PriceEach] as 'Price of Each', OrderDetails.[OrderDate] as 'Order Date', Orders.[total] as 'Total', OrderDetails.[OrderStatus] as 'Order Status' FROM [OrderDetails] inner join Orders on Orders.OrderId = OrderDetails.OrderId inner join Products on Products.ProductId = OrderDetails.ProductID WHERE (AspNetUsers.[Id] = @signedInUser)">
-        <asp:SessionParameter Name="signedInUser" SessionField="signedInUser" Type="String" /> <!-- [MigrationId] = @MigrationId -->
+        <%--<asp:SessionParameter Name="signedInUser" SessionField="signedInUser" Type="String" /> <!-- [MigrationId] = @MigrationId -->--%>
     </asp:SqlDataSource>
 </asp:Content>
 
