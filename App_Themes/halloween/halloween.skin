@@ -25,4 +25,10 @@ Halloween colors
                             <StaticHoverStyle BackColor="#962903" ForeColor="#ffbd83" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#e86807" ForeColor="#ffbd83"/>
- </asp:Menu>                
+ </asp:Menu>   
+
+<asp:Menu SkinId="FooterSkin" runat="server" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#ffbd83" >
+                            <StaticHoverStyle BackColor="#fc962e" ForeColor="#962903" />
+                            <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="footerButtons" Font-Names="Cambria" Font-Underline="False" />
+                            <StaticSelectedStyle BackColor="#e86807" />
+ </asp:Menu>              

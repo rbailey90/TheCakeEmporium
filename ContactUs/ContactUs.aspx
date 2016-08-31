@@ -1,17 +1,39 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="ContactUs_ContactUs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+        <style>
+        .auto-style1 {
+            width: 107px;
+        }
+        .auto-style2 {
+            margin-left: 40px;
+        }
+        .auto-style3 {
+            width: 107px;
+            height: 111px;
+        }
+        .auto-style4 {
+            height: 111px;
+        }
+        .auto-style5 {
+            width: 107px;
+            height: 45px;
+        }
+        .auto-style6 {
+            height: 45px;
+        }
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container-fluid">  
          <div class="row">
-            <h2 class="col-lg-offset-5 col-md-offset-5">CONTACT US</h2>
+            <h2 class="text-center heading">Contact Us</h2>
             <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
              <table class="nav-justified">
                     <tr> <!--need to still display the table inline in the local style css stuff -beth -->
                         <td></td>
                         <td>
-                            <p>Hey! Hey, you! Have any questions for us? 
+                            <p class="text-center">Hey! Hey, you! Have any questions for us? 
                               Leave 'em in the box below!</p> 
                         </td>
                     </tr>

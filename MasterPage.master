@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    <!-- IE shim needs to stay here @ the top for it to work --> 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,9 +20,6 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet"/>
     <!--Fotorama image carousel scripts --> 
     <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" /> <!-- 3 KB -->
-
-
-   
 
     <!--bootstrap framework link for anyone who doesn't install bootstrap into their project -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -86,30 +84,21 @@
         <div class="row"> <!-- put the content place holder in a row already to make formatting easier down the road -->
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 <!-- individual page content will go here --> 
-
+                
                 </asp:ContentPlaceHolder>
         </div> 
         <!-- end of main content area -->
-         <!--footer experiment -->
+         <!--footer area -->
          <div class="row footer">
             <div class="footerNav">               
-                 <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" >
+                 <asp:Menu ID="Menu2" SkinId="FooterSkin" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" >
                             <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="footerButtons" Font-Names="Cambria" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#F26E61" />
                  </asp:Menu>                
             </div>
-        </div>
-        
-
-
-       <%-- <div class="row footer">
-            <div class="col-lg-7 col-lg-offset-3 col-md-11 col-md-offset-1 col-sm-10 col-sm-offset-2 col-xs-12 col-xs-offset-0"> 
-                <asp:Menu ID="Menu2" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" CssClass="footernav">
-                     <StaticMenuItemStyle  CssClass="footerButtons" Font-Names="Cambria" Font-Underline="False" />
-                </asp:Menu>
-            </div>
-        </div>--%>
+        </div> 
+        <!-- end of footer navigation area -->      
        
         <!--Google Analytics script-->
         <script>
@@ -122,7 +111,6 @@
             ga('send', 'pageview');
         </script>
 
-        <!-- end of footer navigation area -->
 </div>
         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
          <!-- Include all compiled plugins (below), or include individual files as needed -->

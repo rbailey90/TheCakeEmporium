@@ -11,6 +11,21 @@ using Microsoft.Owin.Security;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        DateTime todaysDate = new DateTime();
+        todaysDate = System.DateTime.Now.Date;
+        DateTime halloweenDay = new DateTime(2016, 10, 31);
+
+        TimeSpan t = todaysDate - halloweenDay;
+        double numDays = t.TotalDays;
+
+        if (numDays <= 131)
+        {
+            Page.Theme = "halloween";  //this is how you change the theme here to the halloween theme for just this page
+                                       //has to go in the page preInit event so that the theme is applied before the page is constructed
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         var signedInUser = HttpContext.Current.User.Identity.GetUserName();

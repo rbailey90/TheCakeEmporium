@@ -10,15 +10,56 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_PreInit(object sender, EventArgs e)
     {
-        
+        int daysUntil = getDaysUntilHalloween();
+        int daysUntilBirthday = getDaysUntilBirthday();
+
+        if (daysUntil <= 31)
+        {
+            Page.Theme = "halloween";  
+        }
+        if (daysUntilBirthday <= 131)
+        {
+            Page.Theme = "birthday";
+        }
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        int daysUntilHalloween = getDaysUntilHalloween();
+        if (lblSecondaryMessage != null && Page.Theme=="halloween" && Page.Theme != "birthday")
+        {
+            switch (daysUntilHalloween)
+            {
+                case 0: //if it's october 31st
+                    lblSecondaryMessage.Text = "Happy Halloween!";
+                    break;
+                case 1: //if it's october 30th
+                    lblSecondaryMessage.Text = "Tomorrow is Halloween Day!";
+                    break;
+                default:
+                    lblSecondaryMessage.Text = string.Format("There are only {0} days left until Halloween!", daysUntilHalloween);
+                    break;
+            }
+        }
         getNewProduct();
         //  List<Cake> getCake = CakeDA.GetAllCake();
     }
+    public int getDaysUntilBirthday()
+    {
+        double daysUntilBirthday = 1000; //change this when there's a user birthday field!!!!!
+        return (int)daysUntilBirthday;
+    }
+    public int getDaysUntilHalloween()
+    {
+        DateTime todaysDate = new DateTime();
+        todaysDate = System.DateTime.Now.Date;
+        DateTime halloweenDay = new DateTime(DateTime.Today.Year, 10, 31); //year set to current year so it will constantly update
 
+        TimeSpan t = halloweenDay - todaysDate;
+        double daysUntil = t.TotalDays;
+
+        return (int)daysUntil;
+    }
     public void getNewProduct() //Gets random products to display on default page.
     {
         List<string> images = new List<string>();

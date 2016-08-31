@@ -25,19 +25,20 @@ body {
 }
 
 .pageHeader img {
-    display: inline;
-
+    display: none;
    }
 
 #image_large{ display: none; }
 #image_med { display: none; }
 #image_sm { display: none; }
 
+.halloweenheader_lrg { display: none !important; }
+.halloweenheader_med { display: none !important; }
+.halloweenheader_sm  { display: none !important; }
+
 .birthdayheader_lrg { display: inline !important;}
 .birthdayheader_med { display: none !important; }
 .birthdayheader_sm  { display: none !important; }
-
-
 /* end header css*/
 
 .navbar2{

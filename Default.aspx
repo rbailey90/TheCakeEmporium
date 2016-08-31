@@ -48,6 +48,9 @@
             <h1 class="text-center"> 
                 <asp:Label ID="lblWelcomeMessage" runat="server" SkinID="birthdayWelcome" Text="Welcome to The Cake Emporium!" Font-Names="Helvetica"></asp:Label>     
             </h1>
+            <h3 class="text-center">
+                 <asp:Label ID="lblSecondaryMessage" runat="server" Text=""></asp:Label>
+            </h3>
         </div>
         <!-- start of featured products section on the homepage -->
             <div class="row" id="featured">

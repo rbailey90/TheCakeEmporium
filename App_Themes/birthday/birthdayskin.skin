@@ -14,4 +14,4 @@ Default skin template. The following skins are provided as examples only.
 <asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
 --%>
 
-  <asp:Label runat="server" Text="Happy birthday message to user goes here!" SkinID="birthdayWelcome" ForeColor="#D16956"></asp:Label>
+  <asp:Label runat="server" Text="Happy birthday from all of us at the Cake Emporium!" SkinID="birthdayWelcome" ForeColor="#D16956"></asp:Label>

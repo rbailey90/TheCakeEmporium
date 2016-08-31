@@ -101,8 +101,8 @@ body {
 
 .footerButtons {
     margin: 0;
-    background-color: #6FA398;
-    color: #F2F2F2;
+    background-color: #7e401b;
+    color: #ffbd83;
     padding: 2px;
     width: 148px;
     text-align:center;
@@ -115,10 +115,10 @@ body {
     text-align: center;
     display: table;
     margin: 0 auto;
-    
+    background-color: #7e401b !important;
 }
 .footer {
-    background-color: #6FA398;
+    background-color: #7e401b !important;
     padding: 5px;
     margin-top: 10px;
 }
