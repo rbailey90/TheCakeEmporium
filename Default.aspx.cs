@@ -46,7 +46,20 @@ public partial class _Default : System.Web.UI.Page
     }
     public int getDaysUntilBirthday()
     {
-        double daysUntilBirthday = 1000; //change this when there's a user birthday field!!!!!
+        double daysUntilBirthday = 1000;
+       // var signedInUser = HttpContext.Current.User.Identity.GetUserName();
+       //if there is a user currently signed in 
+       //then get the users date of birth and do calculations
+        if ( System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+            
+                //change this when there's a user birthday field!!!!!
+            return (int)daysUntilBirthday;
+        }
+        else
+        {
+           
+        }
         return (int)daysUntilBirthday;
     }
     public int getDaysUntilHalloween()
