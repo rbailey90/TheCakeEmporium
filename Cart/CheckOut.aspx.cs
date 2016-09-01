@@ -70,8 +70,8 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 curOrder.SaveOrder(curOrder);
                 //reset curOrder & clear listbox
                 //curOrder = nextOrder;
-                lstCart.Items.Clear();
-                lstCart.Items.Add("Order complete. Please enter next order");
+                
+                Response.Redirect("~/Cart/Confirmation.aspx");
             }/*
             catch (EmptyOrderException ex)
             {

@@ -10,8 +10,11 @@ using Microsoft.Owin.Security;
 /// Summary description for Order
 /// </summary>
 public class Order
-{
-    DateTime orderDate = DateTime.Today;
+{   
+    //DateTime orderDate = DateTime.Today;
+    DateTime theorderDate = DateTime.Today;
+    string orderDate;
+
     const decimal taxrate = 0.07m;
     int orderID;
     //DateTime orderDate = DateTime.Today;
@@ -68,6 +71,8 @@ public class Order
         this.Cvv=theCvv;
         this.PymtName=thePymtName;
         this.UserName = theUserName;
+        //this.UserName=("Jane").ToString(); //for testing
+        this.OrderDate = theorderDate.ToString("MM/dd/yyyy");
     }
 
     public CartItemList CartList
@@ -81,12 +86,16 @@ public class Order
         get { return orderTotal; }
         set { orderTotal = value; }
     }
-
-    public DateTime OrderDate
+    public string OrderDate
     {
         get { return orderDate; }
         set { orderDate = value; }
     }
+    //public DateTime OrderDate
+    //{
+    //    get { return orderDate; }
+    //    set { orderDate = Convert.ToDateTime; }
+    //}
     public int OrderID
     {
         get { return orderID; }
@@ -206,7 +215,6 @@ public class Order
 //save order method
 public void SaveOrder(Order theOrder)
     {
-        int id = 0;
         try
         {
                 //save to DB
