@@ -16,7 +16,7 @@ public class Order
     string orderDate;
 
     const decimal taxrate = 0.07m;
-    int orderID;
+    string orderID;
     //DateTime orderDate = DateTime.Today;
     //List<InvoiceItem> itemList = new List<InvoiceItem>(); 
     
@@ -96,7 +96,7 @@ public class Order
     //    get { return orderDate; }
     //    set { orderDate = Convert.ToDateTime; }
     //}
-    public int OrderID
+    public string OrderID
     {
         get { return orderID; }
         set { orderID = value; }
