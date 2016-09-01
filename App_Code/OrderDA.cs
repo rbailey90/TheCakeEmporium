@@ -49,10 +49,10 @@ public class OrderDA
             /*save payment*/
             //first set it up          
             //string insertStatement2 = "INSERT INTO ORDERPAYMENT (order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order, @cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
-            string insertStatement2 = "INSERT INTO ORDERPAYMENT (cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
+            string insertStatement2 = "INSERT INTO ORDERPAYMENT (Order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order,@cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
             SqlCommand insertCommand2 = new SqlCommand(insertStatement2, conn1);
             //need to supply this one with the order number and use it
-            //insertCommand2.Parameters.AddWithValue("@order", 8);
+            //insertCommand2.Parameters.AddWithValue("@order", '8');
             insertCommand2.Parameters.AddWithValue("@cardNumber", theOrder.Card);
             insertCommand2.Parameters.AddWithValue("@expDate", theOrder.Exp);
             insertCommand2.Parameters.AddWithValue("@CVV", theOrder.Cvv);
@@ -80,7 +80,7 @@ public class OrderDA
 
             insertCommand4.ExecuteNonQuery();
             /* Save Order Details */
-            WriteDetails(theOrder, orderID);
+            //WriteDetails(theOrder, orderID);
             int testid = ID; //just to see if it gets here
         }
         finally
@@ -102,7 +102,7 @@ public class OrderDA
         {
             insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId,Quantity, PriceEach,OrderDate) values (@orderid, @productid,@quantity, @priceeach,@orderDate)";
             SqlCommand insertCommand3 = new SqlCommand(insertStatement3, conn1);
-            //insertCommand3.Parameters.AddWithValue("@orderid", orderID);
+            insertCommand3.Parameters.AddWithValue("@orderid", orderID);
             insertCommand3.Parameters.AddWithValue("@productid", theOrder.Subtotal);
             insertCommand3.Parameters.AddWithValue("@quantity", theOrder.Tax);
             insertCommand3.Parameters.AddWithValue("@priceeach", theOrder.OrderTotal);
