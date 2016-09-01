@@ -23,7 +23,8 @@ public partial class Products_Details : System.Web.UI.Page
     protected void btnAddtoCart_Click(object sender, EventArgs e)
     {
         int quantitySelected;
-        quantitySelected = Convert.ToInt16(txtQuantity.Text);
+        try{
+                quantitySelected = Convert.ToInt16(txtQuantity.Text);
 
         if(Page.IsValid)
         {
@@ -50,6 +51,11 @@ public partial class Products_Details : System.Web.UI.Page
                 Response.Redirect("~/Cart/Cart.aspx");
             }
 
+        }
+        }
+        catch (Exception ex)
+        {
+            lblQuan.Text = "That's not a valid number.";
         }
     }
     private Cake GetSelectedProduct()
