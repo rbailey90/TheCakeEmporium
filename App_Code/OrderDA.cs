@@ -40,7 +40,7 @@ public class OrderDA
                 //insertCommand.CommandText = query2;
                 ID = (int)insertCommand.ExecuteScalar();
             }
-            int orderID = ID;// Convert.ToInt32(selectCommand.ExecuteScalar());
+            theOrder.OrderID = ID.ToString();// Convert.ToInt32(selectCommand.ExecuteScalar());
 
 
 
@@ -49,10 +49,10 @@ public class OrderDA
             /*save payment*/
             //first set it up          
             //string insertStatement2 = "INSERT INTO ORDERPAYMENT (order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order, @cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
-            string insertStatement2 = "INSERT INTO ORDERPAYMENT (Order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order,@cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
+            string insertStatement2 = "INSERT INTO ORDERPAYMENT (OrdNo, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip,cardName) values (@ordno, @cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip,@cardName)";
             SqlCommand insertCommand2 = new SqlCommand(insertStatement2, conn1);
             //need to supply this one with the order number and use it
-            //insertCommand2.Parameters.AddWithValue("@order", '8');
+            insertCommand2.Parameters.AddWithValue("@ordno", theOrder.OrderID);
             insertCommand2.Parameters.AddWithValue("@cardNumber", theOrder.Card);
             insertCommand2.Parameters.AddWithValue("@expDate", theOrder.Exp);
             insertCommand2.Parameters.AddWithValue("@CVV", theOrder.Cvv);
@@ -61,15 +61,16 @@ public class OrderDA
             insertCommand2.Parameters.AddWithValue("@billingCity", theOrder.Billcity);
             insertCommand2.Parameters.AddWithValue("@billingState", theOrder.Billstate);
             insertCommand2.Parameters.AddWithValue("@billingZip", theOrder.Billzip);
+            insertCommand2.Parameters.AddWithValue("@cardName", theOrder.PymtName);
             //then write
             insertCommand2.ExecuteNonQuery(); 
 
             /*save shipping details*/
             //first set it up
             //string insertStatement4 = "INSERT INTO ORDERSHIPPINGDETAILS (order, shipTo, Street1,Street2,City,State,Zip) values (@order, @shipTo, @Street1,@Street2,@City,@State,@Zip)";
-            string insertStatement4 = "INSERT INTO ORDERSHIPPINGDETAILS (shipTo, Street1,Street2,City,State,Zip) values ( @shipTo, @Street1,@Street2,@City,@State,@Zip)";
+            string insertStatement4 = "INSERT INTO ORDERSHIPPINGDETAILS (ordId,shipTo, Street1,Street2,City,State,Zip) values (@order, @shipTo, @Street1,@Street2,@City,@State,@Zip)";
             SqlCommand insertCommand4 = new SqlCommand(insertStatement4, conn1);
-            //insertCommand4.Parameters.AddWithValue("@order", 8);
+            insertCommand4.Parameters.AddWithValue("@order", theOrder.OrderID);
             insertCommand4.Parameters.AddWithValue("@shipTo", theOrder.ShipTo);
             insertCommand4.Parameters.AddWithValue("@Street1", theOrder.ShipToAdd1);
             insertCommand4.Parameters.AddWithValue("@Street2", theOrder.ShiptoAdd2);
