@@ -89,7 +89,7 @@
         </div> 
         <!-- end of main content area -->
          <!--footer area -->
-         <div class="row footer">
+         <div class="row footer text-center">
             <div class="footerNav">               
                  <asp:Menu ID="Menu2" SkinId="FooterSkin" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" >
                             <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />

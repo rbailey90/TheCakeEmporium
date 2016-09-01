@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class="profileContainer">
+    <div class="profileContainer">
 <asp:Label ID="lblHeader" runat="server" Text="User Registration" CssClass="profileHeader" />
      <div class="container-fluid">
            <div class="form-group">
@@ -140,11 +140,12 @@
                     <asp:Label ID="lblDob" runat="server" Text="Date of Birth:"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control">mm/dd/yy</asp:TextBox>
                </div>
                <div class="row">
                    <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" CssClass="pull-right" ControlToValidate="txtDob" ErrorMessage="*Birthday Required"></asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" CssClass="pull-right" ControlToValidate="txtDob" ErrorMessage="*Date of Birth Required"></asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorDOB" runat="server" CssClass="pull-right" ErrorMessage="*Date must be in MM/DD/YYYY format." ValidationExpression="^\d{1,2}\/\d{1,2}\/\d{4}$" ControlToValidate="txtDob"></asp:RegularExpressionValidator>
                    </div>
                </div>
            </div>

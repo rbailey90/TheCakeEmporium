@@ -57,7 +57,30 @@ public class UserDA
     public static int UpdateUser(string UserId)
     {
         int numRows = 0;
-        //updates user information
+
+        string insertString = "update Accounts SET Username = @username, Firstname = @firstname, Lastname = @lastname, Role = @role , Address = @address, State =  @state, ZipCode = @zip, Birthday = @birthday WHERE username = '" + UserId + "'"; // the parameter values will be made later
+
+        SqlCommand insertCommand = new SqlCommand(insertString, conn);
+
+        //insertCommand.Parameters.AddWithValue("@username", UserId.Username);
+        //insertCommand.Parameters.AddWithValue("@firstname", UserId.FirstName);
+        //insertCommand.Parameters.AddWithValue("@lastname", UserId.LastName);
+        //insertCommand.Parameters.AddWithValue("@role", UserId.Role);
+        //insertCommand.Parameters.AddWithValue("@address", UserId.Address);
+        //insertCommand.Parameters.AddWithValue("@state", UserId.State);
+        //insertCommand.Parameters.AddWithValue("@zip", UserId.Zip);
+        //insertCommand.Parameters.AddWithValue("@birthday", UserId.Birthday);
+        
+
+        try
+        {
+            conn.Open();
+            numRows = insertCommand.ExecuteNonQuery(); // how many rows added to the db
+        }
+        finally
+        {
+            conn.Close(); // Closes database
+        }
 
         return numRows;
     }

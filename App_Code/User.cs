@@ -32,7 +32,7 @@ public class User
         this.State = state;
         this.Zip = zip;
         this.Birthday = birthday;
-        this.Role = role;
+        this.Role = role; //this field is not used, use identity system for role management
     
         
         // assign them a role? Yes
