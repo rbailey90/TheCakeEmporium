@@ -33,10 +33,10 @@
         <div class="row">
             <div class="col-md-2"></div>
                     <div class="col-md-8"><div class="fotorama"  data-width="100%" data-ratio="900/400" data-fit="cover" data-autoplay="true" data-stopautoplayontouch="true">
-                         <img src="Images/Products/chocolatehalloweencake.png" data-fit="cover"/>
-                         <img src="Images/Products/christmasicecreampudding.png"  data-fit="cover"/>
-                         <img src="Images/Products/hummingbird.png" data-fit="cover"/>
-                         <img src="Images/Products/strawberrycake.png" data-fit="cover" />
+                         <img src="Images/HomepageImages/chocolatehalloweencake.png" data-fit="cover"/>
+                         <img src="Images/HomepageImages/christmasicecreampudding.png"  data-fit="cover"/>
+                         <img src="Images/HomepageImages/hummingbird.png" data-fit="cover"/>
+                         <img src="Images/HomepageImages/strawberrycake.png" data-fit="cover" />
 	                </div><!-- data height might be messing up the media query height - can fix later if this is a problem-->
                 </div>
             <div class="col-md-2"></div>
@@ -74,54 +74,8 @@
                    </section>
              </div>
         </div> <!-- end of thumbnail image section on the homepage -->
-          <%--<div class="row">
-            <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
-               
-             <table class="nav-justified">
-                    <tr> <!--need to still display the table inline in the local style css stuff -beth -->
-                        <td></td>
-                        <td>
-                            <p>Hey! Hey, you! Have any questions for us? 
-                              Leave 'em in the box below!</p> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style5"> Your Name:</td>
-                        <td class="auto-style6"> <asp:TextBox ID="lblFaqName" runat="server" Height="23px" Width="257px"></asp:TextBox>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1">Email Address:</td>
-                        <td>
-                            <asp:TextBox ID="TextBox1" runat="server" Height="23px" Width="257px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1">&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style3"></td>
-                        <td class="auto-style4">
-                            <asp:TextBox ID="TextBox2" runat="server" Height="120px" Width="257px" ToolTip="Put your thoughts here!">Type your comments here.</asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="auto-style2">
-                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="btnSubmitFAQ" runat="server" Text="Submit" Width="70px" OnClick="btnSubmitFAQ_Click" />
-                        </td>
-                    </tr>
-                </table>
-                <br />
-            </section>
-            <section class="col-lg-5 col-md-5 col-sm-5">
-               <p> other stuff can go here maybe</p>
-            </section>
-        </div>--%>
-         </div>
+       
+       </div>
    </div> <!-- end of fluid container --> 
 </asp:Content>
 

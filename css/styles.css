@@ -206,10 +206,30 @@ body {
 }
 
 @media only screen and (max-width : 500px) {
-    #image_sm { display: inline; }
-    #image_med { display: none;}
-    .menuButtons { display: block; width: inherit; min-width: 235px; margin: 0px auto 5px auto; }
-    .footerButtons { display: block; width: 100%; min-width: 235px; margin: 0px auto 5px auto; }
+    #image_sm {
+        display: inline;
+    }
+
+    #image_med {
+        display: none;
+    }
+
+    .menuButtons {
+        display: block;
+        width: inherit;
+        min-width: 235px;
+        margin: 0px auto 5px auto;
+    }
+
+    .footerButtons {
+        display: block;
+        width: 100%;
+        min-width: 235px;
+        margin: 0px auto 5px auto;
+    }
     /*.footerButtons { display: block; width: 125px; margin-left: 35px; padding: 5px; text-align: center; }
     .footernav { margin: 0px auto; text-align: center; }*/
-    .txtboxWidth { width: 150px; }
+    .txtboxWidth {
+        width: 150px;
+    }
+}

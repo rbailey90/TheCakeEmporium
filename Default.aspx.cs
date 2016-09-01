@@ -76,11 +76,11 @@ public partial class _Default : System.Web.UI.Page
     public void getNewProduct() //Gets random products to display on default page.
     {
         List<string> images = new List<string>();
-        images.Add("~/Images/Products/carrotcake.png");
-        images.Add("~/Images/Products/matchacake.png");
-        images.Add("~/Images/Products/confetticake.png");
-        images.Add("~/Images/Products/chocolatehalloweencake.png");
-        images.Add("~/Images/Products/chocolateraspberrycake.png");
+        images.Add("~/Images/HomepageImages/carrotcake.png");
+        images.Add("~/Images/HomepageImages/matchacake.png");
+        images.Add("~/Images/HomepageImages/rainbowconfetticake.png");
+        images.Add("~/Images/HomepageImages/chocolatehalloweencake.png");
+        images.Add("~/Images/HomepageImages/poppyseedcake.png");
         images.Add("~/Images/Products/christmasicecreampudding.png");
         images.Add("~/Images/Products/lemoncake.png");
        
@@ -90,7 +90,7 @@ public partial class _Default : System.Web.UI.Page
         descriptions.Add("Matcha Cake");
         descriptions.Add("Confetti Cake");
         descriptions.Add("Chocolate Halloween Cake");
-        descriptions.Add("Chocolate Raspberry Cake");
+        descriptions.Add("Poppyseed Cake");
         descriptions.Add("Ice Cream Cake");
         descriptions.Add("Lemon Cake");
 
