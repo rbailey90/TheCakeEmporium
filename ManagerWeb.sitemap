@@ -5,7 +5,8 @@
         <siteMapNode url="~/Products/Products.aspx" title="Our Products"  description="View all the wonderful cakes we have." roles="User"  />
         <siteMapNode url="~/ContactUs/ContactUs.aspx" title="Contact Us"  description="Have a question? Feel free to contact us." roles="User"   />
         <siteMapNode url="~/Cart/Cart.aspx" title="Cart" description="Your shopping Cart" roles="User" />
-        <siteMapNode url="~/Accounts/Registration.aspx" title="Register" description="Register" roles="User" />
-        <siteMapNode url="~/Accounts/Login.aspx" title="Login" description="Login" roles="User" />
+        <siteMapNode url="~/Manager/Manager.aspx" title="Admin" description="Manage the site" roles="Admin" />
+        <siteMapNode url="~/Accounts/Profile.aspx" title="Profile" description="View your Profile" roles="User" />
+        <siteMapNode url="~/Accounts/Login.aspx" title="Logout" description="Log Out" roles="User" />
     </siteMapNode>
 </siteMap>

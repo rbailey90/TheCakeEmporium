@@ -67,6 +67,6 @@ public partial class User_Profile : System.Web.UI.Page
 
     protected void btnChangePass_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Accounts/ResetPassword.aspx");
+        Response.Redirect("~/Accounts/ChangePassword.aspx");
     }
 }

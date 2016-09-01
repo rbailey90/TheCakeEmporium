@@ -11,49 +11,33 @@ using Microsoft.Owin.Security;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
+    Random rnd = new Random();
     protected void Page_PreInit(object sender, EventArgs e)
     {
        
     }
     protected void Page_Load(object sender, EventArgs e)
-    {
-        var signedInUser = HttpContext.Current.User.Identity.GetUserName();
-        if (signedInUser != null)
+    {       
+        //Menu User Controls
+        if (HttpContext.Current.User.IsInRole("User"))
         {
-            ltlcurrentUser.Text = string.Format("Welcome back {0}", signedInUser);
-            btn_Profile.Visible = true;
-            btn_LogOut.Visible = true;
-            btn_SignUp.Visible = false;
-            btn_LogIn.Visible = false;
+            SiteMapDataSource1.SiteMapProvider = "userWeb.sitemap";
+        }
+        else if(HttpContext.Current.User.IsInRole("Admin"))
+        {
+            SiteMapDataSource1.SiteMapProvider = "managerWeb.sitemap";
         }
         else
         {
-            btn_LogIn.Visible = true;
-            btn_Profile.Visible = false;
-            btn_LogOut.Visible = false;
-            btn_SignUp.Visible = true;
+            SiteMapDataSource1.SiteMapProvider = "XmlSiteMapProvider";
         }
     }
 
-    protected void btn_SignUp_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/Accounts/Registration.aspx");
-    }
-
-    protected void btn_LogIn_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/Accounts/Login.aspx");
-    }
-
-    protected void btn_Profile_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/Accounts/Profile.aspx");
-    }
-
-    protected void btn_LogOut_Click(object sender, EventArgs e)
-    {
-        var Auth_Manager = HttpContext.Current.GetOwinContext().Authentication;
-        Auth_Manager.SignOut();
-        Response.Redirect("~/Default.aspx");
-    }
+    //For Future Reference of logging out a user by just clicking
+    //protected void btn_LogOut_Click(object sender, EventArgs e)
+    //{
+    //    var Auth_Manager = HttpContext.Current.GetOwinContext().Authentication;
+    //    Auth_Manager.SignOut();
+    //    Response.Redirect("~/Default.aspx");
+    //}
 }
