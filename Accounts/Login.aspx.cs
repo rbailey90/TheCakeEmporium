@@ -53,4 +53,9 @@ public partial class User_Login : System.Web.UI.Page
         Auth_Manager.SignOut();
         Response.Redirect("~/Accounts/Login.aspx");
     }
+    protected void Forgot_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Accounts/ForgotPassword_EmailRequest.aspx");
+    }
+    
 }

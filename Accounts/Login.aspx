@@ -24,6 +24,11 @@
                   <asp:Button runat="server" cssClass="btn btn-primary btn-lg btn-block" OnClick="SignIn_Click" Text="Log in" />
               </div>
            </div>
+           <div style="margin-bottom: 10px">
+              <div>
+                  <asp:Button runat="server" cssClass="btn btn-primary btn-lg btn-block" Text="Forgot Password" OnClick="Forgot_Click" />
+              </div>
+           </div>
        </asp:PlaceHolder>
        <asp:PlaceHolder runat="server" ID="LogoutButtonHolder" Visible="false">
            <div>
