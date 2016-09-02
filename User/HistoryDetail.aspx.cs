@@ -9,6 +9,10 @@ public partial class User_HistoryDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["orderselect"] != null)
+        {
+            int boltID = (int)Session["orderselect"];
+            lblOrderID.Text = boltID.ToString();
+        }
     }
 }

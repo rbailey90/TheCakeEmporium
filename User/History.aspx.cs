@@ -22,5 +22,12 @@ public partial class User_History : System.Web.UI.Page
         int orderID = (int)GridView1.SelectedValue;
 
         OrderDA.DeleteOrder(orderID);
+
+        // Redirect User to different page to Delete or Order again
+        //int idValue;
+        //idValue = (int)GridView1.SelectedValue;
+
+        //Session["orderselect"] = idValue;
+        //Response.Redirect("~/User/HistoryDetail.aspx");
     }
 }
