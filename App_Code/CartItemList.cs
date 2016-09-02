@@ -36,17 +36,18 @@ public class CartItemList  //: IEnumerable
     //}
 
     public CartItemList()
-	{
+    {
         cartItems = new List<CartItem>();
-	}
+    }
 
-    public int Count {
+    public int Count
+    {
         get { return cartItems.Count; }
     }
 
     public CartItem this[int index]
     {
-        get { return cartItems[index];}
+        get { return cartItems[index]; }
         set { cartItems[index] = value; }
     }
 
@@ -88,87 +89,29 @@ public class CartItemList  //: IEnumerable
         return subtotal;
     }
 
-    ////get enumerator??
+    public int IndexAdvance(int index)
+    {
+        if (Count > index)
+        {
+            index++;
+        }
+        else
+        {
+            index = -1;
+        }
+
+        return index;
+    }
+
+    public decimal GetItemsPrice(int index)
+    {
+        decimal prc=0;
 
 
-    // Declare the enumerator class:
-    //public class MyEnumerator
-    //{
-    //    int nIndex;
-    //    CartItemList collection;
-    //    public MyEnumerator(CartItemList coll)
-    //    {
-    //        collection = coll;
-    //        nIndex = -1;
-    //    }
 
-    //    public bool MoveNext()
-    //    {
-    //        nIndex++;
-    //        return (nIndex < collection.cartItems.GetLength(0));
-    //    }
 
-    //    public int Current
-    //    {
-    //        get
-    //        {
-    //            return (collection.CartItems([nIndex]);
-    //        }
-    //    }
-    //}
-
-    //public interface IEnumerable
-    //{
-    //    IEnumerator GetEnumerator();
-    //}
-
+        return prc;
+    }
 }
 
-
-
-    // The IEnumerable interface requires implementation of method GetEnumerator.
-   /* public IEnumerator GetEnumerator()
-    {
-        return new TokenEnumerator(this);
-    }*/
-    // Declare an inner class that implements the IEnumerator interface.
-    /*private class TokenEnumerator : IEnumerator
-    {
-        private int _currentIndex = -1;
-        private CartItemList t;
-
-        public TokenEnumerator(CartItemList t)
-        {
-            this.t = t;
-        }*/
-
-        // The IEnumerator interface requires a MoveNext method.
-        //public bool MoveNext()
-        //{
-        //    if (position < t.cartItems.Length - 1)
-        //    {
-        //        position++;
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-
-
-
-        //// The IEnumerator interface requires a Reset method.
-        //public void Reset()
-        //{
-        //    position = -1;
-        //}
-
-        //// The IEnumerator interface requires a Current method.
-        //public object Current
-        //{
-        //    get
-        //    {
-        //        return t.cartItems[position];
-        //    }
-        //}
+    
