@@ -125,11 +125,14 @@ public class CartItemList  //: IEnumerable
     public string GetProdID(int indx)
     {
         string prod="";
+        int testvar;
+        
         foreach (CartItem i in cartItems)
         {
+            testvar = cartItems.BinarySearch(i);
             if (cartItems.BinarySearch(i) == indx)
             {
-                prod = i.Cake.ProductId;
+                prod = i.Cake.ProductId.ToString();
             }
             else
             {

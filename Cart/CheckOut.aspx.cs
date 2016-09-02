@@ -66,7 +66,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             //Place order 
             try
             {
-                //save order to DB
+                                //save order to DB
                 curOrder.SaveOrder(curOrder);
                 //reset curOrder & clear listbox
                 //curOrder = nextOrder;
