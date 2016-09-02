@@ -15,7 +15,7 @@ public class OrderDA
 
     public static void AddNewOrder(Order theOrder)
     {
- 
+
         try
         {
             conn1.Open();
@@ -28,7 +28,7 @@ public class OrderDA
             //string query2 = "Select @@Identity";
             //string selectStatement = "SELECT IDENT_CURRENT('OrderId') FROM Orders";
             using (SqlCommand insertCommand = new SqlCommand(insertStatement, conn1))
-            {                              
+            {
                 insertCommand.Parameters.AddWithValue("@userName", theOrder.UserName);
                 insertCommand.Parameters.AddWithValue("@subtotal", theOrder.Subtotal);
                 insertCommand.Parameters.AddWithValue("@tax", theOrder.Tax);
@@ -43,9 +43,6 @@ public class OrderDA
             theOrder.OrderID = ID.ToString();// Convert.ToInt32(selectCommand.ExecuteScalar());
 
 
-
-
-            
             /*save payment*/
             //first set it up          
             //string insertStatement2 = "INSERT INTO ORDERPAYMENT (order, cardNumber, expDate,CVV,billingStreet1,billingStreet2,billingCity,billingState,billingZip) values (@order, @cardNumber,@expDate, @CVV, @billingStreet1,@billingStreet2,@billingCity,@billingState,@billingZip)";
@@ -63,7 +60,7 @@ public class OrderDA
             insertCommand2.Parameters.AddWithValue("@billingZip", theOrder.Billzip);
             insertCommand2.Parameters.AddWithValue("@cardName", theOrder.PymtName);
             //then write
-            insertCommand2.ExecuteNonQuery(); 
+            insertCommand2.ExecuteNonQuery();
 
             /*save shipping details*/
             //first set it up
@@ -80,15 +77,36 @@ public class OrderDA
             //then write
 
             insertCommand4.ExecuteNonQuery();
+
             /* Save Order Details */
-            //WriteDetails(theOrder, orderID);
+            WriteDetails(theOrder, ID);
             int testid = ID; //just to see if it gets here
         }
         finally
         {
             conn1.Close();
         }
-        
+
+    }
+
+    public static void DeleteOrder(int theOrderID)
+    {
+        string deleteString = "delete from Orders where OrderId = @orderID"; // the parameter values will be made later
+
+        // now the command object
+        SqlCommand deleteCommand = new SqlCommand(deleteString, conn1); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+
+        deleteCommand.Parameters.AddWithValue("@orderID", theOrderID);
+
+        try
+        {
+            conn1.Open(); // opens the connection to the database so that we can make sqlcommands
+        }
+        finally
+        {
+            conn1.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
+        }
+
     }
 
     public static void WriteDetails(Order theOrder, int orderID)
@@ -99,18 +117,22 @@ public class OrderDA
         
 
         //then write
-        //foreach (CartItem i in theOrder.CartList)
+        //foreach (CartItem i in theOrder.cartList)
+        int index = 0;
+        while (index != -1)
         {
+
             insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId,Quantity, PriceEach,OrderDate) values (@orderid, @productid,@quantity, @priceeach,@orderDate)";
             SqlCommand insertCommand3 = new SqlCommand(insertStatement3, conn1);
             insertCommand3.Parameters.AddWithValue("@orderid", orderID);
             insertCommand3.Parameters.AddWithValue("@productid", theOrder.Subtotal);
             insertCommand3.Parameters.AddWithValue("@quantity", theOrder.Tax);
-            insertCommand3.Parameters.AddWithValue("@priceeach", theOrder.OrderTotal);
-            insertCommand3.Parameters.AddWithValue("@orderDate", theOrder.OrderTotal);
+            insertCommand3.Parameters.AddWithValue("@priceeach", theOrder.CartList);
+            insertCommand3.Parameters.AddWithValue("@orderDate", theOrder.OrderDate);
 
             insertCommand3.ExecuteNonQuery();
-          //  i++;
+
+            index = theOrder.CartList.IndexAdvance(index);
 
         }
 
