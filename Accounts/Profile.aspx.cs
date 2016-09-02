@@ -61,8 +61,19 @@ public partial class User_Profile : System.Web.UI.Page
 
     protected void btnUpdateInfo_Click(object sender, EventArgs e)
     {
-        //User currentUser = 
-        //UserDA.UpdateUser(User.Identity.GetUserId());
+
+        string fname = (FormView1.FindControl("FirstnameTextBox") as TextBox).Text;
+        string lname = (FormView1.FindControl("LastnameTextBox") as TextBox).Text;
+        string address = (FormView1.FindControl("AddressTextBox") as TextBox).Text;
+        string state = (FormView1.FindControl("StateTextBox") as TextBox).Text;
+        string zip = (FormView1.FindControl("ZipCodeTextBox") as TextBox).Text;
+        string role = "";
+        DateTime bday = Convert.ToDateTime((FormView1.FindControl("BirthdayTextBox") as TextBox).Text);
+
+        //User currentUser = new User();
+
+        UserDA.UpdateUser(User.Identity.GetUserId(), fname, lname, role, address, state, zip, bday);
+        Response.Redirect("~/Accounts/UpdateComplete.aspx");
     }
 
     protected void btnChangePass_Click(object sender, EventArgs e)
