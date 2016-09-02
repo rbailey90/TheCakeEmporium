@@ -140,7 +140,7 @@
                     <asp:Label ID="lblDob" runat="server" Text="Date of Birth:"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control">mm/dd/yy</asp:TextBox>
+                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control" Text="mm/dd/yyyy">mm/dd/yy</asp:TextBox>
                </div>
                <div class="row">
                    <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">

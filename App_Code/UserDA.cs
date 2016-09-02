@@ -23,6 +23,60 @@ public class UserDA
         //
     }
 
+    public static string getUsername(string aUsername)
+    {
+        string selectStatement = "select Username from Accounts where Username = @userName";
+
+        string theUsername = null;
+
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+
+        selectCommand.Parameters.AddWithValue("@userName", aUsername);
+
+        try
+        {
+            conn.Open();
+            SqlDataReader reader = selectCommand.ExecuteReader(); // Retrieves a collection of whatever statement was executed
+
+            theUsername = reader["Username"].ToString();
+
+            reader.Close();
+        }
+        finally
+        {
+            conn.Close();
+        }
+
+        return theUsername;
+    }
+
+    public static DateTime getBirthday(string currentUsername)
+    {
+        string selectStatement = "select Birthday from Accounts where Username = @Username";
+
+        string birthday;
+        DateTime userBirthday;
+
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+        selectCommand.Parameters.AddWithValue("@Username", currentUsername);
+
+
+        try
+        {
+            conn.Open();
+
+            SqlDataReader read = selectCommand.ExecuteReader();
+            birthday = read["Birthday"].ToString();
+
+            userBirthday = Convert.ToDateTime(birthday);
+        }
+        finally
+        {
+            conn.Close();
+        }
+
+        return userBirthday;
+    }
     public static int AddUser(User newUser)
     {
         int numRows = 0;

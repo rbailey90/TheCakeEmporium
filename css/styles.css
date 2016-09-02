@@ -85,10 +85,11 @@ body {
     width: 300px;
     min-width: 100px;
 }
-#centertext {
-    margin: 0 auto;
-    text-align: center;
+.txtboxWidth2 {
+     width: 300px !important;
+     min-width: 100px !important;
 }
+#centertext { margin: 0 auto; text-align: center; }
 
 #shopButtons{
 
@@ -206,20 +207,11 @@ body {
 }
 
 @media only screen and (max-width : 500px) {
-    #image_sm {
-        display: inline;
-    }
+    #image_sm {display: inline;}
 
-    #image_med {
-        display: none;
-    }
+    #image_med {display: none;}
 
-    .menuButtons {
-        display: block;
-        width: inherit;
-        min-width: 235px;
-        margin: 0px auto 5px auto;
-    }
+    .menuButtons { display: block; width: inherit; min-width: 235px; margin: 0px auto 5px auto; }
 
     .footerButtons {
         display: block;
@@ -232,4 +224,5 @@ body {
     .txtboxWidth {
         width: 150px;
     }
+    .txtboxWidth2 { width: 250px;}
 }
