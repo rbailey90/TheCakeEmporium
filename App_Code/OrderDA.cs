@@ -89,6 +89,25 @@ public class OrderDA
 
     }
 
+    public static void DeleteOrder(int theOrderID)
+    {
+        string deleteString = "delete from Orders where OrderId = @orderID"; // the parameter values will be made later
+
+        // now the command object
+        SqlCommand deleteCommand = new SqlCommand(deleteString, conn1); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+
+        deleteCommand.Parameters.AddWithValue("@orderID", theOrderID);
+
+        try
+        {
+            conn1.Open(); // opens the connection to the database so that we can make sqlcommands
+        }
+        finally
+        {
+            conn1.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
+        }
+
+    }
 
     public static void WriteDetails(Order theOrder, int orderID)
     {            /*save order details*/

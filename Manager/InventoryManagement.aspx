@@ -3,13 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .auto-style1 {
-            width: 89px;
+            width: 102px;
         }
         .auto-style2 {
             width: 225px;
         }
         .auto-style3 {
-            width: 89px;
+            width: 102px;
             height: 20px;
         }
         .auto-style4 {
@@ -19,17 +19,46 @@
         .auto-style5 {
             height: 20px;
         }
+        .auto-style6 {
+            width: 102px;
+            height: 22px;
+        }
+        .auto-style7 {
+            width: 225px;
+            height: 22px;
+        }
+        .auto-style8 {
+            height: 22px;
+        }
+        .auto-style9 {
+            width: 229px;
+        }
+        .auto-style10 {
+            height: 20px;
+            width: 229px;
+        }
+        .auto-style11 {
+            height: 22px;
+            width: 229px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container-fluid">
     <h1>Inventory Management</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="lblError" runat="server"></asp:Label>
+    <asp:Label ID="lblError" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
     <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" Width="973px">
         <Columns>
             <asp:BoundField DataField="ProductId" HeaderText="ID" ReadOnly="True" SortExpression="ProductId" />
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            <asp:TemplateField HeaderText="Name" SortExpression="Name">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
             <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
             <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="UnitPrice" DataFormatString="{0:C}" />
@@ -46,17 +75,22 @@
                 <td class="auto-style2">
                     <asp:TextBox ID="txtID" runat="server" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
                 </td>
-                <td>
+                <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtID" Display="Dynamic" ErrorMessage="ID is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
                 </td>
+                <td>
+                    Upload Image: .png files only, 150kb size limit</td>
             </tr>
             <tr>
                 <td class="auto-style1">Name:</td>
                 <td class="auto-style2">
                     <asp:TextBox ID="txtName" runat="server" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
                 </td>
-                <td>
+                <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtName" Display="Dynamic" ErrorMessage="Name is Required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
+                </td>
+                <td>
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
                 </td>
             </tr>
             <tr>
@@ -64,8 +98,11 @@
                 <td class="auto-style2">
                     <asp:TextBox ID="txtDescript" runat="server" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
                 </td>
-                <td>
+                <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDescript" Display="Dynamic" ErrorMessage="Description is Required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
+                </td>
+                <td>
+                    <asp:Button ID="btnUpload" runat="server" OnClick="btnUpload_Click" Text="Upload Image" />
                 </td>
             </tr>
             <tr>
@@ -73,12 +110,20 @@
                 <td class="auto-style4">
                     <asp:TextBox ID="txtImageFile" runat="server" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
                 </td>
-                <td class="auto-style5"></td>
+                <td class="auto-style10">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtImageFile" ErrorMessage="The file name is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
+                </td>
+                <td class="auto-style5">
+                    <asp:Label ID="lblErrorImage" runat="server" Font-Italic="True"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style1">Unit Price:</td>
                 <td class="auto-style2">
                     <asp:TextBox ID="txtPrice" runat="server" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
+                </td>
+                <td class="auto-style9">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPrice" ErrorMessage="A price is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -87,6 +132,9 @@
                 <td class="auto-style2">
                     <asp:TextBox ID="txtOnHand" runat="server" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
                 </td>
+                <td class="auto-style9">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtOnHand" ErrorMessage="A quantity is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -94,6 +142,7 @@
                     <asp:Button ID="btnAddCake" runat="server" OnClick="btnAddCake_Click" Text="Add Cake" ValidationGroup="invmgGroup" />
                 </td>
                 <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style9">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>
