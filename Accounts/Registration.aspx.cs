@@ -33,6 +33,7 @@ public partial class User_Registration : System.Web.UI.Page
             var Auth_Manager = HttpContext.Current.GetOwinContext().Authentication;
             var User_Identity = User_Manager.CreateIdentity(New_User, DefaultAuthenticationTypes.ApplicationCookie);
             User_Manager.SetEmail(New_User.Id, TxtUserEmail.Text);
+            
 
             string myRole = "User";
             //Creates Role if does not exists

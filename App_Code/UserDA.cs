@@ -54,13 +54,24 @@ public class UserDA
     }
 
 
-    public static int UpdateUser(string UserId)
+    public static int UpdateUser(string UserId, string fname, string lname, string role, string addr, string state, string zip, DateTime bday)
     {
         int numRows = 0;
 
-        string insertString = "update Accounts SET Username = @username, Firstname = @firstname, Lastname = @lastname, Role = @role , Address = @address, State =  @state, ZipCode = @zip, Birthday = @birthday WHERE username = '" + UserId + "'"; // the parameter values will be made later
+
+        string insertString = "update Accounts SET Username = @username, Firstname = @firstname, Lastname = @lastname, Role = @role, Address = @address, State =  @state, ZipCode = @zip, Birthday = @birthday WHERE username = '" + UserId + "'"; // the parameter values will be made later
 
         SqlCommand insertCommand = new SqlCommand(insertString, conn);
+
+
+        insertCommand.Parameters.AddWithValue("@username", UserId);
+        insertCommand.Parameters.AddWithValue("@firstname", fname);
+        insertCommand.Parameters.AddWithValue("@lastname", lname);
+        insertCommand.Parameters.AddWithValue("@role", role);
+        insertCommand.Parameters.AddWithValue("@address", addr);
+        insertCommand.Parameters.AddWithValue("@state", state);
+        insertCommand.Parameters.AddWithValue("@zip", zip);
+        insertCommand.Parameters.AddWithValue("@birthday", bday);
 
         //insertCommand.Parameters.AddWithValue("@username", UserId.Username);
         //insertCommand.Parameters.AddWithValue("@firstname", UserId.FirstName);
@@ -70,7 +81,7 @@ public class UserDA
         //insertCommand.Parameters.AddWithValue("@state", UserId.State);
         //insertCommand.Parameters.AddWithValue("@zip", UserId.Zip);
         //insertCommand.Parameters.AddWithValue("@birthday", UserId.Birthday);
-        
+
 
         try
         {

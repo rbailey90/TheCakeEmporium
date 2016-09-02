@@ -23,6 +23,7 @@ public partial class Accounts_ChangePassword : System.Web.UI.Page
         UserManager<IdentityUser> userManager =
         new UserManager<IdentityUser>(new UserStore<IdentityUser>());
         var myUser = userManager.FindById(userId);
+       
         //checks to see if current user password matches one given, then changes it if true.
         if (userManager.CheckPasswordAsync(myUser, txtOldPass.Text).Result==true)
         {

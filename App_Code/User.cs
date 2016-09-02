@@ -37,4 +37,45 @@ public class User
         
         // assign them a role? Yes
     }
+
+
+    public string userName
+    {
+        get { return Username; }
+        set { Username = value; }
+    }
+
+    public string getFirstName
+    {
+        get { return FirstName; }
+        set { FirstName = value; }
+    }
+
+    public string getLastName
+    {
+        get { return LastName; }
+        set { LastName = value; }
+    }
+
+    public string getAddress
+    {
+        get { return Address; }
+        set { Address = value; }
+    }
+
+    public string getState
+    {
+        get { return State; }
+        set { State = value; }
+    }
+    public string getZip
+    {
+        get { return Zip; }
+        set { Zip = value; }
+    }
+    public DateTime getBirthday
+    {
+        get { return Birthday; }
+        set { Birthday = value; }
+    }
 }
