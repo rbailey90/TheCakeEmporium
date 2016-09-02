@@ -48,7 +48,7 @@ public class CakeDA
                 aCake.UnitPrice = Convert.ToDecimal(reader["UnitPrice"]);
                 aCake.OnHand = Convert.ToInt16(reader["OnHand"]);
 
-                allCakes.Add(aCake); // ADds a cake to the list for every cake in the database
+                allCakes.Add(aCake); // Adds a cake to the list for every cake in the database
             }
 
             reader.Close();
