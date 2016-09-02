@@ -91,7 +91,7 @@ public class CartItemList  //: IEnumerable
 
     public int IndexAdvance(int index)
     {
-        if (Count > index)
+        if (Count > (index+1))
         {
             index++;
         }
@@ -103,14 +103,59 @@ public class CartItemList  //: IEnumerable
         return index;
     }
 
-    public decimal GetItemsPrice(int index)
+    public decimal GetItemsPrice(int indx)
     {
         decimal prc=0;
 
+        foreach (CartItem i in cartItems)
+        {
+            if(cartItems.BinarySearch(i) ==indx)
+                {
+                prc=i.Cake.UnitPrice;
+                }
+            else
+            {
 
-
+            }
+        }
 
         return prc;
+    }
+
+    public string GetProdID(int indx)
+    {
+        string prod="";
+        foreach (CartItem i in cartItems)
+        {
+            if (cartItems.BinarySearch(i) == indx)
+            {
+                prod = i.Cake.ProductId;
+            }
+            else
+            {
+
+            }
+        }
+
+        return prod;
+    }
+
+    public int GetQuantity(int indx)
+    {
+        int quant=0;
+        foreach (CartItem i in cartItems)
+        {
+            if (cartItems.BinarySearch(i) == indx)
+            {
+                quant = i.Quantity;
+            }
+            else
+            {
+
+            }
+        }
+
+        return quant;
     }
 }
 
