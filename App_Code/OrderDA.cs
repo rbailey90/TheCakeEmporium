@@ -100,15 +100,18 @@ public class OrderDA
         //then write
         //foreach (CartItem i in theOrder.cartList)
         int index = 0;
+        int line = 0;
         while (index != -1)
         {
-
-            insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId,Quantity, PriceEach,OrderDate) values (@orderid, @productid,@quantity, @priceeach,@orderDate)";
+            line = index + 1;
+            //,Quantity, PriceEach,OrderDate  ,@quantity, @priceeach,@orderDate
+            insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId, LineID) values (@orderid, @productid, @line)";
             SqlCommand insertCommand3 = new SqlCommand(insertStatement3, conn1);
             insertCommand3.Parameters.AddWithValue("@orderid", orderID);
-            insertCommand3.Parameters.AddWithValue("@productid", theOrder.Subtotal);
-            insertCommand3.Parameters.AddWithValue("@quantity", theOrder.Tax);
-            insertCommand3.Parameters.AddWithValue("@priceeach", theOrder.CartList);
+            insertCommand3.Parameters.AddWithValue("@productid", theOrder.CartList.GetProdID(index));
+            insertCommand3.Parameters.AddWithValue("@line", line);
+            insertCommand3.Parameters.AddWithValue("@quantity", theOrder.CartList.GetQuantity(index));
+            insertCommand3.Parameters.AddWithValue("@priceeach", theOrder.CartList.GetItemsPrice(index));
             insertCommand3.Parameters.AddWithValue("@orderDate", theOrder.OrderDate);
 
             insertCommand3.ExecuteNonQuery();
