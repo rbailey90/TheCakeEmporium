@@ -80,7 +80,7 @@ public class OrderDA
 
             /* Save Order Details */
             WriteDetails(theOrder, ID);
-            int testid = ID; //just to see if it gets here
+            //int testid = ID; //just to see if it gets here
         }
         finally
         {

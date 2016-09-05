@@ -71,7 +71,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 //reset curOrder & clear listbox
                 //curOrder = nextOrder;
                 
-                Response.Redirect("~/Cart/Confirmation.aspx");
+                Response.Redirect("~/Cart/Confirmation.aspx",false);
             }/*
             catch (EmptyOrderException ex)
             {
