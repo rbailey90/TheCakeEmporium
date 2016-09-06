@@ -52,6 +52,14 @@ public partial class Cart_CheckOut : System.Web.UI.Page
     {
         Response.Redirect("~/Products/Products.aspx");
     }
+    protected void btnSameAddress_Click(object sender, EventArgs e)
+    {
+        txtBillAddr1.Text = txtShipAddr1.Text;
+        txtBillAddr2.Text = txtShipAddr2.Text;
+        txtBillCity.Text = txtShipCity.Text;
+        txtBillState.Text = txtShipState.Text;
+        txtBillZip.Text = txtShipZip.Text;
+    }
 
     protected void btnPlaceOrder_Click(object sender, EventArgs e)
     {
@@ -80,6 +88,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             Order curOrder = new Order(cart, shipTo, shiptoadd1, shiptoadd2, shipCity, shipSt, shipZip, billAddr1, billAddr2, billcity,
                 billstate, billzip, card, exp, cvv, pymtName,signedInUser);
             //calc rest of order details      
+            curOrder.Discount = curOrder.CalculateDiscount(); //this doesn't write the discount to database but it can
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();
             //Place order 
@@ -110,4 +119,6 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             //Please sign in first.
         }
     }
+
+   
 }

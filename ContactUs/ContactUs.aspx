@@ -48,7 +48,6 @@
                                       </asp:DropDownList>
                                   </div> 
                                   <div class="auto-style1">
-                                     <label class="autostyle2">  </label>
                                      <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" CssClass="txtboxWidth" placeholder="Write your comments here"></asp:TextBox>  <br/>
                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtComments" ErrorMessage="*Do you really want to submit a blank comment? " SetFocusOnError="True"></asp:RequiredFieldValidator>
                                   </div>
