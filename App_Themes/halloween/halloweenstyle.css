@@ -157,7 +157,7 @@ body {
 }
 
 .profileButton{
-    background-color:#D16956;
+    background-color:#962903;
     border-radius:6px;
     color:white;
     padding:5px 25px 5px 25px;
@@ -166,8 +166,8 @@ body {
 } 
 
 .profileButton:hover{
-    background-color:#fc962e;
-    color:white;
+    background-color:#e86807;
+    color:#ffbd83;
 }
 
 .input-sm{
