@@ -7,8 +7,29 @@ using System.Web.UI.WebControls;
 
 public partial class ContactUs_ThankYou : System.Web.UI.Page
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        int daysUntil = getDaysUntilHalloween();
+        if (daysUntil <= 31)
+        {
+            Page.Theme = "halloween";
+        }
+
+        Page.Theme = "birthday";
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+    public int getDaysUntilHalloween()
+    {
+        DateTime todaysDate = new DateTime();
+        todaysDate = System.DateTime.Now.Date;
+        DateTime halloweenDay = new DateTime(DateTime.Today.Year, 10, 31); //year set to current year so it will constantly update
+
+        TimeSpan t = halloweenDay - todaysDate;
+        double daysUntil = t.TotalDays;
+
+        return (int)daysUntil;
     }
 }
