@@ -42,10 +42,15 @@ public class UserDA
 
             reader.Close();
         }
+        catch
+        {
+            theUsername = "No User";
+        }
         finally
         {
             conn.Close();
         }
+
 
         return theUsername;
     }
@@ -126,16 +131,6 @@ public class UserDA
         insertCommand.Parameters.AddWithValue("@state", state);
         insertCommand.Parameters.AddWithValue("@zip", zip);
         insertCommand.Parameters.AddWithValue("@birthday", bday);
-
-        //insertCommand.Parameters.AddWithValue("@username", UserId.Username);
-        //insertCommand.Parameters.AddWithValue("@firstname", UserId.FirstName);
-        //insertCommand.Parameters.AddWithValue("@lastname", UserId.LastName);
-        //insertCommand.Parameters.AddWithValue("@role", UserId.Role);
-        //insertCommand.Parameters.AddWithValue("@address", UserId.Address);
-        //insertCommand.Parameters.AddWithValue("@state", UserId.State);
-        //insertCommand.Parameters.AddWithValue("@zip", UserId.Zip);
-        //insertCommand.Parameters.AddWithValue("@birthday", UserId.Birthday);
-
 
         try
         {

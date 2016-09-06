@@ -103,13 +103,21 @@ public partial class Accounts_ForgotPassword : System.Web.UI.Page
         }
         catch
         {
-            ltlResult.Text = "reset failed " + Session["userkey"].ToString() + "  " + Session["userEmail"].ToString();
+            ltlResult.Text = "reset failed ";
         }
     }
 
 
     protected void btnResetPass_Click(object sender, EventArgs e)
     {
-        Reset_User();
+        if(txtCode.Text != null || txtCode.Text != "")
+        {
+            Reset_User();
+        }
+        else
+        {
+            ltlResult.Text = "Reset code is empty, please enter your code";
+        }
+        
     }
 }

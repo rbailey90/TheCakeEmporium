@@ -4,15 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container-fluid">
+        <div class="profile-Container">
         <div class="col-md-4">
-            <asp:Button ID="btnUnregister" runat="server" Text="Disable Account" OnClick="btnUnregister_Click" />
-            <asp:Button ID="btnUpdateInfo" runat="server" Text="Save Changes" OnClick="btnUpdateInfo_Click" />
-            <asp:Button ID="btnChangePass" runat="server" Text="Change Password" OnClick="btnChangePass_Click"/>
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel Updates" />
+            <asp:Button ID="btnUnregister" runat="server" cssClass="profileButton btn-block" Text="Disable Account" OnClick="btnUnregister_Click" />
+            <asp:Button ID="btnUpdateInfo" runat="server" cssClass="profileButton btn-block" Text="Save Changes" OnClick="btnUpdateInfo_Click" />
+            <asp:Button ID="btnChangePass" runat="server" cssClass="profileButton btn-block" Text="Change Password" OnClick="btnChangePass_Click"/>
+            <asp:Button ID="btnCancel" runat="server" cssClass="profileButton btn-block" Text="Cancel Updates" />
         </div>
     <div class="col-md-4">
     <asp:Label ID="lblHeader" runat="server" Text="Profile Information" CssClass="profileHeader"></asp:Label>
-        <asp:FormView ID="FormView1" cssclass="auto-style2" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" DefaultMode="Edit" Width="300px">
+        <asp:FormView ID="FormView1" cssclass="auto-style2" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" HorizontalAlign="Center" DefaultMode="Edit" Width="300px">
         <EditItemTemplate>
             Firstname:
             <asp:TextBox ID="FirstnameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Firstname") %>' />
@@ -35,8 +36,8 @@
             <%--<asp:LinkButton ID="UpdateButton" CssClass="btn btn-primary btn-lg btn-block" runat="server" CausesValidation="True" CommandName="Update" Text="Update" OnClick="UpdateButton_Click"/>
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" CssClass="btn btn-default btn-lg btn-block" runat="server" OnClick="CancelButton_Click" CausesValidation="False" CommandName="Cancel" Text="Cancel" />--%>
         </EditItemTemplate>
-        <EditRowStyle BackColor="White" Font-Bold="True" ForeColor="#333333" HorizontalAlign="Left" Wrap="True" CssClass="profileEditRow" />
-        <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+<%--        <EditRowStyle BackColor="White" Font-Bold="True" ForeColor="#333333" HorizontalAlign="Left" Wrap="True" CssClass="profileEditRow" />
+        <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />--%>
         <HeaderStyle Font-Bold="True" ForeColor="White" Font-Size="Large" HorizontalAlign="Center" CssClass="profileHeader" Wrap="True" />
         <InsertItemTemplate>
             Username:
@@ -88,8 +89,8 @@
             &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
             &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
         </ItemTemplate>
-        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-        <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" CssClass="profileEditRow" />
+        <PagerStyle HorizontalAlign="Center" />
+        <RowStyle  CssClass="profileEditRow" />
     </asp:FormView>
     <br />
     </div>
@@ -153,6 +154,7 @@
             </ItemTemplate>
         </asp:FormView>
         </div>
+            </div>
     </div>
         <asp:SqlDataSource ID="SqlDataSourceAspUserDB" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [UserName], [Email], [EmailConfirmed], [PhoneNumber], [Id] FROM [AspNetUsers] WHERE ([Id] = @Id)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [AspNetUsers] WHERE [Id] = @original_Id AND [UserName] = @original_UserName AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL)) AND [EmailConfirmed] = @original_EmailConfirmed AND (([PhoneNumber] = @original_PhoneNumber) OR ([PhoneNumber] IS NULL AND @original_PhoneNumber IS NULL))" InsertCommand="INSERT INTO [AspNetUsers] ([UserName], [Email], [EmailConfirmed], [PhoneNumber], [Id]) VALUES (@UserName, @Email, @EmailConfirmed, @PhoneNumber, @Id)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [AspNetUsers] SET [UserName] = @UserName, [Email] = @Email, [EmailConfirmed] = @EmailConfirmed, [PhoneNumber] = @PhoneNumber WHERE [Id] = @original_Id AND [UserName] = @original_UserName AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL)) AND [EmailConfirmed] = @original_EmailConfirmed AND (([PhoneNumber] = @original_PhoneNumber) OR ([PhoneNumber] IS NULL AND @original_PhoneNumber IS NULL))">
             <DeleteParameters>

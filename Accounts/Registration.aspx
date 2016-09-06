@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="profileContainer">
+<div class="profileContainer">
 <asp:Label ID="lblHeader" runat="server" Text="User Registration" CssClass="profileHeader" />
      <div class="container-fluid">
            <div class="form-group">
@@ -144,8 +144,8 @@
                </div>
                <div class="row">
                    <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">
-                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" CssClass="pull-right" ControlToValidate="txtDob" ErrorMessage="*Date of Birth Required"></asp:RequiredFieldValidator>
-                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorDOB" runat="server" CssClass="pull-right" ErrorMessage="*Date must be in MM/DD/YYYY format." ValidationExpression="^\d{1,2}\/\d{1,2}\/\d{4}$" ControlToValidate="txtDob"></asp:RegularExpressionValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" CssClass="pull-right" ControlToValidate="txtDob" ErrorMessage="*Date of Birth Required" Display="Dynamic"></asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorDOB" runat="server" CssClass="pull-right" ErrorMessage="*Date must be in MM/DD/YYYY format." ValidationExpression="^\d{1,2}\/\d{1,2}\/\d{4}$" ControlToValidate="txtDob" Display="Dynamic"></asp:RegularExpressionValidator>
                    </div>
                </div>
            </div>
@@ -156,7 +156,7 @@
                     
                </div>
                <div class="col-md-7 col-sm-7">
-                    <asp:Button ID="BtnRegister" runat="server" Text="Register" OnClick="UserRegistration_Click" cssClass="btn btn-primary btn-lg btn-block" />
+                    <asp:Button ID="BtnRegister" runat="server" Text="Register" OnClick="UserRegistration_Click" cssClass="profileButton btn-block" />
                </div>
                <div class="col-md-3 col-sm-3" style="float: right; overflow: hidden;">
                      <asp:Label ID="LblMessage" runat="server"></asp:Label>

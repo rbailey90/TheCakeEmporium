@@ -9,7 +9,7 @@
                     <asp:Label ID="lblOldpass" runat="server" Text="Old Password"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                   <asp:TextBox ID="txtOldPass" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtOldPass" CssClass="input-sm" runat="server"></asp:TextBox>
              
                </div>
            </div>
@@ -18,7 +18,7 @@
                     <asp:Label ID="lblNpass" runat="server" Text="New Password"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                   <asp:TextBox ID="txtNewPass" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtNewPass" CssClass="input-sm" runat="server"></asp:TextBox>
              
                </div>
            </div>
@@ -27,7 +27,7 @@
                     <asp:Label ID="lblconNpass" runat="server" Text="Confirm New Password"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                   <asp:TextBox ID="txtNewPassConfirm" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtNewPassConfirm" CssClass="input-sm" runat="server"></asp:TextBox>
                </div>
            </div>
 
@@ -37,7 +37,7 @@
                     
                </div>
                <div class="col-md-7 col-sm-7">
-                    <asp:Button ID="btnChangePass" runat="server" Text="Change Password" OnClick="btnChangePass_Click" />
+                    <asp:Button ID="btnChangePass" CssClass="profileButton" runat="server" Text="Change Password" OnClick="btnChangePass_Click" />
                </div>
                <div class="col-md-3 col-sm-3" style="float: right; overflow: hidden;">
                      
