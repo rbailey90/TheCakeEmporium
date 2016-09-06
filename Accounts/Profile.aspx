@@ -9,6 +9,7 @@
             <asp:Button ID="btnUnregister" runat="server" cssClass="profileButton btn-block" Text="Disable Account" OnClick="btnUnregister_Click" />
             <asp:Button ID="btnUpdateInfo" runat="server" cssClass="profileButton btn-block" Text="Save Changes" OnClick="btnUpdateInfo_Click" />
             <asp:Button ID="btnChangePass" runat="server" cssClass="profileButton btn-block" Text="Change Password" OnClick="btnChangePass_Click"/>
+            <asp:Button ID="btnHistory" runat="server" cssClass="profileButton btn-block" Text="Order History" OnClick="btnHistory_Click" />
             <asp:Button ID="btnCancel" runat="server" cssClass="profileButton btn-block" Text="Cancel Updates" />
         </div>
     <div class="col-md-4">

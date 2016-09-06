@@ -150,12 +150,8 @@
                </div>
            </div>
 
-
            <div class="form-group">
-               <div class="col-md-5 col-sm-5" style="float: left; overflow: hidden;">
-                    
-               </div>
-               <div class="col-md-7 col-sm-7">
+               <div class="col-md-12 col-sm-12">
                     <asp:Button ID="BtnRegister" runat="server" Text="Register" OnClick="UserRegistration_Click" cssClass="profileButton btn-block" />
                </div>
                <div class="col-md-3 col-sm-3" style="float: right; overflow: hidden;">

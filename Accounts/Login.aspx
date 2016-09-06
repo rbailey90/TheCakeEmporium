@@ -4,8 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div class="profileContainer">
-   <asp:Label ID="lblHeader" runat="server" Text="Login" CssClass="profileHeader"></asp:Label>
-         <div class="container-fluid">
+    <asp:Label ID="lblHeader" runat="server" Text="Login" CssClass="profileHeader"></asp:Label>
+     <div class="container-fluid">
+        
            <div class="form-group">
                <asp:PlaceHolder runat="server" ID="LoginFormHolder" Visible="false">
                    <div style="margin-bottom: 10px">

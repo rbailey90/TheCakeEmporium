@@ -99,4 +99,9 @@ public partial class User_Profile : System.Web.UI.Page
     {
         Response.Redirect("~/Accounts/ChangePassword.aspx");
     }
+
+    protected void btnHistory_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Accounts/History.aspx");
+    }
 }
