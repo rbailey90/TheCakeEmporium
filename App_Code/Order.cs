@@ -21,6 +21,7 @@ public class Order
     //List<InvoiceItem> itemList = new List<InvoiceItem>(); 
     
     decimal subtotal;
+    decimal discount;
     decimal tax;
     decimal orderTotal;
     string userName;
@@ -100,6 +101,11 @@ public class Order
     {
         get { return orderID; }
         set { orderID = value; }
+    }
+    public decimal Discount
+    {
+        get { return discount; }
+        set { discount = value; }
     }
     public decimal Subtotal
     {
@@ -195,11 +201,29 @@ public class Order
         get { return pymtName; }
         set { pymtName = value; }
     }
-    
+   
+   public decimal CalculateDiscount()
+   {
+        Discount = 0;
+        decimal discountRate = .20m;
+        int quantity = CartList.GetQuantity();
+        if (quantity >= 2)
+        {
+            Subtotal = 0;
+            Subtotal = CartList.GetSubtotal();
+            decimal discountAmount = Math.Round((Subtotal * discountRate),2);
+            Discount = discountAmount;
+            return Discount;
+        }
+        else
+        {
+            return Discount;
+        }
+   }
    public decimal CalculateTax()
    {
        Tax=0;
-       Subtotal = 0;
+       //Subtotal = 0;
        Subtotal = CartList.GetSubtotal();
        Tax = Math.Round((Subtotal * taxrate), 2);
        return Tax;
@@ -207,7 +231,7 @@ public class Order
     public decimal TotalOrder()
     { 
         OrderTotal = 0;
-        OrderTotal=Subtotal+tax;
+        OrderTotal=(Subtotal-Discount)+tax;
         return orderTotal;
     }
 
@@ -219,7 +243,7 @@ public void SaveOrder(Order theOrder)
         {
                 //save to DB
                 OrderDA.AddNewOrder(theOrder);
-            }
+        }
 
         finally { }
     }

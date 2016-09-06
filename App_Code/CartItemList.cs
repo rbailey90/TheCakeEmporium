@@ -90,6 +90,16 @@ public class CartItemList  //: IEnumerable
         return subtotal;
     }
 
+    public int GetQuantity()
+    {
+        int quantity = 0;
+        foreach(CartItem ci in cartItems)
+        {
+            quantity += ci.Quantity;
+        }
+        return quantity;
+    }
+
     public int IndexAdvance(int index)
     {
         if (Count > (index+1))
