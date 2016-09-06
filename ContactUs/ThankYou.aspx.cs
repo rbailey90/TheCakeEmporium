@@ -14,8 +14,6 @@ public partial class ContactUs_ThankYou : System.Web.UI.Page
         {
             Page.Theme = "halloween";
         }
-
-        Page.Theme = "birthday";
     }
     protected void Page_Load(object sender, EventArgs e)
     {

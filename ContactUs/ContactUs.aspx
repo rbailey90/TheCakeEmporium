@@ -10,6 +10,11 @@
             margin-left: 39px;
         }
        
+        .auto-style1 {
+            margin-top: 5px;
+            margin-left: 45px;
+        }
+       
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -19,13 +24,14 @@
                          <h2 class="text-center heading">Contact Us</h2>                        
                                   <div class="autostyle1">
                                      <label> Name:  </label>
-                                     <asp:TextBox ID="txtName" runat="server" value="Name" CssClass="txtboxWidth"></asp:TextBox>
-                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="Please include your name."></asp:RequiredFieldValidator>
+                                     <asp:TextBox ID="txtName" runat="server" placeholder="name" CssClass="txtboxWidth"></asp:TextBox><br/>
+                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="*Please include your name." Display="Dynamic" Font-Italic="True" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                   </div>
                                   <div class="autostyle1">
                                      <label> Email: </label>
-                                     <asp:TextBox ID="txtEmail" runat="server" value="Email Address" CssClass="txtboxWidth"></asp:TextBox>
-                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email is a required field."></asp:RequiredFieldValidator>
+                                     <asp:TextBox ID="txtEmail" runat="server" placeholder="email address" CssClass="txtboxWidth"></asp:TextBox><br/>
+                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmail" ErrorMessage="*Email is a required field." Display="Dynamic" Font-Italic="True" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="*Please enter a valid email address" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                   </div>
                                   <div class="autostyle1">
                                      <label class="autostyle2">What is your question/comment regarding? </label>
@@ -41,10 +47,10 @@
                                          <asp:ListItem>Products offered</asp:ListItem>
                                       </asp:DropDownList>
                                   </div> 
-                                  <div class="autostyle1">
+                                  <div class="auto-style1">
                                      <label class="autostyle2">  </label>
-                                     <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" CssClass="txtboxWidth" placeholder="Write your comments here"></asp:TextBox>
-                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtComments" ErrorMessage="Do you really want to submit a blank comment? "></asp:RequiredFieldValidator>
+                                     <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" CssClass="txtboxWidth" placeholder="Write your comments here"></asp:TextBox>  <br/>
+                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtComments" ErrorMessage="*Do you really want to submit a blank comment? " SetFocusOnError="True"></asp:RequiredFieldValidator>
                                   </div>
                                   <div class="autostyle1">
                                       <asp:Button ID="btnSubmitComment" runat="server" Text="Submit Comments" CssClass="submitButton" OnClick="btnSubmitComment_Click"/>

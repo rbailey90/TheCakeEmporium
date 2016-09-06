@@ -13,10 +13,11 @@ public partial class ContactUs_ContactUs : System.Web.UI.Page
     protected void Page_PreInit(object sender, EventArgs e)
     {
         int daysUntil = getDaysUntilHalloween();
-        if (daysUntil <= 200)
+        if (daysUntil <= 31)
         {
             Page.Theme = "halloween";
         }
+        Page.Theme = "birthday";
     }
     protected void Page_Load(object sender, EventArgs e)
     {

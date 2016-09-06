@@ -32,5 +32,5 @@ public partial class Accounts_UpdateComplete : System.Web.UI.Page
 
         return (int)daysUntil;
     }
-}
+
 }

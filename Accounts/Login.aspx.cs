@@ -16,6 +16,7 @@ public partial class User_Login : System.Web.UI.Page
         {
             Page.Theme = "halloween";
         }
+        Page.Theme = "halloween";
     }
     protected void Page_Load(object sender, EventArgs e)
     {

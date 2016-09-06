@@ -90,7 +90,7 @@ public partial class _Default : System.Web.UI.Page
         images.Add("~/Images/HomepageImages/rainbowconfetticake.png");
         images.Add("~/Images/HomepageImages/chocolatehalloweencake.png");
         images.Add("~/Images/HomepageImages/poppyseedcake.png");
-        images.Add("~/Images/Products/christmasicecreampudding.png");
+        
         
        
 
@@ -100,7 +100,7 @@ public partial class _Default : System.Web.UI.Page
         descriptions.Add("Confetti Cake");
         descriptions.Add("Chocolate Halloween Cake");
         descriptions.Add("Poppyseed Cake");
-        descriptions.Add("Ice Cream Cake");
+       
       
 
 
