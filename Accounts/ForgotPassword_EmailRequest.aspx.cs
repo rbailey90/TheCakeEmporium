@@ -13,15 +13,29 @@ public partial class Accounts_ForgotPassword_EmailRequest : System.Web.UI.Page
 {
     Random keyNumber = new Random();
     private static int accessCode;
-
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        int daysUntil = getDaysUntilHalloween();
+        if (daysUntil <= 31)
+        {
+            Page.Theme = "halloween";
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
-
-       
+ 
     }
+    public int getDaysUntilHalloween()
+    {
+        DateTime todaysDate = new DateTime();
+        todaysDate = System.DateTime.Now.Date;
+        DateTime halloweenDay = new DateTime(DateTime.Today.Year, 10, 31); //year set to current year so it will constantly update
 
+        TimeSpan t = halloweenDay - todaysDate;
+        double daysUntil = t.TotalDays;
+
+        return (int)daysUntil;
+    }
     protected void btnSendRequest_Click(object sender, EventArgs e)
     {
         accessCode = keyNumber.Next(1000, 50000);

@@ -11,6 +11,25 @@ using Microsoft.Owin.Security;
 public partial class Cart_CheckOut : System.Web.UI.Page
 {
     private CartItemList cart;
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        int daysUntil = getDaysUntilHalloween();
+        if (daysUntil <= 31)
+        {
+            Page.Theme = "halloween";
+        }
+    }
+    public int getDaysUntilHalloween()
+    {
+        DateTime todaysDate = new DateTime();
+        todaysDate = System.DateTime.Now.Date;
+        DateTime halloweenDay = new DateTime(DateTime.Today.Year, 10, 31); //year set to current year so it will constantly update
+
+        TimeSpan t = halloweenDay - todaysDate;
+        double daysUntil = t.TotalDays;
+
+        return (int)daysUntil;
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         //retrieve cart object from session state on every post back

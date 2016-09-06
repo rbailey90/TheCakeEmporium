@@ -86,8 +86,12 @@ body {
     min-width: 100px;
 }
 .txtboxWidth2 {
-     width: 300px !important;
-     min-width: 100px !important;
+     width: 300px;
+     column-width: 300px; 
+}
+
+.submitButton {
+    margin-left: 175px;
 }
 #centertext { margin: 0 auto; text-align: center; }
 
@@ -234,6 +238,7 @@ body {
     /*.footerButtons { display: block; width: 100px; text-size-adjust: 80%; font-weight: normal;padding: 0px; margin: 0px;}
     .footernav { display: block; padding: 5px; margin: 5px auto;}*/
     .txtboxWidth { width: 250px;  }
+    .submitButton { margin-left: 90px;}
 }
 
 @media only screen and (max-width : 500px) {
@@ -251,8 +256,8 @@ body {
     }
     /*.footerButtons { display: block; width: 125px; margin-left: 35px; padding: 5px; text-align: center; }
     .footernav { margin: 0px auto; text-align: center; }*/
-    .txtboxWidth {
-        width: 150px;
-    }
-    .txtboxWidth2 { width: 250px;}
+    .txtboxWidth {  width: 170px;  }
+    .txtboxWidth2 { column-width: 170px; }
+    .submitButton { margin-left: 70px; }
+   
 }
