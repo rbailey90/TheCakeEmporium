@@ -4,19 +4,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-        <div class="container-fluid">
+        <div class="cartContainer">
             <div class="center-block">
 
 
-            <p>Shopping Cart</p>
-                <asp:ListBox ID="lstCart" runat="server" Height="118px" Width="373px"></asp:ListBox>
+            <h1>Shopping Cart</h1>
+                <asp:ListBox ID="lstCart" runat="server" CssClass="form-control" Height="118px" Width="373px"></asp:ListBox>
             <div id="cartbuttons">
-                <asp:Button ID="btnRemoveCartItem" runat="server" Text="Remove Item" OnClick="btnRemoveCartItem_Click"  CssClass="button"/>
-                <asp:Button ID="btnEmptyCart" runat="server" Text="Empty Cart" OnClick="btnEmptyCart_Click" CssClass="button"/><br />
+                <asp:Button ID="btnRemoveCartItem" runat="server" cssClass="profileButton" Text="Remove Item" OnClick="btnRemoveCartItem_Click"/>
+                <asp:Button ID="btnEmptyCart" runat="server" cssClass="profileButton" Text="Empty Cart" OnClick="btnEmptyCart_Click"/><br />
             </div>
             <div id="shopbuttons">
-                <asp:Button ID="btnContinueShopping" runat="server" Text="Continue Shopping" OnClick="btnContinueShopping_Click" CssClass="button"/>
-                <asp:Button ID="btnCheckOut" runat="server" Text="Check Out" OnClick="btnCheckOut_Click" CssClass="button"/><br />
+                <asp:Button ID="btnContinueShopping" runat="server" cssClass="profileButton" Text="Continue Shopping" OnClick="btnContinueShopping_Click"/>
+                <asp:Button ID="btnCheckOut" runat="server" cssClass="profileButtonRed" Text="Check Out" OnClick="btnCheckOut_Click"/><br />
             </div>
             <p id="message">
 

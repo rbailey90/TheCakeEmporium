@@ -65,7 +65,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
     {
         string signedInUser = HttpContext.Current.User.Identity.GetUserId();
         //if user is not null, do this
-        //if (signedInUser != null)
+        if (signedInUser != null)
         {
             //get textbox details
             string shipTo = txtShipTo.Text;
@@ -97,8 +97,10 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                                 //save order to DB
                 curOrder.SaveOrder(curOrder);
                 //reset curOrder & clear listbox
-                //curOrder = nextOrder;
-                
+                Order nextOrder = new Order();
+                curOrder = nextOrder;
+                cart.Clear();
+
                 Response.Redirect("~/Cart/Confirmation.aspx",false);
             }/*
             catch (EmptyOrderException ex)
@@ -114,11 +116,17 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 //MessageBox.Show(ex.Message);
             }
         }
-        //else
+        else
         {
+            lblMessageCO.Text = "Please sign in first.";
             //Please sign in first.
         }
     }
 
-   
+
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Cart/Cart.aspx");
+    }
 }

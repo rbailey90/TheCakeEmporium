@@ -102,6 +102,6 @@ public partial class User_Profile : System.Web.UI.Page
 
     protected void btnHistory_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Accounts/History.aspx");
+        Response.Redirect("~/User/History.aspx");
     }
 }

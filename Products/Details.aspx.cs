@@ -24,6 +24,10 @@ public partial class Products_Details : System.Web.UI.Page
 
             //lblCakeID.Text = cakeID.ToString();
         }
+        else
+        {
+            Response.Redirect("~/Products/Products.aspx");
+        }
     }
 
     public int getDaysUntilHalloween()
@@ -44,32 +48,46 @@ public partial class Products_Details : System.Web.UI.Page
         try{
                 quantitySelected = Convert.ToInt16(txtQuantity.Text);
 
-        if(Page.IsValid)
-        {
-            Cake selectedProduct = this.GetSelectedProduct();
-            CartItemList cart = CartItemList.GetCart();
-            CartItem cartItem = cart[selectedProduct.ProductId];
-
-            // checking first to see if we have the amount selected currently on hand
-            if (quantitySelected > selectedProduct.OnHand)
-            {
-                lblQuan.Text = "Sorry, we do not have that many on hand.";
-            }
-            else
-            {
-                // if we do, then we can add to cart and redirect to cart
-                if (cartItem == null)
+                if(Page.IsValid)
                 {
-                    cart.AddItem(selectedProduct, Convert.ToInt32(txtQuantity.Text));
-                }
-                else
-                {
-                    cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
-                }
-                Response.Redirect("~/Cart/Cart.aspx");
-            }
+                    Cake selectedProduct = this.GetSelectedProduct();
+                    CartItemList cart = CartItemList.GetCart();
+                    CartItem cartItem = cart[selectedProduct.ProductId];
 
-        }
+
+                        int index = 0;
+                        int alreadyInCart = 0;
+                        if (cart.Count > 0)
+                        {
+                            while (index != -1)
+                            {
+                                if (cart.GetProdID(index) == selectedProduct.ProductId)
+                                {
+                                    alreadyInCart = cart.GetQuantity(index);
+                                }
+                                index = cart.IndexAdvance(index);
+                            }
+                        }
+                        // checking first to see if we have the amount selected currently on hand
+                        if (quantitySelected+alreadyInCart > selectedProduct.OnHand)
+                    {
+                        lblQuan.Text = "Sorry, we do not have that many on hand.";
+                    }
+                    else
+                    {
+                        // if we do, then we can add to cart and redirect to cart
+                        if (cartItem == null)
+                        {
+                            cart.AddItem(selectedProduct, Convert.ToInt32(txtQuantity.Text));
+                        }
+                        else
+                        {
+                            cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
+                        }
+                        Response.Redirect("~/Cart/Cart.aspx");
+                    }
+
+                }
         }
         catch (Exception ex)
         {

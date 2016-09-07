@@ -225,6 +225,7 @@
                 </table>
                 </p><p>
                 &nbsp;<asp:Button ID="btnPlaceOrder" runat="server" OnClick="btnPlaceOrder_Click" Text="Place Order" ValidationGroup="CustInfo" />
+                <asp:Label ID="lblMessageCO" runat="server"></asp:Label>
             </p>
        </div>
     </div>
