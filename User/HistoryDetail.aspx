@@ -72,7 +72,10 @@
 
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [OrderId], [ProductID], [Quantity], [PriceEach], [OrderDate], [OrderStatus] FROM [OrderDetails] WHERE ([OrderId] = @OrderId)">
+    <br />
+    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete Order" />
+&nbsp;<asp:Button ID="btnReorder" runat="server" OnClick="btnReorder_Click" Text="Reorder" />
+&nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [OrderId], [ProductID], [Quantity], [PriceEach], [OrderDate], [OrderStatus] FROM [OrderDetails] WHERE ([OrderId] = @OrderId)">
         <SelectParameters>
             <asp:SessionParameter Name="OrderId" SessionField="orderselect" Type="String" />
         </SelectParameters>

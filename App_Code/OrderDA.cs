@@ -142,4 +142,32 @@ public class OrderDA
 
 
     }
+
+    public static int Reorder(int productID)
+    {
+        int numRows = 0;
+
+        string insertString = "insert  (Name, Description, Image, UnitPrice, OnHand) values (@name, @description, @image, @unitPrice, @onHand)"; // the parameter values will be made later
+
+        // now the command object
+        SqlCommand insertCommand = new SqlCommand(insertString, conn); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+
+        insertCommand.Parameters.AddWithValue("@name", newCake.ProductId); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
+        insertCommand.Parameters.AddWithValue("@description", newCake.Description);
+        insertCommand.Parameters.AddWithValue("@image", newCake.ImageFile);
+        insertCommand.Parameters.AddWithValue("@unitPrice", newCake.UnitPrice);
+        insertCommand.Parameters.AddWithValue("@onHand", newCake.OnHand);
+
+        try
+        {
+            conn.Open(); // opens the connection to the database so that we can make sqlcommands
+            numRows = insertCommand.ExecuteNonQuery(); // Says how many rows were added to the database
+        }
+        finally
+        {
+            conn.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
+        }
+
+        return numRows;
+    }
 }
