@@ -37,7 +37,9 @@ public partial class User_History : System.Web.UI.Page
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        int orderID = (int)GridView1.SelectedValue;
+        int orderID = Convert.ToInt16(GridView1.SelectedValue);
+
+        //Response.Redirect("~/User/History.aspx");
 
         OrderDA.DeleteOrder(orderID);
 

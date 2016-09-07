@@ -101,6 +101,7 @@ public class OrderDA
         try
         {
             conn1.Open(); // opens the connection to the database so that we can make sqlcommands
+            deleteCommand.ExecuteNonQuery();
         }
         finally
         {
