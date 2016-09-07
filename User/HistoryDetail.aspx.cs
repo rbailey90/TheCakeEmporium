@@ -11,8 +11,8 @@ public partial class User_HistoryDetail : System.Web.UI.Page
     {
         if (Session["orderselect"] != null)
         {
-            int boltID = (int)Session["orderselect"];
-            lblOrderID.Text = boltID.ToString();
+            int orderID = (int)Session["orderselect"];
+            lblOrderID.Text = orderID.ToString();
         }
     }
 }
