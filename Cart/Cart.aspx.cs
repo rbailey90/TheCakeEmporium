@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 
 public partial class Cart_Cart : System.Web.UI.Page
 {
@@ -70,10 +73,18 @@ public partial class Cart_Cart : System.Web.UI.Page
 
     protected void btnCheckOut_Click(object sender, EventArgs e)
     {
+        string signedInUser = HttpContext.Current.User.Identity.GetUserId();
         //lblMessage.Text = "Sorry, that function isn't working yet.";
         if (cart.Count > 0)
         {
+            if(signedInUser != null)
+            { 
             Response.Redirect("~/Cart/CheckOut.aspx");
+            }
+            else
+            {
+                lblMessage.Text = "Please log in first";
+            }
         }
         else
         {
