@@ -120,5 +120,10 @@ public partial class Cart_CheckOut : System.Web.UI.Page
         }
     }
 
-   
+
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Cart/Cart.aspx");
+    }
 }

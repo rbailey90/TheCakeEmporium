@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="container-fluid">
+    <div class="cartContainer">
         <div class="center-block">
         <h1>Product Details</h1>
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" Height="350px" Width="572px">            
@@ -23,21 +23,21 @@
 
             </ItemTemplate>
         </asp:FormView>
+    <div id="order">
+        <p id="quantity">
+            
+            <asp:Label ID="lblQuantity" runat="server" Text="Quantity: "></asp:Label>
+            <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control" Width="75px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter how many you'd like to order."></asp:RequiredFieldValidator>
+            <asp:Label ID="lblQuan" runat="server"></asp:Label>
+        </p>
+            <asp:Button ID="btnAddtoCart" runat="server" cssClass="profileButton" Text="Add to Cart" OnClick="btnAddtoCart_Click" />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice], [OnHand], [ProductId] FROM [Products]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ProductId], [Name], [Description], [Image], [UnitPrice], [OnHand] FROM [Products] WHERE ([ProductId] = @ProductId)">
             <SelectParameters>
                 <asp:SessionParameter Name="ProductId" SessionField="CakeChoice" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice], [OnHand], [ProductId] FROM [Products]"></asp:SqlDataSource>
-    <div id="order">
-        <p id="quantity">
-            
-            <asp:Label ID="lblQuantity" runat="server" Text="Quantity: "></asp:Label>
-            <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter how many you'd like to order."></asp:RequiredFieldValidator>
-            <asp:Label ID="lblQuan" runat="server"></asp:Label>
-        </p>
-            <asp:Button ID="btnAddtoCart" runat="server" Text="Add to Cart" OnClick="btnAddtoCart_Click" />
     </div>
         </div>
     </div>
