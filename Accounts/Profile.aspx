@@ -31,7 +31,7 @@
             ZipCode:
             <asp:TextBox ID="ZipCodeTextBox" CssClass="form-control" runat="server" Text='<%# Bind("ZipCode") %>' />
             <br />
-            ZipCode:
+            Birthday:
             <asp:TextBox ID="BirthdayTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Birthday") %>' />
             <br />
             <%--<asp:LinkButton ID="UpdateButton" CssClass="btn btn-primary btn-lg btn-block" runat="server" CausesValidation="True" CommandName="Update" Text="Update" OnClick="UpdateButton_Click"/>
@@ -59,7 +59,7 @@
             ZipCode:
             <asp:TextBox ID="ZipCodeTextBox" CssClass="form-control" runat="server" Text='<%# Bind("ZipCode") %>' />
             <br />
-            ZipCode:
+            Birthday:
             <asp:TextBox ID="BirthdayTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Birthday") %>' />
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />

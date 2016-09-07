@@ -19,7 +19,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container-fluid">  
-         <div class="row">
+         <div class="row transparentBackground">
 <!--left section--> <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-6 col-xs-12 col-xs-offset-0">
                          <h2 class="text-center heading">Contact Us</h2>                        
                                   <div class="autostyle1">
@@ -55,11 +55,9 @@
                                       <asp:Button ID="btnSubmitComment" runat="server" Text="Submit Comments" CssClass="submitButton" OnClick="btnSubmitComment_Click"/>
                                   </div>
                     </section>
-      
-                    
 <!--right section--><section class="col-lg-5 col-md-6 col-sm-6 col-xs-12 col-xs-offset-0">
                         <h2 class="text-center heading">Upcoming Events</h2>
-                                 <asp:Calendar ID="Calendar1" runat="server" BackColor="White" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" CssClass="calendarSize" Height="300px" Width="100%">
+                                 <asp:Calendar ID="Calendar1" runat="server" BackColor="White" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" CssClass="calendarSize" Height="300px" Width="100%" BorderColor="White" BorderStyle="None">
                                        <DayHeaderStyle BackColor="#F1BC75" ForeColor="White" Height="1px" />
                                        <NextPrevStyle Font-Size="8pt" ForeColor="White" />
                                        <OtherMonthDayStyle ForeColor="#999999" />
