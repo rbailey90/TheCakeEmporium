@@ -126,28 +126,59 @@ body {
 /**************< Start of Profile Page >**************/
 .profileContainer{
     display:table;
-    width: 500px;
+    max-width: 455px;
     margin: 15px auto;
     font-size: 14px;
-    line-height: 1.42857143;
+
     color: #555;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-weight:bold;
+    font-weight: bold;
+
+}
+
+.profile-Container{
+    max-width: 975px;
+    margin:0 auto;
 }
 
 .profileHeader{
-    display:inline-block;
-    border-radius: 4px 4px 0 0;
-    background-color:#428bca;
-    width: 100%;
-    margin: 0 auto;
-    font-size: 20px;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 15px;
+      display:inline-block;
+      border-radius: 4px 4px 0 0;
+      background-color:#e86807;
+      width: 100%;
+      margin: 0 auto;
+      font-size: 20px;
+      color: white;
+      padding: 3px;
+      text-align: center;
+      margin-bottom: 15px;
+}
+
+.profileButton{
+    background-color:#962903;
+    border-radius:6px;
+    color:white;
+    padding:5px 25px 5px 25px;
+    border-width:0;
+    margin:5px;
+} 
+
+.profileButton:hover{
+    background-color:#e86807;
+    color:#ffbd83;
+}
+
+.input-sm{
+    border-width:1px;
+    margin: 5px;
+}
+
+.labelStyle{
+
+    vertical-align:central;
+    
 }
 /**************^ Profile Page END ^**************/
 /************** START OF LOGIN **************/

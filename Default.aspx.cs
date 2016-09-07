@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 //using System.Collections.Generic;
 
 public partial class _Default : System.Web.UI.Page
@@ -11,16 +14,16 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_PreInit(object sender, EventArgs e)
     {
         int daysUntil = getDaysUntilHalloween();
-        int daysUntilBirthday = getDaysUntilBirthday();
+       // int daysUntilBirthday = getDaysUntilBirthday();
 
         if (daysUntil <= 31)
         {
             Page.Theme = "halloween";  
         }
-        if (daysUntilBirthday <= 131)
-        {
-            Page.Theme = "birthday";
-        }
+        //if (daysUntilBirthday <= 131)
+        //{
+        //    Page.Theme = "birthday";
+        //}
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -44,24 +47,30 @@ public partial class _Default : System.Web.UI.Page
         getNewProduct();
         //  List<Cake> getCake = CakeDA.GetAllCake();
     }
-    public int getDaysUntilBirthday()
-    {
-        double daysUntilBirthday = 1000;
-       // var signedInUser = HttpContext.Current.User.Identity.GetUserName();
-       //if there is a user currently signed in 
-       //then get the users date of birth and do calculations
-        if ( System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
-        {
-            
-                //change this when there's a user birthday field!!!!!
-            return (int)daysUntilBirthday;
-        }
-        else
-        {
-           
-        }
-        return (int)daysUntilBirthday;
-    }
+    ////public int getDaysUntilBirthday()
+    ////{
+    ////    double daysUntilBirthday = 1000;
+    ////    // var signedInUser = HttpContext.Current.User.Identity.GetUserName();
+    ////    //if there is a user currently signed in 
+    ////    //then get the users date of birth and do calculations
+    ////    if (User.Identity.IsAuthenticated) //if current user is signed in
+    ////    {
+    ////        var userId = User.Identity.GetUserId(); //get current users id
+
+    ////        UserManager<IdentityUser> userManager =
+    ////        new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+    ////        var myUser = userManager.FindById(userId); //make a user
+    ////        string currentUser = Convert.ToString(myUser);
+    ////        string currentUserFromAccountsTable = UserDA.getUsername(currentUser);
+    ////        //ok now i have birthday stuff
+    ////        DateTime userBirthday = UserDA.getBirthday(currentUserFromAccountsTable);
+    ////        DateTime todaysDate = System.DateTime.Now.Date;
+    ////        TimeSpan t = todaysDate - userBirthday;
+    ////        double daysUntilBDay = t.TotalDays;
+    ////    }
+       
+    ////    return (int)daysUntilBirthday;
+    ////}
     public int getDaysUntilHalloween()
     {
         DateTime todaysDate = new DateTime();
@@ -81,8 +90,8 @@ public partial class _Default : System.Web.UI.Page
         images.Add("~/Images/HomepageImages/rainbowconfetticake.png");
         images.Add("~/Images/HomepageImages/chocolatehalloweencake.png");
         images.Add("~/Images/HomepageImages/poppyseedcake.png");
-        images.Add("~/Images/Products/christmasicecreampudding.png");
-        images.Add("~/Images/Products/lemoncake.png");
+        
+        
        
 
         List<string> descriptions = new List<string>();
@@ -91,8 +100,8 @@ public partial class _Default : System.Web.UI.Page
         descriptions.Add("Confetti Cake");
         descriptions.Add("Chocolate Halloween Cake");
         descriptions.Add("Poppyseed Cake");
-        descriptions.Add("Ice Cream Cake");
-        descriptions.Add("Lemon Cake");
+       
+      
 
 
         Random rnd = new Random(); //creates new random

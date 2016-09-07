@@ -56,6 +56,7 @@
             <div class="row" id="featured">
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice] FROM [Products]"></asp:SqlDataSource>
               <div class="">
+                  <h3 class="text-center"> Featured Products </h3>
                    <section class="col-lg-3 col-md-3 col-sm-6 text-center">
                        <asp:Image ID="Image1" runat="server" ImageUrl="Images/Products/confetticake.png" Cssclass="img-thumbnail"/>
                        <aside><asp:Label ID="Label1" runat="server" Text="Label" Font-Size="Medium" Font-Bold="true" ></asp:Label></aside>

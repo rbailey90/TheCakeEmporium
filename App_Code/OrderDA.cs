@@ -80,7 +80,7 @@ public class OrderDA
 
             /* Save Order Details */
             WriteDetails(theOrder, ID);
-            int testid = ID; //just to see if it gets here
+            //int testid = ID; //just to see if it gets here
         }
         finally
         {
@@ -124,8 +124,8 @@ public class OrderDA
         while (index != -1)
         {
             line = index + 1;
-            //,Quantity, PriceEach,OrderDate  ,@quantity, @priceeach,@orderDate
-            insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId, LineID) values (@orderid, @productid, @line)";
+        
+            insertStatement3 = "INSERT INTO ORDERDETAILS (OrderId, ProductId, LineID,Quantity, PriceEach,OrderDate) values (@orderid, @productid, @line ,@quantity, @priceeach,@orderDate)";
             SqlCommand insertCommand3 = new SqlCommand(insertStatement3, conn1);
             insertCommand3.Parameters.AddWithValue("@orderid", orderID);
             insertCommand3.Parameters.AddWithValue("@productid", theOrder.CartList.GetProdID(index));

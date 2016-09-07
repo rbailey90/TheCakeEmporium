@@ -85,10 +85,15 @@ body {
     width: 300px;
     min-width: 100px;
 }
-#centertext {
-    margin: 0 auto;
-    text-align: center;
+.txtboxWidth2 {
+     width: 300px;
+     column-width: 300px; 
 }
+
+.submitButton {
+    margin-left: 175px;
+}
+#centertext { margin: 0 auto; text-align: center; }
 
 #shopButtons{
 
@@ -100,7 +105,7 @@ body {
 
 .profileEditRow{
     padding: 25px;
-    background-color: deeppink;
+
 }
 /*************** FOOTER *******************/
 
@@ -131,7 +136,7 @@ body {
 /**************< Start of Profile Page >**************/
 .profileContainer{
     display:table;
-    max-width: 475px;
+    max-width: 455px;
     margin: 15px auto;
     font-size: 14px;
 
@@ -143,17 +148,47 @@ body {
 
 }
 
+.profile-Container{
+    max-width: 975px;
+    margin:0 auto;
+}
+
 .profileHeader{
       display:inline-block;
       border-radius: 4px 4px 0 0;
-      background-color:#428bca;
+      background-color:#6FA398;
       width: 100%;
       margin: 0 auto;
       font-size: 20px;
       color: white;
-      padding: 10px;
+      padding: 3px;
       text-align: center;
       margin-bottom: 15px;
+}
+
+.profileButton{
+    background-color:#6FA398;
+    border-radius:6px;
+    color:white;
+    padding:5px 25px 5px 25px;
+    border-width:0;
+    margin:5px;
+} 
+
+.profileButton:hover{
+    background-color:#F1BC75;
+    color:white;
+}
+
+.input-sm{
+    border-width:1px;
+    margin: 5px;
+}
+
+.labelStyle{
+
+    vertical-align:central;
+    
 }
 /**************^ Profile Page END ^**************/
 /************** START OF LOGIN **************/
@@ -203,23 +238,15 @@ body {
     /*.footerButtons { display: block; width: 100px; text-size-adjust: 80%; font-weight: normal;padding: 0px; margin: 0px;}
     .footernav { display: block; padding: 5px; margin: 5px auto;}*/
     .txtboxWidth { width: 250px;  }
+    .submitButton { margin-left: 90px;}
 }
 
 @media only screen and (max-width : 500px) {
-    #image_sm {
-        display: inline;
-    }
+    #image_sm {display: inline;}
 
-    #image_med {
-        display: none;
-    }
+    #image_med {display: none;}
 
-    .menuButtons {
-        display: block;
-        width: inherit;
-        min-width: 235px;
-        margin: 0px auto 5px auto;
-    }
+    .menuButtons { display: block; width: inherit; min-width: 235px; margin: 0px auto 5px auto; }
 
     .footerButtons {
         display: block;
@@ -229,7 +256,8 @@ body {
     }
     /*.footerButtons { display: block; width: 125px; margin-left: 35px; padding: 5px; text-align: center; }
     .footernav { margin: 0px auto; text-align: center; }*/
-    .txtboxWidth {
-        width: 150px;
-    }
+    .txtboxWidth {  width: 170px;  }
+    .txtboxWidth2 { column-width: 170px; }
+    .submitButton { margin-left: 70px; }
+   
 }

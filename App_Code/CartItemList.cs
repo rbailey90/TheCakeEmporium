@@ -51,6 +51,7 @@ public class CartItemList  //: IEnumerable
         set { cartItems[index] = value; }
     }
 
+
     public CartItem this[string id]
     {
         get { return cartItems.FirstOrDefault(c => c.Cake.ProductId == (id)); }
@@ -89,6 +90,16 @@ public class CartItemList  //: IEnumerable
         return subtotal;
     }
 
+    public int GetQuantity()
+    {
+        int quantity = 0;
+        foreach(CartItem ci in cartItems)
+        {
+            quantity += ci.Quantity;
+        }
+        return quantity;
+    }
+
     public int IndexAdvance(int index)
     {
         if (Count > (index+1))
@@ -107,54 +118,26 @@ public class CartItemList  //: IEnumerable
     {
         decimal prc=0;
 
-        foreach (CartItem i in cartItems)
-        {
-            if(cartItems.BinarySearch(i) ==indx)
-                {
-                prc=i.Cake.UnitPrice;
-                }
-            else
-            {
+        CartItem item = cartItems[indx];
 
-            }
-        }
-
+        prc = item.Cake.UnitPrice;
         return prc;
     }
 
     public string GetProdID(int indx)
     {
         string prod="";
-        foreach (CartItem i in cartItems)
-        {
-            if (cartItems.BinarySearch(i) == indx)
-            {
-                prod = i.Cake.ProductId;
-            }
-            else
-            {
+        CartItem item = cartItems[indx];
 
-            }
-        }
-
+        prod = item.Cake.ProductId;
         return prod;
     }
 
     public int GetQuantity(int indx)
     {
         int quant=0;
-        foreach (CartItem i in cartItems)
-        {
-            if (cartItems.BinarySearch(i) == indx)
-            {
-                quant = i.Quantity;
-            }
-            else
-            {
-
-            }
-        }
-
+        CartItem item = cartItems[indx];
+        quant = item.Quantity;
         return quant;
     }
 }
