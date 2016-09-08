@@ -30,7 +30,12 @@ public partial class User_HistoryDetail : System.Web.UI.Page
     protected void btnReorder_Click(object sender, EventArgs e)
     {
         int orderID = Convert.ToInt16(Session["orderselect"]);
+       
+        Order curOrder=new Order();
+ 
+        string prod=curOrder.ReorderInfo(orderID);
+        Session["CakeChoice"] = Convert.ToInt32(prod);
 
-        OrderDA.DeleteOrder(orderID);
+        Response.Redirect("~/Products/Details.aspx");
     }
 }

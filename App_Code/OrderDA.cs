@@ -142,8 +142,42 @@ public class OrderDA
 
 
     }
+    public static string ReorderInfo(int orderID)
+    {
+        string prod="";
 
-    public static int Reorder(int productID)
+        string selectString = "select productid from orderdetails where orderid=@orderid;";
+
+        // now the command object
+        SqlCommand selectCommand = new SqlCommand(selectString, conn1); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+
+        selectCommand.Parameters.AddWithValue("@orderid", orderID); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
+        try
+        {
+            conn1.Open(); 
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+            // Check is the reader has any rows at all before starting to read.
+                if (reader.HasRows)
+                {
+                // Read advances to the next row.
+                    while (reader.Read())
+                    {
+                        //prod = reader.GetInt32(reader.GetOrdinal("ProductID")).ToString();
+                        prod = reader.GetString(reader.GetOrdinal("ProductID"));
+                    }
+                }
+             }
+        }
+        finally
+        {
+            conn1.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
+        }
+
+        return prod;
+    }
+
+    /*public static int Reorder(int productID)
     {
         int numRows = 0;
 
@@ -151,23 +185,23 @@ public class OrderDA
 
         // now the command object
         SqlCommand insertCommand = new SqlCommand(insertString, conn); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+        
+                insertCommand.Parameters.AddWithValue("@name", newCake.ProductId); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
+                insertCommand.Parameters.AddWithValue("@description", newCake.Description);
+                insertCommand.Parameters.AddWithValue("@image", newCake.ImageFile);
+                insertCommand.Parameters.AddWithValue("@unitPrice", newCake.UnitPrice);
+                insertCommand.Parameters.AddWithValue("@onHand", newCake.OnHand);
 
-        insertCommand.Parameters.AddWithValue("@name", newCake.ProductId); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
-        insertCommand.Parameters.AddWithValue("@description", newCake.Description);
-        insertCommand.Parameters.AddWithValue("@image", newCake.ImageFile);
-        insertCommand.Parameters.AddWithValue("@unitPrice", newCake.UnitPrice);
-        insertCommand.Parameters.AddWithValue("@onHand", newCake.OnHand);
+                try
+                {
+                    conn.Open(); // opens the connection to the database so that we can make sqlcommands
+                    numRows = insertCommand.ExecuteNonQuery(); // Says how many rows were added to the database
+                }
+                finally
+                {
+                    conn.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
+                }
 
-        try
-        {
-            conn.Open(); // opens the connection to the database so that we can make sqlcommands
-            numRows = insertCommand.ExecuteNonQuery(); // Says how many rows were added to the database
-        }
-        finally
-        {
-            conn.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
-        }
-
-        return numRows;
-    }
+                return numRows;
+    }*/
 }

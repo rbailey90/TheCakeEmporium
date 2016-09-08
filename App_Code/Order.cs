@@ -248,6 +248,16 @@ public void SaveOrder(Order theOrder)
         finally { }
     }
 
+public string ReorderInfo(int orderid)
+{
+    try
+    {
+        string prod ="";
+        prod=OrderDA.ReorderInfo(orderid);
+        return prod;
+    }
+    finally { }
+}
     }
 
 
