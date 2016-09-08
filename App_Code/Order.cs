@@ -220,6 +220,10 @@ public class Order
             return Discount;
         }
    }
+    public void UpdateSubtotal()
+    {
+        Subtotal -= Discount;
+    }
    public decimal CalculateTax()
    {
        Tax=0;
