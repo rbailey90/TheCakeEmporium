@@ -44,7 +44,7 @@ public partial class Products_Details : System.Web.UI.Page
 
     protected void btnAddtoCart_Click(object sender, EventArgs e)
     {
-        int quantitySelected;
+        int quantitySelected=0;
         try{
                 quantitySelected = Convert.ToInt16(txtQuantity.Text);
 
@@ -69,31 +69,41 @@ public partial class Products_Details : System.Web.UI.Page
                             }
                         }
                         // checking first to see if we have the amount selected currently on hand
-                        if (quantitySelected+alreadyInCart > selectedProduct.OnHand)
-                    {
-                        lblQuan.Text = "Sorry, we do not have that many on hand.";
-                    }
-                    else
-                    {
-                        // if we do, then we can add to cart and redirect to cart
-                        if (cartItem == null)
+                        if (quantitySelected + alreadyInCart <= selectedProduct.OnHand)
                         {
-                            cart.AddItem(selectedProduct, Convert.ToInt32(txtQuantity.Text));
+                            if (quantitySelected > 0)
+                            {
+                                // if we do, then we can add to cart and redirect to cart
+                                //if item isn't in cart, add it; otherwise, increase its quantity
+                                if (cartItem == null)
+                                {
+                                    cart.AddItem(selectedProduct, Convert.ToInt32(txtQuantity.Text));
+                                }
+                                else
+                                {
+                                    cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
+                                }
+                                Response.Redirect("~/Cart/Cart.aspx");
+                                
+                            }
+                            else
+                            {
+                                lblQuan.Text = "Please enter a quantity greater than zero.";
+                            }
                         }
                         else
                         {
-                            cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
-                        }
-                        Response.Redirect("~/Cart/Cart.aspx");
-                    }
-
+                            //ask them to order fewer
+                            lblQuan.Text = "Sorry, we do not have that many on hand.";
+                        }                 
                 }
-        }
-        catch (Exception ex)
-        {
-            lblQuan.Text = "That's not a valid number.";
-        }
+            }
+            catch (Exception ex)
+            {
+                lblQuan.Text = "That's not a valid number.";
+            }
     }
+
     private Cake GetSelectedProduct()
     {
         DataView productsTable = (DataView)
