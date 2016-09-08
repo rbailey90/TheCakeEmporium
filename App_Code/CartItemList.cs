@@ -85,7 +85,8 @@ public class CartItemList  //: IEnumerable
 
         foreach (CartItem i in cartItems)
         {
-            subtotal += i.ExtendedPrice;
+            //subtotal += i.Cake.UnitPrice;
+            subtotal += Math.Round((i.Quantity * i.Cake.UnitPrice), 2);
         }
         return subtotal;
     }

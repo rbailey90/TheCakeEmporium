@@ -10,7 +10,7 @@ public class CartItem
 {
     Cake cake;
     int quantity;
-    decimal extPrc;
+    //decimal extPrc;
 
 
     public CartItem()    {}
@@ -19,7 +19,7 @@ public class CartItem
     {
         this.cake=theCake;
         this.quantity=theQuantity;
-        extPrc = Math.Round((quantity * cake.UnitPrice), 2);
+       // extPrc = Math.Round((quantity * cake.UnitPrice), 2);
     }
 
     public Cake Cake
@@ -33,11 +33,11 @@ public class CartItem
         get{return quantity;}
         set{quantity=value;}
     }
-    public decimal ExtendedPrice
+    /*public decimal ExtendedPrice
     {
         get{return extPrc;}
         set { extPrc = value; }
-    }
+    }*/
     //public string Id
     //{
     //    get { return id; }
