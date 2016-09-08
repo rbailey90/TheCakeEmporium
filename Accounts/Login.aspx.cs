@@ -58,7 +58,12 @@ public partial class User_Login : System.Web.UI.Page
             var User_Identity = User_Manager.CreateIdentity(User, DefaultAuthenticationTypes.ApplicationCookie);
 
             Auth_Manager.SignIn(new AuthenticationProperties() { IsPersistent = false }, User_Identity);
-            Response.Redirect("~/Accounts/Profile.aspx");
+            if(Auth_Manager.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Accounts/Profile.aspx");
+            }
+
+            
         }
         else
         {
