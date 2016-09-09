@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Cart_Confirmation : System.Web.UI.Page
 {
+    private CartItemList cart;
     protected void Page_PreInit(object sender, EventArgs e)
     {
         int daysUntil = getDaysUntilHalloween();
@@ -15,10 +16,7 @@ public partial class Cart_Confirmation : System.Web.UI.Page
             Page.Theme = "halloween";
         }
     }
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
+   
     public int getDaysUntilHalloween()
     {
         DateTime todaysDate = new DateTime();
@@ -29,5 +27,19 @@ public partial class Cart_Confirmation : System.Web.UI.Page
         double daysUntil = t.TotalDays;
 
         return (int)daysUntil;
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        //retrieve cart object from session state on every post back
+        if (Session["OrderIDReciept"] != null)
+        {
+            string orderid = Session["OrderIDReciept"].ToString();
+            Order currentOrder = OrderDA.OrderReceipt(orderid);
+        }
+        //on initial page load, add cart items to list control
+
+        //assign values to text boxes
+
     }
 }
