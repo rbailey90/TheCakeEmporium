@@ -247,11 +247,9 @@ public void SaveOrder(Order theOrder)
                 //save to DB
                 OrderDA.AddNewOrder(theOrder);
         }
-       // catch(SqlException ex)
-        {
+       // catch(SqlException ex){        {
           // throw new SavingException("Something went wrong saving your order. Please send us a message via the Contact Page.");
-            //error saving to DB
-        }
+            //error saving to DB         }
 
         finally { }
     }
