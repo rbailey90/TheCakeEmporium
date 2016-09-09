@@ -37,6 +37,19 @@ public partial class Cart_CheckOut : System.Web.UI.Page
         //on initial page load, add cart items to list control
         if (!IsPostBack)
             this.DisplayCart();
+
+        // if user is signed in, populate address on file in check out page for easier check out -lg
+        // NOT WORKING 
+        //string signedInUser = HttpContext.Current.User.Identity.GetUserName();
+        //if(User.Identity.IsAuthenticated)
+        //{
+        //    //string address = UserDA.getAddress(signedInUser);
+        //    //txtBillAddr1.Text = address;
+        //    //string state = UserDA.getState(signedInUser);
+        //    //txtBillState.Text = state;
+        //    //string zip = UserDA.getZip(signedInUser);
+        //    //txtBillZip.Text = zip;
+        //}
     }
     private void DisplayCart()
     {
@@ -84,13 +97,16 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             string exp = txtPymtExp.Text;
             string cvv = txtPymtCVV.Text;
             string pymtName = txtPymtName.Text;
+
             //Save to Order object
             Order curOrder = new Order(cart, shipTo, shiptoadd1, shiptoadd2, shipCity, shipSt, shipZip, billAddr1, billAddr2, billcity,
                 billstate, billzip, card, exp, cvv, pymtName,signedInUser);
+
             //calc rest of order details      
             curOrder.Discount = curOrder.CalculateDiscount(); //this doesn't write the discount to database but it can
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();
+
             //Place order 
             try
             {
@@ -115,6 +131,11 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             {
                 //MessageBox.Show(ex.Message);
             }
+
+            //foreach(Cake c in curOrder)
+            //{
+
+            //}
         }
         else
         {

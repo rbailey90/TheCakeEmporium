@@ -19,17 +19,6 @@
         .auto-style5 {
             height: 20px;
         }
-        .auto-style6 {
-            width: 102px;
-            height: 22px;
-        }
-        .auto-style7 {
-            width: 225px;
-            height: 22px;
-        }
-        .auto-style8 {
-            height: 22px;
-        }
         .auto-style9 {
             width: 229px;
         }
@@ -37,11 +26,7 @@
             height: 20px;
             width: 229px;
         }
-        .auto-style11 {
-            height: 22px;
-            width: 229px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container-fluid">
@@ -73,18 +58,18 @@
             <tr>
                 <td class="auto-style1">ID:</td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtID" runat="server" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
+                    <asp:TextBox ID="txtID" runat="server" CssClass="form-control" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtID" Display="Dynamic" ErrorMessage="ID is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    Upload Image: .png files only, 150kb size limit</td>
+                    Upload Image: .png files only, 150kb size limit, 250x250</td>
             </tr>
             <tr>
                 <td class="auto-style1">Name:</td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtName" runat="server" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="txtName" runat="server" CssClass="form-control" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtName" Display="Dynamic" ErrorMessage="Name is Required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
@@ -96,19 +81,19 @@
             <tr>
                 <td class="auto-style1">Description:</td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtDescript" runat="server" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="txtDescript" runat="server" CssClass="form-control" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDescript" Display="Dynamic" ErrorMessage="Description is Required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    <asp:Button ID="btnUpload" runat="server" OnClick="btnUpload_Click" Text="Upload Image" />
+                    <asp:Button ID="btnUpload" runat="server" cssClass="profileButton" OnClick="btnUpload_Click" Text="Upload Image" />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style3">Image File:</td>
                 <td class="auto-style4">
-                    <asp:TextBox ID="txtImageFile" runat="server" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="txtImageFile" runat="server" CssClass="form-control" ValidationGroup="invmgGroup" Width="200px"></asp:TextBox>
                 </td>
                 <td class="auto-style10">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtImageFile" ErrorMessage="The file name is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
@@ -120,7 +105,7 @@
             <tr>
                 <td class="auto-style1">Unit Price:</td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtPrice" runat="server" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
+                    <asp:TextBox ID="txtPrice" runat="server" CssClass="form-control" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPrice" ErrorMessage="A price is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
@@ -130,7 +115,7 @@
             <tr>
                 <td class="auto-style1">On Hand:</td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtOnHand" runat="server" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
+                    <asp:TextBox ID="txtOnHand" runat="server" CssClass="form-control" ValidationGroup="invmgGroup" Width="72px"></asp:TextBox>
                 </td>
                 <td class="auto-style9">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtOnHand" ErrorMessage="A quantity is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
@@ -139,7 +124,7 @@
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Button ID="btnAddCake" runat="server" OnClick="btnAddCake_Click" Text="Add Cake" ValidationGroup="invmgGroup" />
+                    <asp:Button ID="btnAddCake" runat="server" cssClass="profileButton" OnClick="btnAddCake_Click" Text="Add Cake" ValidationGroup="invmgGroup" />
                 </td>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style9">&nbsp;</td>
