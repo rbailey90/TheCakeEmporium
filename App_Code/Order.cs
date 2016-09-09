@@ -207,10 +207,12 @@ public class Order
         Discount = 0;
         decimal discountRate = .20m;
         int quantity = CartList.GetQuantity();
+        Subtotal = 0;
+        Subtotal = CartList.GetSubtotal();
+
         if (quantity >= 2)
         {
-            Subtotal = 0;
-            Subtotal = CartList.GetSubtotal();
+            //Subtotal = CartList.GetSubtotal();
             decimal discountAmount = Math.Round((Subtotal * discountRate),2);
             Discount = discountAmount;
             return Discount;
@@ -220,16 +222,13 @@ public class Order
             return Discount;
         }
    }
-    public void UpdateSubtotal()
-    {
-        Subtotal -= Discount;
-    }
+
    public decimal CalculateTax()
    {
        Tax=0;
        //Subtotal = 0;
-       Subtotal = CartList.GetSubtotal();
-       Tax = Math.Round((Subtotal * taxrate), 2);
+
+       Tax = Math.Round(((Subtotal -Discount)* taxrate), 2);
        return Tax;
    }   
     public decimal TotalOrder()
