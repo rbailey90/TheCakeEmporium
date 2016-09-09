@@ -23,6 +23,15 @@ public partial class User_History : System.Web.UI.Page
         var signedInUserId = User.Identity.GetUserId();
         //LtlUserID.Text = signedInUserId;
         Session["signedInUser"] = signedInUserId;
+
+        if (User.Identity.IsAuthenticated)
+        {
+            SqlDataSource1.SelectCommand = "SELECT OrderDetails.[OrderId] as 'Order ID', Orders.[Username] as 'Username', OrderDetails.[ProductID] as 'Product ID', OrderDetails.[Quantity] as 'Quantity', OrderDetails.[PriceEach] as 'Price of Each', OrderDetails.[OrderDate] as 'Order Date', Orders.[total] as 'Total', OrderDetails.[OrderStatus] as 'Order Status' FROM [OrderDetails] inner join Orders on Orders.OrderId = OrderDetails.OrderId inner join Products on Products.ProductId = OrderDetails.ProductID WHERE Orders.[Username] = '" + Session["signedInUser"] + "'";
+        }
+        else
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
     public int getDaysUntilHalloween()
     {

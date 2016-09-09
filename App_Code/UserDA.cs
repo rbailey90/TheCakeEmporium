@@ -55,104 +55,33 @@ public class UserDA
         return theUsername;
     }
 
-    public static DateTime getBirthday(string currentUsername)
-    {
-        string selectStatement = "select Birthday from Accounts where Username = @Username";
+  //public static DateTime getBirthday(string currentUsername) -- not working :((((
+  //  {
+  //      string selectStatement = "select Birthday from Accounts where Username = @Username";
 
-        string birthday;
-        DateTime userBirthday;
+  //      string birthday;
+  //      DateTime userBirthday;
 
-        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-        selectCommand.Parameters.AddWithValue("@Username", currentUsername);
+  //      SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+  //      selectCommand.Parameters.AddWithValue("@Username", currentUsername);
 
 
-        try
-        {
-            conn.Open();
+  //      try
+  //      {
+  //          conn.Open();
 
-            SqlDataReader read = selectCommand.ExecuteReader();
-            birthday = read["Birthday"].ToString();
+  //          SqlDataReader read = selectCommand.ExecuteReader();
+  //          birthday = read["Birthday"].ToString();
 
-            userBirthday = Convert.ToDateTime(birthday);
-        }
-        finally
-        {
-            conn.Close();
-        }
+  //          userBirthday = Convert.ToDateTime(birthday);
+  //      }
+  //      finally
+  //      {
+  //          conn.Close();
+  //      }
 
-        return userBirthday;
-    }
-
-    public static string getAddress(string currentUsername)
-    {
-        string selectStatement = "select Address from Accounts where Username = @Username";
-
-        string address = null;
-
-        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-        selectCommand.Parameters.AddWithValue("@Username", currentUsername);
-
-        try
-        {
-            conn.Open();
-
-            SqlDataReader reader = selectCommand.ExecuteReader();
-            address = reader["Address"].ToString();
-            reader.Close();
-        }
-        finally
-        {
-            conn.Close();
-        }
-        return address;
-    }
-
-    public static string getState(string currentUsername)
-    {
-        string selectStatement = "select State from Accounts where Username = @Username";
-
-        string state = null;
-
-        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-        selectCommand.Parameters.AddWithValue("@Username", currentUsername);
-
-        try
-        {
-            conn.Open();
-            SqlDataReader reader = selectCommand.ExecuteReader();
-            state = reader["State"].ToString();
-            reader.Close();
-        }
-        finally
-        {
-            conn.Close();
-        }
-        return state;
-    }
-
-    public static string getZip(string currentUsername)
-    {
-        string selectStatement = "select ZipCode from Accounts where Username = @Username";
-
-        string zip = null;
-
-        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-        selectCommand.Parameters.AddWithValue("@Username", currentUsername);
-
-        try
-        {
-            conn.Open();
-            SqlDataReader reader = selectCommand.ExecuteReader();
-            zip = reader["ZipCode"].ToString();
-            reader.Close();
-        }
-        finally
-        {
-            conn.Close();
-        }
-        return zip;
-    }
-
+  //      return userBirthday;
+  //  }
     public static int AddUser(User newUser)
     {
         int numRows = 0;

@@ -8,7 +8,9 @@ article, aside, figure, figcaption, footer, header, nav, section {
 /****************** Styles on the MasterPage.master Page ***************/
 body {
     color: #59524B;
-    background-image: url('background_birthday4.png');
+    background-image: url('background_birthday5.png');
+    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    font-variant: small-caps;
    /* max-width: 920px;
     margin: 0 auto; */
 }
@@ -175,11 +177,6 @@ body {
     margin-bottom: 5px;
 }
 
-.transparentBackground
-{
-    background-color:#F2F2F2;
-    opacity:0.5 !important;
-}
 /*************** start of media queries go here ***************/
 
 @media only screen and (max-width : 920px){

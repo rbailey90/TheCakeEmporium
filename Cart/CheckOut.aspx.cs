@@ -104,6 +104,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
 
             //calc rest of order details      
             curOrder.Discount = curOrder.CalculateDiscount(); //this doesn't write the discount to database but it can
+    
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();
 
@@ -112,6 +113,10 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             {
                                 //save order to DB
                 curOrder.SaveOrder(curOrder);
+
+                //save orderID session variable here
+                Session["OrderIDReciept"] = curOrder.OrderID;
+
                 //reset curOrder & clear listbox
                 Order nextOrder = new Order();
                 curOrder = nextOrder;

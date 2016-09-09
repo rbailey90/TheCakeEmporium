@@ -5,6 +5,8 @@ using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using System.Data;
+using System.Data.SqlClient;
 
 /// <summary>
 /// Summary description for Order
@@ -207,10 +209,12 @@ public class Order
         Discount = 0;
         decimal discountRate = .20m;
         int quantity = CartList.GetQuantity();
+        Subtotal = 0;
+        Subtotal = CartList.GetSubtotal();
+
         if (quantity >= 2)
         {
-            Subtotal = 0;
-            Subtotal = CartList.GetSubtotal();
+            //Subtotal = CartList.GetSubtotal();
             decimal discountAmount = Math.Round((Subtotal * discountRate),2);
             Discount = discountAmount;
             return Discount;
@@ -220,12 +224,13 @@ public class Order
             return Discount;
         }
    }
+
    public decimal CalculateTax()
    {
        Tax=0;
        //Subtotal = 0;
-       Subtotal = CartList.GetSubtotal();
-       Tax = Math.Round((Subtotal * taxrate), 2);
+
+       Tax = Math.Round(((Subtotal -Discount)* taxrate), 2);
        return Tax;
    }   
     public decimal TotalOrder()
@@ -243,6 +248,11 @@ public void SaveOrder(Order theOrder)
         {
                 //save to DB
                 OrderDA.AddNewOrder(theOrder);
+        }
+        catch(SqlException ex)
+        {
+            throw new SavingException("Something went wrong saving your order. Please send us a message via the Contact Page.");
+            //error saving to DB         
         }
 
         finally { }
