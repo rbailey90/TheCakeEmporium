@@ -30,4 +30,9 @@ public partial class Manager_Manager : System.Web.UI.Page
 
         return (int)daysUntil;
     }
+
+    protected void btnMangInv_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Manager/InventoryManagement.aspx");
+    }
 }
