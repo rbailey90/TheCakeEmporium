@@ -89,6 +89,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 billstate, billzip, card, exp, cvv, pymtName,signedInUser);
             //calc rest of order details      
             curOrder.Discount = curOrder.CalculateDiscount(); //this doesn't write the discount to database but it can
+    
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();
             //Place order 

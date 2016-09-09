@@ -232,7 +232,13 @@ body {
     /*display: table;*/
     margin: 0 auto;
 }  
+/****************PRODUCTS PAGE**********************/
+.product-container{
+  display:table;
+  max-width: 555px;
+  margin: 15px auto;
 
+}
 /****************CONTACT PAGE **********************/
 .contact-header {
     opacity: .5;

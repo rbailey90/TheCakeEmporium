@@ -102,9 +102,6 @@
                 UserName:
                 <asp:TextBox ID="UserNameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("UserName") %>' />
                 <br />
-                New Password:
-                <asp:TextBox ID="NewPasswordBox" CssClass="form-control" runat="server" />
-                <br />
                 Email:
                 <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Email") %>' />
                 <br />
@@ -117,9 +114,6 @@
             <InsertItemTemplate>
                 UserName:
                 <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
-                <br />
-                New Password:
-                <asp:TextBox ID="NewPasswordBox" runat="server" Text='<%# Bind("Password") %>' />
                 <br />
                 Email:
                 <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
@@ -139,9 +133,6 @@
             <ItemTemplate>
                 UserName:
                 <asp:Label ID="UserNameLabel" runat="server" Text='<%# Bind("UserName") %>' />
-                <br />
-                New Password:
-                <asp:Label ID="NewPasswordBox" runat="server" />
                 <br />
                 Email:
                 <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' />
