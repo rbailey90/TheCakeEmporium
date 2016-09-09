@@ -9,9 +9,9 @@ using System.Web;
 class SavingException : Exception
 {
 
-      /*  public EmptyOrderException(string message)
+        public SavingException(string message)
             : base(message)
         {
 
-        }*/
+        }
 }
