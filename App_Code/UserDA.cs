@@ -75,10 +75,15 @@ public class UserDA
 
             userBirthday = Convert.ToDateTime(birthday);
         }
+        catch
+        {
+            userBirthday = DateTime.MinValue; //quick fix, userBirthday is set to 1/1/0001 12:00:00 AM
+        }
         finally
         {
             conn.Close();
         }
+
 
         return userBirthday;
     }
