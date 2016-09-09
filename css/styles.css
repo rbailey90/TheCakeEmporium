@@ -17,6 +17,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 body {
     color: #59524B;
     background-image: url('../Images/background.png');
+    font-family: Tahoma,Verdana,Segoe,sans-serif;
    /* max-width: 920px;
     margin: 0 auto; */
 }

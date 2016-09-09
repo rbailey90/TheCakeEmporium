@@ -55,33 +55,33 @@ public class UserDA
         return theUsername;
     }
 
-    public static DateTime getBirthday(string currentUsername)
-    {
-        string selectStatement = "select Birthday from Accounts where Username = @Username";
+  //public static DateTime getBirthday(string currentUsername) -- not working :((((
+  //  {
+  //      string selectStatement = "select Birthday from Accounts where Username = @Username";
 
-        string birthday;
-        DateTime userBirthday;
+  //      string birthday;
+  //      DateTime userBirthday;
 
-        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-        selectCommand.Parameters.AddWithValue("@Username", currentUsername);
+  //      SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+  //      selectCommand.Parameters.AddWithValue("@Username", currentUsername);
 
 
-        try
-        {
-            conn.Open();
+  //      try
+  //      {
+  //          conn.Open();
 
-            SqlDataReader read = selectCommand.ExecuteReader();
-            birthday = read["Birthday"].ToString();
+  //          SqlDataReader read = selectCommand.ExecuteReader();
+  //          birthday = read["Birthday"].ToString();
 
-            userBirthday = Convert.ToDateTime(birthday);
-        }
-        finally
-        {
-            conn.Close();
-        }
+  //          userBirthday = Convert.ToDateTime(birthday);
+  //      }
+  //      finally
+  //      {
+  //          conn.Close();
+  //      }
 
-        return userBirthday;
-    }
+  //      return userBirthday;
+  //  }
     public static int AddUser(User newUser)
     {
         int numRows = 0;

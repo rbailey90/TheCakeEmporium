@@ -23,7 +23,7 @@ public class OrderDA
             //insertCommand.ExecuteNonQuery();
             //get order number
             int ID;
-            string insertStatement = "INSERT INTO ORDERS (Username, subtotal, tax, total) values (@userName, @subtotal,@tax,@total);SELECT CAST(scope_identity() AS int)";
+            string insertStatement = "INSERT INTO ORDERS (Username, subtotal, discount, tax, total) values (@userName, @subtotal, @discount, @tax,@total);SELECT CAST(scope_identity() AS int)";
             //string insertStatement = "INSERT INTO ORDERS (Username, subtotal, tax, total) values (@userName, @subtotal,@tax,@total)";
             //string query2 = "Select @@Identity";
             //string selectStatement = "SELECT IDENT_CURRENT('OrderId') FROM Orders";
@@ -31,6 +31,7 @@ public class OrderDA
             {
                 insertCommand.Parameters.AddWithValue("@userName", theOrder.UserName);
                 insertCommand.Parameters.AddWithValue("@subtotal", theOrder.Subtotal);
+                insertCommand.Parameters.AddWithValue("@discount", theOrder.Discount);
                 insertCommand.Parameters.AddWithValue("@tax", theOrder.Tax);
                 insertCommand.Parameters.AddWithValue("@total", theOrder.OrderTotal);
 
@@ -175,6 +176,43 @@ public class OrderDA
         }
 
         return prod;
+    }
+
+    public static Order OrderReceipt(string orderid)
+    {
+        Order currentOrder = new Order();
+
+        string selectStatement = "SELECT * FROM Orders WHERE OrderId = @orderid";
+
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn1);
+
+        selectCommand.Parameters.AddWithValue("@orderid", orderid);
+        try
+        {
+            conn1.Open();
+            SqlDataReader reader = selectCommand.ExecuteReader(); // Retrieves a collection of whatever statement was executed
+
+            while (reader.Read()) // While there is data to be read, the command is executed
+            { //Orderdate = string // decimal subtotal; //decimal discount;//decimal tax;// decimal orderTotal;
+                currentOrder = new Order(); 
+
+                currentOrder.OrderID = reader["OrderId"].ToString();
+                currentOrder.UserName = reader["Username"].ToString();
+                currentOrder.Subtotal = Convert.ToDecimal(reader["subtotal"].ToString());
+                currentOrder.Discount = Convert.ToDecimal(reader["discount"]);
+                currentOrder.Tax = Convert.ToDecimal(reader["tax"]);
+                currentOrder.OrderTotal = Convert.ToDecimal(reader["total"]);
+                currentOrder.OrderDate = (reader["OrderDate"]).ToString();
+
+                return currentOrder;
+            }
+            reader.Close();
+        }
+        finally
+        {
+            conn1.Close();  
+        }
+        return currentOrder;
     }
 
     /*public static int Reorder(int productID)

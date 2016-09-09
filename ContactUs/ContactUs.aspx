@@ -19,9 +19,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container-fluid">  
-         <div class="row transparentBackground">
+         <div class="row">
 <!--left section--> <section class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-6 col-xs-12 col-xs-offset-0">
-                         <h2 class="text-center heading">Contact Us</h2>                        
+                             <h2 class="text-center heading">Contact Us</h2>                        
                                   <div class="autostyle1">
                                      <label> Name:  </label>
                                      <asp:TextBox ID="txtName" runat="server" placeholder="name" CssClass="txtboxWidth"></asp:TextBox><br/>

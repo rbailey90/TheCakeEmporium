@@ -96,6 +96,10 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             {
                                 //save order to DB
                 curOrder.SaveOrder(curOrder);
+
+                //save orderID session variable here
+                Session["OrderIDReciept"] = curOrder.OrderID;
+
                 //reset curOrder & clear listbox
                 Order nextOrder = new Order();
                 curOrder = nextOrder;
