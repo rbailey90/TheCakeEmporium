@@ -21,7 +21,19 @@ public partial class ContactUs_ContactUs : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (User.Identity.IsAuthenticated) //if current user is signed in
+        {
+            var userId = User.Identity.GetUserId(); //get current users id
 
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+
+
+            string email = userManager.GetEmail(userId); //heres there email
+            string firstName = UserDA.getFirstname(userId);
+            string comment = txtComments.Text;
+            txtName.Text = firstName;
+            txtEmail.Text = email;
+        }
     }
 
     public int getDaysUntilHalloween()
@@ -42,15 +54,15 @@ public partial class ContactUs_ContactUs : System.Web.UI.Page
         {
             var userId = User.Identity.GetUserId(); //get current users id
 
-            UserManager<IdentityUser> userManager =
-            new UserManager<IdentityUser>(new UserStore<IdentityUser>());
-            var myUser = userManager.FindById(userId); //make a user
-            string currentUser = Convert.ToString(myUser);
-            string email = myUser.Email; //heres there email
-            string currentUserName = UserDA.getUsername(currentUser);
-            string firstName = txtName.Text;
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+            //var myUser = userManager.FindById(userId); //make a user
+            //string currentUser = Convert.ToString(userId);
+            string email = userManager.GetEmail(userId); //heres there email
+            //string currentUserName = UserDA.getUsername(currentUser);
+            string firstName = UserDA.getFirstname(userId);
             string comment = txtComments.Text;
-            ContactDA.addComment(currentUserName, firstName, email, comment);
+            ContactDA.addComment(userId, firstName, email, comment);
+            Response.Redirect("~/ContactUs/ThankYou.aspx");
         }
         else
         {
@@ -59,6 +71,7 @@ public partial class ContactUs_ContactUs : System.Web.UI.Page
             string comments = txtComments.Text;
 
             ContactDA.addComment("Anonymous", firstName, email, comments);
+            Response.Redirect("~/ContactUs/ThankYou.aspx");
         }
         cleartxtBoxes();
         
