@@ -60,6 +60,93 @@ public class UserDA
     //    string birthday;
     //    DateTime userBirthday;
 
+    public static string getFirstname(string aUsername)
+    {
+        string fname = "";
+
+        string selectString = "select Firstname from Accounts where Username = @Username;";
+
+        // now the command object
+        SqlCommand selectCommand = new SqlCommand(selectString, conn); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+
+        selectCommand.Parameters.AddWithValue("@Username", aUsername); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                // Check is the reader has any rows at all before starting to read.
+                if (reader.HasRows)
+                {
+                    // Read advances to the next row.
+                    while (reader.Read())
+                    {
+                        fname = reader.GetString(reader.GetOrdinal("Firstname"));
+                    }
+                }
+            }
+        }
+        finally
+        {
+            conn.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
+        }
+
+        return fname;
+    }
+
+
+
+    public static DateTime getBirthday(string aUsername)
+    {
+        DateTime bday = DateTime.MinValue;
+
+        string selectString = "select Birthday from Accounts where Username = @Username;";
+
+        // now the command object
+        SqlCommand selectCommand = new SqlCommand(selectString, conn); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+
+        selectCommand.Parameters.AddWithValue("@Username", aUsername); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                // Check is the reader has any rows at all before starting to read.
+                if (reader.HasRows)
+                {
+                    // Read advances to the next row.
+                    while (reader.Read())
+                    {
+                        bday = reader.GetDateTime(reader.GetOrdinal("Birthday"));
+                    }
+                }
+            }
+        }
+        finally
+        {
+            conn.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
+        }
+
+        return bday;
+    }
+    //        userBirthday = Convert.ToDateTime(birthday);
+    //    }
+    //    catch
+    //    {
+    //        userBirthday = DateTime.MinValue; //quick fix, userBirthday is set to 1/1/0001 12:00:00 AM
+    //    }
+    //    finally
+    //    {
+    //        conn.Close();
+    //    }
+
+    //public static DateTime getBirthday(string currentUsername)
+    //{
+    //    string selectStatement = "select Birthday from Accounts where Username = @Username";
+
+    //    string birthday;
+    //    DateTime userBirthday;
+
     //    SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
     //    selectCommand.Parameters.AddWithValue("@Username", currentUsername);
 
@@ -82,6 +169,9 @@ public class UserDA
     //        conn.Close();
     //    }
 
+
+    //    return userBirthday;
+    //}
 
     //    return userBirthday;
     //}

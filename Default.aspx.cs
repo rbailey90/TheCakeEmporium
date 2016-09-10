@@ -11,20 +11,22 @@ using Microsoft.Owin.Security;
 
 public partial class _Default : System.Web.UI.Page
 {
+   
     protected void Page_PreInit(object sender, EventArgs e)
     {
         int daysUntil = getDaysUntilHalloween();
         if (!IsPostBack)
-      //  { int daysUntilBirthday = getDaysUntilBirthday(); }
+
+        //int daysUntilBirthday == getDaysUntilBirthday();
 
         if (daysUntil <= 31)
         {
             Page.Theme = "halloween";  
         }
-        //if (daysUntilBirthday <= 131)
-        //{
-        //    Page.Theme = "birthday";
-        //}
+        if (getDaysUntilBirthday() <= 131)
+        {
+            Page.Theme = "birthday";
+        }
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -48,29 +50,42 @@ public partial class _Default : System.Web.UI.Page
         getNewProduct();
         //  List<Cake> getCake = CakeDA.GetAllCake();
     }
-    //public int getDaysUntilBirthday()
-    //{
-    //    double daysUntilBirthday = 1000;
-    //    var signedInUser = HttpContext.Current.User.Identity.GetUserName();
-    //    //if there is a user currently signed in 
-    //    //then get the users date of birth and do calculations
-    //    if (User.Identity.IsAuthenticated) //if current user is signed in
-    //    {
-    //        var userId = User.Identity.GetUserId(); //get current users id
-    //           UserManager<IdentityUser> userManager =
-    //       new UserManager<IdentityUser>(new UserStore<IdentityUser>());
-    //       var myUser = userManager.FindById(userId); //make a user
-    //       string currentUser = Convert.ToString(myUser);
-    //       string currentUserFromAccountsTable = UserDA.getUsername(currentUser);
-    //       //ok now i have birthday stuff
-    //       DateTime userBirthday = UserDA.getBirthday(currentUserFromAccountsTable);
-    //       DateTime todaysDate = System.DateTime.Now.Date;
-    //       TimeSpan t = todaysDate - userBirthday;
-    //        double daysUntilBDay = t.TotalDays;
-    //    }
-       
-    //    return (int)daysUntilBirthday;
-    //}
+    public int getDaysUntilBirthday()
+    {
+        double daysUntilBirthday = 1000;
+        var signedInUser = HttpContext.Current.User.Identity.GetUserName();
+        //if there is a user currently signed in 
+        //then get the users date of birth and do calculations
+        if (User.Identity.IsAuthenticated) //if current user is signed in
+        {            
+            var userId = User.Identity.GetUserId(); //get current users id
+
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+
+            //ok now i have birthday stuff
+            DateTime userBirthday = UserDA.getBirthday(userId);
+            DateTime todaysDate = System.DateTime.Now.Date;
+            TimeSpan t = todaysDate.Subtract(userBirthday);
+
+
+            //Am able to get total days from when was born to current day 
+            //Need to figure out way to remove the amount of years and only focus on 
+            //Days left in current month, right now it says there are 27 days left till bday
+            //On Admin but it's actually only 5 days.
+
+            //Might need to get Year, Day, Month in seperate variables
+            //Then only Subtract Days.... maybe
+            //TimeSpan t = todaysDate.Date - userBirthday.Date;
+            daysUntilBirthday = (int) t.TotalDays;
+            double dyears = daysUntilBirthday / 360;
+            int years = Convert.ToInt16(dyears);
+            int yearsToDays = years * 360;
+            double timeleft = daysUntilBirthday - yearsToDays;
+
+        }
+
+        return Convert.ToInt16(daysUntilBirthday);
+    }
     public int getDaysUntilHalloween()
     {
         DateTime todaysDate = new DateTime();
