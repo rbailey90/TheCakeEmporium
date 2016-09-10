@@ -46,17 +46,18 @@
         <!-- put messages/ text/ description of site and birthday text label here -->
         <div class="row">
             <h1 class="text-center"> 
-                <asp:Label ID="lblWelcomeMessage" runat="server" SkinID="birthdayWelcome" Text="Welcome to The Cake Emporium!" Font-Names="Helvetica"></asp:Label>     
+                <asp:Label ID="lblWelcomeMessage" runat="server" SkinID="birthdayWelcome" Text="Welcome to The Cake Emporium," Font-Bold="true"></asp:Label>     
             </h1>
             <h3 class="text-center">
-                 <asp:Label ID="lblSecondaryMessage" runat="server" Text=""></asp:Label>
+                 <asp:Label ID="lblSecondaryMessage" runat="server" Text="where you can have your cake and eat it too.&trade;"></asp:Label>
             </h3>
         </div>
         <!-- start of featured products section on the homepage -->
             <div class="row" id="featured">
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice] FROM [Products]"></asp:SqlDataSource>
               <div class="">
-                  <h3 class="text-center"> Featured Products </h3>
+                  <h2 class="text-center bigFont"> Featured Product Specials </h2>
+
                    <section class="col-lg-3 col-md-3 col-sm-6 text-center">
                        <asp:Image ID="Image1" runat="server" ImageUrl="Images/Products/confetticake.png" Cssclass="img-thumbnail"/>
                        <aside><asp:Label ID="Label1" runat="server" Text="Label" Font-Size="Medium" Font-Bold="true" ></asp:Label></aside>

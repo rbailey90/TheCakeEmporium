@@ -88,46 +88,55 @@ public partial class _Default : System.Web.UI.Page
         images.Add("~/Images/HomepageImages/carrotcake.png");
         images.Add("~/Images/HomepageImages/matchacake.png");
         images.Add("~/Images/HomepageImages/rainbowconfetticake.png");
-        images.Add("~/Images/HomepageImages/chocolatehalloweencake.png");
         images.Add("~/Images/HomepageImages/poppyseedcake.png");
-        
-        
-       
-
+        images.Add("~/Images/HomepageImages/lemoncake.png");
+        //can add more images later
+ 
         List<string> descriptions = new List<string>();
         descriptions.Add("Carrot Cake");
         descriptions.Add("Matcha Cake");
         descriptions.Add("Confetti Cake");
-        descriptions.Add("Chocolate Halloween Cake");
         descriptions.Add("Poppyseed Cake");
-       
-      
+        descriptions.Add("Lemon Cake");
+        //descriptions must match images in order
 
+//CAKE DISCOUNTS start here
+        //string names must match the cake name in Product table
+        List<string> cakeNames = new List<string>();
+        cakeNames.Add("Carrot Cake");
+        cakeNames.Add("Matcha Mousse Cake");
+        cakeNames.Add("Rainbow Confetti Cake");
+        cakeNames.Add("Poppy Seed Cake");
+        cakeNames.Add("Lemon Cake");
+        //can maybe make a discountDA class that will read the cake names in from DA?
+        
+        //save list of cakes to a session variable
+        Session["cakeSpecials"] = cakeNames;
 
         Random rnd = new Random(); //creates new random
         //gets four random indexes within the size of the Image List
         //then adds those four indexes to the adSpace list
-        List<int> adSpace = new List<int>();
+        List<int> featuredProducts = new List<int>();
 
-        while (adSpace.Count < 4)
+        while (featuredProducts.Count < 4)
         {
             int r = rnd.Next(0, images.Count);
             do
             {
                 r = rnd.Next(0, images.Count);
-            }while (adSpace.Contains(r));
+            }while (featuredProducts.Contains(r));
            
-            adSpace.Add(r);
+            featuredProducts.Add(r);
         }
 
         //takes the four indexes and adds them to each add section for both the description and image
-        Image1.ImageUrl = images[adSpace[0]]; // "~/Images/ombrecake.jpg";
-        Image2.ImageUrl = images[adSpace[1]];
-        Image3.ImageUrl = images[adSpace[2]];
-        Image4.ImageUrl = images[adSpace[3]];
-        Label1.Text = descriptions[adSpace[0]];
-        Label2.Text = descriptions[adSpace[1]];
-        Label3.Text = descriptions[adSpace[2]];
-        Label4.Text = descriptions[adSpace[3]];
+        Image1.ImageUrl = images[featuredProducts[0]]; // "~/Images/ombrecake.jpg";
+        Image2.ImageUrl = images[featuredProducts[1]];
+        Image3.ImageUrl = images[featuredProducts[2]];
+        Image4.ImageUrl = images[featuredProducts[3]];
+        Label1.Text = descriptions[featuredProducts[0]];
+        Label2.Text = descriptions[featuredProducts[1]];
+        Label3.Text = descriptions[featuredProducts[2]];
+        Label4.Text = descriptions[featuredProducts[3]];
     }
 }

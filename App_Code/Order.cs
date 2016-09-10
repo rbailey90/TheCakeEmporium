@@ -206,23 +206,34 @@ public class Order
    
    public decimal CalculateDiscount()
    {
-        Discount = 0;
-        decimal discountRate = .20m;
-        int quantity = CartList.GetQuantity();
-        Subtotal = 0;
-        Subtotal = CartList.GetSubtotal();
+        DiscountDA discount = new DiscountDA();
 
-        if (quantity >= 2)
-        {
-            //Subtotal = CartList.GetSubtotal();
-            decimal discountAmount = Math.Round((Subtotal * discountRate),2);
-            Discount = discountAmount;
-            return Discount;
-        }
-        else
-        {
-            return Discount;
-        }
+        List<string> cakeNames = new List<string>();
+        List<decimal> cakeDiscount = new List<decimal>();
+
+        cakeNames = discount.getDiscountCakeName();
+        cakeDiscount = discount.getDiscountCakeAmount();
+        //if selected cake name == cakeNames then apply discount to current cake price
+
+        //Discount = 0;
+        //decimal discountRate = .20m;
+        //int quantity = CartList.GetQuantity();
+        //Subtotal = 0;
+        //Subtotal = CartList.GetSubtotal();
+
+        //if (quantity >= 2)
+        //{
+        //    //Subtotal = CartList.GetSubtotal();
+        //    decimal discountAmount = Math.Round((Subtotal * discountRate),2);
+        //    Discount = discountAmount;
+        //    return Discount;
+        //}
+        //else
+        //{
+        //    return Discount;
+        //}
+
+        return Discount;
    }
 
    public decimal CalculateTax()

@@ -203,8 +203,6 @@ public class OrderDA
                 currentOrder.Tax = Convert.ToDecimal(reader["tax"]);
                 currentOrder.OrderTotal = Convert.ToDecimal(reader["total"]);
                 currentOrder.OrderDate = (reader["OrderDate"]).ToString();
-
-                return currentOrder;
             }
             reader.Close();
         }

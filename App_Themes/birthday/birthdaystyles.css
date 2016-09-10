@@ -20,6 +20,10 @@ body {
     margin: 0 auto;
    /*width: 80%; dont change this, yo. */
 }
+
+main .transparentBackground {
+    background-color: rgb(255,255,255,.8);
+}
 /************************* header *************************************/
 .pageHeader img {
     width: 100%;

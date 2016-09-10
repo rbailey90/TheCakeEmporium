@@ -31,14 +31,20 @@ public partial class Cart_Confirmation : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        Order currentOrder;
         //retrieve cart object from session state on every post back
         if (Session["OrderIDReciept"] != null)
         {
             string orderid = Session["OrderIDReciept"].ToString();
-            Order currentOrder = OrderDA.OrderReceipt(orderid);
+            currentOrder = OrderDA.OrderReceipt(orderid);
+
+            Subtotal.Text = (currentOrder.Subtotal).ToString();
+            Tax.Text = (currentOrder.Tax).ToString();
+            Discount.Text = (currentOrder.Discount).ToString();
+            Total.Text = (currentOrder.OrderTotal).ToString();
         }
         //on initial page load, add cart items to list control
-
+        
         //assign values to text boxes
 
     }

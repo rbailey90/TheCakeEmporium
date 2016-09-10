@@ -28,6 +28,8 @@
     <!-- local css style sheet after everything else so we can override default styles-->
     <link href="css/styles.css" rel="stylesheet" />
     <title>The Cake Emporium</title> <!--page titles will go here -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
     <asp:ContentPlaceHolder id="head" runat="server"> </asp:ContentPlaceHolder>
    
 </head>
@@ -65,10 +67,12 @@
 
 
         <div class="row"> <!-- put the content place holder in a row already to make formatting easier down the road -->
+            <main class="transparentBackground">
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 <!-- individual page content will go here --> 
                 
                 </asp:ContentPlaceHolder>
+            </main>
         </div> 
         <!-- end of main content area -->
          <!--footer area -->
@@ -98,8 +102,7 @@
         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
          <!-- Include all compiled plugins (below), or include individual files as needed -->
       <!--link to jQuery for Fotorama image carousel --> 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+   
     <script src="<%= Page.ResolveUrl("~")%> packages/bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
 </form>
 </body>

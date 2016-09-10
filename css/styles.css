@@ -17,7 +17,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 body {
     color: #59524B;
     background-image: url('../Images/background.png');
-    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    font-family: 'Century Gothic',Cambria,sans-serif;
    /* max-width: 920px;
     margin: 0 auto; */
 }
@@ -94,15 +94,13 @@ body {
 .submitButton {
     margin-left: 175px;
 }
+
+.bigFont {
+    font-weight: 300;
+}
+
+
 #centertext { margin: 0 auto; text-align: center; }
-
-#shopButtons{
-
-}
-#cartButtons{
-
-}
-
 
 .profileEditRow{
     padding: 25px;
@@ -232,13 +230,7 @@ body {
     /*display: table;*/
     margin: 0 auto;
 }  
-/****************PRODUCTS PAGE**********************/
-.product-container{
-  display:table;
-  max-width: 555px;
-  margin: 15px auto;
 
-}
 /****************CONTACT PAGE **********************/
 .contact-header {
     opacity: .5;
