@@ -103,18 +103,19 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 billstate, billzip, card, exp, cvv, pymtName,signedInUser);
 
             //calc rest of order details      
-            curOrder.Discount = curOrder.CalculateDiscount(); //this doesn't write the discount to database but it can
-    
+            //curOrder.Discount = curOrder.CalculateDiscount(); //dont use this -b
+            curOrder.CalculateDiscount(); //see if this works -b 
+            curOrder.Subtotal = curOrder.CalculateSubtotal();
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();
 
-            //Place order 
-            try
+            
+            try   //Place order 
             {
-                                //save order to DB
+                //save order to DB
                 curOrder.SaveOrder(curOrder);
 
-                //save orderID session variable here
+                //save orderID session variable here - b
                 Session["OrderIDReciept"] = curOrder.OrderID;
 
                 //reset curOrder & clear listbox
@@ -123,33 +124,17 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 cart.Clear();
 
                 Response.Redirect("~/Cart/Confirmation.aspx",false);
-            }/*
-            catch (EmptyOrderException ex)
-            {
-                MessageBox.Show(ex.Message);
-            } 
-            catch (SqlException ex)
-            {
-                MessageBox.Show("There is a problem connecting or saving to the database. Unable to finish order.");
-            }*/
+            }
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message);
             }
-
-            //foreach(Cake c in curOrder)
-            //{
-
-            //}
         }
         else
         {
             lblMessageCO.Text = "Please sign in first.";
-            //Please sign in first.
         }
     }
-
-
 
     protected void btnEdit_Click(object sender, EventArgs e)
     {

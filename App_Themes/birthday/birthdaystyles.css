@@ -8,7 +8,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 /****************** Styles on the MasterPage.master Page ***************/
 body {
     color: #59524B;
-    background-image: url('background_birthday5.png');
+    background-image: url('background.png');
     font-family: Tahoma,Verdana,Segoe,sans-serif;
     font-variant: small-caps;
    /* max-width: 920px;

@@ -18,9 +18,7 @@ public class UserDA
 
     public UserDA()
     {
-        //
-        // TODO: Add constructor logic here
-        //
+        
     }
 
     public static string getUsername(string aUsername)
@@ -55,38 +53,38 @@ public class UserDA
         return theUsername;
     }
 
-    public static DateTime getBirthday(string currentUsername)
-    {
-        string selectStatement = "select Birthday from Accounts where Username = @Username";
+    //public static DateTime getBirthday(string currentUsername)
+    //{
+    //    string selectStatement = "select Birthday from Accounts where Username = @Username";
 
-        string birthday;
-        DateTime userBirthday;
+    //    string birthday;
+    //    DateTime userBirthday;
 
-        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-        selectCommand.Parameters.AddWithValue("@Username", currentUsername);
-
-
-        try
-        {
-            conn.Open();
-
-            SqlDataReader read = selectCommand.ExecuteReader();
-            birthday = read["Birthday"].ToString();
-
-            userBirthday = Convert.ToDateTime(birthday);
-        }
-        catch
-        {
-            userBirthday = DateTime.MinValue; //quick fix, userBirthday is set to 1/1/0001 12:00:00 AM
-        }
-        finally
-        {
-            conn.Close();
-        }
+    //    SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+    //    selectCommand.Parameters.AddWithValue("@Username", currentUsername);
 
 
-        return userBirthday;
-    }
+    //    try
+    //    {
+    //        conn.Open();
+
+    //        SqlDataReader read = selectCommand.ExecuteReader();
+    //        birthday = read["Birthday"].ToString();
+
+    //        userBirthday = Convert.ToDateTime(birthday);
+    //    }
+    //    catch
+    //    {
+    //        userBirthday = DateTime.MinValue; //quick fix, userBirthday is set to 1/1/0001 12:00:00 AM
+    //    }
+    //    finally
+    //    {
+    //        conn.Close();
+    //    }
+
+
+    //    return userBirthday;
+    //}
     public static int AddUser(User newUser)
     {
         int numRows = 0;

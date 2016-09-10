@@ -31,14 +31,17 @@ public class DiscountDA
             conn.Open();
             SqlDataReader reader = selectCommand.ExecuteReader(); // Retrieves a collection of whatever statement was executed
 
-            int x = 0;
             while (reader.Read()) // While there is data to be read, the command is executed
             {
-                discountCakes[x] = reader["CakeName"].ToString();
-                x++;
+                string cakeName = reader["CakeName"].ToString();
+                discountCakes.Add(cakeName);
             }
 
             reader.Close();
+        }
+        catch
+        {
+            //that didn't work
         }
         finally
         {
@@ -60,13 +63,11 @@ public class DiscountDA
             conn.Open();
             SqlDataReader reader = selectCommand.ExecuteReader(); // Retrieves a collection of whatever statement was executed
 
-            int x = 0;
             while (reader.Read()) // While there is data to be read, the command is executed
             {
-                discountAmount[x] = Convert.ToDecimal(reader["DiscountAmount"]);
-                x++;
+                decimal discount = Convert.ToDecimal(reader["DiscountAmount"]);
+                discountAmount.Add(discount);
             }
-
             reader.Close();
         }
         finally

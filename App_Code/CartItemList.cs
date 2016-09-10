@@ -79,7 +79,7 @@ public class CartItemList  //: IEnumerable
     {
         cartItems.Clear();
     }
-    public decimal GetSubtotal()
+    public decimal GetSubtotal() 
     {
         decimal subtotal = 0;
 
@@ -91,16 +91,20 @@ public class CartItemList  //: IEnumerable
         return subtotal;
     }
 
-    public int GetQuantity()
+    public string GetNameOfCake(int x) //get name of cake at passed-in index
     {
-        int quantity = 0;
-        foreach(CartItem ci in cartItems)
-        {
-            quantity += ci.Quantity;
-        }
-        return quantity;
+        string selectedCakeName = cartItems[x].Cake.Name;
+        return selectedCakeName;
     }
 
+    public void ApplyCakeDiscount(decimal discountAmount, int x)//set discount amount at selected index
+    {
+        decimal cakePrice = cartItems[x].Cake.UnitPrice; //get the matching cake's set price
+        cakePrice = cakePrice - (cakePrice * discountAmount); //subtract discount from price
+        cartItems[x].Cake.UnitPrice = Math.Round(cakePrice,2); //set new discounted price
+      
+    }
+  
     public int IndexAdvance(int index)
     {
         if (Count > (index+1))
@@ -141,6 +145,17 @@ public class CartItemList  //: IEnumerable
         quant = item.Quantity;
         return quant;
     }
+
+    //public int GetQuantity() //probably won't use this?
+    //{
+    //    int quantity = 0;
+    //    foreach(CartItem ci in cartItems)
+    //    {
+    //        quantity += ci.Quantity;
+    //        string selectedCakeName = ci.Cake.Name;
+    //    }
+    //    return quantity;
+    //}
+
 }
 
-    

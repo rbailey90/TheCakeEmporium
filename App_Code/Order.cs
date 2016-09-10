@@ -204,50 +204,64 @@ public class Order
         set { pymtName = value; }
     }
    
-   public decimal CalculateDiscount()
+   public void CalculateDiscount() // i think this can be void? -b
    {
         DiscountDA discount = new DiscountDA();
 
         List<string> cakeNames = new List<string>();
         List<decimal> cakeDiscount = new List<decimal>();
 
-        cakeNames = discount.getDiscountCakeName();
-        cakeDiscount = discount.getDiscountCakeAmount();
-        //if selected cake name == cakeNames then apply discount to current cake price
-
+        cakeNames = discount.getDiscountCakeName(); //get discount cakes from DA -working -b
+        cakeDiscount = discount.getDiscountCakeAmount(); //get discount amounts from DA -working -b
+         
+        for(int x=0; x < CartList.Count ; x++)//for each item in the cart
+        {
+            //need to loop through the cakeNames list to see if selectedCakeName matches any of them
+            string selectedCakeName = CartList.GetNameOfCake(x);
+            int counter = 0;
+            while (counter < cakeNames.Count)
+            {
+                if (selectedCakeName == cakeNames[counter]) //if the cake names match
+                {
+                    //get the discount amount out of the list
+                    decimal discountAmount = cakeDiscount[counter]; 
+                    //set new cake price with discount
+                    CartList.ApplyCakeDiscount(discountAmount, x); 
+                    //exit loop if it matches and test the next cake
+                    counter = cakeNames.Count;
+                }
+                else
+                {
+                    counter++;
+                }
+            }
+        }
         //Discount = 0;
         //decimal discountRate = .20m;
         //int quantity = CartList.GetQuantity();
         //Subtotal = 0;
         //Subtotal = CartList.GetSubtotal();
 
-        //if (quantity >= 2)
-        //{
-        //    //Subtotal = CartList.GetSubtotal();
-        //    decimal discountAmount = Math.Round((Subtotal * discountRate),2);
-        //    Discount = discountAmount;
-        //    return Discount;
-        //}
-        //else
-        //{
-        //    return Discount;
-        //}
-
-        return Discount;
    }
+    public decimal CalculateSubtotal()
+    {
+        Subtotal = Math.Round(CartList.GetSubtotal(),2);
+        return Subtotal;
+    }
 
    public decimal CalculateTax()
    {
-       Tax=0;
-       //Subtotal = 0;
-
-       Tax = Math.Round(((Subtotal -Discount)* taxrate), 2);
-       return Tax;
+        Tax=0;
+        //Subtotal = 0;
+        Tax = Math.Round((Subtotal * taxrate),2);
+        //Tax = Math.Round(((Subtotal -Discount)* taxrate), 2);
+        return Tax;
    }   
     public decimal TotalOrder()
     { 
         OrderTotal = 0;
-        OrderTotal=(Subtotal-Discount)+tax;
+        // OrderTotal=(Subtotal-Discount)+tax;
+        OrderTotal = Math.Round((Subtotal + Tax),2);
         return orderTotal;
     }
 

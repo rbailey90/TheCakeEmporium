@@ -18,7 +18,7 @@ public class ContactDA
     {
        
     }
-    int numRows = 0;
+    ///int numRows = 0;
     //need a connection
     
     public static void addComment(string userName, string firstName, string email, string comment)
