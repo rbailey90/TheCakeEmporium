@@ -30,11 +30,11 @@ public partial class Products_Products : System.Web.UI.Page
 
         return (int)daysUntil;
     }
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+
+    protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
     {
-        // get selected value
         int idValue;
-        idValue = (int)GridView1.SelectedValue;
+        idValue = (int)GridView2.SelectedValue;
 
         // use Session variable to move choice to detail page
         Session["CakeChoice"] = idValue;
