@@ -51,7 +51,7 @@ public partial class Accounts_ForgotPassword : System.Web.UI.Page
 
         // setup Smtp authentication
         System.Net.NetworkCredential credentials =
-            new System.Net.NetworkCredential("thrawniejoe@yahoo.com", "Hy*fAnA^c10e&uh"); //email account information
+            new System.Net.NetworkCredential("CakeEmporiumASP@yahoo.com", "m7&&s!BGO!E&HnxQ"); //email account information
         client.UseDefaultCredentials = false;
         client.Credentials = credentials;
 
