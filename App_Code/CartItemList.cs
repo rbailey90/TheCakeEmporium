@@ -97,12 +97,14 @@ public class CartItemList  //: IEnumerable
         return selectedCakeName;
     }
 
-    public void ApplyCakeDiscount(decimal discountAmount, int x)//set discount amount at selected index
-    {
+    public decimal ApplyCakeDiscount(decimal discountAmount, int x)//set discount amount at selected index
+    { 
         decimal cakePrice = cartItems[x].Cake.UnitPrice; //get the matching cake's set price
-        cakePrice = cakePrice - (cakePrice * discountAmount); //subtract discount from price
+        decimal amountOfDiscount = cakePrice * discountAmount;
+        cakePrice = cakePrice - amountOfDiscount; //subtract discount from price
         cartItems[x].Cake.UnitPrice = Math.Round(cakePrice,2); //set new discounted price
-      
+         // returning the dollar amount of discount for later use in the receipt -b 
+        return Math.Round(amountOfDiscount,2);
     }
   
     public int IndexAdvance(int index)

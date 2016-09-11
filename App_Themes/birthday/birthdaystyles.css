@@ -9,7 +9,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 body {
     color: #59524B;
     background-image: url('background.png');
-    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    font-family: 'Century Gothic',Cambria,sans-serif;
     font-variant: small-caps;
    /* max-width: 920px;
     margin: 0 auto; */

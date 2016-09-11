@@ -99,6 +99,11 @@ body {
     font-weight: 300;
 }
 
+#receiptBackground{
+    background-color: white;
+    border: dashed 2px #D16956;
+}
+
 
 #centertext { margin: 0 auto; text-align: center; }
 
@@ -226,9 +231,8 @@ body {
 .center-block {  
     display: block;  
     clear: both;
-
-    /*display: table;*/
     margin: 0 auto;
+    float:none;
 }  
 
 /****************CONTACT PAGE **********************/
@@ -273,5 +277,5 @@ body {
     .txtboxWidth {  width: 170px;  }
     .txtboxWidth2 { column-width: 170px; }
     .submitButton { margin-left: 70px; }
-   
+    .autostyle2 {}
 }

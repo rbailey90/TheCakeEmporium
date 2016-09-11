@@ -204,7 +204,7 @@ public class Order
         set { pymtName = value; }
     }
    
-   public void CalculateDiscount() // i think this can be void? -b
+   public decimal CalculateDiscount() // i think this can be void? -b
    {
         DiscountDA discount = new DiscountDA();
 
@@ -213,7 +213,9 @@ public class Order
 
         cakeNames = discount.getDiscountCakeName(); //get discount cakes from DA -working -b
         cakeDiscount = discount.getDiscountCakeAmount(); //get discount amounts from DA -working -b
-         
+
+        //accumulator for amount of discounts for all cakes 
+        decimal amountOfDiscount = 0; 
         for(int x=0; x < CartList.Count ; x++)//for each item in the cart
         {
             //need to loop through the cakeNames list to see if selectedCakeName matches any of them
@@ -226,7 +228,7 @@ public class Order
                     //get the discount amount out of the list
                     decimal discountAmount = cakeDiscount[counter]; 
                     //set new cake price with discount
-                    CartList.ApplyCakeDiscount(discountAmount, x); 
+                    amountOfDiscount = CartList.ApplyCakeDiscount(discountAmount, x); 
                     //exit loop if it matches and test the next cake
                     counter = cakeNames.Count;
                 }
@@ -236,16 +238,16 @@ public class Order
                 }
             }
         }
-        //Discount = 0;
-        //decimal discountRate = .20m;
+
         //int quantity = CartList.GetQuantity();
         //Subtotal = 0;
         //Subtotal = CartList.GetSubtotal();
 
+        return amountOfDiscount;
    }
     public decimal CalculateSubtotal()
     {
-        Subtotal = Math.Round(CartList.GetSubtotal(),2);
+        Subtotal = CartList.GetSubtotal();
         return Subtotal;
     }
 

@@ -49,7 +49,7 @@
                 <asp:Label ID="lblWelcomeMessage" runat="server" SkinID="birthdayWelcome" Text="Welcome to The Cake Emporium," Font-Bold="true"></asp:Label>     
             </h1>
             <h3 class="text-center">
-                 <asp:Label ID="lblSecondaryMessage" runat="server" Text="where you can have your cake and eat it too.&trade;"></asp:Label>
+                 <asp:Label ID="lblSecondaryMessage" runat="server" Font-Size="X-Large" Text="where you can have your cake and eat it too.&trade;"></asp:Label>
             </h3>
         </div>
         <!-- start of featured products section on the homepage -->
@@ -57,22 +57,23 @@
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [Description], [Image], [UnitPrice] FROM [Products]"></asp:SqlDataSource>
               <div class="">
                   <h2 class="text-center bigFont"> Featured Product Specials </h2>
-
+                  <h4 class="text-center"> *Discounts applied at checkout. </h4>
                    <section class="col-lg-3 col-md-3 col-sm-6 text-center">
-                       <asp:Image ID="Image1" runat="server" ImageUrl="Images/Products/confetticake.png" Cssclass="img-thumbnail"/>
+                       <asp:ImageButton ID="ImageButton1" runat="server" Style="cursor: pointer" ImageUrl="Images/Products/confetticake.png" CssClass="img-thumbnail" OnClick="ImageButton_Click" />
                        <aside><asp:Label ID="Label1" runat="server" Text="Label" Font-Size="Medium" Font-Bold="true" ></asp:Label></aside>
+                            <!--<asp:Image ID="Image1" runat="server" style="cursor:pointer" ImageUrl="Images/Products/confetticake.png" Cssclass="img-thumbnail"/>-->         
                    </section>
                    <section class="col-lg-3 col-md-3 col-sm-6 text-center">
-                       <asp:Image ID="Image2" runat="server" ImageUrl="Images/Products/hummingbird.png" Cssclass="img-thumbnail"/>
-                       <aside><asp:Label ID="Label2" runat="server" Text="Label" Font-Size="Medium" Font-Bold="true"></asp:Label></aside>
+                        <asp:ImageButton ID="ImageButton2" runat="server" Style="cursor: pointer" ImageUrl="Images/Products/confetticake.png" CssClass="img-thumbnail" OnClick="ImageButton_Click"/>
+                        <aside><asp:Label ID="Label2" runat="server" Text="Label" Font-Size="Medium" Font-Bold="true"></asp:Label></aside>
                    </section>
                    <section class="col-lg-3 col-md-3 col-sm-6 text-center">
-                       <asp:Image ID="Image3" runat="server" ImageUrl="Images/Products/lemoncake.png" Cssclass="img-thumbnail"/>
+                       <asp:ImageButton ID="ImageButton3" runat="server" Style="cursor: pointer" ImageUrl="Images/Products/confetticake.png" CssClass="img-thumbnail" OnClick="ImageButton_Click"/>
                        <aside><asp:Label ID="Label3" runat="server" Text="Label" Font-Size="Medium" Font-Bold="true"></asp:Label></aside>
                    </section>
                    <section class="col-lg-3 col-md-3  col-sm-6 text-center">
-                       <asp:Image ID="Image4" runat="server" ImageUrl="Images/Products/matchacake.png" Cssclass="img-thumbnail" />
-                       <aside><asp:Label ID="Label4" runat="server" Text="Label" Font-Size="Medium" Font-Bold="true"></asp:Label></aside>
+                        <asp:ImageButton ID="ImageButton4" runat="server" Style="cursor: pointer" ImageUrl="Images/Products/confetticake.png" CssClass="img-thumbnail" OnClick="ImageButton_Click"/>
+                        <aside><asp:Label ID="Label4" runat="server" Text="Label" Font-Size="Medium" Font-Bold="true"></asp:Label></aside>
                    </section>
              </div>
         </div> <!-- end of thumbnail image section on the homepage -->

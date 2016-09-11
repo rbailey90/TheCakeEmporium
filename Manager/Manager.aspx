@@ -36,6 +36,15 @@
             <asp:BoundField DataField="Comment" HeaderText="Comment" SortExpression="Comment" />
         </Columns>
     </asp:GridView>
+    <br />
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Username], [Comment] FROM [Comments]"></asp:SqlDataSource>
+
+    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="false" DataSourceID="SqlDataSource4">
+        <Columns>
+            <asp:BoundField DataField="CakeName" HeaderText="CakeName" SortExpression="CakeName" />
+            <asp:BoundField DataField="DiscountAmount" HeaderText="DiscountAmount" SortExpression="DiscountAmount" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [CakeName], [DiscountAmount] FROM [Discounts]"></asp:SqlDataSource>
 </asp:Content>
 

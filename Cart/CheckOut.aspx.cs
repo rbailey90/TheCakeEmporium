@@ -103,8 +103,8 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 billstate, billzip, card, exp, cvv, pymtName,signedInUser);
 
             //calc rest of order details      
-            //curOrder.Discount = curOrder.CalculateDiscount(); //dont use this -b
-            curOrder.CalculateDiscount(); //see if this works -b 
+           
+            curOrder.Discount = curOrder.CalculateDiscount(); //see if this works -b 
             curOrder.Subtotal = curOrder.CalculateSubtotal();
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();

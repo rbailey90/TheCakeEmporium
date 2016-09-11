@@ -66,6 +66,9 @@ public class UserDA
 
         string selectString = "select Firstname from Accounts where Username = @Username;";
 
+        //    try
+        //    {
+        //        conn.Open();
         // now the command object
         SqlCommand selectCommand = new SqlCommand(selectString, conn); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
 
@@ -90,10 +93,22 @@ public class UserDA
         {
             conn.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
         }
-
         return fname;
     }
 
+    //        SqlDataReader read = selectCommand.ExecuteReader();
+    //        birthday = read["Birthday"].ToString();
+
+    //        userBirthday = Convert.ToDateTime(birthday);
+    //    }
+    //    catch
+    //    {
+    //        userBirthday = DateTime.MinValue; //quick fix, userBirthday is set to 1/1/0001 12:00:00 AM
+    //    }
+    //    finally
+    //    {
+    //        conn.Close();
+    //    }
 
 
     public static DateTime getBirthday(string aUsername)
@@ -129,16 +144,6 @@ public class UserDA
 
         return bday;
     }
-    //        userBirthday = Convert.ToDateTime(birthday);
-    //    }
-    //    catch
-    //    {
-    //        userBirthday = DateTime.MinValue; //quick fix, userBirthday is set to 1/1/0001 12:00:00 AM
-    //    }
-    //    finally
-    //    {
-    //        conn.Close();
-    //    }
 
     //public static DateTime getBirthday(string currentUsername)
     //{
