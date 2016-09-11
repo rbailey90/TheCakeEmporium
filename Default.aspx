@@ -36,6 +36,8 @@
                          <img src="Images/HomepageImages/chocolatehalloweencake.png" data-fit="cover"/>
                          <img src="Images/HomepageImages/christmasicecreampudding.png"  data-fit="cover"/>
                          <img src="Images/HomepageImages/hummingbird.png" data-fit="cover"/>
+                         <img src="Images/HomepageImages/matchacake.png" data-fit="cover" />
+                         <img src="Images/HomepageImages/carrotcake.png" data-fit="cover" />
                          <img src="Images/HomepageImages/strawberrycake.png" data-fit="cover" />
 	                </div><!-- data height might be messing up the media query height - can fix later if this is a problem-->
                 </div>
