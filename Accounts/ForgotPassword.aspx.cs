@@ -57,7 +57,7 @@ public partial class Accounts_ForgotPassword : System.Web.UI.Page
 
         MailMessage msg = new MailMessage();
         
-        msg.From = new MailAddress("thrawniejoe@yahoo.com");
+        msg.From = new MailAddress("CakeEmporiumASP@yahoo.com");
         //sends to this address
         msg.To.Add(new MailAddress(email));
 
@@ -136,6 +136,5 @@ public partial class Accounts_ForgotPassword : System.Web.UI.Page
         {
             ltlResult.Text = "Reset code is empty, please enter your code";
         }
-        
     }
 }
