@@ -39,17 +39,17 @@ public partial class Cart_CheckOut : System.Web.UI.Page
             this.DisplayCart();
 
         // if user is signed in, populate address on file in check out page for easier check out -lg
-        // NOT WORKING 
-        //string signedInUser = HttpContext.Current.User.Identity.GetUserName();
-        //if(User.Identity.IsAuthenticated)
-        //{
-        //    //string address = UserDA.getAddress(signedInUser);
-        //    //txtBillAddr1.Text = address;
-        //    //string state = UserDA.getState(signedInUser);
-        //    //txtBillState.Text = state;
-        //    //string zip = UserDA.getZip(signedInUser);
-        //    //txtBillZip.Text = zip;
-        //}
+        if (User.Identity.IsAuthenticated)
+        {
+            var userId = User.Identity.GetUserId();
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+            string address = UserDA.getAddress(userId);
+            txtShipAddr1.Text = address;
+            string state = UserDA.getState(userId);
+            txtShipState.Text = state;
+            string zip = UserDA.getZip(userId);
+            txtShipZip.Text = zip;
+        }
     }
     private void DisplayCart()
     {
@@ -117,7 +117,6 @@ public partial class Cart_CheckOut : System.Web.UI.Page
 
                 // update stock on hand in DB -lg
                 cart.UpdateStock(cart);
-
 
                 //save orderID session variable here - b
                 Session["OrderIDReciept"] = curOrder.OrderID;

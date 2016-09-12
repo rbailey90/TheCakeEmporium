@@ -163,6 +163,11 @@ body {
     margin: 0 auto;
 }
 
+.checkoutContainer{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .profileHeader{
       display:inline-block;
       border-radius: 4px 4px 0 0;

@@ -96,6 +96,82 @@ public class UserDA
         return fname;
     }
 
+    public static string getAddress(string user)
+    {
+        string address = "";
+        string selectStatement = "SELECT Address FROM Accounts WHERE Username = @Username";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+        selectCommand.Parameters.AddWithValue("@Username", user);
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                if(reader.HasRows)
+                {
+                    while (reader.Read())
+                        address = reader.GetString(reader.GetOrdinal("Address"));
+                }
+            }
+        }
+        finally
+        {
+            conn.Close();
+        }
+        return address;
+    }
+
+    public static string getState(string user)
+    {
+        string state = "";
+        string selectStatement = "SELECT State FROM Accounts WHERE Username = @Username";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+        selectCommand.Parameters.AddWithValue("@Username", user);
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                        state = reader.GetString(reader.GetOrdinal("State"));
+                }
+            }
+        }
+        finally
+        {
+            conn.Close();
+        }
+        return state;
+    }
+
+    public static string getZip(string user)
+    {
+        string zip = "";
+        string selectStatement = "SELECT ZipCode FROM Accounts WHERE Username = @Username";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+        selectCommand.Parameters.AddWithValue("@Username", user);
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                        zip = reader.GetString(reader.GetOrdinal("ZipCode"));
+                }
+            }
+        }
+        finally
+        {
+            conn.Close();
+        }
+        return zip;
+    }
+
+
     //        SqlDataReader read = selectCommand.ExecuteReader();
     //        birthday = read["Birthday"].ToString();
 
