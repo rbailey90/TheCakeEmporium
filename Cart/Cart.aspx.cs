@@ -67,8 +67,7 @@ public partial class Cart_Cart : System.Web.UI.Page
 
     protected void btnContinueShopping_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Products/Products.aspx");
-        //lblMessage.Text = "Sorry, that function isn't working yet.";
+        Response.Redirect("~/Products/Products.aspx");        
     }
 
     protected void btnCheckOut_Click(object sender, EventArgs e)
