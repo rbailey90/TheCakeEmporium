@@ -104,7 +104,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
 
             //calc rest of order details      
            
-            curOrder.Discount = curOrder.CalculateDiscount(); //see if this works -b 
+            curOrder.Discount = curOrder.CalculateDiscount();  
             curOrder.Subtotal = curOrder.CalculateSubtotal();
             curOrder.Tax = curOrder.CalculateTax();
             curOrder.OrderTotal = curOrder.TotalOrder();
@@ -118,7 +118,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 // update stock on hand in DB -lg
                 cart.UpdateStock(cart);
 
-                //save orderID session variable here - b
+                
                 Session["OrderIDReciept"] = curOrder.OrderID;
 
                 //reset curOrder & clear listbox

@@ -113,6 +113,11 @@ public class CartItemList  : IEnumerable<CartItem>
         decimal amountOfDiscount = cakePrice * discountAmount;
         cakePrice = cakePrice - amountOfDiscount; //subtract discount from price
         cartItems[x].Cake.UnitPrice = Math.Round(cakePrice,2); //set new discounted price
+        if(cartItems[x].Quantity > 0) //factor in quantity if there are 2+ of same cake
+        {
+            int quantity = cartItems[x].Quantity;
+            amountOfDiscount = amountOfDiscount * quantity;
+        }
          // returning the dollar amount of discount for later use in the receipt -b 
         return Math.Round(amountOfDiscount,2);
     }

@@ -204,15 +204,15 @@ public class Order
         set { pymtName = value; }
     }
    
-   public decimal CalculateDiscount() // i think this can be void? -b
-   {
+   public decimal CalculateDiscount() 
+   { 
         DiscountDA discount = new DiscountDA();
 
         List<string> cakeNames = new List<string>();
         List<decimal> cakeDiscount = new List<decimal>();
 
-        cakeNames = discount.getDiscountCakeName(); //get discount cakes from DA -working -b
-        cakeDiscount = discount.getDiscountCakeAmount(); //get discount amounts from DA -working -b
+        cakeNames = discount.getDiscountCakeName(); //get discount cakes from DA -working? -b
+        cakeDiscount = discount.getDiscountCakeAmount(); //get discount amounts from DA -working? -b
 
         //accumulator for amount of discounts for all cakes 
         decimal amountOfDiscount = 0; 
@@ -228,7 +228,7 @@ public class Order
                     //get the discount amount out of the list
                     decimal discountAmount = cakeDiscount[counter]; 
                     //set new cake price with discount
-                    amountOfDiscount = CartList.ApplyCakeDiscount(discountAmount, x); 
+                    amountOfDiscount += CartList.ApplyCakeDiscount(discountAmount, x); 
                     //exit loop if it matches and test the next cake
                     counter = cakeNames.Count;
                 }
