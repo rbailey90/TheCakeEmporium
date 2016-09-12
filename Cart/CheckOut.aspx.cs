@@ -115,6 +115,10 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 //save order to DB
                 curOrder.SaveOrder(curOrder);
 
+                // update stock on hand in DB -lg
+                cart.UpdateStock(cart);
+
+
                 //save orderID session variable here - b
                 Session["OrderIDReciept"] = curOrder.OrderID;
 

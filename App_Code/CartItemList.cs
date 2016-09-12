@@ -7,9 +7,19 @@ using System.Collections;
 /// <summary>
 /// Summary description for CartItemList
 /// </summary>
-public class CartItemList  //: IEnumerable
+public class CartItemList  : IEnumerable<CartItem>
 {
     private List<CartItem> cartItems;
+
+    public IEnumerator<CartItem> GetEnumerator()
+    {
+        return cartItems.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return cartItems.GetEnumerator();
+    }
 
     //IEnumerator IEnumerable.GetEnumerator()
     //{
@@ -146,6 +156,20 @@ public class CartItemList  //: IEnumerable
         CartItem item = cartItems[indx];
         quant = item.Quantity;
         return quant;
+    }
+
+    public void UpdateStock(CartItemList cart)
+    {
+        foreach (CartItem c in cart)
+        {
+            Cake aCake = c.Cake;
+
+            // subtract the quantity sold from product amount on hand
+            aCake.OnHand = aCake.OnHand - c.Quantity; 
+
+            // call to DA to update the DB
+            CakeDA.Update(aCake);
+        }
     }
 
     //public int GetQuantity() //probably won't use this?

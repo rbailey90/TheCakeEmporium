@@ -119,4 +119,29 @@ public class CakeDA
 
         return numRows;
     }
+
+    public static void Update(Cake aCake)
+    {
+        int numRows = 0;
+
+        // update statement
+        string updateStatement = "UPDATE Products SET OnHand = @onHand WHERE ProductId = @productId";
+
+        // command object
+        SqlCommand updateCommand = new SqlCommand(updateStatement, conn);
+
+        updateCommand.Parameters.AddWithValue("@onHand", aCake.OnHand);
+        updateCommand.Parameters.AddWithValue("@productId", aCake.ProductId); // Where clause
+
+        try
+        {
+            conn.Open();
+            numRows = updateCommand.ExecuteNonQuery();
+        }
+        finally
+        {
+            conn.Close();
+        }
+
+    }
 }
