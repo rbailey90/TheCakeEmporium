@@ -125,12 +125,16 @@ public partial class Cart_CheckOut : System.Web.UI.Page
                 Order nextOrder = new Order();
                 curOrder = nextOrder;
                 cart.Clear();
-
                 Response.Redirect("~/Cart/Confirmation.aspx",false);
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                Exception exc = Server.GetLastError();
+
+                // Code that runs when an unhandled error occurs
+                ErrorHandler handler = new ErrorHandler(exc);
+                string result = handler.SendEmail();
+                Response.Redirect("../ContactUs/ErrorPage.aspx?email=" + result);
             }
         }
         else
