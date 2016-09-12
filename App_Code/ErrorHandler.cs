@@ -31,7 +31,7 @@ public class ErrorHandler
             + "<br /> Error Message: null exception" ;
         }
 
-        MailMessage msg = new MailMessage("staci.blaschko@gmail.com", "staci.blaschko@gmail.com");
+        MailMessage msg = new MailMessage("CakeEmporiumASP@yahoo.com", "CakeEmporiumASP@yahoo.com");
         msg.Subject = "Exception in Cake application";
         msg.Body = body;
         msg.IsBodyHtml = true;
