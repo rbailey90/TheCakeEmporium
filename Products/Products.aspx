@@ -3,35 +3,42 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="container-fluid">
-       <div class="product-container cartContainer">
-           <br />
 
-           <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" GridLines="Horizontal" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+       <div class="productContainer">
+           <asp:Label ID="lblHeader" runat="server" Text="Cake Listing" CssClass="productHeader" />
+           <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" Width="125%">
+               <AlternatingRowStyle BackColor="White" />
                <Columns>
-                   <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
-                   <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                   <asp:BoundField DataField="UnitPrice" DataFormatString="{0:c}" HeaderText="Price" SortExpression="ProductId" />
-                   <asp:ImageField AlternateText="cake image" DataImageUrlField="imagepath">
+                   <asp:CommandField ButtonType="Link" ShowSelectButton="True" ControlStyle-CssClass="btn-dataview" >
+
+<ControlStyle CssClass="btn-dataview"></ControlStyle>
+
+                   </asp:CommandField>
+                   <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ControlStyle-CssClass="productNameField" ItemStyle-CssClass="productNameField" />
+                   <asp:BoundField DataField="UnitPrice" DataFormatString="{0:c}" HeaderText="Price" SortExpression="ProductId" ItemStyle-CssClass="productNameField" />
+                   <asp:ImageField AlternateText="cake image" DataImageUrlField="imagepath" ItemStyle-HorizontalAlign="Right">
                        <ControlStyle Height="75px" Width="75px" />
                    </asp:ImageField>
                </Columns>
-               <FooterStyle BackColor="White" ForeColor="#333333" />
-               <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
-               <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-               <RowStyle BackColor="White" ForeColor="#333333" />
-               <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-               <SortedAscendingCellStyle BackColor="#F7F7F7" />
-               <SortedAscendingHeaderStyle BackColor="#487575" />
-               <SortedDescendingCellStyle BackColor="#E5E5E5" />
-               <SortedDescendingHeaderStyle BackColor="#275353" />
+
+               <EditRowStyle BackColor="#7C6F57" />
+               <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+               <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+               <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+
+               <RowStyle BackColor="#E3EAEB" ForeColor="White"  />
+               <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="White" />
+               <SortedAscendingCellStyle BackColor="#F8FAFA" />
+               <SortedAscendingHeaderStyle BackColor="#246B61" />
+               <SortedDescendingCellStyle BackColor="#D4DFE1" />
+               <SortedDescendingHeaderStyle BackColor="#15524A" />
            </asp:GridView>
            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="select products.*, '~/Images/Products/'+Image as imagepath
 from Products
 "></asp:SqlDataSource>
     <br />
     <br />
-        </div>
-   </div>
+</div>
+
 </asp:Content>
 

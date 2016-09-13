@@ -251,6 +251,53 @@ body {
     margin-top: 0;
     margin-bottom: 5px;
 }
+
+/***********products page**************/
+.btn-dataview:link, .btn-dataview:visited, .btn-dataview:active, .btn-dataview{
+    background-color:#D16956;   
+    border-radius:3px;
+    color:white;
+    padding:5px 15px 5px 15px;
+    border-width:0px;
+    margin:3px;
+    font-weight:bold;
+    outline:none;
+  
+}
+
+.btn-dataview:hover{
+    background-color:#F1BC75;
+    color:white;
+    text-decoration:none;
+}
+
+.productContainer{
+    display:table;
+    max-width: 125%;
+    margin: 15px auto;
+    font-size: 14px;
+
+}
+
+.productHeader{
+      display:inline-block;
+      border-radius: 4px 4px 0 0;
+      background-color:#6FA398;
+      width: 125%;
+      margin: 0 auto;
+      font-size: 20px;
+      color: white;
+      padding: 3px;
+      text-align: center;
+      font-weight:bold;
+}
+
+.productNameField{
+      font-size: 14px;
+      color:#333333;
+      margin-left: 10px;
+      margin-right: 10px;
+}
 /*************** start of media queries go here ***************/
 
 @media only screen and (max-width : 920px){
