@@ -52,10 +52,11 @@ public partial class Accounts_ChangePassword : System.Web.UI.Page
                 {
                     userManager.RemovePassword(userId);
                     userManager.AddPassword(userId, newpass);
+                    ltlResult.Text = "Your Password has been updated!";
                 }
                 else
                 {
-                    ltlResult.Text = "Your Password has been updated!";
+                    Response.Redirect("~/Accounts/Profile.aspx");
                 }
             }
             else
