@@ -35,4 +35,10 @@ public partial class Manager_Manager : System.Web.UI.Page
     {
         Response.Redirect("~/Manager/InventoryManagement.aspx");
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        Response.Redirect("https://analytics.google.com");
+    }
 }

@@ -5,6 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
     <asp:Button ID="btnMangInv" runat="server" cssClass="profileButton" Text="Manage Inventory" OnClick="btnMangInv_Click" />
+    &nbsp;
+    <asp:Button ID="btnAnalytics" runat="server" cssClass="profileButton" Text="Site Analytics" OnClick="Button1_Click" />
+&nbsp;
+    <br />
     <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="OrderId" DataSourceID="SqlDataSource1" AllowPaging="True">
         <Columns>
