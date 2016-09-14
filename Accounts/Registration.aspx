@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Registration.aspx.cs" Inherits="User_Registration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <!--HttpCookie cookie = new HttpCookie("myCookie");
+    cookie.Values.Add("UserFirstName", txtFirstName.Text);-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div class="profileContainer">
@@ -140,7 +142,7 @@
                     <asp:Label ID="lblDob" runat="server" Text="Date of Birth:"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control" Text="mm/dd/yyyy">mm/dd/yy</asp:TextBox>
+                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control" placeholder="mm/dd/yyyy"></asp:TextBox>
                </div>
                <div class="row">
                    <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">

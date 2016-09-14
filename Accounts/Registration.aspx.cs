@@ -67,16 +67,24 @@ public partial class User_Registration : System.Web.UI.Page
             User_Manager.AddToRole(New_User.Id, myRole);
             Auth_Manager.SignIn(new AuthenticationProperties() { }, User_Identity);
             //var userid = User.Identity.GetUserId(); //gets the new user id once logged in
-
             //inserts profile informtion into User table
             var role = "User";
             var new_UserProfile = new User(User_Identity.GetUserId(), txtFirstName.Text, txtLastName.Text, role, txtAddress.Text, txtState.Text, TxtZip.Text, Convert.ToDateTime(txtDob.Text));
             UserDA.AddUser(new_UserProfile);
+            AddCookie();
             Response.Redirect("~/Accounts/Login.aspx");
+           
         }
         else
         {
             LblMessage.Text = User_Result.Errors.FirstOrDefault();
         }
+    }
+    
+    private void AddCookie()
+    {
+        HttpCookie firstnameCookie = new HttpCookie("FirstName", txtFirstName.Text);
+        firstnameCookie.Expires = DateTime.Now.AddDays(30);
+        Response.Cookies.Add(firstnameCookie);
     }
 }

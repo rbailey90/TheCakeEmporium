@@ -48,7 +48,7 @@
         <!-- put messages/ text/ description of site and birthday text label here -->
         <div class="row">
             <h1 class="text-center"> 
-                <asp:Label ID="lblWelcomeMessage" runat="server" SkinID="birthdayWelcome" Text="Welcome to The Cake Emporium," Font-Bold="true"></asp:Label>     
+                <asp:Label ID="lblWelcomeMessage" runat="server" SkinID="birthdayWelcome" Text="Welcome to the Cake Emporium," Font-Bold="true"></asp:Label>     
             </h1>
             <h3 class="text-center">
                  <asp:Label ID="lblSecondaryMessage" runat="server" Font-Size="X-Large" Text="where you can have your cake and eat it too.&trade;"></asp:Label>

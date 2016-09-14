@@ -31,6 +31,11 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if ((Request.Cookies["FirstName"] != null))
+        {
+            string name = Response.Cookies["FirstName"].Value;
+            lblWelcomeMessage.Text = "Welcome to the Cake Emporium, " + name + " !";
+        }
         int daysUntilHalloween = getDaysUntilHalloween();
         if (lblSecondaryMessage != null && Page.Theme == "halloween" && Page.Theme != "birthday")
         {
