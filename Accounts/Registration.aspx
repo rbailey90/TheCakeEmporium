@@ -161,6 +161,7 @@
                <div class="row">
                    <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" CssClass="pull-right" ControlToValidate="txtDob" ErrorMessage="*Date of Birth Required" Display="Dynamic"></asp:RequiredFieldValidator>
+<%--                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorDOB" runat="server" CssClass="pull-right" ErrorMessage="*Date must be in MM/DD/YYYY format." ValidationExpression="/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/" ControlToValidate="txtDob" Display="Dynamic"></asp:RegularExpressionValidator>--%>
                          <asp:RegularExpressionValidator ID="RegularExpressionValidatorDOB" runat="server" CssClass="pull-right" ErrorMessage="*Date must be in MM/DD/YYYY format." ValidationExpression="^\d{1,2}\/\d{1,2}\/\d{4}$" ControlToValidate="txtDob" Display="Dynamic"></asp:RegularExpressionValidator>
                         <asp:RangeValidator ID="DOBRangeValidator" runat="server" ErrorMessage="RangeValidator" Display="Dynamic" CssClass="pull-right" ControlToValidate="txtDob"></asp:RangeValidator>
                    </div>
