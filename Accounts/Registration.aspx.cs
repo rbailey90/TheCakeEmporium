@@ -17,9 +17,23 @@ public partial class User_Registration : System.Web.UI.Page
         {
             Page.Theme = "halloween";
         }
+
+        
     }
+
+
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
+        //Checks to make sure birthdate comes after 1755 and not after the current year/day
+        DOBRangeValidator.Type = ValidationDataType.Date;
+        DOBRangeValidator.MinimumValue = DateTime.Today.AddYears(-250).ToShortDateString();
+        DOBRangeValidator.MaximumValue = DateTime.Today.ToShortDateString();
+        DOBRangeValidator.ErrorMessage = "Date Must Be in between " + DOBRangeValidator.MinimumValue + " and " + DOBRangeValidator.MaximumValue;
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
+
 
     }
     public int getDaysUntilHalloween()
@@ -72,6 +86,7 @@ public partial class User_Registration : System.Web.UI.Page
             var new_UserProfile = new User(User_Identity.GetUserId(), txtFirstName.Text, txtLastName.Text, role, txtAddress.Text, txtCity.Text, txtState.Text, TxtZip.Text, Convert.ToDateTime(txtDob.Text));
             UserDA.AddUser(new_UserProfile);
             AddCookie();
+
             Response.Redirect("~/Accounts/Login.aspx");
            
         }

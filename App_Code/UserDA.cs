@@ -381,4 +381,30 @@ public class UserDA
 
         return numRows;
     }
+
+
+    public static string getRole(string user) //gets user role from AspNetUserRoles table
+    {
+        string role = "";
+        string selectStatement = "SELECT RoleId FROM AspNetUserRoles WHERE UserId = @Username";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+        selectCommand.Parameters.AddWithValue("@Username", user);
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                        role = reader.GetString(reader.GetOrdinal("RoleId"));
+                }
+            }
+        }
+        finally
+        {
+            conn.Close();
+        }
+        return role;
+    }
 }

@@ -14,16 +14,30 @@ public partial class MasterPage : System.Web.UI.MasterPage
     Random rnd = new Random();
     protected void Page_PreInit(object sender, EventArgs e)
     {
-       
+
     }
     protected void Page_Load(object sender, EventArgs e)
-    {       
+    {
+        checkUser();
+
+    }
+
+    private void checkUser()
+    {
+        var Auth_Manager = HttpContext.Current.GetOwinContext().Authentication;
+        string currentuserRole ="0";
+        if (HttpContext.Current.User.Identity.GetUserId() != null)
+        {
+            string user = HttpContext.Current.User.Identity.GetUserId();
+            currentuserRole = UserDA.getRole(user); //Current Role from table itself
+        }
+
         //Menu User Controls
-        if (HttpContext.Current.User.IsInRole("User"))
+        if (HttpContext.Current.User.IsInRole("User") || currentuserRole == "1")
         {
             SiteMapDataSource1.SiteMapProvider = "userWeb.sitemap";
         }
-        else if(HttpContext.Current.User.IsInRole("Admin"))
+        else if (HttpContext.Current.User.IsInRole("Admin"))
         {
             SiteMapDataSource1.SiteMapProvider = "managerWeb.sitemap";
         }
@@ -32,12 +46,4 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SiteMapDataSource1.SiteMapProvider = "XmlSiteMapProvider";
         }
     }
-
-    //For Future Reference of logging out a user by just clicking
-    //protected void btn_LogOut_Click(object sender, EventArgs e)
-    //{
-    //    var Auth_Manager = HttpContext.Current.GetOwinContext().Authentication;
-    //    Auth_Manager.SignOut();
-    //    Response.Redirect("~/Default.aspx");
-    //}
 }
