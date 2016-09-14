@@ -31,6 +31,11 @@ public partial class Cart_Confirmation : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if ((Request.Cookies["FirstName"] != null))
+        {
+            string name = Request.Cookies["FirstName"].Value;
+            lblConfirmation.Text = "Thank you for your order, " + name + " !";
+        }
         Order currentOrder;
         //retrieve cart object from session state on every post back
         if (Session["OrderIDReciept"] != null)
@@ -38,10 +43,10 @@ public partial class Cart_Confirmation : System.Web.UI.Page
             string orderid = Session["OrderIDReciept"].ToString();
             currentOrder = OrderDA.OrderReceipt(orderid); //pull receipt from DB
 
-            string subtotal = String.Format("ORDER SUBTOTAL: ${0:C}", Math.Round((currentOrder.Subtotal), 2).ToString());
-            string tax = String.Format("TAX: ${0:C}", Math.Round((currentOrder.Tax),2).ToString());
-            string discount = String.Format("APPLIED DISCOUNTS:  ${0:C} saved on your order today",Math.Round((currentOrder.Discount),2).ToString());
-            string total = String.Format("ORDER TOTAL:  ${0:C}", Math.Round((currentOrder.OrderTotal),2).ToString());
+            string subtotal = String.Format("\tORDER SUBTOTAL: ${0:C}", Math.Round((currentOrder.Subtotal), 2).ToString());
+            string tax = String.Format("\tTAX: ${0:C}", Math.Round((currentOrder.Tax),2).ToString());
+            string discount = String.Format("\tAPPLIED DISCOUNTS:  ${0:C} saved on your order today",Math.Round((currentOrder.Discount),2).ToString());
+            string total = String.Format("\tORDER TOTAL:  ${0:C}", Math.Round((currentOrder.OrderTotal),2).ToString());
 
             Subtotal.Text = subtotal;
             Tax.Text = tax;
