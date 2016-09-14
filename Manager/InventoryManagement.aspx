@@ -28,12 +28,14 @@
         }
         </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="container-fluid">
+    <div class="productContainer">
     <h1>Inventory Management</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Label ID="lblError" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" Width="973px">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" Width="1000px">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="ProductId" HeaderText="ID" ReadOnly="True" SortExpression="ProductId" />
             <asp:TemplateField HeaderText="Name" SortExpression="Name">
@@ -44,13 +46,17 @@
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
-            <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="UnitPrice" DataFormatString="{0:C}" />
-            <asp:BoundField DataField="OnHand" HeaderText="On Hand" SortExpression="OnHand" />
-            <asp:CommandField ButtonType="Button" ShowEditButton="True" />
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
+            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" ItemStyle-CssClass="productNameField"/>
+            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" ItemStyle-CssClass="productNameField"/>
+            <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="UnitPrice" DataFormatString="{0:C}" ItemStyle-CssClass="productNameField"/>
+            <asp:BoundField DataField="OnHand" HeaderText="On Hand" SortExpression="OnHand" ItemStyle-CssClass="productNameField"/>
+            <asp:CommandField ButtonType="Button" ShowEditButton="True" ControlStyle-CssClass="btn-edit"/>
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ControlStyle-CssClass="btn-dataview"/>
         </Columns>
+        <EditRowStyle BorderColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" ForeColor="White" />
+        <HeaderStyle BackColor="#1C5E55" ForeColor="White" />
+        <RowStyle BackColor="#E3EAEB" />
     </asp:GridView>
     <br />
     To add a cake to the inventory, enter the information and click Add Cake<br />
@@ -64,7 +70,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtID" Display="Dynamic" ErrorMessage="ID is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    Upload Image: .png files only, 150kb size limit, 250x250</td>
+                    Upload Image: .png files only, 500kb size limit, 250x250</td>
             </tr>
             <tr>
                 <td class="auto-style1">Name:</td>
@@ -99,7 +105,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtImageFile" ErrorMessage="The file name is required" Font-Italic="True" ValidationGroup="invmgGroup"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style5">
-                    <asp:Label ID="lblErrorImage" runat="server" Font-Italic="True"></asp:Label>
+                    <asp:Label ID="lblErrorImage" runat="server" Font-Italic="True" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -155,5 +161,6 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     </div>
+
 </asp:Content>
 

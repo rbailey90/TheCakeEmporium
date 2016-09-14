@@ -22,7 +22,8 @@ public partial class User_HistoryDetail : System.Web.UI.Page
     {
         int orderID = Convert.ToInt16(Session["orderselect"]);
 
-        OrderDA.DeleteOrder(orderID);
+        OrderDA.DeleteOrder(orderID); // Doesn't update the OnHand in the Products table
+        OrderDA.DeleteOrderDetails(orderID);
 
         Response.Redirect("~/User/History.aspx");
     }

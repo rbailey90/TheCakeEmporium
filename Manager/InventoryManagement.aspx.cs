@@ -73,8 +73,8 @@ public partial class Manager_InventoryManagement : System.Web.UI.Page
                 // only allowing .png files to be uploaded
                 if (FileUpload1.PostedFile.ContentType == "image/png")
                 {
-                    // only allowing the file to be 150 kb or less
-                    if (FileUpload1.PostedFile.ContentLength <= 150000)
+                    // only allowing the file to be 500 kb or less
+                    if (FileUpload1.PostedFile.ContentLength <= 500000)
                     {
                         string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
                         FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Images/Products/") + fileName);

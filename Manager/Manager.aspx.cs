@@ -39,6 +39,6 @@ public partial class Manager_Manager : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
 
-        Response.Redirect("https://analytics.google.com");
+        Response.Redirect("~/Manager/SiteAnalytics.aspx");
     }
 }
