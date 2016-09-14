@@ -33,7 +33,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if ((Request.Cookies["FirstName"] != null))
         {
-            string name = Response.Cookies["FirstName"].Value;
+            string name = Request.Cookies["FirstName"].Value;
             lblWelcomeMessage.Text = "Welcome to the Cake Emporium, " + name + " !";
         }
         int daysUntilHalloween = getDaysUntilHalloween();
@@ -102,50 +102,9 @@ public partial class _Default : System.Web.UI.Page
 
         return (int)daysUntil;
     }
-    public void getNewProduct() //Gets random products to display on default page.
+    public void getNewProduct() 
     {
-        //List<string> images = new List<string>();
-        //images.Add("~/Images/HomepageImages/carrotcake.png");
-        //images.Add("~/Images/HomepageImages/matchacake.png");
-        //images.Add("~/Images/HomepageImages/rainbowconfetticake.png");
-        //images.Add("~/Images/HomepageImages/poppyseedcake.png");
-        //images.Add("~/Images/HomepageImages/lemoncake.png");
-        ////can add more images later
- 
-        //List<string> descriptions = new List<string>();
-        //descriptions.Add("Carrot Cake");
-        //descriptions.Add("Matcha Cake");
-        //descriptions.Add("Confetti Cake");
-        //descriptions.Add("Poppyseed Cake");
-        //descriptions.Add("Lemon Cake");
-        //descriptions must match images in order
-
-        //Random rnd = new Random(); //creates new random
-        ////gets four random indexes within the size of the Image List
-        ////then adds those four indexes to the adSpace list
-        //List<int> featuredProducts = new List<int>();
-
-        //while (featuredProducts.Count < 4)
-        //{
-        //    int r = rnd.Next(0, images.Count);
-        //    do
-        //    {
-        //        r = rnd.Next(0, images.Count);
-        //    }while (featuredProducts.Contains(r));
-
-        //    featuredProducts.Add(r);
-        //}
-
-        //takes the four indexes and adds them to each add section for both the description and image
-        //ImageButton1.ImageUrl = images[featuredProducts[0]]; // "~/Images/ombrecake.jpg";
-        //ImageButton2.ImageUrl = images[featuredProducts[1]];
-        //ImageButton3.ImageUrl = images[featuredProducts[2]];
-        //ImageButton4.ImageUrl = images[featuredProducts[3]];
-        //Label1.Text = descriptions[featuredProducts[0]];
-        //Label2.Text = descriptions[featuredProducts[1]];
-        //Label3.Text = descriptions[featuredProducts[2]];
-        //Label4.Text = descriptions[featuredProducts[3]];
-
+       
         //CAKE DISCOUNTS start here -b
 
         List<string> cakeNames = new List<string>();//string names must match the cake name in Product table
@@ -207,3 +166,46 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("~/Products/Details.aspx");
     }
 }
+
+//not using
+//List<string> images = new List<string>();
+//images.Add("~/Images/HomepageImages/carrotcake.png");
+//images.Add("~/Images/HomepageImages/matchacake.png");
+//images.Add("~/Images/HomepageImages/rainbowconfetticake.png");
+//images.Add("~/Images/HomepageImages/poppyseedcake.png");
+//images.Add("~/Images/HomepageImages/lemoncake.png");
+////can add more images later
+
+//List<string> descriptions = new List<string>();
+//descriptions.Add("Carrot Cake");
+//descriptions.Add("Matcha Cake");
+//descriptions.Add("Confetti Cake");
+//descriptions.Add("Poppyseed Cake");
+//descriptions.Add("Lemon Cake");
+//descriptions must match images in order
+
+//Random rnd = new Random(); //creates new random
+////gets four random indexes within the size of the Image List
+////then adds those four indexes to the adSpace list
+//List<int> featuredProducts = new List<int>();
+
+//while (featuredProducts.Count < 4)
+//{
+//    int r = rnd.Next(0, images.Count);
+//    do
+//    {
+//        r = rnd.Next(0, images.Count);
+//    }while (featuredProducts.Contains(r));
+
+//    featuredProducts.Add(r);
+//}
+
+//takes the four indexes and adds them to each add section for both the description and image
+//ImageButton1.ImageUrl = images[featuredProducts[0]]; // "~/Images/ombrecake.jpg";
+//ImageButton2.ImageUrl = images[featuredProducts[1]];
+//ImageButton3.ImageUrl = images[featuredProducts[2]];
+//ImageButton4.ImageUrl = images[featuredProducts[3]];
+//Label1.Text = descriptions[featuredProducts[0]];
+//Label2.Text = descriptions[featuredProducts[1]];
+//Label3.Text = descriptions[featuredProducts[2]];
+//Label4.Text = descriptions[featuredProducts[3]];

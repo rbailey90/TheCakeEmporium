@@ -50,9 +50,9 @@
             <h1 class="text-center"> 
                 <asp:Label ID="lblWelcomeMessage" runat="server" SkinID="birthdayWelcome" Text="Welcome to the Cake Emporium," Font-Bold="true"></asp:Label>     
             </h1>
-            <h3 class="text-center">
+            <h4 class="text-center">
                  <asp:Label ID="lblSecondaryMessage" runat="server" Font-Size="X-Large" Text="where you can have your cake and eat it too.&trade;"></asp:Label>
-            </h3>
+            </h4>
         </div>
         <!-- start of featured products section on the homepage -->
             <div class="row" id="featured">

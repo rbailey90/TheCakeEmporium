@@ -55,15 +55,7 @@ public partial class User_Registration : System.Web.UI.Page
             
 
             string myRole = "User";
-            //Creates Role if does not exists
-
-            //var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            //if (!RoleManager.RoleExists(myRole))
-            //{
-            //    var roleResult = RoleManager.Create(new IdentityRole(myRole));
-            //}
-
-
+     
             User_Manager.AddToRole(New_User.Id, myRole);
             Auth_Manager.SignIn(new AuthenticationProperties() { }, User_Identity);
             //var userid = User.Identity.GetUserId(); //gets the new user id once logged in
@@ -83,8 +75,9 @@ public partial class User_Registration : System.Web.UI.Page
     
     private void AddCookie()
     {
-        HttpCookie firstnameCookie = new HttpCookie("FirstName", txtFirstName.Text);
-        firstnameCookie.Expires = DateTime.Now.AddDays(30);
+        string fname = txtFirstName.Text;
+        HttpCookie firstnameCookie = new HttpCookie("FirstName", fname);
+        firstnameCookie.Expires = DateTime.Now.AddDays(30); //set expiration date
         Response.Cookies.Add(firstnameCookie);
     }
 }
