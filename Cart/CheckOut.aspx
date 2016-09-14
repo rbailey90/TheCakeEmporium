@@ -71,7 +71,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="checkoutContainer">
+    <div class="productContainer">
        <div class="col-lg-11 col-md-11 col-sm-10">
             <p>
             <h1>Check Out</h1>

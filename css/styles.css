@@ -163,11 +163,6 @@ body {
     margin: 0 auto;
 }
 
-.checkoutContainer{
-    max-width: 400px;
-    margin: 0 auto;
-}
-
 .profileHeader{
       display:inline-block;
       border-radius: 4px 4px 0 0;
@@ -265,6 +260,17 @@ body {
   
 }
 
+.btn-edit{
+    background-color:#6FA398;   
+    border-radius:3px;
+    color:white;
+    padding:5px 15px 5px 15px;
+    border-width:0px;
+    margin:3px;
+    font-weight:bold;
+    outline:none;
+}
+
 .btn-dataview:hover{
     background-color:#F1BC75;
     color:white;
@@ -297,6 +303,10 @@ body {
       color:#333333;
       margin-left: 10px;
       margin-right: 10px;
+}
+
+.analyticsContainer{
+    margin: 0px 400px 0px 400px;
 }
 /*************** start of media queries go here ***************/
 
