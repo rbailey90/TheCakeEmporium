@@ -27,7 +27,7 @@
                     <asp:Label ID="LblUserPwd" runat="server" Text="Password:"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                    <asp:TextBox ID="TxtUserPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="TxtUserPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
                </div>
                <div class="row">
                    <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">
@@ -41,7 +41,7 @@
                      <asp:Label ID="LblConPwd" runat="server" Text="Confirm Password:"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                    <asp:TextBox ID="TxtConfirmPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="TxtConfirmPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
                </div>
            </div>
             <div class="row">
