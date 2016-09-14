@@ -96,6 +96,42 @@ public class UserDA
         return fname;
     }
 
+    public static string getLastname(string aUsername)
+    {
+        string lname = "";
+
+        string selectString = "select Lastname from Accounts where Username = @Username;";
+
+        //    try
+        //    {
+        //        conn.Open();
+        // now the command object
+        SqlCommand selectCommand = new SqlCommand(selectString, conn); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+
+        selectCommand.Parameters.AddWithValue("@Username", aUsername); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                // Check is the reader has any rows at all before starting to read.
+                if (reader.HasRows)
+                {
+                    // Read advances to the next row.
+                    while (reader.Read())
+                    {
+                        lname = reader.GetString(reader.GetOrdinal("Lastname"));
+                    }
+                }
+            }
+        }
+        finally
+        {
+            conn.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
+        }
+        return lname;
+    }
+
     public static string getAddress(string user)
     {
         string address = "";
@@ -119,6 +155,31 @@ public class UserDA
             conn.Close();
         }
         return address;
+    }
+
+    public static string getCity(string user)
+    {
+        string city = "";
+        string selectStatement = "SELECT City FROM Accounts WHERE Username = @Username";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+        selectCommand.Parameters.AddWithValue("@Username", user);
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                        city = reader.GetString(reader.GetOrdinal("City"));
+                }
+            }
+        }
+        finally
+        {
+            conn.Close();
+        }
+        return city;
     }
 
     public static string getState(string user)
@@ -260,7 +321,7 @@ public class UserDA
     {
         int numRows = 0;
 
-        string insertString = "insert into Accounts (Username, Firstname, Lastname, Role, Address, State, ZipCode, Birthday) values (@username, @firstname, @lastname, @role, @address, @state, @zip, @birthday)"; // the parameter values will be made later
+        string insertString = "insert into Accounts (Username, Firstname, Lastname, Role, Address, City, State, ZipCode, Birthday) values (@username, @firstname, @lastname, @role, @address, @city, @state, @zip, @birthday)"; // the parameter values will be made later
 
         SqlCommand insertCommand = new SqlCommand(insertString, conn); 
 
@@ -269,6 +330,7 @@ public class UserDA
         insertCommand.Parameters.AddWithValue("@lastname", newUser.LastName);
         insertCommand.Parameters.AddWithValue("@role", newUser.Role);
         insertCommand.Parameters.AddWithValue("@address", newUser.Address);
+        insertCommand.Parameters.AddWithValue("@city", newUser.City);
         insertCommand.Parameters.AddWithValue("@state", newUser.State);
         insertCommand.Parameters.AddWithValue("@zip", newUser.Zip);
         insertCommand.Parameters.AddWithValue("@birthday", newUser.Birthday);
@@ -287,12 +349,12 @@ public class UserDA
     }
 
 
-    public static int UpdateUser(string UserId, string fname, string lname, string role, string addr, string state, string zip, DateTime bday)
+    public static int UpdateUser(string UserId, string fname, string lname, string role, string addr, string city, string state, string zip, DateTime bday)
     {
         int numRows = 0;
 
 
-        string insertString = "update Accounts SET Username = @username, Firstname = @firstname, Lastname = @lastname, Role = @role, Address = @address, State =  @state, ZipCode = @zip, Birthday = @birthday WHERE username = '" + UserId + "'"; // the parameter values will be made later
+        string insertString = "update Accounts SET Username = @username, Firstname = @firstname, Lastname = @lastname, Role = @role, Address = @address, City = @city, State = @state, ZipCode = @zip, Birthday = @birthday WHERE username = '" + UserId + "'"; // the parameter values will be made later
 
         SqlCommand insertCommand = new SqlCommand(insertString, conn);
 
@@ -302,6 +364,7 @@ public class UserDA
         insertCommand.Parameters.AddWithValue("@lastname", lname);
         insertCommand.Parameters.AddWithValue("@role", role);
         insertCommand.Parameters.AddWithValue("@address", addr);
+        insertCommand.Parameters.AddWithValue("@city", city);
         insertCommand.Parameters.AddWithValue("@state", state);
         insertCommand.Parameters.AddWithValue("@zip", zip);
         insertCommand.Parameters.AddWithValue("@birthday", bday);

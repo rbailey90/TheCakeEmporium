@@ -49,19 +49,11 @@ public partial class User_Profile : System.Web.UI.Page
         Response.Redirect("~/Default.aspx");
     }
 
-    protected void EditButton_Click(object sender, EventArgs e)
+    protected void updateAspUserInfo()
     {       
-        var newpass = (FormView2.FindControl("NewPasswordBox") as TextBox).Text;
         var newEmail = (FormView2.FindControl("EmailTextBox") as TextBox).Text;
         var newPhone = (FormView2.FindControl("PhoneNumberTextBox") as TextBox).Text;
 
-        if (newpass != "")
-        {
-            //updates user password
-            userManager.RemovePassword(User.Identity.GetUserId());
-            userManager.AddPassword(User.Identity.GetUserId(), newpass);
-            Response.Redirect("~/Accounts/UpdateComplete.aspx");
-        }
         if(newEmail != "" && newPhone != "")
         {        
             //updates e-mail address
@@ -74,7 +66,8 @@ public partial class User_Profile : System.Web.UI.Page
 
     protected void btnUnregister_Click(object sender, EventArgs e)
     {
-        userManager.SetLockoutEnabled(User.Identity.GetUserId(), false);
+        userManager.SetLockoutEnabled(User.Identity.GetUserId(), true); //isn't working need check on login
+        //logout user here
         Response.Redirect("~/Accounts/AccountDeactived.aspx");
     }
 
@@ -84,6 +77,7 @@ public partial class User_Profile : System.Web.UI.Page
         string fname = (FormView1.FindControl("FirstnameTextBox") as TextBox).Text;
         string lname = (FormView1.FindControl("LastnameTextBox") as TextBox).Text;
         string address = (FormView1.FindControl("AddressTextBox") as TextBox).Text;
+        string city = (FormView1.FindControl("CityTextBox") as TextBox).Text;
         string state = (FormView1.FindControl("StateTextBox") as TextBox).Text;
         string zip = (FormView1.FindControl("ZipCodeTextBox") as TextBox).Text;
         string role = "";
@@ -91,7 +85,8 @@ public partial class User_Profile : System.Web.UI.Page
 
         //User currentUser = new User();
 
-        UserDA.UpdateUser(User.Identity.GetUserId(), fname, lname, role, address, state, zip, bday);
+        UserDA.UpdateUser(User.Identity.GetUserId(), fname, lname, role, address, city, state, zip, bday);
+        updateAspUserInfo();
         Response.Redirect("~/Accounts/UpdateComplete.aspx");
     }
 

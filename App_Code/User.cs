@@ -14,6 +14,7 @@ public class User
     public string LastName { get; set; }
     public string Role { get; set; }
     public string Address { get; set; }
+    public string City { get; set; }
     public string State { get; set; }
     public string Zip { get; set; }
     public static object Identity { get; set; }
@@ -22,13 +23,13 @@ public class User
     public User()
     { }
 
-    public User(string userName, string fName, string lName, string role, string address, string state, string zip, DateTime birthday)
+    public User(string userName, string fName, string lName, string role, string address, string city, string state, string zip, DateTime birthday)
     {
         this.Username = userName;
-        //this.Password = passWord;
         this.FirstName = fName;
         this.LastName = lName;
         this.Address = address;
+        this.City = city;
         this.State = state;
         this.Zip = zip;
         this.Birthday = birthday;
@@ -61,6 +62,12 @@ public class User
     {
         get { return Address; }
         set { Address = value; }
+    }
+
+    public string getCity
+    {
+        get { return City; }
+        set { City = value; }
     }
 
     public string getState

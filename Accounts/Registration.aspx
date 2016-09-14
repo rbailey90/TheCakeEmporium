@@ -111,6 +111,20 @@
 
            <div class="form-group">
                <div class="col-md-5 col-sm-5 text-right" style="float: left; overflow: hidden;">
+                    <asp:Label ID="lblCity" runat="server" Text="City:"></asp:Label>
+               </div>
+               <div class="col-md-7 col-sm-7">
+                    <asp:TextBox ID="txtCity" runat="server" CssClass="form-control"></asp:TextBox>
+               </div>
+               <div class="row">
+                   <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" CssClass="pull-right" ControlToValidate="txtCity" ErrorMessage="*City Required"></asp:RequiredFieldValidator>
+                   </div>
+               </div>
+           </div>
+
+           <div class="form-group">
+               <div class="col-md-5 col-sm-5 text-right" style="float: left; overflow: hidden;">
                     <asp:Label ID="lblState" runat="server" Text="State:"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">

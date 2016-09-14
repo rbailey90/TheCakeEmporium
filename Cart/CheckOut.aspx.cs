@@ -43,8 +43,15 @@ public partial class Cart_CheckOut : System.Web.UI.Page
         {
             var userId = User.Identity.GetUserId();
             UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+            string firstName = UserDA.getFirstname(userId);
+            string lastName = UserDA.getLastname(userId);
+            string fullname = firstName + " " + lastName;
+
+            txtShipTo.Text = fullname;
             string address = UserDA.getAddress(userId);
             txtShipAddr1.Text = address;
+            string city = UserDA.getCity(userId);
+            txtShipCity.Text = city;
             string state = UserDA.getState(userId);
             txtShipState.Text = state;
             string zip = UserDA.getZip(userId);
@@ -67,6 +74,7 @@ public partial class Cart_CheckOut : System.Web.UI.Page
     }
     protected void btnSameAddress_Click(object sender, EventArgs e)
     {
+       
         txtBillAddr1.Text = txtShipAddr1.Text;
         txtBillAddr2.Text = txtShipAddr2.Text;
         txtBillCity.Text = txtShipCity.Text;

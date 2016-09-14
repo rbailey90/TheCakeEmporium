@@ -25,6 +25,9 @@
             Address:
             <asp:TextBox ID="AddressTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Address") %>' />
             <br />
+            City:
+            <asp:TextBox ID="CityTextBox" CssClass="form-control" runat="server" Text='<%# Bind("City") %>' />
+            <br />
             State:
             <asp:TextBox ID="StateTextBox" CssClass="form-control" runat="server" Text='<%# Bind("State") %>' />
             <br />
@@ -53,6 +56,9 @@
             Address:
             <asp:TextBox ID="AddressTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Address") %>' />
             <br />
+            City:
+            <asp:TextBox ID="CityTextBox" CssClass="form-control" runat="server" Text='<%# Bind("City") %>' />
+            <br />
             State:
             <asp:TextBox ID="StateTextBox" CssClass="form-control" runat="server" Text='<%# Bind("State") %>' />
             <br />
@@ -76,10 +82,12 @@
             Address:
             <asp:Label ID="AddressLabel" runat="server" Text='<%# Bind("Address") %>' />
             <br />
+            City:
+            <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+            <br />
             State:
             <asp:Label ID="StateLabel" runat="server" Text='<%# Bind("State") %>' />
             <br />
-
             ZipCode:
             <asp:Label ID="ZipCodeLabel" runat="server" Text='<%# Bind("ZipCode") %>' />
             <br />
@@ -179,24 +187,24 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Username], [Firstname], [Lastname], [Address], [State], [ZipCode], [Birthday] FROM [Accounts] WHERE ([Username] = @Username)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Accounts] WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [State] = @original_State AND [ZipCode] = @original_ZipCode" InsertCommand="INSERT INTO [Accounts] ([Username], [Firstname], [Lastname], [Address], [State], [ZipCode]) VALUES (@Username, @Firstname, @Lastname, @Address, @State, @ZipCode)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Accounts] SET [Firstname] = @Firstname, [Lastname] = @Lastname, [Address] = @Address, [State] = @State, [ZipCode] = @ZipCode, [Birthday]=@Birthday WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [State] = @original_State AND [ZipCode] = @original_ZipCode AND [Birthday] = @original_Birthday">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Username], [Firstname], [Lastname], [Address], [City], [State], [ZipCode], [Birthday] FROM [Accounts] WHERE ([Username] = @Username)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Accounts] WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [City] = @original_City AND [State] = @original_State AND [ZipCode] = @original_ZipCode" InsertCommand="INSERT INTO [Accounts] ([Username], [Firstname], [Lastname], [Address], [City], [State], [ZipCode]) VALUES (@Username, @Firstname, @Lastname, @Address, @City, @State, @ZipCode)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Accounts] SET [Firstname] = @Firstname, [Lastname] = @Lastname, [Address] = @Address, [City]=@City, [State] = @State, [ZipCode] = @ZipCode, [Birthday]=@Birthday WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [City] = @original_City AND [State] = @original_State AND [ZipCode] = @original_ZipCode AND [Birthday] = @original_Birthday">
         <DeleteParameters>
             <asp:Parameter Name="original_Username" Type="String" />
             <asp:Parameter Name="original_Firstname" Type="String" />
             <asp:Parameter Name="original_Lastname" Type="String" />
             <asp:Parameter Name="original_Address" Type="String" />
+            <asp:Parameter Name="original_City" Type="String"/>
             <asp:Parameter Name="original_State" Type="String" />
             <asp:Parameter Name="original_ZipCode" Type="String" />
-            <asp:Parameter Name="original_Birthday" Type="DateTime" />
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="Username" Type="String" />
             <asp:Parameter Name="Firstname" Type="String" />
             <asp:Parameter Name="Lastname" Type="String" />
             <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String"/>
             <asp:Parameter Name="State" Type="String" />
             <asp:Parameter Name="ZipCode" Type="String" />
-            <asp:Parameter Name="Birthday" Type="DateTime" />
         </InsertParameters>
         <SelectParameters>
             <asp:SessionParameter Name="Username" SessionField="signedInUser" DefaultValue="signedInUser" Type="String" />
@@ -205,6 +213,7 @@
             <asp:Parameter Name="Firstname" Type="String" />
             <asp:Parameter Name="Lastname" Type="String" />
             <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="City" Type="String"/>
             <asp:Parameter Name="State" Type="String" />
             <asp:Parameter Name="ZipCode" Type="String" />
             <asp:Parameter Name="Birthday" Type="DateTime"/>
@@ -212,6 +221,7 @@
             <asp:Parameter Name="original_Firstname" Type="String" />
             <asp:Parameter Name="original_Lastname" Type="String" />
             <asp:Parameter Name="original_Address" Type="String" />
+            <asp:Parameter Name="original_City" Type="String" />
             <asp:Parameter Name="original_State" Type="String" />
             <asp:Parameter Name="original_ZipCode" Type="String" />
             <asp:Parameter Name="original_Birthday" Type="DateTime" />

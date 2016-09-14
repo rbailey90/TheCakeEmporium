@@ -69,7 +69,7 @@ public partial class User_Registration : System.Web.UI.Page
             //var userid = User.Identity.GetUserId(); //gets the new user id once logged in
             //inserts profile informtion into User table
             var role = "User";
-            var new_UserProfile = new User(User_Identity.GetUserId(), txtFirstName.Text, txtLastName.Text, role, txtAddress.Text, txtState.Text, TxtZip.Text, Convert.ToDateTime(txtDob.Text));
+            var new_UserProfile = new User(User_Identity.GetUserId(), txtFirstName.Text, txtLastName.Text, role, txtAddress.Text, txtCity.Text, txtState.Text, TxtZip.Text, Convert.ToDateTime(txtDob.Text));
             UserDA.AddUser(new_UserProfile);
             AddCookie();
             Response.Redirect("~/Accounts/Login.aspx");

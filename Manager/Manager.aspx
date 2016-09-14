@@ -39,6 +39,7 @@
             <asp:BoundField DataField="Firstname" HeaderText="Firstname" SortExpression="Firstname" />
             <asp:BoundField DataField="lastname" HeaderText="lastname" SortExpression="lastname" />
             <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
+            <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
             <asp:BoundField DataField="state" HeaderText="state" SortExpression="state" />
             <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
             <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
@@ -98,7 +99,7 @@
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Comment], [Name], [EmailAddress] FROM [Comments]"></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [CakeName], [DiscountAmount] FROM [Discounts]"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [UserName], [Email], [Firstname], [lastname], [address], [state], [ZipCode], [PhoneNumber], [Birthday] FROM [UserInformation]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [UserName], [Email], [Firstname], [lastname], [address], [City], [state], [ZipCode], [PhoneNumber], [Birthday] FROM [UserInformation]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [OrderDate], [UserName], [Email], [total] FROM [UserListAndOrders]"></asp:SqlDataSource>
     
 </div>
