@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class="profileContainer">
+    <div class="profileContainer">
 <asp:Label ID="lblHeader" runat="server" Text="User Registration" CssClass="profileHeader" />
      <div class="container-fluid">
            <div class="form-group">
@@ -140,7 +140,7 @@
                     <asp:Label ID="lblDob" runat="server" Text="Date of Birth:"></asp:Label>
                </div>
                <div class="col-md-7 col-sm-7">
-                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control" Text="mm/dd/yyyy">mm/dd/yy</asp:TextBox>
+                    <asp:TextBox ID="txtDob" runat="server" CssClass="form-control" Text="mm/dd/yyyy"></asp:TextBox>
                </div>
                <div class="row">
                    <div class="col-md-12 col-sm-12" style="float: left; overflow: hidden;">
