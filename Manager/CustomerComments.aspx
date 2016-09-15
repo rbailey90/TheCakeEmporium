@@ -17,9 +17,9 @@
             <li></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="/Manager/Deals.aspx">Manage Deals</a></li>
-            <li><a href="/Manager/InventoryManagement.aspx">Inventory Manager</a></li>
-            <li><a href="/Manager/SiteAnalytics.aspx">Site Stats</a></li>
+            <li><a href="/Manager/Deals.aspx">Current Deals</a></li>
+            <li><a href="/Manager/DashInventoryManagement.aspx">Inventory Manager</a></li>
+            <li><a href="/Manager/DashAnalytics.aspx">Site Stats</a></li>
             <li></li>
             <li></li>
           </ul>

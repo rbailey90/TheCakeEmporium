@@ -17,9 +17,9 @@
             <li></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="/Manager/Deals.aspx">Manage Deals</a></li>
-            <li><a href="/Manager/InventoryManagement.aspx">Inventory Manager</a></li>
-            <li><a href="/Manager/SiteAnalytics.aspx">Site Stats</a></li>
+            <li><a href="/Manager/Deals.aspx">Current Deals</a></li>
+            <li><a href="/Manager/DashInventoryManagement.aspx">Inventory Manager</a></li>
+            <li><a href="/Manager/DashAnalytics.aspx">Site Stats</a></li>
             <li></li>
             <li></li>
           </ul>
@@ -29,7 +29,7 @@
             <li></li>
           </ul>
         </div>
-<div>
+    <div>
 <h4 class="sub-header text-center">Customer Order Listing</h4>
           <div class="table-responsive dataArea">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" Height="100%" PageSize="25" >
