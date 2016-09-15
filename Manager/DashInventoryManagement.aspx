@@ -36,16 +36,16 @@
     </row>
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="/Manager/Dashboard.aspx">Customer Orders <span class="sr-only">(current)</span></a></li>
-            <li><a href="/Manager/Phonebook.aspx">Customer Info</a></li>
-            <li><a href="/Manager/CustomerComments.aspx">Customer Comments</a></li>
+            <li><a href="../Manager/Dashboard.aspx">Customer Orders <span class="sr-only">(current)</span></a></li>
+            <li><a href="../Manager/Phonebook.aspx">Customer Info</a></li>
+            <li><a href="../Manager/CustomerComments.aspx">Customer Comments</a></li>
             <li></li>
             <li></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="/Manager/Deals.aspx">Current Deals</a></li>
-            <li class="active"><a href="/Manager/DashInventoryManagement.aspx">Inventory Manager</a></li>
-            <li><a href="/Manager/DashAnalytics.aspx">Site Stats</a></li>
+            <li><a href="../Manager/Deals.aspx">Current Deals</a></li>
+            <li class="active"><a href="../Manager/DashInventoryManagement.aspx">Inventory Manager</a></li>
+            <li><a href="../Manager/DashAnalytics.aspx">Site Stats</a></li>
             <li></li>
             <li></li>
           </ul>
