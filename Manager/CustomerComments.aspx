@@ -30,7 +30,7 @@
           </ul>
         </div>
 <div>
-<h4 class="sub-header text-center">Customer Order Listing</h4>
+<h4 class="sub-header text-center">Customer Messages</h4>
           <div class="table-responsive dataArea">
             <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />

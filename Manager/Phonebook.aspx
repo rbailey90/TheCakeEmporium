@@ -30,21 +30,20 @@
           </ul>
         </div>
 <div>
-<h4 class="sub-header text-center">Customer Order Listing</h4>
+<h4 class="sub-header text-center">Customer Information</h4>
           <div class="table-responsive dataArea">
 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowPaging="True" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-            <asp:BoundField DataField="Firstname" HeaderText="Firstname" SortExpression="Firstname" />
-            <asp:BoundField DataField="lastname" HeaderText="lastname" SortExpression="lastname" />
-            <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
+            <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
+            <asp:BoundField DataField="E-Mail" HeaderText="E-Mail" SortExpression="E-Mail" />
+            <asp:BoundField DataField="Full Name" HeaderText="Full Name" SortExpression="Full Name" ReadOnly="True" />
+            <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
             <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
-            <asp:BoundField DataField="state" HeaderText="state" SortExpression="state" />
-            <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
-            <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
-            <asp:BoundField DataField="Birthday" HeaderText="Birthday" SortExpression="Birthday" />
+            <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+            <asp:BoundField DataField="Zip Code" HeaderText="Zip Code" SortExpression="Zip Code" />
+            <asp:BoundField DataField="Phone Number" HeaderText="Phone Number" SortExpression="Phone Number" />
+            <asp:BoundField DataField="Birthday" HeaderText="Birthday" SortExpression="Birthday" ReadOnly="True" />
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -57,7 +56,7 @@
         <SortedDescendingCellStyle BackColor="#D4DFE1" />
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [UserName], [Email], [Firstname], [lastname], [address], [City], [state], [ZipCode], [PhoneNumber], [Birthday] FROM [UserInformation]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT UserName AS Username, Email AS 'E-Mail', Firstname + ' ' + lastname AS 'Full Name', address AS Address, City, state AS State, ZipCode AS 'Zip Code', PhoneNumber AS 'Phone Number', CONVERT (varchar, Birthday, 101) AS Birthday FROM UserInformation"></asp:SqlDataSource>
          </div>
      </div>
 </div>
