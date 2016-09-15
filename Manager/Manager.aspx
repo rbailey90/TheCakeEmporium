@@ -9,7 +9,7 @@
     <asp:Button ID="btnAnalytics" runat="server" cssClass="profileButton" Text="Site Analytics" OnClick="Button1_Click" />
 &nbsp;
     <br />
-        <h4>Orders</h4>
+        <h4>Orders </h4>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" Width="880px" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
