@@ -26,6 +26,10 @@ public partial class Cart_Cart : System.Web.UI.Page
         //on initial page load, add cart items to list control
         if (!IsPostBack)
             this.DisplayCart();
+
+        // Cart Summary
+        DisplaySummary(cart);
+
     }
     public int getDaysUntilHalloween()
     {
@@ -43,7 +47,7 @@ public partial class Cart_Cart : System.Web.UI.Page
     {
         if (cart.Count > 0)
         {
-            if(lstCart.SelectedIndex>-1)
+            if (lstCart.SelectedIndex > -1)
             {
                 cart.RemoveAt(lstCart.SelectedIndex);
                 this.DisplayCart();
@@ -67,7 +71,7 @@ public partial class Cart_Cart : System.Web.UI.Page
 
     protected void btnContinueShopping_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Products/Products.aspx");        
+        Response.Redirect("~/Products/Products.aspx");
     }
 
     protected void btnCheckOut_Click(object sender, EventArgs e)
@@ -76,9 +80,9 @@ public partial class Cart_Cart : System.Web.UI.Page
         //lblMessage.Text = "Sorry, that function isn't working yet.";
         if (cart.Count > 0)
         {
-            if(signedInUser != null)
-            { 
-            Response.Redirect("~/Cart/CheckOut.aspx");
+            if (signedInUser != null)
+            {
+                Response.Redirect("~/Cart/CheckOut.aspx");
             }
             else
             {
@@ -96,9 +100,33 @@ public partial class Cart_Cart : System.Web.UI.Page
         //remove items from listbox
         lstCart.Items.Clear();
         //add each item's display value to the list
-        for (int i=0; i<cart.Count; i++)
+        for (int i = 0; i < cart.Count; i++)
         {
             lstCart.Items.Add(this.cart[i].Display());
         }
+       
+    }
+
+    private void DisplaySummary(CartItemList cart) // not working right now -lg
+    {
+        // Display the summary of price of the ordered items before purchasing
+        foreach (CartItem ci in cart)
+        {
+            decimal subTotal;
+            decimal taxRate = 0.07m;
+            decimal tax;
+            decimal total;
+
+            // do the math
+            subTotal = ci.Cake.UnitPrice * ci.Quantity;
+            tax = subTotal * taxRate;
+            total = subTotal + tax;
+
+            // show customer subtotal
+            lblSubtotal.Text = subTotal.ToString("c");
+            lblTax.Text = tax.ToString("c");
+            lblTotal.Text = total.ToString("c");
+        }
+            
     }
 }

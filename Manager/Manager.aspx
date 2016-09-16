@@ -58,7 +58,7 @@
     </asp:GridView>
         <br />
         <h4>User Messages</h4>
-    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Width="584px" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Width="880px" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
