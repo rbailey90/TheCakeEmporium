@@ -12,6 +12,12 @@ article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
 
+#Menu1 ul li 
+{
+    position: relative; 
+    float: left;
+    list-style: none;
+}
 
 /****************** Styles on the MasterPage.master Page ***************/
 body {

@@ -70,13 +70,13 @@ public partial class Accounts_ForgotPassword_EmailRequest : System.Web.UI.Page
 
         // setup Smtp authentication
         System.Net.NetworkCredential credentials =
-            new System.Net.NetworkCredential("thrawniejoe@yahoo.com", "Hy*fAnA^c10e&uh"); //email account information
+            new System.Net.NetworkCredential("CakeEmporiumASP@yahoo.com", "m7&&!BG0!E&HnxQ"); //email account information
         client.UseDefaultCredentials = false;
         client.Credentials = credentials;
 
         MailMessage msg = new MailMessage();
 
-        msg.From = new MailAddress("thrawniejoe@yahoo.com");
+        msg.From = new MailAddress("CakeEmporiumASP@yahoo.com");
         //sends to this address
         msg.To.Add(new MailAddress(Session["userEmail"].ToString()));
 

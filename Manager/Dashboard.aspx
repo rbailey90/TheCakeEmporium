@@ -32,9 +32,10 @@
     <div>
 <h4 class="sub-header text-center">Customer Order Listing</h4>
           <div class="table-responsive dataArea">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" Height="100%" PageSize="25" >
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" Height="100%" PageSize="25" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
+                        <asp:CommandField ShowSelectButton="True" />
                         <asp:BoundField DataField="Order Date" HeaderText="Order Date" SortExpression="Order Date" ReadOnly="True" />
                         <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
                         <asp:BoundField DataField="Full Name" HeaderText="Full Name" SortExpression="Full Name" ReadOnly="True" />
