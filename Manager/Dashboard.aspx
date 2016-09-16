@@ -32,7 +32,7 @@
     <div>
 <h4 class="sub-header text-center">Customer Order Listing</h4>
           <div class="table-responsive dataArea">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" Height="100%" PageSize="25" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" Height="100%" PageSize="25" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="OrderId" >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
@@ -41,6 +41,7 @@
                         <asp:BoundField DataField="Full Name" HeaderText="Full Name" SortExpression="Full Name" ReadOnly="True" />
                         <asp:BoundField DataField="E-Mail Address" HeaderText="E-Mail Address" SortExpression="E-Mail Address" />
                         <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" ReadOnly="True" />
+                        <asp:BoundField DataField="OrderId" HeaderText="OrderId" ReadOnly="True" SortExpression="OrderId" />
                     </Columns>
                     <EditRowStyle BackColor="#7C6F57" />
                     <FooterStyle BackColor="#1C5E55" Font-Bold="False" ForeColor="White" />
@@ -53,7 +54,7 @@
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
                 </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT CONVERT (varchar, OrderDate, 101) AS 'Order Date', UserName AS Username, Firstname + ' ' + Lastname AS 'Full Name', Email AS 'E-Mail Address', '$' + CONVERT (varchar(12), total, 1) AS Total FROM UserListAndOrders"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT CONVERT (varchar, OrderDate, 101) AS 'Order Date', UserName AS Username, Firstname + ' ' + Lastname AS 'Full Name', Email AS 'E-Mail Address', '$' + CONVERT (varchar(12), total, 1) AS Total, OrderId FROM UserListAndOrders"></asp:SqlDataSource>
          </div>
      </div>
 </div>
