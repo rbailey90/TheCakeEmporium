@@ -27,6 +27,9 @@ public partial class User_History : System.Web.UI.Page
         if (User.Identity.IsAuthenticated)
         {
             SqlDataSource1.SelectCommand = "SELECT OrderDetails.[OrderId] as 'Order ID', Orders.[Username] as 'Username', OrderDetails.[ProductID] as 'Product ID', OrderDetails.[Quantity] as 'Quantity', OrderDetails.[PriceEach] as 'Price of Each', OrderDetails.[OrderDate] as 'Order Date', Orders.[total] as 'Total', OrderDetails.[OrderStatus] as 'Order Status' FROM [OrderDetails] inner join Orders on Orders.OrderId = OrderDetails.OrderId inner join Products on Products.ProductId = OrderDetails.ProductID WHERE Orders.[Username] = '" + Session["signedInUser"] + "'";
+            //SqlDataSource2.SelectCommand = "SELECT * from orderdetailview'";// WHERE [Username] = '" + Session["signedInUser"] + "'";
+           // SqlDataSource2.SelectCommand = "SELECT * from OrderDetailView WHERE OrderDetailView.[Username] = '" + Session["signedInUser"] + "'";
+            //SELECT [OrderAndLine], [Order ID] AS Order_ID, [LineID], [Username], [Product ID] AS Product_ID, [Quantity], [Order Date] AS Order_Date, [Price of Each] AS Price_of_Each, [Total], [Order Status] AS Order_Status FROM [OrderDetailView]
         }
         else
         {
@@ -53,6 +56,14 @@ public partial class User_History : System.Web.UI.Page
         //OrderDA.DeleteOrder(orderID);
 
         // Redirect User to different page to Delete or Order again
+        int idValue;
+        idValue = Convert.ToInt16(GridView1.SelectedValue);
+
+        Session["orderselect"] = idValue;
+        Response.Redirect("~/User/HistoryDetail.aspx");
+    }
+    protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+    {
         int idValue;
         idValue = Convert.ToInt16(GridView1.SelectedValue);
 
