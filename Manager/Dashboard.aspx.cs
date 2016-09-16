@@ -11,4 +11,15 @@ public partial class Manager_Dashboard : System.Web.UI.Page
     {
 
     }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int idValue;
+        idValue = (int)GridView1.SelectedValue;
+
+        // use Session variable to move choice to detail page
+        Session["Order"] = idValue;
+
+        Response.Redirect("~/Manager/DashOrderDetail.aspx");
+    }
 }
