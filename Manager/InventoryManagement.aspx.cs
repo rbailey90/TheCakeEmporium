@@ -96,4 +96,9 @@ public partial class Manager_InventoryManagement : System.Web.UI.Page
             }
         }
     }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Manager/Manager.aspx");
+    }
 }

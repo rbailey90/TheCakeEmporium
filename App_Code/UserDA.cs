@@ -157,6 +157,31 @@ public class UserDA
         return address;
     }
 
+    public static string getEmail(string user)
+    {
+        string address = "";
+        string selectStatement = "SELECT Email FROM AspNetUsers WHERE Username = @Username";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+        selectCommand.Parameters.AddWithValue("@Username", user);
+        try
+        {
+            conn.Open();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                        address = reader.GetString(reader.GetOrdinal("Address"));
+                }
+            }
+        }
+        finally
+        {
+            conn.Close();
+        }
+        return address;
+    }
+
     public static string getCity(string user)
     {
         string city = "";

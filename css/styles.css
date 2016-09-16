@@ -110,6 +110,20 @@ body {
     border: dashed 2px #D16956;
 }
 
+#cartBackground{
+    background-color:white;
+    border: solid 1px #D16956;
+    padding: 0px 15px 0px 15px;
+}
+
+#cartReceiptArea{
+    background-color: #eeeeee;
+
+}
+
+#cartBackground h1{
+    text-align: center;
+}
 
 #centertext { margin: 0 auto; text-align: center; }
 

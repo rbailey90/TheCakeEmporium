@@ -16,4 +16,9 @@ public partial class Manager_SiteAnalytics : System.Web.UI.Page
     {
         Response.Redirect("https://analytics.google.com");
     }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Manager/Manager.aspx");
+    }
 }

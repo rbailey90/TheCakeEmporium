@@ -41,4 +41,13 @@ public partial class Manager_Manager : System.Web.UI.Page
 
         Response.Redirect("~/Manager/SiteAnalytics.aspx");
     }
+
+    protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string userValue;
+        userValue = Convert.ToString(GridView1.SelectedValue);
+
+        Session["commentName"] = userValue;
+        Response.Redirect("~/Manager/Response.aspx");
+    }
 }

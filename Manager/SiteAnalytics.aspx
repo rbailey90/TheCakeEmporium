@@ -8,6 +8,7 @@
             <h1>Site Analytics</h1>
         <p>
             <asp:Button ID="btnAnalytics" runat="server" cssClass="profileButton" Text="More Google Analytics" OnClick="btnAnalytics_Click" />
+            <asp:Button ID="btnBack" runat="server" cssClass="profileButton" OnClick="btnBack_Click" Text="Back" />
         </p><br />
         </p>
         <p>
