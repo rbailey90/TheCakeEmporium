@@ -17,6 +17,10 @@ public partial class Manager_Response : System.Web.UI.Page
 
 
         }
+        else
+        {
+            Response.Redirect("~/Manager/Manager.aspx");
+        }
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
