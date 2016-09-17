@@ -325,8 +325,30 @@ body {
       margin-right: 10px;
 }
 
+
 .analyticsContainer{
     margin: 0px 400px 0px 400px;
+}
+
+.listerContainer{
+    margin: 15px auto;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.dashHeader{
+      display:inline-block;
+      border-radius: 4px 4px 0 0;
+      background-color:#6FA398;
+      width: 100%;
+      margin: 0 auto;
+      font-size: 20px;
+      color: white;
+      padding: 3px;
+      text-align: center;
+      font-weight:bold;
 }
 /*************** start of media queries go here ***************/
 
