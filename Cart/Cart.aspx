@@ -3,11 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .auto-style1 {
-            width: 75px;
-            text-align:right;
+            width: 240px;
+            text-align: right;
+            font-style: italic;
         }
         .auto-style2 {
-            width: 75px;
+            width: 240px;
             text-align: right;
             height: 20px;
         }
@@ -34,9 +35,13 @@
                 <asp:Button ID="btnEmptyCart" runat="server" cssClass="profileButton" Text="Empty Cart" OnClick="btnEmptyCart_Click"/>
                 <br />
                 <br />
+
+                    <asp:Label ID="lblMessage" runat="server" EnableViewState="False" Font-Italic="True"></asp:Label>
+
+                <br />
                 <div id="cartReceiptArea">
                 
-                    <br />
+
                     <table class="nav-justified">
                         <tr>
                             <td class="auto-style1">SubTotal:</td>
@@ -51,26 +56,23 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style1">Total:</td>
+                            <td class="auto-style2">Total:</td>
                             <td>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Label ID="lblTotal" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
                             </td>
                         </tr>
                     </table>
-                    <br />
-                    <br />
-                </div>
+                </div> <!--receipt area end-->
+                <asp:Button ID="btnContinueShopping" runat="server" cssClass="profileButton" Text="Continue Shopping" OnClick="btnContinueShopping_Click"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnCheckOut" runat="server" cssClass="checkOutRed" Text="Check Out" OnClick="btnCheckOut_Click"/>
+                <br />
+                
             </div>
-            <div id="shopbuttons">
-                    <asp:Button ID="btnContinueShopping" runat="server" cssClass="profileButton" Text="Continue Shopping" OnClick="btnContinueShopping_Click"/>
-                    <asp:Button ID="btnCheckOut" runat="server" cssClass="profileButtonRed" Text="Check Out" OnClick="btnCheckOut_Click"/><br />
-                </div>
                 <p id="message">
 
-                    <asp:Label ID="lblMessage" runat="server" EnableViewState="False"></asp:Label>
-
-                </p>
+                    &nbsp;</p>
             </div>
         </div>
     </div>

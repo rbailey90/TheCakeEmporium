@@ -57,6 +57,8 @@ public partial class Cart_Cart : System.Web.UI.Page
         {
             lblMessage.Text = "Please select an item to remove.";
         }
+
+        DisplaySummary(cart);
     }
 
     protected void btnEmptyCart_Click(object sender, EventArgs e)
@@ -67,6 +69,8 @@ public partial class Cart_Cart : System.Web.UI.Page
             cart.Clear();
             lstCart.Items.Clear();
         }
+
+        DisplaySummary(cart);
     }
 
     protected void btnContinueShopping_Click(object sender, EventArgs e)
@@ -107,26 +111,23 @@ public partial class Cart_Cart : System.Web.UI.Page
        
     }
 
-    private void DisplaySummary(CartItemList cart) // not working right now -lg
+    private void DisplaySummary(CartItemList cart) // working now -lg
     {
+        decimal subTotal = 0;
+        decimal taxRate = 0.07m;
+        decimal tax;
+        decimal total;
         // Display the summary of price of the ordered items before purchasing
-        foreach (CartItem ci in cart)
+        for (int i = 0; i < cart.Count; i++)
         {
-            decimal subTotal;
-            decimal taxRate = 0.07m;
-            decimal tax;
-            decimal total;
-
-            // do the math
-            subTotal = ci.Cake.UnitPrice * ci.Quantity;
-            tax = subTotal * taxRate;
-            total = subTotal + tax;
-
-            // show customer subtotal
-            lblSubtotal.Text = subTotal.ToString("c");
-            lblTax.Text = tax.ToString("c");
-            lblTotal.Text = total.ToString("c");
+            subTotal += cart[i].Cake.UnitPrice * cart[i].Quantity;
         }
-            
+        tax = subTotal * taxRate;
+        total = subTotal + tax;
+
+        lblSubtotal.Text = subTotal.ToString("c");
+        lblTax.Text = tax.ToString("c");
+        lblTotal.Text = total.ToString("c");
+
     }
 }
