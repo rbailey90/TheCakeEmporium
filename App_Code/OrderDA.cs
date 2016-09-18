@@ -111,15 +111,15 @@ public class OrderDA
 
     }
 
-    public static void DeleteOrderDetails(int theOrderID)
+    public static void DeleteOrderDetails(int theOrderID, int thelineID)
     {
-        string deleteString = "delete from OrderDetails where OrderId = @orderID"; // the parameter values will be made later
+        string deleteString = "delete from OrderDetails where orderid=@orderid and lineID=@lineid"; // the parameter values will be made later
 
         // now the command object
         SqlCommand deleteCommand = new SqlCommand(deleteString, conn1); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
 
         deleteCommand.Parameters.AddWithValue("@orderID", theOrderID);
-
+        deleteCommand.Parameters.AddWithValue("@lineID", thelineID);
         try
         {
             conn1.Open(); // opens the connection to the database so that we can make sqlcommands
@@ -164,16 +164,17 @@ public class OrderDA
 
 
     }
-    public static string ReorderInfo(int orderID)
+    public static string ReorderInfo(int orderID, int lineID)
     {
         string prod="";
 
-        string selectString = "select productid from orderdetails where orderid=@orderid;";
+        string selectString = "select productid from orderdetails where orderid=@orderid and lineID=@lineid;";
 
         // now the command object
         SqlCommand selectCommand = new SqlCommand(selectString, conn1); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
 
         selectCommand.Parameters.AddWithValue("@orderid", orderID); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
+        selectCommand.Parameters.AddWithValue("@lineid", lineID);
         try
         {
             conn1.Open(); 
@@ -200,37 +201,95 @@ public class OrderDA
     }
 
     public static Order OrderReceipt(string orderid)
-    {
-        Order currentOrder = new Order();
+        {
+            Order currentOrder = new Order();
 
-        string selectStatement = "SELECT * FROM Orders WHERE OrderId = @orderid";
+            string selectStatement = "SELECT * FROM Orders WHERE OrderId = @orderid";
 
-        SqlCommand selectCommand = new SqlCommand(selectStatement, conn1);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn1);
 
-        selectCommand.Parameters.AddWithValue("@orderid", orderid);
+            selectCommand.Parameters.AddWithValue("@orderid", orderid);
+            try
+            {
+                conn1.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(); // Retrieves a collection of whatever statement was executed
+
+                while (reader.Read()) // While there is data to be read, the command is executed
+                { //Orderdate = string // decimal subtotal; //decimal discount;//decimal tax;// decimal orderTotal;
+  
+                    currentOrder.OrderID = reader["OrderId"].ToString();
+                    currentOrder.UserName = reader["Username"].ToString();
+                    currentOrder.Subtotal = Convert.ToDecimal(reader["subtotal"].ToString());
+                    currentOrder.Discount = Convert.ToDecimal(reader["discount"]);
+                    currentOrder.Tax = Convert.ToDecimal(reader["tax"]);
+                    currentOrder.OrderTotal = Convert.ToDecimal(reader["total"]);
+                    currentOrder.OrderDate = (reader["OrderDate"]).ToString();
+                }
+                reader.Close();
+            }
+            finally
+            {
+                conn1.Close();  
+            }
+            return currentOrder;    
+        }
+  
+    public static int GetProdQuantity(int theorderid, int thelineid)
+        {
+
+        int quant=0;
+
+        string selectString = "select Quantity from orderdetails where orderid=@orderid and lineID=@lineid;";
+
+        // now the command object
+        SqlCommand selectCommand = new SqlCommand(selectString, conn1); // declares and instantiates a new sqlcommand, which takes 2 arguments, the command itself as a string, and the connection as a string
+
+        selectCommand.Parameters.AddWithValue("@orderid", theorderid); // declares what the parameters retrieve their information from. theStore is the passed PizzaStore object
+        selectCommand.Parameters.AddWithValue("@lineid", thelineid);
         try
         {
             conn1.Open();
-            SqlDataReader reader = selectCommand.ExecuteReader(); // Retrieves a collection of whatever statement was executed
-
-            while (reader.Read()) // While there is data to be read, the command is executed
-            { //Orderdate = string // decimal subtotal; //decimal discount;//decimal tax;// decimal orderTotal;
-  
-                currentOrder.OrderID = reader["OrderId"].ToString();
-                currentOrder.UserName = reader["Username"].ToString();
-                currentOrder.Subtotal = Convert.ToDecimal(reader["subtotal"].ToString());
-                currentOrder.Discount = Convert.ToDecimal(reader["discount"]);
-                currentOrder.Tax = Convert.ToDecimal(reader["tax"]);
-                currentOrder.OrderTotal = Convert.ToDecimal(reader["total"]);
-                currentOrder.OrderDate = (reader["OrderDate"]).ToString();
+            using (SqlDataReader reader = selectCommand.ExecuteReader())
+            {
+                // Check is the reader has any rows at all before starting to read.
+                if (reader.HasRows)
+                {
+                    // Read advances to the next row.
+                    while (reader.Read())
+                    {
+                        quant = reader.GetInt32(reader.GetOrdinal("Quantity"));                       
+                    }
+                }
             }
-            reader.Close();
         }
         finally
         {
-            conn1.Close();  
+            conn1.Close(); // Closes the database, so that we aren't accidently interacting with it anymore
         }
-        return currentOrder;
+
+        return quant;
+
     }
 
+    public static void UpdateProductQuant(int prod, int quant)
+        {
+            try
+            {
+                conn1.Open();
+
+                string updateStatement = "update products set OnHand+=@quant where productid=@prod ";
+
+
+                SqlCommand updateCommand = new SqlCommand(updateStatement, conn1);
+                updateCommand.Parameters.AddWithValue("@prod", prod);
+                updateCommand.Parameters.AddWithValue("@quant", quant);
+
+                updateCommand.ExecuteNonQuery();
+            }
+            finally
+            {
+                conn1.Close();
+            }
+
+        }
 }

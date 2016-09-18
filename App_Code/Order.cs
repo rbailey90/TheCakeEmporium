@@ -285,12 +285,12 @@ public void SaveOrder(Order theOrder)
         finally { }
     }
 
-public string ReorderInfo(int orderid)
+public string ReorderInfo(int orderid, int lineid )
 {
     try
     {
         string prod ="";
-        prod=OrderDA.ReorderInfo(orderid);
+        prod=OrderDA.ReorderInfo(orderid, lineid);
         return prod;
     }
     finally { }

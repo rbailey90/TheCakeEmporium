@@ -47,27 +47,12 @@ public partial class User_History : System.Web.UI.Page
 
         return (int)daysUntil;
     }
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        //int orderID = Convert.ToInt16(GridView1.SelectedValue);
-
-        //Response.Redirect("~/User/History.aspx");
-
-        //OrderDA.DeleteOrder(orderID);
-
-        // Redirect User to different page to Delete or Order again
-        int idValue;
-        idValue = Convert.ToInt16(GridView1.SelectedValue);
-
-        Session["orderselect"] = idValue;
-        Response.Redirect("~/User/HistoryDetail.aspx");
-    }
+   
     protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
     {
-        int idValue;
-        idValue = Convert.ToInt16(GridView1.SelectedValue);
+        string ordersel = GridView2.SelectedValue.ToString();        
 
-        Session["orderselect"] = idValue;
+        Session["orderselect"] = ordersel;
         Response.Redirect("~/User/HistoryDetail.aspx");
     }
 }
