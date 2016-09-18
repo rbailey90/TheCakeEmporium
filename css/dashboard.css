@@ -4,7 +4,26 @@
 
 }
 
+.reponseContainer{
+    background-color:white;
+    border: solid 1px #D16956;
+    padding: 0px 15px 0px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 
+}
+
+.mypadding{
+    padding: 5px;
+
+}
+.detailLabel, .detailLabel:hover{
+    font-weight:bold;
+    color:#555;
+    font-style:normal;
+    text-decoration:none;
+}
 
 .DashboardHeader h3{
     font-weight: bold;
@@ -21,6 +40,19 @@
       padding: 10px;
 }
 
+.dashHeader{
+      display:inline-block;
+      border-radius: 4px 4px 0 0;
+      background-color:lightslategray;
+      width: 100%;
+      margin: 0 auto;
+      font-size: 20px;
+      color: white;
+      padding: 3px;
+      text-align: center;
+      font-weight:bold;
+}
+
 .table-responsive
 {
  margin: 0 auto;
@@ -30,7 +62,7 @@
   margin-bottom: 0px;
   border-bottom: 1px solid #eee;
   border-color: black;
-  color:black;
+  color:lightslategray;
 
   padding: 2px;
   background-color:#b5c6d7;

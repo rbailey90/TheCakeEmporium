@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Manager_Response : System.Web.UI.Page
+public partial class Manager_Dashboard : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -19,21 +19,15 @@ public partial class Manager_Response : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("~/Manager/Manager.aspx");
+            Response.Redirect("~/Manager/CustomerComments.aspx");
         }
     }
 
-    protected void btnSubmit_Click(object sender, EventArgs e)
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        string userEmail = null;
-        string managerMessage = null;
 
-        userEmail = UserDA.getEmail(Session["commentName"].ToString());
-
-        managerMessage = txtResponse.Text;
-
-        send_eMail(userEmail, managerMessage);
     }
+
 
     void send_eMail(string email, string managerMessage)
     {
@@ -68,6 +62,20 @@ public partial class Manager_Response : System.Web.UI.Page
         {
             //lblMsg.ForeColor = Color.Red;
             Response.Write("Error occured while sending your message." + ex.Message);
+        }
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        string userEmail = null;
+        string managerMessage = null;
+
+        userEmail = (Session["commentName"].ToString());
+
+        managerMessage = txtResponse.Text;
+        if( userEmail != null || userEmail != "")
+        {
+            send_eMail(userEmail, managerMessage);
         }
     }
 }

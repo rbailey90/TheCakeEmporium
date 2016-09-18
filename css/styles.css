@@ -114,6 +114,7 @@ body {
     background-color:white;
     border: solid 1px #D16956;
     padding: 0px 15px 0px 15px;
+    border-radius: 5px;
 }
 
 #cartReceiptArea{
@@ -131,12 +132,19 @@ body {
     text-align: right;
 }
 
+.checkOutRed:hover{
+    background-color:#F1BC75;
+}
 #cartBackground h1{
     text-align: center;
 }
 
 #centertext { margin: 0 auto; text-align: center; }
+.centerme{
+    display:table;
 
+    margin:0 auto;
+}
 .profileEditRow{
     padding: 25px;
 
@@ -348,18 +356,7 @@ body {
     border-radius: 4px;
 }
 
-.dashHeader{
-      display:inline-block;
-      border-radius: 4px 4px 0 0;
-      background-color:#6FA398;
-      width: 100%;
-      margin: 0 auto;
-      font-size: 20px;
-      color: white;
-      padding: 3px;
-      text-align: center;
-      font-weight:bold;
-}
+
 /*************** start of media queries go here ***************/
 
 @media only screen and (max-width : 920px){

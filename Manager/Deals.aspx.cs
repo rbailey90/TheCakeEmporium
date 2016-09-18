@@ -12,12 +12,15 @@ public partial class Manager_Dashboard : System.Web.UI.Page
 
     }
 
-     protected void GridView3_SelectedIndexChanged1(object sender, EventArgs e)
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        string ordersel = GridView3.SelectedValue.ToString();
-  
+
+        int idValue;
+        idValue = Convert.ToInt16(GridView1.SelectedValue);
+
         // use Session variable to move choice to detail page
-        Session["commentName"] = ordersel;
-        Response.Redirect("~/Manager/DashCommentResponse.aspx");
+        Session["Order"] = idValue;
+
+        Response.Redirect("~/Manager/DashOrderDetails.aspx");
     }
 }

@@ -22,4 +22,5 @@ public partial class Manager_Dashboard : System.Web.UI.Page
 
     //    Response.Redirect("~/Manager/DashOrderDetail.aspx");
     //}
+
 }

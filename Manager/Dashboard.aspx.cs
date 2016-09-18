@@ -14,7 +14,6 @@ public partial class Manager_Dashboard : System.Web.UI.Page
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-
         int idValue;
         idValue = Convert.ToInt16(GridView1.SelectedValue);
 

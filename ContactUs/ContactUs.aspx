@@ -49,7 +49,7 @@
                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtComments" ErrorMessage="*Do you really want to submit a blank comment? " SetFocusOnError="True"></asp:RequiredFieldValidator>
                                   </div>
                                   <div class="text-center">
-                                      <asp:Button ID="btnSubmitComment" runat="server" Text="Submit Comments" CssClass="submitButton" OnClick="btnSubmitComment_Click"/>
+                                      <asp:Button ID="btnSubmitComment" runat="server" Text="Submit Comments" cssClass="checkOutRed" OnClick="btnSubmitComment_Click"/>
                                   </div>
                     </section>
 <!--right section--><section class="col-lg-5 col-md-5 col-sm-6 col-xs-12 col-xs-offset-0">

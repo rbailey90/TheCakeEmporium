@@ -35,21 +35,22 @@
               <div class="col-md-4 ">
                   <div class="listerContainer">
                   <asp:Label ID="lblHeader" runat="server" Text="Items Ordered" CssClass="dashHeader"></asp:Label>
+                  <div class="mypadding">
                   <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" >
                   <AlternatingItemTemplate>
-                      <span style="">Name:
+                      <span style=""><a class="detailLabel">Name:</a>
                       <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                       <br />
-                      OrderDate:
+                      <a class="detailLabel">Order Date:</a>
                       <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("OrderDate") %>' />
                       <br />
-                      OrderStatus:
+                      <a class="detailLabel">Order Status:</a>
                       <asp:Label ID="OrderStatusLabel" runat="server" Text='<%# Eval("OrderStatus") %>' />
                       <br />
-                      Quantity:
+                      <a class="detailLabel">Quantity:</a>
                       <asp:Label ID="QuantityLabel" runat="server" Text='<%# Eval("Quantity") %>' />
                       <br />
-                      PriceEach:
+                      <a class="detailLabel">Price Each:</a>
                       <asp:Label ID="PriceEachLabel" runat="server" Text='<%# Eval("PriceEach") %>' />
                       <br />
 <br /></span>
@@ -94,19 +95,19 @@
                       <br /><br /></span>
                   </InsertItemTemplate>
                   <ItemTemplate>
-                      <span style="">Name:
+                      <span style=""><a class="detailLabel">Name:</a>
                       <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Name") %>' />
                       <br />
-                      OrderDate:
+                      <a class="detailLabel">Order Date:</a>
                       <asp:Label ID="OrderDateLabel" runat="server" Text='<%# Eval("OrderDate") %>' />
                       <br />
-                      OrderStatus:
+                      <a class="detailLabel">Order Status:</a>
                       <asp:Label ID="OrderStatusLabel" runat="server" Text='<%# Eval("OrderStatus") %>' />
                       <br />
-                      Quantity:
+                      <a class="detailLabel">Quantity:</a>
                       <asp:Label ID="QuantityLabel" runat="server" Text='<%# Eval("Quantity") %>' />
                       <br />
-                      PriceEach:
+                      <a class="detailLabel">Price Each:</a>
                       <asp:Label ID="PriceEachLabel" runat="server" Text='<%# Eval("PriceEach") %>' />
                       <br />
 <br /></span>
@@ -137,11 +138,13 @@
 <br /></span>
                   </SelectedItemTemplate>
               </asp:ListView>
+                      </div>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="listerContainer">
                   <asp:Label ID="Label1" runat="server" Text="Shipping Information" CssClass="dashHeader"></asp:Label>
+                      <div class="mypadding">
                   <asp:ListView ID="ListView2" runat="server" DataSourceID="SqlDataSource2">
                       <AlternatingItemTemplate>
                           <span style="">shipTo:
@@ -201,19 +204,19 @@
                           <br /><br /></span>
                       </InsertItemTemplate>
                       <ItemTemplate>
-                          <span style="">shipTo:
+                          <span style=""><a class="detailLabel">Ship To:</a>
                           <asp:Label ID="shipToLabel" runat="server" Text='<%# Eval("shipTo") %>' />
                           <br />
-                          Street1:
+                          <a class="detailLabel">Street:</a>
                           <asp:Label ID="Street1Label" runat="server" Text='<%# Eval("Street1") %>' />
                           <br />
-                          City:
+                          <a class="detailLabel">City:</a>
                           <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>' />
                           <br />
-                          State:
+                          <a class="detailLabel">State:</a>
                           <asp:Label ID="StateLabel" runat="server" Text='<%# Eval("State") %>' />
                           <br />
-                          Zip:
+                          <a class="detailLabel">ZipCode:</a>
                           <asp:Label ID="ZipLabel" runat="server" Text='<%# Eval("Zip") %>' />
                           <br />
 <br /></span>
@@ -249,14 +252,16 @@
                           <asp:SessionParameter Name="ordId" SessionField="Order" Type="String" />
                       </SelectParameters>
                   </asp:SqlDataSource>
+                </div>
               </div>
             </div>
               <div class="col-md-4">
                   <div class="listerContainer">
                   <asp:Label ID="Label2" runat="server" Text="Price Details" CssClass="dashHeader"></asp:Label>
+                      <div class="mypadding">
                   <asp:ListView ID="ListView3" runat="server" DataSourceID="SqlDataSource3">
                       <AlternatingItemTemplate>
-                          <span style="">subtotal:
+                          <span style=""><a class="detailLabel">Subtotal:</a>
                           <asp:Label ID="subtotalLabel" runat="server" Text='<%# Eval("subtotal") %>' />
                           <br />
                           discount:
@@ -271,7 +276,7 @@
 <br /></span>
                       </AlternatingItemTemplate>
                       <EditItemTemplate>
-                          <span style="">subtotal:
+                          <span style=""><a class="detailLabel">Subtotal:</a>
                           <asp:TextBox ID="subtotalTextBox" runat="server" Text='<%# Bind("subtotal") %>' />
                           <br />
                           discount:
@@ -291,7 +296,7 @@
                           <span>No data was returned.</span>
                       </EmptyDataTemplate>
                       <InsertItemTemplate>
-                          <span style="">subtotal:
+                          <span style=""><a class="detailLabel">subtotal:</a>
                           <asp:TextBox ID="subtotalTextBox" runat="server" Text='<%# Bind("subtotal") %>' />
                           <br />discount:
                           <asp:TextBox ID="discountTextBox" runat="server" Text='<%# Bind("discount") %>' />
@@ -305,16 +310,16 @@
                           <br /><br /></span>
                       </InsertItemTemplate>
                       <ItemTemplate>
-                          <span style="">subtotal:
+                          <span style=""><a class="detailLabel">Subtotal:</a>
                           <asp:Label ID="subtotalLabel" runat="server" Text='<%# Eval("subtotal") %>' />
                           <br />
-                          discount:
+                          <a class="detailLabel">Discount:</a>
                           <asp:Label ID="discountLabel" runat="server" Text='<%# Eval("discount") %>' />
                           <br />
-                          tax:
+                          <a class="detailLabel">Tax:</a>
                           <asp:Label ID="taxLabel" runat="server" Text='<%# Eval("tax") %>' />
                           <br />
-                          total:
+                          <a class="detailLabel">Total:</a>
                           <asp:Label ID="totalLabel" runat="server" Text='<%# Eval("total") %>' />
                           <br />
 <br /></span>
@@ -327,7 +332,7 @@
                           </div>
                       </LayoutTemplate>
                       <SelectedItemTemplate>
-                          <span style="">subtotal:
+                          <span style=""><a class="detailLabel">Subtotal:</a>
                           <asp:Label ID="subtotalLabel" runat="server" Text='<%# Eval("subtotal") %>' />
                           <br />
                           discount:
@@ -342,8 +347,9 @@
 <br /></span>
                       </SelectedItemTemplate>
                   </asp:ListView>
+                          </div>
                       </div>
-                  <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [subtotal], [discount], [tax], [total] FROM [Orders] WHERE ([OrderId] = @OrderId)">
+                  <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT '$' + CONVERT (varchar(12), subtotal, 1) AS subtotal, '$' + CONVERT (varchar(12), discount, 1) AS discount, '$' + CONVERT (varchar(12), tax, 1) AS tax, '$' + CONVERT (varchar(12), total, 1) AS total FROM [Orders] WHERE ([OrderId] = @OrderId)">
                       <SelectParameters>
                           <asp:SessionParameter Name="OrderId" SessionField="Order" Type="Int32" />
                       </SelectParameters>
@@ -351,7 +357,7 @@
               </div>
               
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], [OrderDate], [OrderStatus], [Quantity], [PriceEach] FROM [User_OrderedProducts] WHERE ([OrderId] = @OrderId)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Name], CONVERT (varchar, [OrderDate], 101) AS 'OrderDate', [OrderStatus], [Quantity], '$' + CONVERT (varchar(12), [PriceEach], 1) AS PriceEach FROM [User_OrderedProducts] WHERE ([OrderId] = @OrderId)">
         <SelectParameters>
             <asp:SessionParameter Name="OrderId" SessionField="Order" Type="String" />
         </SelectParameters>

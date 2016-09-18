@@ -32,11 +32,12 @@
 <div>
 <h4 class="sub-header text-center">Customer Messages</h4>
           <div class="table-responsive dataArea">
-            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="EmailAddress" DataSourceID="SqlDataSource3" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView3_SelectedIndexChanged1">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                    <asp:BoundField DataField="EmailAddress" HeaderText="Email Address" SortExpression="EmailAddress" />
+                    <asp:CommandField ShowSelectButton="True" ButtonType="Button" ControlStyle-CssClass="btn-dataview"/>
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-Width="100px" />
+                    <asp:BoundField DataField="EmailAddress" HeaderText="Email Address" SortExpression="EmailAddress" ItemStyle-Width="250px" />
                     <asp:BoundField DataField="Comment" HeaderText="Comment" SortExpression="Comment" />
                 </Columns>
                 <EditRowStyle BackColor="#7C6F57" />
