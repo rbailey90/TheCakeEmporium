@@ -59,10 +59,13 @@
 <h4 class="sub-header text-center">Inventory Management</h4>
           <div class="table-responsive dataArea">
     <asp:Label ID="lblError" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" Width="100%">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="ProductId" HeaderText="ID" ReadOnly="True" SortExpression="ProductId" />
+            <asp:BoundField DataField="ProductId" HeaderText="ID" ReadOnly="True" SortExpression="ProductId" >
+            <HeaderStyle CssClass="productHead" HorizontalAlign="Center" />
+            <ItemStyle CssClass="productNameField" Width="15px" />
+            </asp:BoundField>
             <asp:TemplateField HeaderText="Name" SortExpression="Name">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
@@ -70,18 +73,43 @@
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                 </ItemTemplate>
+                <HeaderStyle CssClass="productHead" HorizontalAlign="Center" />
+                <ItemStyle CssClass="productNameField" />
             </asp:TemplateField>
-            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" ItemStyle-CssClass="productNameField"/>
-            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" ItemStyle-CssClass="productNameField"/>
-            <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="UnitPrice" DataFormatString="{0:C}" ItemStyle-CssClass="productNameField"/>
-            <asp:BoundField DataField="OnHand" HeaderText="On Hand" SortExpression="OnHand" ItemStyle-CssClass="productNameField"/>
-            <asp:CommandField ButtonType="Button" ShowEditButton="True" ControlStyle-CssClass="btn-edit"/>
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ControlStyle-CssClass="btn-dataview"/>
+            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" ItemStyle-CssClass="productNameField">
+            <HeaderStyle CssClass="productHead" HorizontalAlign="Center" />
+<ItemStyle CssClass="productNameField"></ItemStyle>
+            </asp:BoundField>
+            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" ItemStyle-CssClass="productNameField">
+            <HeaderStyle CssClass="productHead" HorizontalAlign="Center" />
+<ItemStyle CssClass="productNameField"></ItemStyle>
+            </asp:BoundField>
+            <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="UnitPrice" DataFormatString="{0:C}" ItemStyle-CssClass="productNameField">
+            <HeaderStyle CssClass="productHead" HorizontalAlign="Center" />
+<ItemStyle CssClass="productNameField" HorizontalAlign="Center" Width="80px"></ItemStyle>
+            </asp:BoundField>
+            <asp:BoundField DataField="OnHand" HeaderText="On Hand" SortExpression="OnHand" ItemStyle-CssClass="productNameField">
+            <HeaderStyle CssClass="productHead" HorizontalAlign="Center" />
+<ItemStyle CssClass="productNameField" HorizontalAlign="Center" Width="70px"></ItemStyle>
+            </asp:BoundField>
+            <asp:CommandField ButtonType="Button" ShowEditButton="True" ControlStyle-CssClass="btn-edit">
+<ControlStyle CssClass="btn-edit"></ControlStyle>
+            <HeaderStyle HorizontalAlign="Center" />
+            </asp:CommandField>
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ControlStyle-CssClass="btn-dataview">
+<ControlStyle CssClass="btn-dataview"></ControlStyle>
+            </asp:CommandField>
         </Columns>
-        <EditRowStyle BorderColor="#7C6F57" />
-        <FooterStyle BackColor="#1C5E55" ForeColor="White" />
-        <HeaderStyle BackColor="#1C5E55" ForeColor="White" />
+        <EditRowStyle BorderColor="#7C6F57" BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" ForeColor="White" Font-Bold="True" />
+        <HeaderStyle BackColor="#1C5E55" ForeColor="White" Font-Bold="True" />
+        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+        <SortedAscendingHeaderStyle BackColor="#246B61" />
+        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+        <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <br />
     To add a cake to the inventory, enter the information and click Add Cake<br />

@@ -3,13 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" ></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="select OrderAndLine,Userid,Username, [Product ID], Name,Quantity,   [Order Date], 
- Total, [Order Status] from orderdetailview where userid=@id">
-        <SelectParameters>
-            <asp:SessionParameter Name="id" SessionField="signedinuser" />
-        </SelectParameters>
-    </asp:SqlDataSource>
+
+<div class="productContainer">
+
+    
+        
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="OrderAndLine"
         CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
@@ -36,7 +34,17 @@
         <SortedDescendingCellStyle BackColor="#D4DFE1" />
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
+
+
+</div>
+
     <br />
     <br />
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" ></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="select OrderAndLine,Userid,Username, [Product ID], Name,Quantity, [Order Date], Total, [Order Status] from orderdetailview where userid=@id"><SelectParameters>
+    <asp:SessionParameter Name="id" SessionField="signedinuser" />
+    </SelectParameters>
+    </asp:SqlDataSource>
     </asp:Content>
 
