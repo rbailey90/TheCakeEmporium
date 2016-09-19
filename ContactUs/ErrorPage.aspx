@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
         <div class="container-fluid">
        <div class="col-lg-11 col-md-11 col-sm-10">
+           <div class="centerme">
     <p>
         Oh no!</p>
     <p>
@@ -14,7 +15,7 @@
     <p>
         If you were placing an order or if you continue to get this message, 
          please <a href="../ContactUs/ContactUs.aspx" title="Contact us" >contact us.</a></p>
-    </div>
+    </div></div>
     </div>
 </asp:Content>
 

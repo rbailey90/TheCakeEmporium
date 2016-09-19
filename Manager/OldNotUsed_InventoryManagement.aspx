@@ -40,7 +40,9 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" DataSourceID="SqlDataSource1" Width="1000px">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="ProductId" HeaderText="ID" ReadOnly="True" SortExpression="ProductId" />
+            <asp:BoundField DataField="ProductId" HeaderText="ID" ReadOnly="True" SortExpression="ProductId" >
+            <ItemStyle Width="20px" />
+            </asp:BoundField>
             <asp:TemplateField HeaderText="Name" SortExpression="Name">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
@@ -49,12 +51,26 @@
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" ItemStyle-CssClass="productNameField"/>
-            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" ItemStyle-CssClass="productNameField"/>
-            <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="UnitPrice" DataFormatString="{0:C}" ItemStyle-CssClass="productNameField"/>
-            <asp:BoundField DataField="OnHand" HeaderText="On Hand" SortExpression="OnHand" ItemStyle-CssClass="productNameField"/>
-            <asp:CommandField ButtonType="Button" ShowEditButton="True" ControlStyle-CssClass="btn-edit"/>
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ControlStyle-CssClass="btn-dataview"/>
+            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" ItemStyle-CssClass="productNameField">
+<ItemStyle CssClass="productNameField"></ItemStyle>
+            </asp:BoundField>
+            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" ItemStyle-CssClass="productNameField">
+<ItemStyle CssClass="productNameField"></ItemStyle>
+            </asp:BoundField>
+            <asp:BoundField DataField="UnitPrice" HeaderText="Price" SortExpression="UnitPrice" DataFormatString="{0:C}" ItemStyle-CssClass="productNameField">
+            <HeaderStyle HorizontalAlign="Center" />
+<ItemStyle CssClass="productNameField" HorizontalAlign="Center" Width="100px"></ItemStyle>
+            </asp:BoundField>
+            <asp:BoundField DataField="OnHand" HeaderText="On Hand" SortExpression="OnHand" ItemStyle-CssClass="productNameField">
+            <HeaderStyle HorizontalAlign="Center" />
+<ItemStyle CssClass="productNameField" HorizontalAlign="Center" Width="80px"></ItemStyle>
+            </asp:BoundField>
+            <asp:CommandField ButtonType="Button" ShowEditButton="True" ControlStyle-CssClass="btn-edit">
+<ControlStyle CssClass="btn-edit"></ControlStyle>
+            </asp:CommandField>
+            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" ControlStyle-CssClass="btn-dataview">
+<ControlStyle CssClass="btn-dataview"></ControlStyle>
+            </asp:CommandField>
         </Columns>
         <EditRowStyle BorderColor="#7C6F57" />
         <FooterStyle BackColor="#1C5E55" ForeColor="White" />
