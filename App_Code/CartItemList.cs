@@ -122,6 +122,19 @@ public class CartItemList  : IEnumerable<CartItem>
         return Math.Round(amountOfDiscount,2);
     }
   
+    public decimal DiscountAmountForSummary(decimal discountAmount, int x)
+    {
+        decimal cakePrice = cartItems[x].Cake.UnitPrice; //get the matching cake's set price
+        decimal amountOfDiscount = cakePrice * discountAmount; //gets the discount
+
+        if (cartItems[x].Quantity > 0) //factor in quantity if there are 2+ of same cake
+        {
+            int quantity = cartItems[x].Quantity;
+            amountOfDiscount = amountOfDiscount * quantity;
+        }
+        
+        return Math.Round(amountOfDiscount, 2); //returns the amount of discount(hopefully)
+    }
     public int IndexAdvance(int index)
     {
         if (Count > (index+1))

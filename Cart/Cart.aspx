@@ -31,18 +31,22 @@
                 <asp:ListBox ID="lstCart" runat="server" CssClass="form-control" Height="118px" Width="373px"></asp:ListBox>
             <div id="cartbuttons">
                 <asp:Button ID="btnRemoveCartItem" runat="server" cssClass="profileButton" Text="Remove Item" OnClick="btnRemoveCartItem_Click"/>
-                <br />
                 <asp:Button ID="btnEmptyCart" runat="server" cssClass="profileButton" Text="Empty Cart" OnClick="btnEmptyCart_Click"/>
                 <br />
-                <br />
-
                     <asp:Label ID="lblMessage" runat="server" EnableViewState="False" Font-Italic="True"></asp:Label>
-
+                <br />
                 <br />
                 <div id="cartReceiptArea">
                 
 
                     <table class="nav-justified">
+                        <tr>
+                            <td class="auto-style2">Discount:</td>
+                            <td class="auto-style3">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblDiscount" runat="server"></asp:Label>
+                            </td>
+                        </tr>
                         <tr>
                             <td class="auto-style1">SubTotal:</td>
                             <td> &nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblSubtotal" runat="server" Font-Bold="False" Font-Italic="True"></asp:Label>
@@ -55,6 +59,7 @@
                                 <asp:Label ID="lblTax" runat="server"></asp:Label>
                             </td>
                         </tr>
+                     
                         <tr>
                             <td class="auto-style2">Total:</td>
                             <td>
