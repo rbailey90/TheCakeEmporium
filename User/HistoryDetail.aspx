@@ -5,20 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 
-    <div class="centerme">
+    <div class="historyContainer">
+        
+    <asp:Label ID="lblHeader" runat="server" Text="Order Details" CssClass="profileHeader" />
+        <div class="padding">
     <asp:Label ID="lblOrderID" runat="server" Text="Label" Visible="False"></asp:Label>
-    <br />
-    <asp:FormView ID="FormView2" runat="server" CellPadding="4" DataKeyNames="Order ID,LineID" DataSourceID="SqlDataSource2" ForeColor="#333333">
+    <asp:FormView ID="FormView2" runat="server" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333">
         <EditItemTemplate>
-            Order ID:
-            <asp:Label ID="Order_IDLabel1" runat="server" Text='<%# Eval("[Order ID]") %>' />
-            <br />
-            LineID:
-            <asp:Label ID="LineIDLabel1" runat="server" Text='<%# Eval("LineID") %>' />
-            <br />
-            Product ID:
-            <asp:TextBox ID="Product_IDTextBox" runat="server" Text='<%# Bind("[Product ID]") %>' />
-            <br />
             Name:
             <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
             <br />
@@ -41,15 +34,6 @@
         <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
         <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <InsertItemTemplate>
-            Order ID:
-            <asp:TextBox ID="Order_IDTextBox" runat="server" Text='<%# Bind("[Order ID]") %>' />
-            <br />
-            LineID:
-            <asp:TextBox ID="LineIDTextBox" runat="server" Text='<%# Bind("LineID") %>' />
-            <br />
-            Product ID:
-            <asp:TextBox ID="Product_IDTextBox" runat="server" Text='<%# Bind("[Product ID]") %>' />
-            <br />
             Name:
             <asp:TextBox ID="NameTextBox" runat="server" Text='<%# Bind("Name") %>' />
             <br />
@@ -69,15 +53,6 @@
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
-            Order ID:
-            <asp:Label ID="Order_IDLabel" runat="server" Text='<%# Eval("[Order ID]") %>' />
-            <br />
-            LineID:
-            <asp:Label ID="LineIDLabel" runat="server" Text='<%# Eval("LineID") %>' />
-            <br />
-            Product ID:
-            <asp:Label ID="Product_IDLabel" runat="server" Text='<%# Bind("[Product ID]") %>' />
-            <br />
             Name:
             <asp:Label ID="NameLabel" runat="server" Text='<%# Bind("Name") %>' />
             <br />
@@ -85,12 +60,11 @@
             <asp:Label ID="QuantityLabel" runat="server" Text='<%# Bind("Quantity") %>' />
             <br />
             Price of Each:
-            <asp:Label ID="Price_of_EachLabel" runat="server" Text='<%# Bind("[Price of Each]", "{0:C}") %>' />
+            <asp:Label ID="Price_of_EachLabel" runat="server" Text='<%# Bind("[Price of Each]") %>' />
             <br />
             Order Date:
             <asp:Label ID="Order_DateLabel" runat="server" Text='<%# Bind("[Order Date]") %>' />
             <br />
-
             Order Status:
             <asp:Label ID="Order_StatusLabel" runat="server" Text='<%# Bind("[Order Status]") %>' />
             <br />
@@ -99,9 +73,9 @@
         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
     </asp:FormView>
     <br />
-    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete Order" />
-&nbsp;<asp:Button ID="btnReorder" runat="server" OnClick="btnReorder_Click" Text="Reorder" />
-
+    <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete Order" ControlStyle-CssClass="btn-dataview" />
+&nbsp;<asp:Button ID="btnReorder" runat="server" OnClick="btnReorder_Click" Text="Reorder" ControlStyle-CssClass="btn-edit" />
+        </div>
         </div>
 
 &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [OrderId], [ProductID], [Quantity], [PriceEach], [OrderDate], [OrderStatus] FROM [OrderDetails] WHERE ([OrderId] = @OrderId)">
@@ -110,8 +84,8 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="select 
-[Order ID],LineID,[Product ID],Name,
-Quantity,[Price of Each], 
+Name,
+Quantity,'$' + CONVERT (varchar(12), [Price of Each], 1) AS 'Price of Each', 
 [Order Date], [Order Status]
 from orderdetailview where [Order ID]=@orderid and LineID=@lineid">
         <SelectParameters>

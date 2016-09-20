@@ -17,6 +17,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
     position: relative; 
     float: left;
     list-style: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /****************** Styles on the MasterPage.master Page ***************/
@@ -175,6 +176,21 @@ body {
     margin-top: 10px;
 }
 
+.historyContainer{
+    display:table;
+    max-width: 655px;
+    margin: 0px auto;
+    font-size: 14px;
+
+    color: #555;
+    background-color: #F7F6F3;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.padding{
+    padding: 10px;
+}
 /**************< Start of Profile Page >**************/
 .profileContainer{
     display:table;
@@ -211,7 +227,7 @@ body {
       color: white;
       padding: 3px;
       text-align: center;
-      margin-bottom: 15px;
+
 }
 
 .profileButton{
@@ -377,7 +393,7 @@ body {
     #image_sm {display: inline;}
 
     #image_med {display: none;}
-
+    .historyContainer {display:block; width: 100%;}
     .menuButtons { display: block; width: inherit; min-width: 235px; margin: 0px auto 5px auto; }
 
     .footerButtons {

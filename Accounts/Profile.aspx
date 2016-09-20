@@ -13,7 +13,9 @@
             <asp:Button ID="btnCancel" runat="server" cssClass="profileButton btn-block" Text="Cancel Updates" />
         </div>
     <div class="col-md-4">
+        <div class="historyContainer">
     <asp:Label ID="lblHeader" runat="server" Text="Profile Information" CssClass="profileHeader"></asp:Label>
+            <div class="padding">
         <asp:FormView ID="FormView1" cssclass="auto-style2" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" HorizontalAlign="Center" DefaultMode="Edit" Width="300px">
         <EditItemTemplate>
             First Name:
@@ -101,10 +103,15 @@
         <PagerStyle HorizontalAlign="Center" />
         <RowStyle  CssClass="profileEditRow" />
     </asp:FormView>
+            </div>
+        </div>
     <br />
     </div>
     <div class="col-md-4">
+        <div class="historyContainer">
     <asp:Label ID="Label1" runat="server" Text="Secure Information" CssClass="profileHeader"></asp:Label>
+            <div class="padding">
+    
         <asp:FormView ID="FormView2" runat="server" DataKeyNames="Id" HorizontalAlign="Center" Width="300px" DataSourceID="SqlDataSourceAspUserDB" DefaultMode="Edit">
             <EditItemTemplate>
                 UserName:
@@ -153,6 +160,8 @@
                 &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
             </ItemTemplate>
         </asp:FormView>
+                    </div>
+        </div>
         </div>
             </div>
     </div>
@@ -187,7 +196,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Username], [Firstname], [Lastname], [Address], [City], [State], [ZipCode], [Birthday] FROM [Accounts] WHERE ([Username] = @Username)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Accounts] WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [City] = @original_City AND [State] = @original_State AND [ZipCode] = @original_ZipCode" InsertCommand="INSERT INTO [Accounts] ([Username], [Firstname], [Lastname], [Address], [City], [State], [ZipCode]) VALUES (@Username, @Firstname, @Lastname, @Address, @City, @State, @ZipCode)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Accounts] SET [Firstname] = @Firstname, [Lastname] = @Lastname, [Address] = @Address, [City]=@City, [State] = @State, [ZipCode] = @ZipCode, [Birthday]=@Birthday WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [City] = @original_City AND [State] = @original_State AND [ZipCode] = @original_ZipCode AND [Birthday] = @original_Birthday">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Username], [Firstname], [Lastname], [Address], [City], [State], [ZipCode], CONVERT (varchar, Birthday, 101) AS Birthday FROM [Accounts] WHERE ([Username] = @Username)" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Accounts] WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [City] = @original_City AND [State] = @original_State AND [ZipCode] = @original_ZipCode" InsertCommand="INSERT INTO [Accounts] ([Username], [Firstname], [Lastname], [Address], [City], [State], [ZipCode]) VALUES (@Username, @Firstname, @Lastname, @Address, @City, @State, @ZipCode)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Accounts] SET [Firstname] = @Firstname, [Lastname] = @Lastname, [Address] = @Address, [City]=@City, [State] = @State, [ZipCode] = @ZipCode, [Birthday]=@Birthday WHERE [Username] = @original_Username AND [Firstname] = @original_Firstname AND [Lastname] = @original_Lastname AND [Address] = @original_Address AND [City] = @original_City AND [State] = @original_State AND [ZipCode] = @original_ZipCode AND [Birthday] = @original_Birthday">
         <DeleteParameters>
             <asp:Parameter Name="original_Username" Type="String" />
             <asp:Parameter Name="original_Firstname" Type="String" />

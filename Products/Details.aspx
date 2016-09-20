@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="cartContainer">
-        <div class="center-block">
-        <h1>Product Details</h1>
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2" Height="350px" Width="572px">            
+<div class="historyContainer">
+    <asp:Label ID="lblHeader" runat="server" Text="Product Details" CssClass="profileHeader"></asp:Label>
+            <div class="padding text-center">
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductId" DataSourceID="SqlDataSource2">            
             <ItemTemplate>
                 <!----><asp:Image ID="imgProduct" runat="server" Width="250px" Height="250px" ImageUrl='<%# Bind("Image", "~/Images/Products/{0}") %>' />
                 <br />
@@ -27,7 +27,7 @@
         <p id="quantity">
             
             <asp:Label ID="lblQuantity" runat="server" Text="Quantity: "></asp:Label>
-            <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control" Width="75px"></asp:TextBox>
+            <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control centerme" Width="75px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtQuantity" Display="Dynamic" ErrorMessage="Please enter how many you'd like to order."></asp:RequiredFieldValidator>
             <asp:Label ID="lblQuan" runat="server"></asp:Label>
         </p>
@@ -39,7 +39,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
     </div>
-        </div>
+                </div>
     </div>
 </asp:Content>
 

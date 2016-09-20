@@ -71,12 +71,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="productContainer">
+    <div class="historyContainer">
+    <asp:Label ID="lblHeader" runat="server" Text="Check Out" CssClass="profileHeader"></asp:Label>
+            <div class="padding">
        <div class="col-lg-11 col-md-11 col-sm-10">
             <p>
-            <h1>Check Out</h1>
-
-                </p><p>
+            <strong>Item's:</strong>
                 &nbsp;<asp:ListBox ID="lstCart" runat="server" CssClass="form-control" Height="118px" Width="373px"></asp:ListBox>
                 </p><p>
                 <strong>Shipping</strong>
@@ -244,7 +244,9 @@
                 &nbsp;<asp:Button ID="btnPlaceOrder" runat="server" cssClass="profileButton" OnClick="btnPlaceOrder_Click" Text="Place Order" ValidationGroup="CustInfo" />
                 <asp:Label ID="lblMessageCO" runat="server"></asp:Label>
             </p>
+               </div>
+           </div>
        </div>
-    </div>
+    
 </asp:Content>
 

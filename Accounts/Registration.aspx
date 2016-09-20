@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div class="profileContainer">
 <asp:Label ID="lblHeader" runat="server" Text="User Registration" CssClass="profileHeader" />
-     <div class="container-fluid">
+     <div class="container-fluid padding">
            <div class="form-group">
                <div class="col-md-5 col-sm-5 text-right" style="float: left; overflow: hidden;">
                     <asp:Label ID="LblUsername" runat="server" Text="User Name:"></asp:Label>
