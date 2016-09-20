@@ -57,7 +57,7 @@
         <!--NAV MENU START -->
         <div class="row">
             <div class="navbar2">  
-                 <asp:Menu ID="Menu1" SkinId="MenuSkin" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" >
+                 <asp:Menu ID="Menu1" SkinId="MenuSkin" runat="server" DataSourceID="SiteMapDataSource1" StaticEnableDefaultPopOutImage="False" Orientation="Horizontal" Font-Names="Verdana" Font-Size="1.2em" ForeColor="#F2F2F2" RenderingMode="Default">
                             <StaticHoverStyle BackColor="#F1BC75" ForeColor="White" />
                             <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="3px" CssClass="menuButtons" Font-Names="Cambria" Font-Underline="False" />
                             <StaticSelectedStyle BackColor="#669999" />

@@ -54,7 +54,7 @@
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
                 </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT CONVERT (varchar, OrderDate, 101) AS 'Order Date', UserName AS Username, Firstname + ' ' + Lastname AS 'Full Name', Email AS 'E-Mail Address', '$' + CONVERT (varchar(12), total, 1) AS Total, OrderId FROM UserListAndOrders"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT CONVERT (varchar, OrderDate, 101) AS 'Order Date', UserName AS Username, Firstname + ' ' + Lastname AS 'Full Name', Email AS 'E-Mail Address', '$' + CONVERT (varchar(12), total, 1) AS Total, OrderId FROM UserListAndOrders Order by OrderDate desc"></asp:SqlDataSource>
          </div>
      </div>
 </div>

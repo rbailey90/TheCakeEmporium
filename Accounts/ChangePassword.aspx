@@ -11,7 +11,7 @@
                         <asp:Label ID="lblOldpass" runat="server" Text="Old Password"></asp:Label>
                    </div>
                    <div class="col-md-7 col-sm-7">
-                       <asp:TextBox ID="txtOldPass" CssClass="input-sm" runat="server"></asp:TextBox>
+                       <asp:TextBox ID="txtOldPass" CssClass="input-sm" runat="server" TextMode="Password"></asp:TextBox>
              
                    </div>
                </div>
@@ -20,7 +20,7 @@
                         <asp:Label ID="lblNpass" runat="server" Text="New Password"></asp:Label>
                    </div>
                    <div class="col-md-7 col-sm-7">
-                       <asp:TextBox ID="txtNewPass" CssClass="input-sm" runat="server"></asp:TextBox>
+                       <asp:TextBox ID="txtNewPass" CssClass="input-sm" runat="server" TextMode="Password"></asp:TextBox>
              
                    </div>
                </div>
@@ -29,7 +29,7 @@
                         <asp:Label ID="lblconNpass" runat="server" Text="Confirm New Password"></asp:Label>
                    </div>
                    <div class="col-md-7 col-sm-7">
-                       <asp:TextBox ID="txtNewPassConfirm" CssClass="input-sm" runat="server"></asp:TextBox>
+                       <asp:TextBox ID="txtNewPassConfirm" CssClass="input-sm" runat="server" TextMode="Password"></asp:TextBox>
                    </div>
                </div>
 

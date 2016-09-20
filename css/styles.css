@@ -18,6 +18,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
     float: left;
     list-style: none;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight:normal;
 }
 
 /****************** Styles on the MasterPage.master Page ***************/
