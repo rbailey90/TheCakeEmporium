@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<div class="productContainer">
+<div class="centerme">
 
     
         
@@ -13,7 +13,7 @@
         CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ShowSelectButton="True" />
+            <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn-dataview" ButtonType="Button" />
             <asp:BoundField DataField="OrderAndLine" HeaderText="OrderAndLine" ReadOnly="True" SortExpression="OrderAndLine">
             </asp:BoundField>
             <asp:BoundField DataField="Product ID" HeaderText="Product ID" SortExpression="Product ID">

@@ -5,9 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <link href="../css/dashboard.css" rel="stylesheet" />
 <div class="dataBox">
-      <row class="DashboardHeader">
+      <div class="DashboardHeader">
         <h3>Site Manager</h3>
-    </row>
+    </div>
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><a href="../Manager/Dashboard.aspx">Customer Orders <span class="sr-only">(current)</span></a></li>

@@ -3,9 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+
+    <div class="centerme">
     <asp:Label ID="lblOrderID" runat="server" Text="Label" Visible="False"></asp:Label>
     <br />
-    <asp:FormView ID="FormView2" runat="server" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="Order ID,LineID" DataSourceID="SqlDataSource2" GridLines="Horizontal">
+    <asp:FormView ID="FormView2" runat="server" CellPadding="4" DataKeyNames="Order ID,LineID" DataSourceID="SqlDataSource2" ForeColor="#333333">
         <EditItemTemplate>
             Order ID:
             <asp:Label ID="Order_IDLabel1" runat="server" Text='<%# Eval("[Order ID]") %>' />
@@ -34,9 +37,9 @@
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
-        <EditRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
-        <FooterStyle BackColor="White" ForeColor="#333333" />
-        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <EditRowStyle BackColor="#999999" />
+        <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <InsertItemTemplate>
             Order ID:
             <asp:TextBox ID="Order_IDTextBox" runat="server" Text='<%# Bind("[Order ID]") %>' />
@@ -92,12 +95,15 @@
             <asp:Label ID="Order_StatusLabel" runat="server" Text='<%# Bind("[Order Status]") %>' />
             <br />
         </ItemTemplate>
-        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="White" ForeColor="#333333" />
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
     </asp:FormView>
     <br />
     <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete Order" />
 &nbsp;<asp:Button ID="btnReorder" runat="server" OnClick="btnReorder_Click" Text="Reorder" />
+
+        </div>
+
 &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [OrderId], [ProductID], [Quantity], [PriceEach], [OrderDate], [OrderStatus] FROM [OrderDetails] WHERE ([OrderId] = @OrderId)">
         <SelectParameters>
             <asp:SessionParameter Name="OrderId" SessionField="orderselect" Type="String" />

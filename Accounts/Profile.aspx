@@ -16,10 +16,10 @@
     <asp:Label ID="lblHeader" runat="server" Text="Profile Information" CssClass="profileHeader"></asp:Label>
         <asp:FormView ID="FormView1" cssclass="auto-style2" runat="server" DataKeyNames="Username" DataSourceID="SqlDataSource1" HorizontalAlign="Center" DefaultMode="Edit" Width="300px">
         <EditItemTemplate>
-            Firstname:
+            First Name:
             <asp:TextBox ID="FirstnameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Firstname") %>' />
             <br />
-            Lastname: 
+            Last Name: 
             <asp:TextBox ID="LastnameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Lastname") %>' />
             <br />
             Address:
@@ -47,10 +47,10 @@
             Username:
             <asp:TextBox ID="UsernameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Username") %>' />
             <br />
-            Firstname:
+            First Name:
             <asp:TextBox ID="FirstnameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Firstname") %>' />
             <br />
-            Lastname:
+            Last Name:
             <asp:TextBox ID="LastnameTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Lastname") %>' />
             <br />
             Address:
@@ -73,10 +73,10 @@
         </InsertItemTemplate>
         <InsertRowStyle Wrap="True" />
         <ItemTemplate>
-            Firstname:
+            First Name:
             <asp:Label ID="FirstnameLabel" runat="server" Text='<%# Bind("Firstname") %>' />
             <br />
-            Lastname:
+            Last Name:
             <asp:Label ID="LastnameLabel" runat="server" Text='<%# Bind("Lastname") %>' />
             <br />
             Address:
@@ -113,7 +113,7 @@
                 Email:
                 <asp:TextBox ID="EmailTextBox" CssClass="form-control" runat="server" Text='<%# Bind("Email") %>' />
                 <br />
-                PhoneNumber:
+                Phone Number:
                 <asp:TextBox ID="PhoneNumberTextBox" CssClass="form-control" runat="server" Text='<%# Bind("PhoneNumber") %>' />
                 <br />
               <%--  <asp:LinkButton ID="UpdateButton" CssClass="btn btn-primary btn-lg btn-block" runat="server" CausesValidation="True" CommandName="Update" Text="Update"  OnClick="EditButton_Click" />--%>
@@ -126,10 +126,10 @@
                 Email:
                 <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
                 <br />
-                EmailConfirmed:
+                Email Confirmed:
                 <asp:CheckBox ID="EmailConfirmedCheckBox" runat="server" Checked='<%# Bind("EmailConfirmed") %>' />
                 <br />
-                PhoneNumber:
+                Phone Number:
                 <asp:TextBox ID="PhoneNumberTextBox" runat="server" Text='<%# Bind("PhoneNumber") %>' />
                 <br />
                 Id:
@@ -145,7 +145,7 @@
                 Email:
                 <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("Email") %>' />
                 <br />
-                PhoneNumber:
+                Phone Number:
                 <asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Bind("PhoneNumber") %>' />
                 <br />
                 <%--<asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />--%>
